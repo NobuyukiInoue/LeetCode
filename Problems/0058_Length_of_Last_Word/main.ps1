@@ -1,7 +1,9 @@
-param( $testDataFile )
+param( $csFile, $testDataFile )
 
-if (-Not($testDataFile)) {
-    Write-Host "Usage : ./main_Submission.ps1 testDataFile"
+$CommandName = Split-Path -Leaf $PSCommandPath
+
+if (-Not($csFile) -Or -Not($testDataFile)) {
+    Write-Host "Usage : $CommandName CSharp_Source testDataFile"
     exit
 }
 
