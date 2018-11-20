@@ -1,7 +1,72 @@
 using System;
 
-public class Solution {
-    public int RomanToInt(string s)
+public class Solution
+{
+	public class Pattern {
+		public string symbol;
+		public int val;
+		
+		public Pattern(string s, int v)
+		{
+			symbol = s;
+			val = v;
+		}
+	}
+
+	public int RomanToInt(string s)
+	{
+		Pattern[] pattern1 = new Pattern[7];
+		pattern1[0] = new Pattern("I", 1 );
+		pattern1[1] = new Pattern("V", 5 );
+		pattern1[2] = new Pattern("X", 10 );
+		pattern1[3] = new Pattern("L", 50 );
+		pattern1[4] = new Pattern("C", 100 );
+		pattern1[5] = new Pattern("D", 500 );
+		pattern1[6] = new Pattern("M", 1000);
+
+		Pattern[] pattern2 = new Pattern[6];
+		pattern2[0] = new Pattern("IV",  4);
+		pattern2[1] = new Pattern("IX",  9 );
+		pattern2[2] = new Pattern("XL",  40 );
+		pattern2[3] = new Pattern("XC",  90 );
+		pattern2[4] = new Pattern("CD", 400 );
+		pattern2[5] = new Pattern("CM", 900 );
+
+		int sum = 0, i = 0, j;
+		bool unmatched;
+
+		while (i < s.Length) {
+			unmatched = true;
+
+			if (i < s.Length - 1) {
+
+				for (j = 0; j < pattern2.Length; ++j) {
+					if ( s.Substring(i, 2) == pattern2[j].symbol) {
+						Console.WriteLine("s[i] + s[i + 1] = " + s[i] + s[i + 1]);
+						sum += pattern2[j].val;
+						unmatched = false;
+						i += 2;
+						break;
+					}
+				}
+			}
+
+			if (unmatched) {
+				for (j = 0; j < pattern1.Length; ++j) {
+					if ( s.Substring(i, 1) == pattern1[j].symbol) {
+						Console.WriteLine("s[i] = " + s[i]);
+						sum += pattern1[j].val;
+						i++;
+						break;
+					}
+				}
+			}
+		}
+		
+		return sum;
+	}
+
+	public int RomanToInt_old(string s)
 	{
 		int sum = 0;
 
