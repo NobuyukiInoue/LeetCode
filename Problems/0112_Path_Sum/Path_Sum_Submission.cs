@@ -13,37 +13,22 @@ public class TreeNode {
 public class Solution {
 	public bool HasPathSum(TreeNode root, int sum)
 	{
-		if (root == null) {
-			Console.WriteLine("root.val = null, " + "sum =  " + sum.ToString());
-		}
-		else {
-			Console.WriteLine("root.val = " + root.val.ToString() + ", sum = " + sum.ToString());
-		}
-
-		if (root == null) {
+		if (root == null)
 			return false;
-		}
 
-        if ((root.left == null) && (root.right == null)) {
-            if (root.val == sum) {
-				Console.WriteLine("root.val = " + root.val.ToString() + ", root.left = null, root.right = null, sum= " + sum.ToString() + ", return(true)");
+        if ((root.left == null) && (root.right == null))
+            if (root.val == sum)
                 return true;
-			}
-			else {
-				Console.WriteLine("root.val = " + root.val.ToString() + ", root.left = null, root.right = null, sum= " + sum.ToString() + ", return(false)");
+			else
 				return false;
-			}
-		}
-		if (root.left != null) {
-			if (HasPathSum(root.left, sum - root.val)) {
+
+		if (root.left != null)
+			if (HasPathSum(root.left, sum - root.val))
 				return true;
-			}
-		}
-		if (root.right != null) {
-			if (HasPathSum(root.right, sum - root.val)) {
+
+		if (root.right != null)
+			if (HasPathSum(root.right, sum - root.val))
 				return true;
-			}
-		}
 
 		return false;
 	}
