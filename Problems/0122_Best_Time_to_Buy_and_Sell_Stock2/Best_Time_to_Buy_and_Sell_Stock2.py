@@ -10,13 +10,23 @@ class Solution:
         :rtype: int
         """
         max = 0
+        sum_max = 0
         min = sys.maxsize
         for i in range(len(prices)):
             if min > prices[i]:
                 min = prices[i]
-            if prices[i] - min > max:
-                max = prices[i] - min
-        return max
+            profit = prices[i] - min
+            if profit > max:
+                max = profit
+            if profit > 0:
+                sum_max += profit
+                min = prices[i]
+        
+        if max > sum_max:
+            return max
+        else:
+            return sum_max
+
 
 def array_str_to_int(work_str):
     resultArray = [0]*len(work_str)

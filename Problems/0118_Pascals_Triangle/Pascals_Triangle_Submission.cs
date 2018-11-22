@@ -4,20 +4,37 @@ using System.Collections.Generic;
 public class Solution {
     public IList<IList<int>> Generate(int numRows)
 	{
-		IList<IList<int>> result_list;
-	//	result_list = new IList<IList<int>>();
-	//	result_list = new IList<int>();
-		IList<int> data1 = new IList<int>();
-		data1.Add(1);
+	   	IList<int> list = new List<int>();
+		IList<IList<int>> list2 = new List<IList<int>>();
 
-		IList<int> data2 = new IList<int>();
-		data2.Add(1);
-		data2.Add(1);
-
-		result_list.Add(data1);
-		result_list.Add(data2);
-
-		return result_list;
+		for (int i = 0; i < numRows ; i++) {
+			for (int j = 0; j < i + 1; j++) {
+				int sum = numsum2(i, j);
+				if (sum != 0) {
+					list.Add(sum);
+				}
+			}
+			list2.Add(list.ToArray());
+			list.Clear();
+		}
+		return list2;
+	}
+	
+	static int numsum2(int number, int number2)
+	{
+		double sum = 1;
+		int number3 = number - number2;
+		while (number > 0 && number2 > 0 && number3 > 0) {
+			sum = sum * number / number2 / number3;
+			number--;
+			if (number2 > 1) {
+				number2--;
+			}
+			if (number3 > 1) {
+				number3--;
+			}
+		}
+		return Convert.ToInt32(sum);
 	}
 
 	private int[] calc_next(int[] data)
@@ -81,9 +98,7 @@ public class Solution {
 		System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 		sw.Start();
 
-		/*
-		Ilist<List<int>> results_array = new IList(num);
-		*/
+	//	Ilist<List<int>> results_array = new IList(num);
 
 	//	test_Main();
 		test2_Main(10);
