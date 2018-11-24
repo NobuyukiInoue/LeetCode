@@ -2,7 +2,7 @@
 
 import sys
 import time
-
+import math
 
 # Definition for a point.
 class Point:
@@ -10,13 +10,65 @@ class Point:
         self.x = a
         self.y = b
 
+
 class Solution:
     def maxPoints(self, points):
+        return maxPoints2(points, 0, 0)
+
+
+    def maxPoints2(self, points, index, maxNumberOfPoints):
         """
         :type points: List[Point]
         :rtype: int
         """
-        return 0
+        if len(points) == 0:
+            return 0
+        
+        if len(points) - index <= maxNumberOfPoints:
+            return maxNumberOfPoints
+        
+        maxKey = 0.0
+        duplicatePoints = 0
+
+        for i in range(index, len(points)):
+            if areEqual(points[i], points[index]):
+                duplicatePoints += 1
+            else:
+                slope = getSlope(points[index], points[i])
+                maxKey = incrementSlopeCount(slope, slopeToCountMap, maxKey)
+             
+        if incrementSlopeCount.ContainsKey(mapKey):
+            maxNumberOfPoints = 0
+        else:
+            maxNumberOfPoints = 0
+
+        return MaxPoints(points, index + 1, maxNumberOfPoints)
+
+
+    def areEqual(self, a, b):
+        return a.x == b.x and a.y == b.y
+
+
+    def getSlope(self, left, right):
+        dx = left.x - right.x
+        dy = left.y - right.y
+
+        slope = 0.0
+        if dy != 0:
+            slope = dx / dy
+        
+        return slope
+
+
+    def incrementSlopeCount(self, slope, slopeToCountMap, maxKey):
+        if slopeToCountMap.ContainsKey(slope):
+            slopeToCountMap[slope] += 1
+        else:
+            slopeToCountMap[slope] = 1
+        if not slopeToCountMap.ContainsKey(maxKey) or  slopeToCountMap[slope] >= slopeToCountMap[maxKey]:
+            maxKey = slope
+        
+        return maxKey
 
 
 def set_Points(flds):

@@ -23,7 +23,7 @@ public class Solution {
 		}
 	};
 
-    public int MaxPoints_work(Point[] points)
+    public int MaxPoints(Point[] points)
 	{
 		Propet[] pt = new Propet[points.Length];
 		int i, j;
