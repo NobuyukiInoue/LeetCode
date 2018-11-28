@@ -14,7 +14,6 @@ $f = (Get-Content $testDataFile) -as [string[]]
 
 $i = 1
 foreach ($currentLine in $f) {
-
     Write-Host ""
     Write-Host "##--------------------------------------------------------------------##"
     Write-Host "## Line["$i"]: = `"$currentLine`""
