@@ -36,23 +36,23 @@ public class Solution {
 
         return resultStr;
     }
-	public void Main(string args)
-	{
-		string[] flds = args.Split(new string[] {", "}, StringSplitOptions.None);
+    public void Main(string args)
+    {
+        string[] flds = args.Split(new string[] {", "}, StringSplitOptions.None);
         string[] numbersStr = flds[0].Replace("[","").Replace("]","").Split(',');
         int[] numbers = array_str_to_int(numbersStr);
         int target = int.Parse(flds[1]);
 
         Console.WriteLine("numbers = [" + output_array_int(numbers) + "], target = " + target);
 
-		System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-		sw.Start();
-		
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
+        
         Rotate(numbers, target);
 
-		Console.WriteLine("nums(result) = " + output_array_int(numbers));
-		
-		sw.Stop();
-		Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
-	}
+        Console.WriteLine("nums(result) = " + output_array_int(numbers));
+        
+        sw.Stop();
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+    }
 }

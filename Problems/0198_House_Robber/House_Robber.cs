@@ -56,21 +56,21 @@ public class Solution {
         return resultStr;
     }
 
-	public void Main(string args)
-	{
+    public void Main(string args)
+    {
         string[] numbersStr = args.Replace("[","").Replace("]","").Split(',');
         int[] nums = array_str_to_int(numbersStr);
 
         Console.WriteLine("numbers = [" + output_array_int(nums) + "]");
 
-		System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-		sw.Start();
-		
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
+        
         int result = Rob(nums);
 
-		Console.WriteLine("result = " + result);
-		
-		sw.Stop();
-		Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
-	}
+        Console.WriteLine("result = " + result);
+        
+        sw.Stop();
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+    }
 }

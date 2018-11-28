@@ -19,7 +19,7 @@ class Solution:
         :rtype: bool
         """
         if root == None:
-        	return False
+            return False
 
         if root.left == None and root.right == None:
             if root.val == sum:
@@ -51,9 +51,9 @@ def load_sample0_treeData():
     return root
 
 def load_sample2_treeData():
-	root = TreeNode(1)
-	root.left = TreeNode(2)
-	return root
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    return root
 
 
 def main():

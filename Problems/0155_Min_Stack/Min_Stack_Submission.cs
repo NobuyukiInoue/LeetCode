@@ -1,65 +1,65 @@
 using System;
 
 public class MinStack {
-	int min = int.MaxValue;
-	Node head;
+    int min = int.MaxValue;
+    Node head;
 
-	private class Node {
-		public int data;
-		public Node next;
+    private class Node {
+        public int data;
+        public Node next;
 
-		public Node(int data) {
-			next = null;
-			this.data = data;
-		}
-	}
+        public Node(int data) {
+            next = null;
+            this.data = data;
+        }
+    }
 
-	public MinStack() {
+    public MinStack() {
 
-	}
+    }
 
-	public void Push(int x) {
-		if (x < min) {
-			min = x;			
-		}
-		Node node = new Node(min);
-		node.next = new Node(x);
+    public void Push(int x) {
+        if (x < min) {
+            min = x;
+        }
+        Node node = new Node(min);
+        node.next = new Node(x);
 
-		if (this.head == null || head.next == null) {
-			head = node;
-		} else {
-			Node temp = head;
-			head = node;
-			head.next.next = temp;
-		}
-	}
+        if (this.head == null || head.next == null) {
+            head = node;
+        } else {
+            Node temp = head;
+            head = node;
+            head.next.next = temp;
+        }
+    }
 
-	public void Pop() {
-		if (this.head == null) {
-			// Do nothing
-		} else {
-			Node currHead = head.next;
-			if (currHead.next != null) {
-				head = currHead.next;
-				min = head.data;
-			} else {
-				head = null;
-				this.min = int.MaxValue;
-			}
-		}
-	}
+    public void Pop() {
+        if (this.head == null) {
+            // Do nothing
+        } else {
+            Node currHead = head.next;
+            if (currHead.next != null) {
+                head = currHead.next;
+                min = head.data;
+            } else {
+                head = null;
+                this.min = int.MaxValue;
+            }
+        }
+    }
 
-	public int Top() {
-		if (head != null)
-			return head.next.data;
-		else
-			return 0;
-	}
+    public int Top() {
+        if (head != null)
+            return head.next.data;
+        else
+            return 0;
+    }
 
-	public int GetMin() {
-		return min;
+    public int GetMin() {
+        return min;
 
-	}
+    }
 }
 
 /**
@@ -72,26 +72,26 @@ public class MinStack {
  */
 public class Solution
 {
-	private void calc()
-	{
-		MinStack minStack = new MinStack();
-		minStack.Push(-2);
-		minStack.Push(0);
-		minStack.Push(-3);
-		minStack.GetMin();
-		minStack.Pop();
-		minStack.Top();
-		minStack.GetMin();
-	}
+    private void calc()
+    {
+        MinStack minStack = new MinStack();
+        minStack.Push(-2);
+        minStack.Push(0);
+        minStack.Push(-3);
+        minStack.GetMin();
+        minStack.Pop();
+        minStack.Top();
+        minStack.GetMin();
+    }
 
-	public void Main(string args)
-	{
-		System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-		sw.Start();
+    public void Main(string args)
+    {
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
 
-		calc();
+        calc();
 
-		sw.Stop();
-		Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
-	}
+        sw.Stop();
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+    }
 }

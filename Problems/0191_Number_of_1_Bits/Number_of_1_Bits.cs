@@ -14,20 +14,20 @@ public class Solution {
         return count;
     }
 
-	public void Main(string args)
-	{
+    public void Main(string args)
+    {
         uint n = uint.Parse(args);
 
         Console.WriteLine("n = " + n.ToString());
 
-		System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-		sw.Start();
-		
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
+        
         int result = HammingWeight(n);
 
-		Console.WriteLine("result = " + result.ToString());
-		
-		sw.Stop();
-		Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
-	}
+        Console.WriteLine("result = " + result.ToString());
+        
+        sw.Stop();
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+    }
 }

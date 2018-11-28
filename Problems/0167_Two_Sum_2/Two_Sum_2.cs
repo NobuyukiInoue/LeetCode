@@ -92,25 +92,25 @@ public class Solution {
 
         return resultStr;
     }
-	public void Main(string args)
-	{
-		string[] flds = args.Split(new string[] {", "}, StringSplitOptions.None);
+    public void Main(string args)
+    {
+        string[] flds = args.Split(new string[] {", "}, StringSplitOptions.None);
         string[] numbersStr = flds[0].Replace("[","").Replace("]","").Split(',');
         int[] numbers = array_str_to_int(numbersStr);
         int target = int.Parse(flds[1]);
 
         Console.WriteLine("numbers = [" + output_array_int(numbers) + "], target = " + target);
 
-		System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-		sw.Start();
-		
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
+        
     //  int[] resultNumbers = TwoSum_work(numbers, target);
         int[] resultNumbers = TwoSum1(numbers, target);
     //  int[] resultNumbers = TwoSum3(numbers, target);
 
-		Console.WriteLine("Result = " + output_array_int(resultNumbers));
-		
-		sw.Stop();
-		Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
-	}
+        Console.WriteLine("Result = " + output_array_int(resultNumbers));
+        
+        sw.Stop();
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+    }
 }
