@@ -1,0 +1,6 @@
+dotnet new console
+
+dotnet clean
+dotnet build
+
+dotnet run
