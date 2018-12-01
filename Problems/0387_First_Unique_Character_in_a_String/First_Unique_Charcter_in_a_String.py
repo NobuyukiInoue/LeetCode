@@ -11,6 +11,16 @@ class Solution:
         :type s: str
         :rtype: int
         """
+        letters='abcdefghijklmnopqrstuvwxyz'
+        index=[s.index(l) for l in letters if s.count(l) == 1]
+        return min(index) if len(index) > 0 else -1
+
+
+    def firstUniqChar2(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
         hash_table = {e:index for index, e in enumerate(s)}
         
         for index, e in enumerate(s):
