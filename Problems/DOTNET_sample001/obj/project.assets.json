@@ -681,28 +681,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/yuza/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\sprin\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/DOTNET_sample001/DOTNET_WORK.csproj",
+      "projectUniqueName": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\DOTNET_sample001\\DOTNET_WORK.csproj",
       "projectName": "DOTNET_WORK",
-      "projectPath": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/DOTNET_sample001/DOTNET_WORK.csproj",
-      "packagesPath": "/Users/yuza/.nuget/packages/",
-      "outputPath": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/DOTNET_sample001/obj/",
+      "projectPath": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\DOTNET_sample001\\DOTNET_WORK.csproj",
+      "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\DOTNET_sample001\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/yuza/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\sprin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
