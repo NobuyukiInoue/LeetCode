@@ -5,32 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "Debug (Launch) with Arguments Prompt",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "",
-            "args": "${command:SpecifyProgramArgs}"
-        },
-    {
-        "type": "java",
-        "name": "Debug (Launch) with Arguments Prompt",
-        "request": "launch",
-        "cwd": "${workspaceFolder}",
-        "console": "internalConsole",
-        "stopOnEntry": false,
-        "mainClass": "",
-        "args": "${command:SpecifyProgramArgs}"
-    },
-        {
             "name": "Python: Current File (Integrated Terminal)",
             "type": "python",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
-            "args": [
+            "args":[
                 "testdata.txt"
             ]
         },
