@@ -1,13 +1,43 @@
 using System;
 
 public class Solution {
-    static void Main()
+    static public int Reverse1(int x)
     {
-        //Console.WriteLine(Reverse(-123));
-        Console.WriteLine(Reverse(1534236469));
+        int rev = 0;
+        while (x != 0)
+        {
+            int pop = x % 10;
+            x /= 10;
+            if (rev > int.MaxValue/10 || (rev == int.MaxValue / 10 && pop > 7))
+                return 0;
+            if (rev < int.MinValue/10 || (rev == int.MinValue / 10 && pop < -8))
+                return 0;
+            rev = rev * 10 + pop;
+        }
+        return rev;
     }
 
-    static public int Reverse(int x) {
+    public int Reverse(int x)
+    {
+        int rev = 0;
+        try
+        {
+            while (x != 0)
+            {
+                rev = checked((rev * 10) + (x % 10));
+                x = x / 10;
+            }
+        }
+        catch
+        {
+            return 0;
+        }
+
+        return rev; 
+    }
+
+    static public int Reverse3(int x)
+    {
         string temp = "";
         int val = Math.Abs(x);
 
@@ -21,5 +51,21 @@ public class Solution {
         
         return int.Parse(temp);
     }
-}
 
+    public void Main(string args)
+    {
+        int x = int.Parse(args);
+
+        Console.WriteLine("x = " + x.ToString());
+
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
+        
+        int result = Reverse(x);
+
+        Console.WriteLine("result = " + result);
+        
+        sw.Stop();
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+    }
+}
