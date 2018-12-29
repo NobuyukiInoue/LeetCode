@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0429_N-ary_Tree_Level_Order_Traversal\\0429_N-ary_Tree_Level_Order_Traversal.csproj",
+  "TargetFramework": "netcoreapp2.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

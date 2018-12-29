@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/0429_N-ary_Tree_Level_Order_Traversal.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

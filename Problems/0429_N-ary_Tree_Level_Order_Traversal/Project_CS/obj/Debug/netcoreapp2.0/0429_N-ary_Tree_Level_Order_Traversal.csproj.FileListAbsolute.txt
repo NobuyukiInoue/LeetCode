@@ -1,0 +1,11 @@
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.deps.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.runtimeconfig.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.runtimeconfig.dev.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.dll
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.pdb
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.csprojAssemblyReference.cache
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.csproj.CoreCompileInputs.cache
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.AssemblyInfoInputs.cache
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.AssemblyInfo.cs
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.dll
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.pdb
