@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0429_N-ary_Tree_Level_Order_Traversal\\Project_CS\\0429_N-ary_Tree_Level_Order_Traversal.csproj",
+      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0429_N-ary_Tree_Level_Order_Traversal\\Project_CS\\0429_N-ary_Tree_Level_Order_Traversal.csproj",
       "projectName": "0429_N-ary_Tree_Level_Order_Traversal",
-      "projectPath": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0429_N-ary_Tree_Level_Order_Traversal\\Project_CS\\0429_N-ary_Tree_Level_Order_Traversal.csproj",
+      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0429_N-ary_Tree_Level_Order_Traversal\\Project_CS\\0429_N-ary_Tree_Level_Order_Traversal.csproj",
       "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0429_N-ary_Tree_Level_Order_Traversal\\Project_CS\\obj\\",
+      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0429_N-ary_Tree_Level_Order_Traversal\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
