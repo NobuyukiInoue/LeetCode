@@ -1,0 +1,221 @@
+import os
+import sys
+import time
+
+# Definition for a QuadTree node.
+class Node:
+    def __init__(self, val, isLeaf, topLeft, topRight, bottomLeft, bottomRight):
+        self.val = val
+        self.isLeaf = isLeaf
+        self.topLeft = topLeft
+        self.topRight = topRight
+        self.bottomLeft = bottomLeft
+        self.bottomRight = bottomRight
+
+class Solution:
+    def construct(self, grid):
+        if len(grid) == 1:
+            return Node(grid[0][0]==1, True, None, None, None, None)
+        else:
+            half_len = len(grid)//2
+            topLeft = self.construct([elem[:half_len] for elem in grid[:half_len]])
+            topRight = self.construct([elem[half_len:] for elem in grid[:half_len]])
+            bottomLeft = self.construct([elem[:half_len] for elem in grid[half_len:]])
+            bottomRight = self.construct([elem[half_len:] for elem in grid[half_len:]])
+            if topLeft.val == topRight.val == bottomLeft.val == bottomRight.val and topLeft.isLeaf and topRight.isLeaf and bottomLeft.isLeaf and bottomRight.isLeaf:
+                return Node(topLeft.val, True, None, None, None, None)
+            else:
+                return Node(True, False, topLeft, topRight, bottomLeft, bottomRight)
+
+    def construct_work(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: Node
+        """
+        node = Node(True, False, None, None, None, None)
+        quadGrid = self.get_Quad(grid)
+
+        if self.check_Leaf(quadGrid[0]):
+            node.topLeft = Node(self.get_gridVal(quadGrid[0]), True, None, None, None, None)
+        else:
+            node.topLeft = self.construct(quadGrid[0])
+
+        if self.check_Leaf(quadGrid[1]):
+            node.topRight = Node(self.get_gridVal(quadGrid[1]), True, None, None, None, None)
+        else:
+            node.topRight = self.construct(quadGrid[1])
+
+        if self.check_Leaf(quadGrid[2]):
+            node.bottomLeft = Node(self.get_gridVal(quadGrid[2]), True, None, None, None, None)
+        else:
+            node.bottomLeft = self.construct(quadGrid[2])
+
+        if self.check_Leaf(quadGrid[3]):
+            node.bottomRight = Node(self.get_gridVal(quadGrid[3]), True, None, None, None, None)
+        else:
+            node.bottomRight = self.construct(quadGrid[3])
+
+        return node
+
+    def get_Quad(self, grid):
+        width = int(len(grid)/2)
+        quadGrid = [[[0]*width]*width]*4
+        quadGrid[0] = self.get_topLeft(grid, width)
+        quadGrid[1] = self.get_topRight(grid, width)
+        quadGrid[2] = self.get_bottomLeft(grid, width)
+        quadGrid[3] = self.get_bottomRight(grid, width)
+        return quadGrid
+    
+    def check_Leaf(self, grid):
+        for i in range(len(grid)):
+            for j in range(i + 1, len(grid)):
+                if grid[i] != grid[j]:
+                    return False
+        return True
+
+    def get_gridVal(self, grid):
+        if grid[0][0] == 1:
+            return True
+        else:
+            return False
+
+
+    def get_topLeft(self, grid, width):
+        topLeft = [[0]*width]*width
+        for i in range(width):
+            topLeft[i] = grid[i][0:width]
+        return topLeft
+
+    def get_topRight(self, grid, width):
+        topRight = [[0]*width]*width
+        for i in range(width):
+            topRight[i] = grid[i][width:len(grid)]
+        return topRight
+    
+    def get_bottomLeft(self, grid, width):
+        bottomLeft = [[0]*width]*width
+        for i in range(width):
+            bottomLeft[i] = grid[i + width][0:width]
+        return bottomLeft
+
+    def get_bottomRight(self, grid, width):
+        bottomRight = [[0]*width]*width
+        for i in range(width):
+            bottomRight[i] = grid[i + width][width:len(grid)]
+        return bottomRight
+
+    
+    def set_test_nodes(self):
+        node0 = Node(False, False, None, None, None, None)
+        node0.topLeft = Node(True, True, None, None, None, None)
+        node0.topRight = Node(False, False, None, None, None, None)
+        node0.topRight.topLeft = Node(True, False, None, None, None, None)
+        node0.topRight.topRight = Node(True, False, None, None, None, None)
+        node0.topRight.bottomLeft = Node(True, False, None, None, None, None)
+        node0.topRight.bottomRight = Node(True, True, None, None, None, None)
+        node0.bottomLeft = Node(True, True, None, None, None, None)
+        node0.bottomRight = Node(True, False, None, None, None, None)
+
+        return node0
+
+    def get_node_depth(self, node, depth):
+        n = [0]*4
+        if node.topLeft != None:
+            n[0] = self.get_node_depth(node.topLeft, depth + 1)
+        if node.topRight != None:
+            n[1] = self.get_node_depth(node.topRight, depth + 1)
+        if node.bottomLeft != None:
+            n[2] = self.get_node_depth(node.bottomLeft, depth + 1)
+        if node.bottomRight != None:
+            n[3] = self.get_node_depth(node.bottomRight, depth + 1)
+        max = depth
+        for temp in n:
+            if temp > max:
+                max = temp
+        return max
+    
+    def output_node(self, node):
+        grid_size = 2 ** self.get_node_depth(node, 1)
+        grid = [[0 for j in range(grid_size)] for i in range(grid_size)]
+
+        half = int(grid_size/2)
+        self.set_val(node.topLeft, grid, 0, 0, half)
+        self.set_val(node.topRight, grid, half, 0, half)
+        self.set_val(node.bottomLeft, grid, 0, half, half)
+        self.set_val(node.bottomRight, grid, half, half, half)
+
+        return grid
+    
+    def set_val(self, node, grid, x, y, size):
+        half = int(size/2)
+        if node.val:
+            val = 1
+        else:
+            val = 0
+        if node.isLeaf:
+            for i in range(y, y + size):
+                for j in range(x, x + size):
+                    grid[i][j] = val
+            return
+        if node.topLeft != None:
+            self.set_val(node.topLeft, grid, x, y, half)
+        if node.topRight != None:
+            self.set_val(node.topRight, grid, x + half, y, half)
+        if node.bottomLeft != None:
+            self.set_val(node.bottomLeft, grid, x, y + half, half)
+        if node.bottomRight != None:
+            self.set_val(node.bottomRight, grid, x + half, y + half, half)
+        return
+
+
+def str_to_int_array(flds):
+    #grid = [[-1]*len(flds)]*len(flds)
+    grid = [[-1 for j in range(len(flds))] for i in range(len(flds))]
+
+    if len(flds) <= 0:
+        return grid
+
+    for i in range(0, len(flds)):
+        temp = flds[i].split(",")
+        temp_int = [int(n) for n in temp] 
+        grid[i] = temp_int
+
+    return grid
+
+def main():
+    argv = sys.argv
+    argc = len(argv)
+
+    if (argc < 2):
+        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        exit(0)
+
+    if not os.path.exists(argv[1]):
+        print("%s not found..." %argv[1])
+        exit(0)
+
+    testDataFile = open(argv[1], "r")
+    lines = testDataFile.readlines()
+    for temp in lines:
+        loop_main(temp)
+
+def loop_main(temp):
+    var_str = temp.replace("[[","").replace("]]","").rstrip()
+    flds = var_str.split("],[")
+    grid = str_to_int_array(flds)
+    print("grid = %s" %grid)
+
+    time0 = time.time()
+
+    sl = Solution()
+    node = sl.construct(grid)
+
+    result = sl.output_node(node)
+    print("result = %s" %result)
+
+    time1 = time.time()
+    print("Execute time ... : %f[s]" %(time1 - time0))
+    print()
+
+if __name__ == "__main__":
+    main()
