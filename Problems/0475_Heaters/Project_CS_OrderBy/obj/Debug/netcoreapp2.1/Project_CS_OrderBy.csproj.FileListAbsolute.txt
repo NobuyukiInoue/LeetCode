@@ -1,0 +1,11 @@
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/bin/Debug/netcoreapp2.1/Project_CS_OrderBy.deps.json
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/bin/Debug/netcoreapp2.1/Project_CS_OrderBy.runtimeconfig.json
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/bin/Debug/netcoreapp2.1/Project_CS_OrderBy.runtimeconfig.dev.json
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/bin/Debug/netcoreapp2.1/Project_CS_OrderBy.dll
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/bin/Debug/netcoreapp2.1/Project_CS_OrderBy.pdb
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/obj/Debug/netcoreapp2.1/Project_CS_OrderBy.csprojAssemblyReference.cache
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/obj/Debug/netcoreapp2.1/Project_CS_OrderBy.csproj.CoreCompileInputs.cache
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/obj/Debug/netcoreapp2.1/Project_CS_OrderBy.AssemblyInfoInputs.cache
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/obj/Debug/netcoreapp2.1/Project_CS_OrderBy.AssemblyInfo.cs
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/obj/Debug/netcoreapp2.1/Project_CS_OrderBy.dll
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0475_Heaters/Project_CS_OrderBy/obj/Debug/netcoreapp2.1/Project_CS_OrderBy.pdb

@@ -1,0 +1,11 @@
+LL  0
+LR  1
+RL  2
+RR  3
+
+LLL 0
+LLR 1
+LRL 2
+LRR 3
+RLL 4
+
