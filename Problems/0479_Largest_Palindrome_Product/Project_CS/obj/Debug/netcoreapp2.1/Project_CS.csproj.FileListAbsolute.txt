@@ -1,0 +1,11 @@
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/obj/Debug/netcoreapp2.1/Project_CS.csprojAssemblyReference.cache
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/obj/Debug/netcoreapp2.1/Project_CS.csproj.CoreCompileInputs.cache
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/obj/Debug/netcoreapp2.1/Project_CS.AssemblyInfoInputs.cache
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/obj/Debug/netcoreapp2.1/Project_CS.AssemblyInfo.cs
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/bin/Debug/netcoreapp2.1/Project_CS.deps.json
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/bin/Debug/netcoreapp2.1/Project_CS.runtimeconfig.json
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/bin/Debug/netcoreapp2.1/Project_CS.runtimeconfig.dev.json
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/bin/Debug/netcoreapp2.1/Project_CS.dll
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/bin/Debug/netcoreapp2.1/Project_CS.pdb
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/obj/Debug/netcoreapp2.1/Project_CS.dll
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0479_Largest_Palindrome_Product/Project_CS/obj/Debug/netcoreapp2.1/Project_CS.pdb
