@@ -681,28 +681,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/yuza/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\sprin\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0005_Longest_Palindromic_Substring/Project_CS/Project_CS.csproj",
+      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0005_Longest_Palindromic_Substring\\Project_CS\\Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0005_Longest_Palindromic_Substring/Project_CS/Project_CS.csproj",
-      "packagesPath": "/Users/yuza/.nuget/packages/",
-      "outputPath": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0005_Longest_Palindromic_Substring/Project_CS/obj/",
+      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0005_Longest_Palindromic_Substring\\Project_CS\\Project_CS.csproj",
+      "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0005_Longest_Palindromic_Substring\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/yuza/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\sprin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -687,9 +687,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0008_String_to_Integer\\Project_CS\\Project_CS.csproj",
-      "projectName": "Project_CS",
-      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0008_String_to_Integer\\Project_CS\\Project_CS.csproj",
+      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0008_String_to_Integer\\Project_CS\\work.csproj",
+      "projectName": "work",
+      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0008_String_to_Integer\\Project_CS\\work.csproj",
       "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0008_String_to_Integer\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
