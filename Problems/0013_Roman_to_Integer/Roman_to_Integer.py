@@ -1,5 +1,4 @@
-# coding: utf-8
-
+import os
 import sys
 import time
 
@@ -77,24 +76,41 @@ class Solution:
 
         return sum        
 
-
 def main():
-    args = sys.argv
-    argc = len(args)
+    argv = sys.argv
+    argc = len(argv)
 
-    print("args[0] = %s %s" %(args[0], args[1]) )
-    s = args[1].rstrip()
-    s = s.replace("\"", "")
+    if (argc < 2):
+        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        exit(0)
+
+    if not os.path.exists(argv[1]):
+        print("%s not found..." %argv[1])
+        exit(0)
+
+    testDataFile = open(argv[1], "r")
+    lines = testDataFile.readlines()
+
+    for temp in lines:
+        print("argv[1] = %s" %temp)
+        loop_main(temp)
+    #    print("Hit Return to continue...")
+    #    input()
+
+def loop_main(temp):
+    s = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    print("s = %s" %s)
 
     time0 = time.time()
 
     sl = Solution()
-    print(sl.romanToInt(s))
+    result = sl.romanToInt(s)
+
+    print("result = %s" %result)
 
     time1 = time.time()
     print("Execute time ... : %f[s]" %(time1 - time0))
     print()
-
 
 if __name__ == "__main__":
     main()
