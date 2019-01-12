@@ -1,0 +1,3 @@
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0532_K-diff_Pairs_in_an_Array/Project_CS/obj/Debug/netcoreapp2.0/Project_CS.csproj.CoreCompileInputs.cache
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0532_K-diff_Pairs_in_an_Array/Project_CS/obj/Debug/netcoreapp2.0/Project_CS.AssemblyInfoInputs.cache
+/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0532_K-diff_Pairs_in_an_Array/Project_CS/obj/Debug/netcoreapp2.0/Project_CS.AssemblyInfo.cs
