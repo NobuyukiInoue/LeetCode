@@ -1,5 +1,6 @@
 # coding: utf-8
 
+import os
 import sys
 import time
 
@@ -9,7 +10,6 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
-
 
 class Solution:
     def isSameTree(self, p, q):
@@ -30,49 +30,83 @@ class Solution:
         else:
             return False
 
+class output_TreeNode:
+    def output(self, node):
+        self.resultStr = []
+        self.output_TreeNode(node, 0)
+        return self.print_resultStr()
 
-def set_node(data):
-    if data == None:
+    def output_TreeNode(self, node, n):
+        if node == None:
+            return
+        if len(self.resultStr) <= n:
+            self.resultStr.append("(" + str(node.val) + ")")
+        else:
+            self.resultStr[n] += ",(" + str(node.val) + ")"
+        if node.left != None:
+            self.output_TreeNode(node.left, n + 1)
+        if node.right != None:
+            self.output_TreeNode(node.right, n + 1)
         return
-    new_node = TreeNode(data[0])
-    if data[1] != "null":
-        new_node.left = TreeNode(data[1])
-    if data[2] != "null":
-        new_node.right = TreeNode(data[2])
-    return new_node
 
+    def print_resultStr(self):
+        outputStr = ""
+        for i in range(len(self.resultStr)):
+            outputStr += self.resultStr[i] + "\n"
+        self.resultStr.clear()
+        return outputStr
 
-def output_node(node):
-    tempStr = ""
-    if node != None:
-        tempStr += node.val + ","
-    if node.left != None:
-        tempStr += node.left.val + ","
+def set_node(flds, depth, pos):
+    if len(flds) <= 0:
+        return None
+
+    cur_pos = 0
+    for i in range(depth):
+        cur_pos += 2 ** i
+    
+    if cur_pos + pos > len(flds) - 1:
+        return None
+
+    if flds[cur_pos + pos] == 'null':
+        node = TreeNode(flds[cur_pos + pos])
     else:
-        tempStr += "null,"
-    if node.right != None:
-        tempStr += node.right.val
-    else:
-        tempStr += "null"
+        node = TreeNode(int(flds[cur_pos + pos]))
 
-    return tempStr
+    node.left = set_node(flds, depth + 1, 2*pos)
+    node.right = set_node(flds, depth + 1, 2*pos + 1)
 
+    return node
 
 def main():
-    args = sys.argv
-    argc = len(args)
+    argv = sys.argv
+    argc = len(argv)
 
-    print("args[0] = %s args[1] = %s" %(args[0], args[1]) )
-    flds = args[1].rstrip().split(chr(0x09)) # remove LF and splip [TAB]
-    print("flds[0] = %s fls[1] = %s" %(flds[0], flds[1]) )
-    arg1 = flds[0].split(',')
-    arg2 = flds[1].split(',')
+    if (argc < 2):
+        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        exit(0)
 
-    p = set_node(arg1)
-    q = set_node(arg2)
+    if not os.path.exists(argv[1]):
+        print("%s not found..." %argv[1])
+        exit(0)
 
-    print("node p = %s" %(output_node(p)))
-    print("node q = %s" %(output_node(q)))
+    testDataFile = open(argv[1], "r")
+    lines = testDataFile.readlines()
+
+    for temp in lines:
+        print("argv[1] = %s" %temp)
+        loop_main(temp)
+    #    print("Hit Return to continue...")
+    #    input()
+
+def loop_main(temp):
+    str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
+    flds = str_args.split("],[")
+    p = set_node(flds[0].split(","), 0, 0)
+    q = set_node(flds[1].split(","), 0, 0)
+
+    ol = output_TreeNode()
+    print("node p = \n%s" %(ol.output(p)))
+    print("node q = \n%s" %(ol.output(q)))
 
     time0 = time.time()
 
@@ -82,7 +116,6 @@ def main():
     time1 = time.time()
     print("Execute time ... : %f[s]" %(time1 - time0))
     print()
-
 
 if __name__ == "__main__":
     main()
