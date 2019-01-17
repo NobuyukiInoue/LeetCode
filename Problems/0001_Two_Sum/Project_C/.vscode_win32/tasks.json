@@ -6,17 +6,9 @@
         {
             "label": "echo",
             "type": "shell",
-            "command": "clang",
-            "isShellCommand": true,
-            "args": [
-                "-oTwo_Sum_for_mac",
-                "Two_Sum.c",
-                "mylib.c",
-                "-g",
-                "-O0"
-                //"-m32"
-            ],
-            "showOutput": "always",
+            // "command": "echo Hello"
+            "command": "gcc -g -O0 -o Two_Sum.exe Two_Sum.c mylib.c",
+            "problemMatcher": "$tsc", 
             "group": {
                 "kind": "build",
                 "isDefault": true
