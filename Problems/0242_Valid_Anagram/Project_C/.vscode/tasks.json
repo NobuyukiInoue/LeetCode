@@ -7,7 +7,7 @@
             "label": "echo",
             "type": "shell",
             // "command": "echo Hello"
-            "command": "gcc -g -O0 -o Two_Sum.exe Two_Sum.c mylib.c",
+            "command": "gcc -g -O0 -o Valid_Anagram.exe Valid_Anagram.c mylib.c",
             "problemMatcher": "$tsc", 
             "group": {
                 "kind": "build",

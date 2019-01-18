@@ -8,26 +8,27 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            //"program": "enter program name, for example ${workspaceFolder}/a.exe",
-            "program": "${workspaceRoot}/Two_Sum.exe",
-            "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
-            //"args": [],
+            "program": "${workspaceFolder}/Two_Sum_for_mac",
             "args": [
                 "../testdata.txt"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true,
-            "MIMode": "gdb",
-            //"miDebuggerPath": "/path/to/gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
+            //"externalConsole": true,
+            "externalConsole": false,
+            //"MIMode": "lldb"
+            //"MIMode": "gdb",
+            "linux": {
+                "MIMode": "gdb"
+            },
+            "osx": {
+                //"MIMode": "lldb"
+                "MIMode": "gdb" // デバッガにGDBを使用したい場合。homebrewで brew install gdb で入る
+            },
+            "windows": {
+                "MIMode": "gdb"
+            }
         }
     ]
 }

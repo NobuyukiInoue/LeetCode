@@ -7,7 +7,7 @@
             "label": "echo",
             "type": "shell",
             // "command": "echo Hello"
-            "command": "gcc -g -O0 -o Two_Sum.exe Two_Sum.c mylib.c",
+            "command": "gcc -g -O0 -o Diamete_of_Binary_Tree.exe Diamete_of_Binary_Tree.c mylib.c",
             "problemMatcher": "$tsc", 
             "group": {
                 "kind": "build",

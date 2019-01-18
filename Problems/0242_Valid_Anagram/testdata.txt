@@ -1,0 +1,5 @@
+["zlap","kcqx"]
+["anagram","nagaram"]
+["rat","car"]
+[]
+["aacc","ccac"]

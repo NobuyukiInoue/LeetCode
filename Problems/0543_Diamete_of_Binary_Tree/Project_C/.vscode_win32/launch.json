@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             //"program": "enter program name, for example ${workspaceFolder}/a.exe",
-            "program": "${workspaceRoot}/Two_Sum.exe",
+            "program": "${workspaceRoot}/Diamete_of_Binary_Tree.exe",
             "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
             //"args": [],
             "args": [

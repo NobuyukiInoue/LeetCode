@@ -12,23 +12,24 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def isSameTree(self, p, q):
+    def diameterOfBinaryTree(self, root):
         """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
+        :type root: TreeNode
+        :rtype: int
         """
-        if (p == None) and (q == None):
-            return True
-        elif (p == None) or (q == None):
-            return False
-        if p.val == q.val:
-            if self.isSameTree(p.left, q.left):
-                return self.isSameTree(p.right, q.right)
-            else:
-                return False
-        else:
-            return False
+        if not root:
+            return 0
+        
+        def diameter(current):
+            if not current:
+                return 0, 0
+            
+            l_h, l_max = diameter(current.left)
+            r_h, r_max = diameter(current.right)
+            
+            return 1 + max(l_h, r_h), max(l_max, r_max, l_h + r_h + 1)
+        
+        return diameter(root)[1] - 1
 
 class output_TreeNode:
     def output(self, node):
@@ -98,19 +99,18 @@ def main():
     #    input()
 
 def loop_main(temp):
-    str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
-    flds = str_args.split("],[")
-    p = set_node(flds[0].split(","), 0, 0)
-    q = set_node(flds[1].split(","), 0, 0)
+    str_args = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = str_args.split(",")
+    root = set_node(flds, 0, 0)
 
     ol = output_TreeNode()
-    print("node p = \n%s" %(ol.output(p)))
-    print("node q = \n%s" %(ol.output(q)))
+    print("root = \n%s" %(ol.output(root)))
 
     time0 = time.time()
 
     sl = Solution()
-    print(sl.isSameTree(p, q))
+    result = sl.diameterOfBinaryTree(root)
+    print("result = %d" %result)
 
     time1 = time.time()
     print("Execute time ... : %f[s]" %(time1 - time0))

@@ -12,23 +12,33 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def isSameTree(self, p, q):
+    def sumOfLeftLeaves(self, root):
         """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
+        :type root: TreeNode
+        :rtype: int
         """
-        if (p == None) and (q == None):
-            return True
-        elif (p == None) or (q == None):
-            return False
-        if p.val == q.val:
-            if self.isSameTree(p.left, q.left):
-                return self.isSameTree(p.right, q.right)
+        if root == None:
+            return 0
+        sum = 0
+        if root.left != None:
+            if root.left.left == None and root.left.right == None:
+                sum += int(root.left.val)
             else:
-                return False
-        else:
-            return False
+                sum += self.sub_sumOfLeftLeaves(root.left)
+        if root.right != None:
+            sum += self.sub_sumOfLeftLeaves(root.right)
+        return sum
+    
+    def sub_sumOfLeftLeaves(self, node):
+        sum = 0
+        if node.left != None:
+            if node.left.left == None and node.left.right == None:
+                sum = int(node.left.val)
+            else:
+                sum += self.sub_sumOfLeftLeaves(node.left)
+        if node.right != None:
+            sum += self.sub_sumOfLeftLeaves(node.right)
+        return sum
 
 class output_TreeNode:
     def output(self, node):
@@ -98,19 +108,18 @@ def main():
     #    input()
 
 def loop_main(temp):
-    str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
-    flds = str_args.split("],[")
-    p = set_node(flds[0].split(","), 0, 0)
-    q = set_node(flds[1].split(","), 0, 0)
+    str_args = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = str_args.split(",")
+    root = set_node(flds, 0, 0)
 
     ol = output_TreeNode()
-    print("node p = \n%s" %(ol.output(p)))
-    print("node q = \n%s" %(ol.output(q)))
+    print("root = \n%s" %(ol.output(root)))
 
     time0 = time.time()
 
     sl = Solution()
-    print(sl.isSameTree(p, q))
+    result = sl.sumOfLeftLeaves(root)
+    print("result = %d" %result)
 
     time1 = time.time()
     print("Execute time ... : %f[s]" %(time1 - time0))
