@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <math.h>
+#include <time.h>
 
 #include "mylib.h"
 
@@ -120,12 +121,18 @@ int loop_main(char *arg)
     printf("q = \n");
     output_tree(q);
 
-    if (isSameTree(p, q))
+    clock_t time_start = clock();
+
+    bool result = isSameTree(p, q);
+
+    clock_t time_end = clock();
+
+    if (result)
         printf("result = true\n");
     else
         printf("result = false\n");
 
-    //printf("Execute time ... %d ms\n", exec_time);
+    printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 }
 
 int main(int argc, char *argv[])
