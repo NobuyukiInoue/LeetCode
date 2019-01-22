@@ -1,6 +1,17 @@
 import scala.io.Source
 
 object Main {
+    def str_to_int_array(flds:String):Array[Int] = {
+        var nums_str:Array[String] = flds.split(",")
+        var nums:Array[Int] = new Array[Int](nums_str.size)
+
+        for (i <- 0 until nums_str.length) {
+            nums(i) = nums_str(i).toInt
+        }
+
+        return nums
+    }
+ 
     def print_int_array(nums:Array[Int]):String = {
         if (nums.size <= 0)
             return ""
@@ -16,15 +27,9 @@ object Main {
     def loop_main(args:String) {
         var temp:String = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[\\[", "").replaceFirst("\\]\\]", "")
         var flds:Array[String] = temp.split("\\],\\[")
-
-        var nums_str:Array[String] = flds(0).split(",")
-        var nums:Array[Int] = new Array[Int](nums_str.size)
+        var nums:Array[Int] = str_to_int_array(flds(0))
         var k:Int = flds(1).toInt
-
-        for (i <- 0 until nums_str.length) {
-            nums(i) = nums_str(i).toInt
-        }
-
+ 
         var result: Array[Int] = Solution.TwoSum(nums, k)
 
         println("result = " + print_int_array(result) )

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <math.h>
+#include <time.h>
 
 #include "mylib.h"
 
@@ -46,8 +47,13 @@ int loop_main(char* arg)
 
     int target = atoi(flds[1]);
 
+    clock_t time_start = clock();
     int *result = twoSum(nums, nums_length, target);
+    clock_t time_end = clock();
+
     output_p_int_array(result, 2);
+
+    printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 
     return 0;
 }
