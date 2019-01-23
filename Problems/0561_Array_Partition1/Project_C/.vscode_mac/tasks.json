@@ -1,0 +1,26 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "clang",
+            "isShellCommand": true,
+            "args": [
+                "-oArray_Partition1",
+                "Array_Partition1.c",
+                "mylib.c",
+                "-g",
+                "-O0"
+                //"-m32"
+            ],
+            "showOutput": "always",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

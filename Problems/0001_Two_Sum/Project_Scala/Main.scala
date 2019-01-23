@@ -30,9 +30,14 @@ object Main {
         var nums:Array[Int] = str_to_int_array(flds(0))
         var k:Int = flds(1).toInt
  
+        val time_start = System.currentTimeMillis
+
         var result: Array[Int] = Solution.TwoSum(nums, k)
 
+        val time_end = System.currentTimeMillis
+
         println("result = " + print_int_array(result) )
+        println("Execute time: " + (time_end - time_start) + " ms")
     }
 
     def main(args:Array[String]) {

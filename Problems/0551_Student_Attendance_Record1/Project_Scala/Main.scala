@@ -27,9 +27,15 @@ object Main {
     def loop_main(args:String) {
         var s:String = args.stripLineEnd.replaceAll(" ", "").replaceAll("\"", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
         println(s)
+
+        val time_start = System.currentTimeMillis
+
         var result:Boolean = Solution.checkRecord(s)
 
+        val time_end = System.currentTimeMillis
+
         println("result = " + result.toString)
+        println("Execute time: " + (time_end - time_start) + " ms")
     }
 
     def main(args:Array[String]) {

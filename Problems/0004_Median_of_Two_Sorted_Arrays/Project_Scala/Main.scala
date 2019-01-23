@@ -30,9 +30,14 @@ object Main {
         var nums1:Array[Int] = str_to_int_array(flds(0))
         var nums2:Array[Int] = str_to_int_array(flds(1))
 
+        val time_start = System.currentTimeMillis
+
         var result:Double = Solution.findMedianSortedArrays(nums1, nums2)
 
+        val time_end = System.currentTimeMillis
+
         println("result = " + result.toString)
+        println("Execute time: " + (time_end - time_start) + " ms")
     }
 
     def main(args:Array[String]) {

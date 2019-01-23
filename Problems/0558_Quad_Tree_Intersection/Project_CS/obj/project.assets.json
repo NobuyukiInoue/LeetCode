@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0427_Construct_Quad_Tree\\Project_CS\\Project_CS.csproj",
+      "projectUniqueName": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0558_Quad_Tree_Intersection\\Project_CS\\Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0427_Construct_Quad_Tree\\Project_CS\\Project_CS.csproj",
+      "projectPath": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0558_Quad_Tree_Intersection\\Project_CS\\Project_CS.csproj",
       "packagesPath": "C:\\Users\\n1.inoue\\.nuget\\packages\\",
-      "outputPath": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0427_Construct_Quad_Tree\\Project_CS\\obj\\",
+      "outputPath": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0558_Quad_Tree_Intersection\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -46,8 +46,14 @@ object Main {
         println("p = \n" + OutputTreeNode.output(p))
         println("q = \n" + OutputTreeNode.output(q))
 
+        val time_start = System.currentTimeMillis
+
         var result: Boolean = Solution.isSameTree(p, q)
+
+        val time_end = System.currentTimeMillis
+
         println("result = " + result.toString )
+        println("Execute time: " + (time_end - time_start) + " ms")
     }
 
     def main(args:Array[String]) {

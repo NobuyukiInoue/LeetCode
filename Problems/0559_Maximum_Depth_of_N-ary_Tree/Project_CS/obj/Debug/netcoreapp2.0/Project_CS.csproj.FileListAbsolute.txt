@@ -1,0 +1,11 @@
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.csprojAssemblyReference.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.csproj.CoreCompileInputs.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.AssemblyInfoInputs.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.AssemblyInfo.cs
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.deps.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.runtimeconfig.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.runtimeconfig.dev.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.dll
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.pdb
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.dll
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0559_Maximum_Depth_of_N-ary_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.pdb
