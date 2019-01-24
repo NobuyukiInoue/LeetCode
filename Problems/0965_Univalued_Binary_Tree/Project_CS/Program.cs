@@ -15,7 +15,7 @@ namespace Project_CS
 
             if (System.IO.File.Exists(args[0]) == false)
             {
-                Console.WriteLine(args[0] + "not found.");
+                Console.WriteLine(args[0] + " not found.");
                 return;
             }
 

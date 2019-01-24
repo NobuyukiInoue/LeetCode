@@ -69,9 +69,19 @@ public class Solution
     public void Main(string args)
     {
         string[] flds = args.Replace("[","").Replace("]","").Trim().Split(',');
-        int x = int.Parse(flds[0]);
-        int y = int.Parse(flds[1]);
-        int bound = int.Parse(flds[2]);
+        int x = 0, y = 0, bound = 0;
+
+        try
+        {
+            x = int.Parse(flds[0]);
+            y = int.Parse(flds[1]);
+            bound = int.Parse(flds[2]);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            Environment.Exit(-1);
+        }
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();

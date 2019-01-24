@@ -664,28 +664,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/yuza/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\n1.inoue\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0530_Minimum_Absolute_Difference_in_BST/Project_CS/Project_CS.csproj",
+      "projectUniqueName": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0530_Minimum_Absolute_Difference_in_BST\\Project_CS\\Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0530_Minimum_Absolute_Difference_in_BST/Project_CS/Project_CS.csproj",
-      "packagesPath": "/Users/yuza/.nuget/packages/",
-      "outputPath": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0530_Minimum_Absolute_Difference_in_BST/Project_CS/obj/",
+      "projectPath": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0530_Minimum_Absolute_Difference_in_BST\\Project_CS\\Project_CS.csproj",
+      "packagesPath": "C:\\Users\\n1.inoue\\.nuget\\packages\\",
+      "outputPath": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0530_Minimum_Absolute_Difference_in_BST\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/yuza/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\n1.inoue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

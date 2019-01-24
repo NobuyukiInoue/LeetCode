@@ -9,3 +9,14 @@ C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0538_Convert_BST_t
 C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.AssemblyInfo.cs
 C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.dll
 C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.pdb
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.deps.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.runtimeconfig.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.runtimeconfig.dev.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.dll
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.pdb
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.csprojAssemblyReference.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.csproj.CoreCompileInputs.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.AssemblyInfoInputs.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.AssemblyInfo.cs
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.dll
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0538_Convert_BST_to_Greater_Tree\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.pdb
