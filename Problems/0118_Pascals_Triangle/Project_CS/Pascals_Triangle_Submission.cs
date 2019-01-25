@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public class Solution {
+public class Solution2 {
     public IList<IList<int>> Generate(int numRows)
     {
            IList<int> list = new List<int>();

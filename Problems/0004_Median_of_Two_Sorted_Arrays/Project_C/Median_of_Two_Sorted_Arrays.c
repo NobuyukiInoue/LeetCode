@@ -61,7 +61,6 @@ void sort(int nums[], int nums_length)
 
 int loop_main(char* arg)
 {
-    int argv_length = strlen(arg);
     char* flds[2];
     char* str_nums[256];
     int nums1[256], nums2[256];
@@ -69,13 +68,22 @@ int loop_main(char* arg)
     replace(arg, "[[", "");
     replace(arg, "]]", "");
     replace(arg, "\n", "");
-    split(arg, "],[", flds);
+    int flds_length = split(arg, "],[", flds, sizeof(flds)/sizeof(flds[0]));
 
-    int nums1_length = split(flds[0], ",", str_nums);
-    str_to_int_array(str_nums, nums1, nums1_length);
+    int str_nums_length;
+    str_nums_length = split(flds[0], ",", str_nums, sizeof(str_nums)/sizeof(str_nums[0]));
 
-    int nums2_length = split(flds[1], ",", str_nums);
-    str_to_int_array(str_nums, nums2, nums2_length);
+    if (sizeof(nums1)/sizeof(nums1[0]) < str_nums_length)
+        err_exit("nums1[] size error.\n");
+
+    int nums1_length = str_to_int_array(str_nums, nums1, str_nums_length);
+
+    str_nums_length = split(flds[1], ",", str_nums, sizeof(str_nums)/sizeof(str_nums[0]));
+
+    if (sizeof(nums2)/sizeof(nums2[0]) < str_nums_length)
+        err_exit("nums2[] size error.\n");
+
+    int nums2_length = str_to_int_array(str_nums, nums2, str_nums_length);
 
     int target = atoi(flds[1]);
 
@@ -85,6 +93,14 @@ int loop_main(char* arg)
 
     printf("result = %f\n", result);
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // char* str_nums[str_nums_length] clear.
+    for (int i = str_nums_length - 1; i >= 0; --i)
+        free(str_nums[i]);
+
+    // char* flds[flds_length] clear.
+    for (int i = flds_length - 1; i >= 0; --i)
+        free(flds[i]);
 
     return 0;
 }

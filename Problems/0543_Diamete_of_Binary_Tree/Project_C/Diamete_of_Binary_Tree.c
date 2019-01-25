@@ -79,7 +79,7 @@ struct TreeNode *set_node(char *flds[], int flds_length, int depth, int pos)
     if (cur_pos + pos > flds_length - 1)
         return NULL;
     
-    if (flds[cur_pos + pos] == "null")
+    if (strcmp(flds[cur_pos + pos], "null") == 0)
         return NULL;
 
     struct TreeNode *node = malloc(sizeof(struct TreeNode));
@@ -103,6 +103,9 @@ void output_tree(struct TreeNode *node)
 
     for (int i = 0; i < 256 && resultStr[i][0] != '\0'; ++i)
         printf("%s\n", resultStr[i]);
+
+    for (int i = 256 - 1; i >= 0; --i)
+        free(resultStr[i]);
 }
 
 void output_node(struct TreeNode *node, char *resultStr[], int n)
@@ -129,17 +132,13 @@ void output_node(struct TreeNode *node, char *resultStr[], int n)
 int loop_main(char *arg)
 {
     int argv_length = strlen(arg);
-    char tempstr1[256];
-    char tempstr2[256];
-    char *flds[2];
-    char *nums1[256];
-    char *nums2[256];
+    char *flds[1024];
 
     replace(arg, "[", "");
     replace(arg, "]", "");
     replace(arg, "\n", "");
 
-    int flds_length = split(arg, ",", flds);
+    int flds_length = split(arg, ",", flds, sizeof(flds)/sizeof(flds[0]));
     struct TreeNode *root = set_node(flds, flds_length, 0, 0);
 
     printf("root = \n");
@@ -150,8 +149,13 @@ int loop_main(char *arg)
     clock_t time_end = clock();
 
     printf("result = %d\n", DiameterOfBinaryTree(root));
-
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // char* flds[flds_length] clear.
+    for (int i = flds_length - 1; i >= 0; --i)
+        free(flds[i]);
+    
+    return 0;
 }
 
 int main(int argc, char *argv[])

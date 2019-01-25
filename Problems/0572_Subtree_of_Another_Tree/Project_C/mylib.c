@@ -1,22 +1,33 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 /* Function prototype declaration */
-void replace(char *buf, const char *str1, const char *str2);
-int split( char *str, const char *delim, char *outlist[] );
+#include "mylib.h"
 
+#define MALLOC_STR_SIZE 1024
 
-int split( char *str, const char *delim, char *outlist[] )
+void err_exit(char* message)
 {
-    char    *pos1, *pos2;
-    char    *temp_str, *dst;
-    int     cnt = 0;
-    int     MAXITEM = 256;
+    fprintf(stderr, "%s", message);
+    exit(-1);
+}
+
+int split(char *str, const char *delim, char *outlist[], int outlist_maxlength)
+{
+    char *pos1, *pos2;
+    char *temp_str, *dst;
+    int cnt = 0;
 
     pos1 = str;
     pos2 = strstr( pos1, delim );
-    while( pos2 != NULL && cnt < MAXITEM ) {
-        temp_str = malloc(sizeof(char) * 256);
+    while( pos2 != NULL) {
+        if (cnt >= outlist_maxlength - 1)
+            err_exit("split() outlist_size error!\n");
+
+	    if ((temp_str = malloc(sizeof(char) * MALLOC_STR_SIZE)) == NULL)
+            err_exit("malloc failed in split().\n");
+
         dst = temp_str;
 
         while ( pos1 < pos2 )
@@ -28,7 +39,9 @@ int split( char *str, const char *delim, char *outlist[] )
         pos2 = strstr( pos1, delim );
     }
 
-    temp_str = malloc(sizeof(char) * 256);
+    if ((temp_str = malloc(sizeof(char) * MALLOC_STR_SIZE)) == NULL)
+        err_exit("malloc failed in split().\n");
+
     dst = temp_str;
 
     while ( *pos1 != '\0')
@@ -38,7 +51,6 @@ int split( char *str, const char *delim, char *outlist[] )
 
     return cnt;
 }
-
 
 void replace(char *buf, const char *str1, const char *str2)
 {
@@ -67,4 +79,24 @@ void replace(char *buf, const char *str1, const char *str2)
             p += strlen(str1);
         }
     }
+}
+
+int str_to_int_array(char* str_nums[], int nums[], int length)
+{
+    int i;
+    for (i = 0; i < length; ++i)
+        nums[i] = strtol(str_nums[i], NULL, 10);
+    return i;
+}
+
+void output_int_array(int nums[], int length)
+{
+    printf("[");
+    for (int i = 0; i < length; ++i) {
+        if (i == 0)
+            printf("%d", nums[i]);
+        else
+            printf(",%d", nums[i]);
+    }
+    printf("]\n");   
 }

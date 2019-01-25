@@ -36,18 +36,21 @@ int divide(int dividend, int divisor)
 
 int loop_main(char* arg)
 {
-    int argv_length = strlen(arg);
     char* flds[2];
     int dividend, divisor;
 
     replace(arg, "[", "");
     replace(arg, "]", "");
     replace(arg, "\n", "");
-    split(arg, ",", flds);
+    int flds_length = split(arg, ",", flds, sizeof(flds)/sizeof(flds[0]));
     dividend = strtol(flds[0], NULL, 10);
     divisor = strtol(flds[1], NULL, 10);
 
     printf("result = %d\n", divide(dividend, divisor));
+
+    // char* flds[flds_length] clear.
+    for (int i = flds_length - 1; i >= 0; --i)
+        free(flds[i]);
 
     return 0;
 }

@@ -45,7 +45,7 @@ struct TreeNode *set_node(char *flds[], int flds_length, int depth, int pos)
     if (cur_pos + pos > flds_length - 1)
         return NULL;
     
-    if (flds[cur_pos + pos] == "null")
+    if (strcmp(flds[cur_pos + pos], "null") == 0)
         return NULL;
 
     struct TreeNode *node = malloc(sizeof(struct TreeNode));
@@ -69,6 +69,9 @@ void output_tree(struct TreeNode *node)
 
     for (int i = 0; i < 256 && resultStr[i][0] != '\0'; ++i)
         printf("%s\n", resultStr[i]);
+
+    for (int i = 256 - 1; i >= 0; --i)
+        free(resultStr[i]);
 }
 
 void output_node(struct TreeNode *node, char *resultStr[], int n)
@@ -94,9 +97,6 @@ void output_node(struct TreeNode *node, char *resultStr[], int n)
 
 int loop_main(char *arg)
 {
-    int argv_length = strlen(arg);
-    char tempstr1[256];
-    char tempstr2[256];
     char *flds[2];
     char *nums1[256];
     char *nums2[256];
@@ -105,12 +105,12 @@ int loop_main(char *arg)
     replace(arg, "]]", "");
     replace(arg, "\n", "");
 
-    split(arg, "],[", flds);
+    int flds_length = split(arg, "],[", flds, sizeof(flds)/sizeof(flds[0]));
 
-    int nums1_length = split(flds[0], ",", nums1);
+    int nums1_length = split(flds[0], ",", nums1, sizeof(nums1)/sizeof(nums1[0]));
     nums1[nums1_length] = NULL;
 
-    int nums2_length = split(flds[1], ",", nums2);
+    int nums2_length = split(flds[1], ",", nums2, sizeof(nums2)/sizeof(nums2[0]));
     nums2[nums2_length] = NULL;
 
     struct TreeNode *p = set_node(nums1, nums1_length, 0, 0);
@@ -133,6 +133,18 @@ int loop_main(char *arg)
         printf("result = false\n");
 
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // char* nums2[nums2_length] clear.
+    for (int i = nums2_length - 1; i >= 0; --i)
+        free(nums2[i]);
+
+    // char* nums1[nums1_length] clear.
+    for (int i = nums1_length - 1; i >= 0; --i)
+        free(nums1[i]);
+
+    // char* flds[flds_length] clear.
+    for (int i = flds_length - 1; i >= 0; --i)
+        free(flds[i]);
 }
 
 int main(int argc, char *argv[])

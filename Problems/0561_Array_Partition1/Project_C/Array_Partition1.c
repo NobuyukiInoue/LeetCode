@@ -32,8 +32,6 @@ static int compareInt(const void* a, const void* b)
 
 int loop_main(char* arg)
 {
-    int argv_length = strlen(arg);
-    char* flds[2];
     char* str_nums[256];
     int nums[256];
 
@@ -42,17 +40,21 @@ int loop_main(char* arg)
     replace(arg, "]", "");
     replace(arg, "\n", "");
 
-    int numsSize = split(arg, ",", str_nums);
-    str_to_int_array(str_nums, nums, numsSize);
+    int str_nums_Length = split(arg, ",", str_nums, sizeof(str_nums)/sizeof(str_nums[0]));
+    str_to_int_array(str_nums, nums, str_nums_Length);
 
     clock_t time_start = clock();
 
-    int result = arrayPairSum(nums, numsSize);
+    int result = arrayPairSum(nums, str_nums_Length);
 
     clock_t time_end = clock();
 
     printf("result = %d\n", result);
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // char* nums1[nums1_length] clear.
+    for (int i = str_nums_Length - 1; i >= 0; --i)
+        free(str_nums[i]);
 
     return 0;
 }

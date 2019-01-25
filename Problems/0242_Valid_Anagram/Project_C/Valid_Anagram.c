@@ -11,9 +11,6 @@
 bool isAnagram(char* s, char* t);
 int loop_main(char* arg);
 
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
 bool isAnagram(char* s, char* t)
 {
     if (strlen(s) != strlen(t))
@@ -53,14 +50,13 @@ bool isAnagram(char* s, char* t)
 
 int loop_main(char* arg)
 {
-    int argv_length = strlen(arg);
     replace(arg, "[", "");
     replace(arg, "]", "");
     replace(arg, "\"", "");
     replace(arg, "\n", "");
 
     char* flds[2];
-    int flds_length = split(arg, ",", flds);
+    int flds_length = split(arg, ",", flds, sizeof(flds)/sizeof(flds[0]));
 
     char *s, *t;
     if (arg[0] != '\0') {
@@ -85,6 +81,10 @@ int loop_main(char* arg)
         printf("result = false\n\n");
 
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // char* flds[flds_length] clear.
+    for (int i = flds_length - 1; i >= 0; --i)
+        free(flds[i]);
 
     return 0;
 }

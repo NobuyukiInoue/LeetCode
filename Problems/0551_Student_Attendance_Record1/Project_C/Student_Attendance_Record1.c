@@ -32,11 +32,6 @@ bool checkRecord(char* s)
 
 int loop_main(char* arg)
 {
-    int argv_length = strlen(arg);
-    char* flds[2];
-    char* str_nums[256];
-    int nums1[256], nums2[256];
-
     replace(arg, "\"", "");
     replace(arg, "[", "");
     replace(arg, "]", "");

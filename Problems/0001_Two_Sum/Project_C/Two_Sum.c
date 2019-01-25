@@ -40,25 +40,39 @@ int loop_main(char* arg)
     replace(arg, "[[", "");
     replace(arg, "]]", "");
     replace(arg, "\n", "");
-    split(arg, "],[", flds);
+    int flds_length = split(arg, "],[", flds, sizeof(flds)/sizeof(flds[0]));
+    int str_nums_length = split(flds[0], ",", str_nums, sizeof(str_nums)/sizeof(str_nums[0]));
 
-    int nums_length = split(flds[0], ",", str_nums);
-    str_to_int_array(str_nums, nums, nums_length);
+    // int nums[] size check.
+    if (sizeof(nums)/sizeof(nums[0]) < str_nums_length)
+        err_exit("nums[] size error.");
 
+    int nums_length = str_to_int_array(str_nums, nums, str_nums_length);
     int target = atoi(flds[1]);
 
     clock_t time_start = clock();
-    int *result = twoSum(nums, nums_length, target);
+    int* results = twoSum(nums, nums_length, target);
     clock_t time_end = clock();
 
-    output_p_int_array(result, 2);
-
+    // result print.
+    output_int_array(results, 2);
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // int* results clear.
+    free(results);
+
+    // char* str_nums[str_nums_length] clear.
+    for (int i = str_nums_length - 1; i >= 0; --i)
+        free(str_nums[i]);
+
+    // char* flds[flds_length] clear.
+    for (int i = flds_length - 1; i >= 0; --i)
+        free(flds[i]);
 
     return 0;
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     FILE *fp;
     char str[256];

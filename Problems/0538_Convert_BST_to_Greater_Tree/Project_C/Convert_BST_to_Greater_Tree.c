@@ -23,8 +23,32 @@ void output_node(struct TreeNode *node, char *resultStr[], int n);
 void str_replace(const char *src, const char *target, const char *replace, char **result);
 int loop_main(char *arg);
 
+void helper(struct TreeNode* root, int *curr_sum)
+{
+    if (!root) {
+        return;
+    }
+
+    //go right first as everything on right is greater than root
+    helper(root->right, curr_sum);
+    root->val = root->val + *curr_sum;
+    *curr_sum = root->val;
+    //now go left, everything on left is lesser than root
+    helper(root->left, curr_sum);
+}
+
 struct TreeNode* convertBST(struct TreeNode* root)
 {
+    int curr_sum = 0;
+    helper(root, &curr_sum);
+    return root;
+}
+
+/*
+struct TreeNode* convertBST(struct TreeNode* root)
+{
+    // 変数sumToAddはプログラム終了まで保持されるので注意
+    // 続けて実行すると前回の値に加算される。
     static int sumToAdd = 0;
     if (root != NULL)
     {
@@ -36,6 +60,7 @@ struct TreeNode* convertBST(struct TreeNode* root)
     }
     return root;
 }
+*/
 
 struct TreeNode* set_node(char *flds[], int flds_length, int depth, int pos)
 {
@@ -49,7 +74,7 @@ struct TreeNode* set_node(char *flds[], int flds_length, int depth, int pos)
     if (cur_pos + pos > flds_length - 1)
         return NULL;
     
-    if (flds[cur_pos + pos] == "null")
+    if (strcmp(flds[cur_pos + pos], "null") == 0)
         return NULL;
 
     struct TreeNode *node = malloc(sizeof(struct TreeNode));
@@ -73,6 +98,9 @@ void output_tree(struct TreeNode *node)
 
     for (int i = 0; i < 256 && resultStr[i][0] != '\0'; ++i)
         printf("%s\n", resultStr[i]);
+
+    for (int i = 256 - 1; i >= 0; --i)
+        free(resultStr[i]);
 }
 
 void output_node(struct TreeNode *node, char *resultStr[], int n)
@@ -99,18 +127,13 @@ void output_node(struct TreeNode *node, char *resultStr[], int n)
 int loop_main(char *arg)
 {
     int argv_length = strlen(arg);
-    char tempstr1[256];
-    char tempstr2[256];
-    char *flds[2];
-    char *nums1[256];
-    char *nums2[256];
+    char *flds[1024];
 
     replace(arg, "[", "");
     replace(arg, "]", "");
     replace(arg, "\n", "");
 
-    int flds_length = split(arg, ",", flds);
-
+    int flds_length = split(arg, ",", flds, sizeof(flds)/sizeof(flds[0]));
     struct TreeNode *root = set_node(flds, flds_length, 0, 0);
 
     printf("root = \n");
@@ -123,6 +146,10 @@ int loop_main(char *arg)
     printf("result = \n");
     output_tree(result);
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // char* flds[flds_length] clear.
+    for (int i = flds_length - 1; i >= 0; --i)
+        free(flds[i]);
 }
 
 int main(int argc, char *argv[])
