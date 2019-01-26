@@ -10,9 +10,9 @@ MYLIB_NAME=mylib.c
 
 ifeq ($(OS),Windows_NT)
 	TARGET_FILE=$(PROJECT_NAME).exe
-else ifeq ($(OS),macOS)
+else ifeq ($(OSTYPE),darwin18)
 	TARGET_FILE=$(PROJECT_NAME)_for_mac
-else ifeq ($(OS),linux)
+else ifeq ($(OSTYPE),linux-gnu)
 	TARGET_FILE=$(PROJECT_NAME)_for_linux
 else
 	TARGET_FILE=$(PROJECT_NAME)

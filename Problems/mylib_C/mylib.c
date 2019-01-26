@@ -31,7 +31,7 @@ int split(char *str, const char *delim, char *outlist[], int outlist_maxlength)
         if (cnt >= outlist_maxlength - 1)
             err_exit("split() outlist_size error!\n");
 
-	    if ((temp_str = malloc(sizeof(char) * MALLOC_STR_SIZE)) == NULL)
+        if ((temp_str = malloc(sizeof(char) * MALLOC_STR_SIZE)) == NULL)
             err_exit("malloc failed in split().\n");
 
         dst = temp_str;
