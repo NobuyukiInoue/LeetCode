@@ -7,17 +7,20 @@ SOURCE=$(PROJECT_NAME).c
 MYLIB_PATH=../../mylib_C
 MYLIB_NAME=mylib.c
 
-
 ifeq ($(OS),Windows_NT)
 	TARGET_FILE=$(PROJECT_NAME).exe
-else ifeq ($(OSTYPE),darwin18)
+else
+UNAME=${shell uname}
+ifeq ($(UNAME),Darwin)
 	TARGET_FILE=$(PROJECT_NAME)_for_mac
-else ifeq ($(OSTYPE),linux-gnu)
+else
+ifeq ($(UNAME),Linux)
 	TARGET_FILE=$(PROJECT_NAME)_for_linux
 else
 	TARGET_FILE=$(PROJECT_NAME)
 endif
-
+endif
+endif
 
 all:	$(TARGET_FILE)
 

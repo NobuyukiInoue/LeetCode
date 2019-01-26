@@ -17,6 +17,8 @@ int p_char_array_free(char* str_array[], int size)
 {
     for (int i = size - 1; i >= 0; --i)
         free(str_array[i]);
+
+    return size;
 }
 
 int split(char *str, const char *delim, char *outlist[], int outlist_maxlength)
