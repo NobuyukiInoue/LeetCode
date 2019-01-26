@@ -8,7 +8,6 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            //"program": "enter program name, for example ${workspaceFolder}/a.exe",
             "program": "${workspaceRoot}/Median_of_Two_Sorted_Arrays.exe",
             "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
             //"args": [],

@@ -13,6 +13,12 @@ void err_exit(char* message)
     exit(-1);
 }
 
+int p_char_array_free(char* str_array[], int size)
+{
+    for (int i = size - 1; i >= 0; --i)
+        free(str_array[i]);
+}
+
 int split(char *str, const char *delim, char *outlist[], int outlist_maxlength)
 {
     char *pos1, *pos2;
@@ -58,20 +64,18 @@ void replace(char *buf, const char *str1, const char *str2)
     char *p;
 
     while ((p = strstr(buf, str1)) != NULL) {
-        /* 見つからなくなるまで繰り返す
-            pは旧文字列の先頭を指している */
         if (*str2 != '\0') {
-            *p = '\0'; /* 元の文字列を旧文字列の直前で区切って */
-            p += strlen(str1);  /* ポインタを旧文字列の次の文字へ */
-            strcpy(tmp, p);     /* 旧文字列から後を保存 */
-            strcat(buf, str2);  /* 新文字列をその後につなぎ */
-            strcat(buf, tmp);   /* さらに残りをつなぐ */
+            *p = '\0';
+            p += strlen(str1);
+            strcpy(tmp, p);
+            strcat(buf, str2);
+            strcat(buf, tmp);
         } else {
             char *src, *dst;
             src = dst = p;
 
-            *src = '\0'; /* 元の文字列を旧文字列の直前で区切って */
-            dst += strlen(str1);  /* ポインタを旧文字列の次の文字へ */
+            *src = '\0';
+            dst += strlen(str1);
             while (*dst != '\0') {
                 *src++ = *dst++;
             }

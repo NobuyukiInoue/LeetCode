@@ -4,10 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echo",
+            "label": "LANG C Project",
             "type": "shell",
-            // "command": "echo Hello"
-            "command": "gcc -g -O0 -o Valid_Anagram.exe Valid_Anagram.c mylib.c",
+            "command": "mingw32-make.exe all",
             "problemMatcher": "$tsc", 
             "group": {
                 "kind": "build",

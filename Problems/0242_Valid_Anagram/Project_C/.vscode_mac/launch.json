@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Two_Sum_for_mac",
+            "program": "${workspaceFolder}/Valid_Anagram_for_mac",
             "args": [
                 "../testdata.txt"
             ],

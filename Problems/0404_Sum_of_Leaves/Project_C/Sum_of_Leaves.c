@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "mylib.h"
+#include "../../mylib_C/mylib.h"
 
 /* Definition for a binary tree node.*/
 struct TreeNode {
@@ -76,22 +76,22 @@ struct TreeNode *set_node(char *flds[], int flds_length, int depth, int pos)
     return node;
 }
 
+#define MAX_DEPTH   256
+#define MAX_LENGTH  1024
+
 void output_tree(struct TreeNode *node)
 {
-    char *resultStr[256];
+    char *resultStr[MAX_DEPTH];
 
-    for (int i = 0; i < 256; ++i) {
-        resultStr[i] = malloc(sizeof(char)*256);
+    for (int i = 0; i < MAX_DEPTH; ++i) {
+        resultStr[i] = malloc(sizeof(char)*MAX_LENGTH);
         resultStr[i][0] = '\0';
     }
 
     output_node(node, resultStr, 0);
 
-    for (int i = 0; i < 256 && resultStr[i][0] != '\0'; ++i)
+    for (int i = 0; i < MAX_DEPTH && resultStr[i][0] != '\0'; ++i)
         printf("%s\n", resultStr[i]);
-
-    for (int i = 256 - 1; i >= 0; --i)
-        free(resultStr[i]);
 }
 
 void output_node(struct TreeNode *node, char *resultStr[], int n)
@@ -99,7 +99,7 @@ void output_node(struct TreeNode *node, char *resultStr[], int n)
     if (node == NULL)
         return;
     
-    char val_to_str[256];
+    char val_to_str[MAX_LENGTH];
     if (resultStr[n][0] == '\0')
         sprintf(val_to_str, "(%d)", node->val);
     else
@@ -117,7 +117,6 @@ void output_node(struct TreeNode *node, char *resultStr[], int n)
 
 int loop_main(char *arg)
 {
-    int argv_length = strlen(arg);
     char *flds[1024];
 
     replace(arg, "[", "");
@@ -137,9 +136,10 @@ int loop_main(char *arg)
     printf("result = %d\n", sumOfLeftLeaves(root));
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 
-    // char* flds[flds_length] clear.
-    for (int i = flds_length - 1; i >= 0; --i)
-        free(flds[i]);
+    // char* flds[] free().
+    p_char_array_free(flds, flds_length);
+
+    return 0;
 }
 
 int main(int argc, char *argv[])

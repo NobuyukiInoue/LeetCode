@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "mylib.h"
+#include "../../mylib_C/mylib.h"
 
 /* Function prototype declaration */
 int arrayPairSum(int* nums, int numsSize);
@@ -52,9 +52,8 @@ int loop_main(char* arg)
     printf("result = %d\n", result);
     printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 
-    // char* nums1[nums1_length] clear.
-    for (int i = str_nums_Length - 1; i >= 0; --i)
-        free(str_nums[i]);
+    // char* str_nums[] free().
+    p_char_array_free(str_nums, str_nums_Length);
 
     return 0;
 }

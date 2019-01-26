@@ -4,19 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echo",
+            "label": "LANG C Project",
             "type": "shell",
-            "command": "clang",
-            "isShellCommand": true,
-            "args": [
-                "-oTwo_Sum_for_mac",
-                "Two_Sum.c",
-                "mylib.c",
-                "-g",
-                "-O0"
-                //"-m32"
-            ],
-            "showOutput": "always",
+            "command": "make all",
+            "problemMatcher": "$tsc", 
             "group": {
                 "kind": "build",
                 "isDefault": true

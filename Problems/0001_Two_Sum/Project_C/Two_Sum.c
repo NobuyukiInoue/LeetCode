@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "mylib.h"
+#include "../../mylib_C/mylib.h"
 
 /* Function prototype declaration */
 int* twoSum(int* nums, int numsSize, int target);
@@ -61,13 +61,11 @@ int loop_main(char* arg)
     // int* results clear.
     free(results);
 
-    // char* str_nums[str_nums_length] clear.
-    for (int i = str_nums_length - 1; i >= 0; --i)
-        free(str_nums[i]);
+    // char* str_nums[] free().
+    p_char_array_free(str_nums, str_nums_length);
 
-    // char* flds[flds_length] clear.
-    for (int i = flds_length - 1; i >= 0; --i)
-        free(flds[i]);
+    // char* flds[] free().
+    p_char_array_free(flds, flds_length);
 
     return 0;
 }

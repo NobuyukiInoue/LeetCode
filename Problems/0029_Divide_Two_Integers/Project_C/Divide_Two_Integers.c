@@ -4,7 +4,7 @@
 #include <limits.h>
 #include <stdbool.h>
 
-#include "mylib.h"
+#include "../../mylib_C/mylib.h"
 
 /* Function prototype declaration */
 int divide(int dividend, int divisor);
@@ -48,9 +48,8 @@ int loop_main(char* arg)
 
     printf("result = %d\n", divide(dividend, divisor));
 
-    // char* flds[flds_length] clear.
-    for (int i = flds_length - 1; i >= 0; --i)
-        free(flds[i]);
+    // char* flds[] free().
+    p_char_array_free(flds, flds_length);
 
     return 0;
 }
