@@ -2,12 +2,12 @@ using System;
 
 public class Operate_ListNode
 {
-    public ListNode set_nodes(int[] nums)
+    public ListNode set_ListNode(int[] nums)
     {
-        return set_nodes(nums, 0);
+        return set_ListNode(nums, 0);
     }
 
-    public ListNode set_nodes(int[] nums, int index)
+    public ListNode set_ListNode(int[] nums, int index)
     {
         if (nums == null)
             return null;
@@ -16,12 +16,12 @@ public class Operate_ListNode
             return null;
         
         ListNode node = new ListNode(nums[index]);
-        node.next = set_nodes(nums, index + 1);
+        node.next = set_ListNode(nums, index + 1);
 
         return node;
     }
 
-    public string output_nodes(ListNode node)
+    public string output_ListNode(ListNode node)
     {
         if (node == null)
             return "";
@@ -29,7 +29,7 @@ public class Operate_ListNode
         string resultStr = node.val.ToString();
 
         if (node.next != null)
-            resultStr += " -> " + output_nodes(node.next);
+            resultStr += " -> " + output_ListNode(node.next);
 
         return (resultStr);
     }

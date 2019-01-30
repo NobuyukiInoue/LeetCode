@@ -49,8 +49,8 @@ public class Solution
         string[] flds = args.Replace("\"", "").Replace("[", "").Replace("]", "").Trim().Split(',');
 
         Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode t = ope_t.set_node(flds, 0, 0);
-        Console.WriteLine("t = \n" + ope_t.output(t));
+        TreeNode t = ope_t.set_TreeNode(flds);
+        Console.Write("t = \n" + ope_t.output_TreeNode(t));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();

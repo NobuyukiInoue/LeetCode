@@ -67,12 +67,12 @@ public class Solution
         string[] nums2 = flds[1].Split(',');
 
         Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode t1 = ope_t.set_node(nums1, 0, 0);
-        TreeNode t2 = ope_t.set_node(nums2, 0, 0);
+        TreeNode t1 = ope_t.set_TreeNode(nums1);
+        TreeNode t2 = ope_t.set_TreeNode(nums2);
 
-        Console.WriteLine("t1 = \n" + ope_t.output(t1));
-        Console.WriteLine("t2 = \n" + ope_t.output(t2));
+        Console.Write("t1 = \n" + ope_t.output_TreeNode(t1));
         Console.WriteLine("t1 = " + ope_t.Tree2str(t1));
+        Console.Write("t2 = \n" + ope_t.output_TreeNode(t2));
         Console.WriteLine("t2 = " + ope_t.Tree2str(t2));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
@@ -81,7 +81,7 @@ public class Solution
         TreeNode result = MergeTrees(t1, t2);
         sw.Stop();
 
-        Console.WriteLine("result = \n" + ope_t.output(result));
+        Console.Write("result = \n" + ope_t.output_TreeNode(result));
         Console.WriteLine("result = " + ope_t.Tree2str(result));
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }

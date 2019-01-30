@@ -69,15 +69,15 @@ public class Solution {
         int[] nums2 = str_to_int_array(flds[1]);
 
         Operate_ListNode ope = new Operate_ListNode();
-        ListNode node = ope.set_nodes(nums1);
+        ListNode node = ope.set_ListNode(nums1);
 
-        Console.WriteLine("node = " + ope.output_nodes(node));
+        Console.WriteLine("node = " + ope.output_ListNode(node));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
         DeleteNode(node);
-        Console.WriteLine("node = " + ope.output_nodes(node));
+        Console.WriteLine("node = " + ope.output_ListNode(node));
 
         sw.Stop();
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");

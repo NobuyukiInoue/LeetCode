@@ -70,8 +70,8 @@ public class Solution {
         int[] nums = str_to_int_array(flds);
 
         Operate_ListNode ope = new Operate_ListNode();
-        ListNode head = ope.set_nodes(nums);
-        Console.WriteLine("node = " + ope.output_nodes(head));
+        ListNode head = ope.set_ListNode(nums);
+        Console.WriteLine("node = " + ope.output_ListNode(head));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();

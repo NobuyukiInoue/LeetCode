@@ -74,8 +74,9 @@ public class Solution
         string[] nums1 = flds.Split(',');
 
         Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_node(nums1, 0, 0);
-        Console.WriteLine("root = \n" + ope_t.output(root));
+        TreeNode root = ope_t.set_TreeNode(nums1);
+        Console.Write("root = \n" + ope_t.output_TreeNode(root));
+        Console.WriteLine("root = " + ope_t.Tree2str(root));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();

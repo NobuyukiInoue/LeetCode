@@ -72,8 +72,8 @@ public class Solution {
         int k = int.Parse(flds[1]);
 
         Operate_ListNode ope = new Operate_ListNode();
-        ListNode node = ope.set_nodes(nums);
-        Console.WriteLine("node = " + ope.output_nodes(node));
+        ListNode node = ope.set_ListNode(nums);
+        Console.WriteLine("node = " + ope.output_ListNode(node));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
@@ -81,7 +81,7 @@ public class Solution {
         ListNode result_node = RemoveElements(node, k);
         sw.Stop();
 
-        Console.WriteLine("Result = " + ope.output_nodes(result_node));
+        Console.WriteLine("Result = " + ope.output_ListNode(result_node));
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

@@ -56,16 +56,17 @@ public class Solution {
         string[] flds = args.Replace("\"", "").Replace("[", "").Replace("]", "").Trim().Split(',');
 
         Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_node(flds, 0, 0);
-        Console.WriteLine("node = \n" + ope_t.output(root));
+        TreeNode root = ope_t.set_TreeNode(flds);
+        Console.Write("node =\n" + ope_t.output_TreeNode(root));
+        Console.WriteLine("node = " + ope_t.Tree2str(root));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
         bool result = IsUnivalTree(root);
-        Console.WriteLine("result = " + result.ToString() );
 
         sw.Stop();
+        Console.WriteLine("result = " + result.ToString() );
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

@@ -36,8 +36,9 @@ public class Solution
         string[] root_str = flds[0].Split(',');
 
         Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode node = ope_t.set_node(root_str, 0, 0);
-        Console.WriteLine("node = " + ope_t.output(node));
+        TreeNode node = ope_t.set_TreeNode(root_str);
+        Console.Write("node = \n" + ope_t.output_TreeNode(node));
+        Console.WriteLine("node = " + ope_t.Tree2str(node));
         int sum = int.Parse(flds[1]);
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();

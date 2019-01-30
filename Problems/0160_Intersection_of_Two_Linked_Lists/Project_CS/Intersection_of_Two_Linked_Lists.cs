@@ -143,17 +143,17 @@ public class Solution {
         int[] nums2 = str_to_int_array(flds[1]);
 
         Operate_ListNode ope = new Operate_ListNode();
-        ListNode node1 = ope.set_nodes(nums1);
-        ListNode node2 = ope.set_nodes(nums2);
+        ListNode node1 = ope.set_ListNode(nums1);
+        ListNode node2 = ope.set_ListNode(nums2);
 
-        Console.WriteLine("node1 = " + ope.output_nodes(node1));
-        Console.WriteLine("node2 = " + ope.output_nodes(node2));
+        Console.WriteLine("node1 = " + ope.output_ListNode(node1));
+        Console.WriteLine("node2 = " + ope.output_ListNode(node2));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
         ListNode result_node = GetIntersectionNode(node1, node2);
-        Console.WriteLine("Result = " + ope.output_nodes(result_node));
+        Console.WriteLine("Result = " + ope.output_ListNode(result_node));
         
         sw.Stop();
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");

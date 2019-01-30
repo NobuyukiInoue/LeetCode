@@ -56,11 +56,11 @@ public class Solution
         string[] nums2 = flds[1].Split(',');
 
         Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode p = ope_t.set_node(nums1, 0, 0);
-        TreeNode q = ope_t.set_node(nums2, 0, 0);
+        TreeNode p = ope_t.set_TreeNode(nums1);
+        TreeNode q = ope_t.set_TreeNode(nums2);
 
-        Console.Write("p = \n" + ope_t.output(p));
-        Console.Write("q = \n" + ope_t.output(q));
+        Console.Write("p = \n" + ope_t.output_TreeNode(p));
+        Console.Write("q = \n" + ope_t.output_TreeNode(q));
         Console.WriteLine("p = " + ope_t.Tree2str(p));
         Console.WriteLine("q = " + ope_t.Tree2str(q));
 

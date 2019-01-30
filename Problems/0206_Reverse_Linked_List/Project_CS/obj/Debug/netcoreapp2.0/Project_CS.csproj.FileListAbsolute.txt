@@ -20,3 +20,14 @@ C:\Users\n1.inoue\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Li
 C:\Users\n1.inoue\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.AssemblyInfo.cs
 C:\Users\n1.inoue\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.dll
 C:\Users\n1.inoue\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.pdb
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.deps.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.runtimeconfig.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.runtimeconfig.dev.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.dll
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\bin\Debug\netcoreapp2.0\Project_CS.pdb
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.csprojAssemblyReference.cache
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.csproj.CoreCompileInputs.cache
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.AssemblyInfoInputs.cache
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.AssemblyInfo.cs
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.dll
+C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0206_Reverse_Linked_List\Project_CS\obj\Debug\netcoreapp2.0\Project_CS.pdb

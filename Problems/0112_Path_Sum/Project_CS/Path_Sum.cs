@@ -41,9 +41,9 @@ public class Solution {
         int sum = int.Parse(flds[1]);
 
         Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_node(nums1, 0, 0);
+        TreeNode root = ope_t.set_TreeNode(nums1);
 
-        Console.WriteLine("root = \n" + ope_t.output(root));
+        Console.Write("root = \n" + ope_t.output_TreeNode(root));
         Console.WriteLine("root = " + ope_t.Tree2str(root));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();

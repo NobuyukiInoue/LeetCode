@@ -71,10 +71,12 @@ public class Solution
         string[] nums2 = flds[1].Split(',');
 
         Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode s = ope_t.set_node(nums1, 0, 0);
-        TreeNode t = ope_t.set_node(nums2, 0, 0);
-        Console.WriteLine("s = \n" + ope_t.output(s));
-        Console.WriteLine("t = \n" + ope_t.output(t));
+        TreeNode s = ope_t.set_TreeNode(nums1);
+        TreeNode t = ope_t.set_TreeNode(nums2);
+        Console.Write("s = \n" + ope_t.output_TreeNode(s));
+        Console.WriteLine("s = " + ope_t.Tree2str(s));
+        Console.Write("t = \n" + ope_t.output_TreeNode(t));
+        Console.WriteLine("t = " + ope_t.Tree2str(t));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();

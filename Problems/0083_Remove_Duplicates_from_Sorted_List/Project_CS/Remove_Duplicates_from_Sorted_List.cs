@@ -78,8 +78,8 @@ public class Solution {
         Console.WriteLine("nums = " + output_int_array(nums));
 
     	Operate_ListNode ope = new Operate_ListNode();
-        ListNode head = ope.set_nodes(nums);
-        Console.WriteLine("head = " + ope.output_nodes(head));
+        ListNode head = ope.set_ListNode(nums);
+        Console.WriteLine("head = " + ope.output_ListNode(head));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
@@ -88,7 +88,7 @@ public class Solution {
 
         sw.Stop();
 
-        Console.WriteLine("result = " + ope.output_nodes(result_nodes));
+        Console.WriteLine("result = " + ope.output_ListNode(result_nodes));
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

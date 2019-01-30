@@ -95,14 +95,14 @@ public class Solution
         int[] nums = str_to_int_array(flds);
 
         Operate_ListNode ope = new Operate_ListNode();
-        ListNode node = ope.set_nodes(nums);
-        Console.WriteLine("node = " + ope.output_nodes(node));
+        ListNode node = ope.set_ListNode(nums);
+        Console.WriteLine("node = " + ope.output_ListNode(node));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
         ListNode result_node = ReverseList(node);
-        Console.WriteLine("Result = " + ope.output_nodes(result_node));
+        Console.WriteLine("Result = " + ope.output_ListNode(result_node));
         
         sw.Stop();
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
