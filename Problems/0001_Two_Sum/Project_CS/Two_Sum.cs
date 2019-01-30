@@ -39,6 +39,9 @@ public class Solution
 
     public int[] str_to_int_array(string s)
     {
+        if (s.Length <= 0)
+            return null;
+
         string[] flds = s.Split(',');
         int[] nums = new int[flds.Length];
 
@@ -83,6 +86,6 @@ public class Solution
         Console.WriteLine("result = " + output_int_array(result));
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

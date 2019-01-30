@@ -75,6 +75,9 @@ public class Solution {
 
     public int[] str_to_int_array(string s)
     {
+        if (s.Length <= 0)
+            return null;
+
         string[] flds = s.Split(',');
         int[] nums = new int[flds.Length];
 
@@ -104,27 +107,6 @@ public class Solution {
         return resultStr + "]";
     }
 
-    public ListNode set_nodes(int[] nums, int index)
-    {
-        if (index >= nums.Length)
-            return null;
-        
-        ListNode node = new ListNode(nums[index]);
-        node.next = set_nodes(nums, index + 1);
-
-        return node;
-    }
-
-    public string output_nodes(ListNode ll)
-    {
-        string retStr = ll.val.ToString(); 
-
-        if (ll.next != null)
-            retStr += " -> " + output_nodes(ll.next);
-
-        return (retStr);
-    }
-
     public void Main(string args)
     {
         string arg_str = args.Replace("[[","").Replace("]]","").Trim();
@@ -134,18 +116,19 @@ public class Solution {
         Console.WriteLine("num1 = " + output_int_array(num1));
         Console.WriteLine("num2 = " + output_int_array(num2));
 
-        ListNode l1 = set_nodes(num1, 0);
-        ListNode l2 = set_nodes(num2, 0);
-        Console.WriteLine("l1 = " + output_nodes(l1));
-        Console.WriteLine("l2 = " + output_nodes(l2));
+    	Operate_ListNode ope = new Operate_ListNode();
+        ListNode l1 = ope.set_nodes(num1);
+        ListNode l2 = ope.set_nodes(num2);
+        Console.WriteLine("l1 = " + ope.output_nodes(l1));
+        Console.WriteLine("l2 = " + ope.output_nodes(l2));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
         ListNode result = MergeTwoLists(l1, l2);
-        Console.WriteLine("result = " + output_nodes(result));
+        Console.WriteLine("result = " + ope.output_nodes(result));
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

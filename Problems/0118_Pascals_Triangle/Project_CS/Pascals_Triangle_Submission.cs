@@ -104,6 +104,6 @@ public class Solution2 {
         test2_Main(10);
 
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

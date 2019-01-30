@@ -124,7 +124,7 @@ public class Solution
                 results += "]";
         }
 
-        return "]" + results;
+        return results + "]";
     }
 
     public void Main(string args)

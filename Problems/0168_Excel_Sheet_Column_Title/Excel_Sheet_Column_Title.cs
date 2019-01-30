@@ -43,6 +43,6 @@ public class Solution {
         Console.WriteLine("Result = " + ConvertToTitle(int.Parse(args)).ToString());
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

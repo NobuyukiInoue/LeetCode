@@ -91,6 +91,6 @@ public class Solution {
         Console.WriteLine("result_nums = " + output_array_int(result_nums));
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

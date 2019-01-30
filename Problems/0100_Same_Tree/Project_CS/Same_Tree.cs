@@ -59,8 +59,10 @@ public class Solution
         TreeNode p = ope_t.set_node(nums1, 0, 0);
         TreeNode q = ope_t.set_node(nums2, 0, 0);
 
-        Console.WriteLine("p = \n" + ope_t.output(p));
-        Console.WriteLine("q = \n" + ope_t.output(q));
+        Console.Write("p = \n" + ope_t.output(p));
+        Console.Write("q = \n" + ope_t.output(q));
+        Console.WriteLine("p = " + ope_t.Tree2str(p));
+        Console.WriteLine("q = " + ope_t.Tree2str(q));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
@@ -68,6 +70,6 @@ public class Solution
         Console.WriteLine("result = " + IsSameTree(p, q).ToString() );
 
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

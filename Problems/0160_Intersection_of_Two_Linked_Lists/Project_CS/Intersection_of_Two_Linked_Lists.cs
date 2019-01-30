@@ -100,66 +100,62 @@ public class Solution {
 
         return null;
     }
-    
-    private ListNode set_node(string[] data)
+
+    public int[] str_to_int_array(string s)
     {
-        ListNode node, temp_node;
-        
-        if (data.Length <= 0) {
+        if (s.Length <= 0)
             return null;
+
+        string[] flds = s.Split(',');
+        int[] nums = new int[flds.Length];
+
+        if (flds.Length <= 0)
+            return nums;
+
+        for (int i = 0; i < nums.Length; ++i)
+        {
+            nums[i] = int.Parse(flds[i]);
         }
 
-        node = new ListNode(int.Parse(data[0]));
-        temp_node = node;
-
-        for (int i = 1; i < data.Length; i++) {
-            temp_node.next = new ListNode(int.Parse(data[i]));
-            temp_node = temp_node.next;
-        }
-        
-        return node;
+        return nums;
     }
-    
-    private string output_node(ListNode node)
+
+    public string output_int_array(int[] nums)
     {
-        ListNode temp_node = node;
-        string resultStr = "";
+        if (nums.Length <= 0)
+            return "";
 
-        if (node == null) {
-            return "null";
+        string resultStr = "[" +  nums[0].ToString();
+ 
+        for (int i = 1; i < nums.Length; ++i)
+        {
+            resultStr += "," + nums[i].ToString();
         }
-        
-        resultStr += temp_node.val.ToString();
-        temp_node = temp_node.next;
 
-        while (temp_node != null) {
-            resultStr += "," + temp_node.val.ToString();
-            temp_node = temp_node.next;
-        }
-        
-        return resultStr;
+        return resultStr + "]";
     }
 
     public void Main(string args)
     {
         Console.WriteLine("args = " + args );
         string[] flds = args.Replace("\"", "").Replace("[[", "").Replace("]]", "").Trim().Split("],[", StringSplitOptions.None);
-        string[] nums1 = flds[0].Split(',');
-        string[] nums2 = flds[1].Split(',');
+        int[] nums1 = str_to_int_array(flds[0]);
+        int[] nums2 = str_to_int_array(flds[1]);
 
-        ListNode node1 = set_node(nums1);
-        ListNode node2 = set_node(nums2);
+        Operate_ListNode ope = new Operate_ListNode();
+        ListNode node1 = ope.set_nodes(nums1);
+        ListNode node2 = ope.set_nodes(nums2);
 
-        Console.WriteLine("node1 = " + output_node(node1));
-        Console.WriteLine("node2 = " + output_node(node2));
+        Console.WriteLine("node1 = " + ope.output_nodes(node1));
+        Console.WriteLine("node2 = " + ope.output_nodes(node2));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
         ListNode result_node = GetIntersectionNode(node1, node2);
-        Console.WriteLine("Result = " + output_node(result_node));
+        Console.WriteLine("Result = " + ope.output_nodes(result_node));
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

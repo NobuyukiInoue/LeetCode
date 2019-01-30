@@ -116,6 +116,6 @@ public class Solution {
         Console.WriteLine("max = " + MaxPoints(p));
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

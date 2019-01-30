@@ -177,6 +177,6 @@ public class Solution
         sw.Stop();
 
         Console.WriteLine("result = " + output_all_TreeNode(result) + "\n");
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

@@ -70,6 +70,6 @@ class Program
         Console.WriteLine("nums = " + sl.output_array_int(nums));
 
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

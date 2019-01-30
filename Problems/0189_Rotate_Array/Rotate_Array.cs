@@ -53,6 +53,6 @@ public class Solution {
         Console.WriteLine("nums(result) = " + output_array_int(numbers));
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

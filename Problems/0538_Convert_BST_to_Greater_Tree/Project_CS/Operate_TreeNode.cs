@@ -71,4 +71,21 @@ public class Operate_TreeNode
 
         return outputStr;
     }
+
+    public string Tree2str(TreeNode t)
+    {
+        if (t == null)
+            return "";
+
+        string resultStr = t.val.ToString();
+
+        if (t.left == null && t.right == null)
+            return resultStr;
+
+        resultStr += "(" + Tree2str(t.left) + ")";
+        if (t.right != null)
+            resultStr += "(" + Tree2str(t.right) + ")";
+
+        return resultStr;
+    }
 }

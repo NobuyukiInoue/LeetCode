@@ -123,7 +123,7 @@ public class Solution {
         //Console.WriteLine("result = " + node.ToString());
 
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
         /*
         Console.Write("Hit Any Key");
         Console.Read();

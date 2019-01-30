@@ -79,6 +79,6 @@ public class Solution
         Console.WriteLine("sumRange(0, 5) = " + obj.SumRange(0, 5));
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

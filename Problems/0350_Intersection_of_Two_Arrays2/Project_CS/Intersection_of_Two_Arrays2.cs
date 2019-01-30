@@ -1,13 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-//Definition for singly-linked list.
-public class ListNode {
-    public int val;
-    public ListNode next;
-    public ListNode(int x) { val = x; }
-}
-
 public class Solution
 {
     public int[] Intersect(int[] nums1, int[] nums2)

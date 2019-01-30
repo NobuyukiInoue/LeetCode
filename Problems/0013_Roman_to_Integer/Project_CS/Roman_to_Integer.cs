@@ -133,6 +133,6 @@ public class Solution
         Console.WriteLine("Result = " + RomanToInt(s).ToString());
         
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }
