@@ -20,3 +20,14 @@ C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Le
 C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.AssemblyInfo.cs
 C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.dll
 C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.pdb
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.deps.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.runtimeconfig.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.runtimeconfig.dev.json
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.dll
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\bin\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.pdb
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.csprojAssemblyReference.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.csproj.CoreCompileInputs.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.AssemblyInfoInputs.cache
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.AssemblyInfo.cs
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.dll
+D:\n1.inoue\Develop-Work\LANGS\LeetCode\Problems\0429_N-ary_Tree_Level_Order_Traversal\Project_CS\obj\Debug\netcoreapp2.0\0429_N-ary_Tree_Level_Order_Traversal.pdb

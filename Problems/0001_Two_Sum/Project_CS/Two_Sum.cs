@@ -19,7 +19,7 @@ public class Solution
                 ValuesMap[nums[i]] = i;
             }
         }
-        return new int[0];    
+        return new int[0];
     }
 
     public int[] TwoSum_work(int[] nums, int target)
