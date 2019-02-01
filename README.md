@@ -10,14 +10,14 @@
 How to Build and Run for [0001 Two Sum]
 
 
-##Project for Python3
+## Project for Python3
 
-###Change Directory
+### Change Directory
 ```
 cd Problems/0001_Two_Sum/Project_Python3
 ```
 
-###Run
+### Run
 
 ```
 python Two_Sum.py ../testdata.txt
@@ -25,16 +25,16 @@ python Two_Sum.py ../testdata.txt
 
 
 
-##Project for C
+## Project for C
 
 
-###Change Directory
+### Change Directory
 
 ```
 cd Problems/0001_Two_Sum/Project_C
 ```
 
-###Build
+### Build
 
 * Windows (Minimalist GNU for Windows)
 
@@ -49,7 +49,7 @@ make all
 ```
 
 
-###Run
+### Run
 
 * Windows
 
@@ -71,22 +71,22 @@ Two_Sum_for_linux ../testdata.txt
 
 
 
-##Project for C Sharp (.NET Core 2.0 or Later)
+## Project for C Sharp (.NET Core 2.0 or Later)
 
 
-###Change Directory
+### Change Directory
 
 ```
 cd Problems/0001_Two_Sum/Project_CS
 ```
 
-###Run(dotnet) [Windows/macOS/Linux]
+### Run(dotnet) [Windows/macOS/Linux]
 
 ```
 dotnet run ../testdata.txt
 ```
 
-###Run(PowerShell) [Windows/macOS/Linux]
+### Run(PowerShell) [Windows/macOS/Linux]
 
 ```
 powershell.exe
@@ -94,16 +94,16 @@ powershell.exe
 main.ps1 TwoSum.cs ../testdata.txt
 ```
 
-##Project for Java
+## Project for Java
 
 
-###Change Directory
+### Change Directory
 
 ```
 cd Problems/0001_Two_Sum/Project_Java
 ```
 
-###Build
+### Build
 
 * Windows
 
@@ -118,24 +118,24 @@ make all
 ```
 
 
-###Run
+### Run
 
 ```
 java Main ../testdata.txt
 ```
 
-##Project for Scala
+## Project for Scala
 
 
 
 
-###Change Directory
+### Change Directory
 
 ```
 cd Problems/0001_Two_Sum/Project_Scala
 ```
 
-###Build
+### Build
 
 
 * Windows
@@ -150,7 +150,7 @@ mingw32make all
 make all
 ```
 
-###Run
+### Run
 
 ```
 scala Main ../testdata.txt
