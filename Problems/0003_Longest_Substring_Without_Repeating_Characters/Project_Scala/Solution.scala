@@ -38,4 +38,18 @@ object Solution {
         })
         resultMap.getOrElse("max", 0)
     }
+
+    def main(args:String) {
+        var s:String = args.stripLineEnd.replaceAll(" ", "").replaceAll("\"", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
+        println("s = " + s )
+ 
+        val time_start = System.currentTimeMillis
+
+        var result:Int = lengthOfLongestSubstring(s)
+
+        val time_end = System.currentTimeMillis
+
+        println("result = " + result.toString )
+        println("Execute time: " + (time_end - time_start) + " ms\n")
+    }
 }

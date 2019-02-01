@@ -1,19 +1,19 @@
 SCALAC = scalac
 SCALAC_FLAGS = 
 
-all:	Main.class Solution.class TreeNode.class
-
-Main.class:	OutputTreeNode.class Solution.class Main.scala
-	$(SCALAC) $(SCALAC_FLAGS) Main.scala
-
-Solution.class:	TreeNode.class Solution.scala
-	$(SCALAC) $(SCALAC_FLAGS) Solution.scala
+all:	TreeNode.class Operate_TreeNode.class Solution.class Main.class
 
 TreeNode.class:	TreeNode.scala
-	$(SCALAC) $(SCALAC_FLAGS) TreeNode.scala
+	$(SCALAC) $(SCALAC_FLAGS) $<
 
-OutputTreeNode.class:	OutputTreeNode.scala
-	$(SCALAC) $(SCALAC_FLAGS) OutputTreeNode.scala
+Operate_TreeNode.class:	Operate_TreeNode.scala
+	$(SCALAC) $(SCALAC_FLAGS) $<
+
+Solution.class:	Solution.scala
+	$(SCALAC) $(SCALAC_FLAGS) $<
+
+Main.class:	Main.scala
+	$(SCALAC) $(SCALAC_FLAGS) $<
 
 clean:
 	rm ./*.class

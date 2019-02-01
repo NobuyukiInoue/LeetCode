@@ -23,7 +23,7 @@ public class Solution
             else
             {
                 start++;
-            }            
+            }
         }
         return result;
     }

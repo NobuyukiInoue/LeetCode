@@ -80,7 +80,7 @@ public class Solution
         Console.WriteLine("num1 = " + output_int_array(num1));
         Console.WriteLine("num2 = " + output_int_array(num2));
 
-    	Operate_ListNode ope = new Operate_ListNode();
+        Operate_ListNode ope = new Operate_ListNode();
         ListNode l1 = ope.set_ListNode(num1);
         ListNode l2 = ope.set_ListNode(num2);
         Console.WriteLine("l1 = " + ope.output_ListNode(l1));

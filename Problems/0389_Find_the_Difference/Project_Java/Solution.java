@@ -35,4 +35,21 @@ public class Solution {
 
         return '0';
     }
+
+    public static void Main(String temp) {
+        String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
+        String s = flds[0];
+        String t = flds[1];
+
+        System.out.println("s = " + s + ", t = " + t);
+
+        long start = System.currentTimeMillis();
+
+        char result = findTheDifference(s, t);
+
+        long end = System.currentTimeMillis();
+
+        System.out.println("result = " + result);
+        System.out.println((end - start)  + "ms\n");
+    }
 }

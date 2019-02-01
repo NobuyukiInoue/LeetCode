@@ -1,16 +1,16 @@
 JAVAC =javac
 JAVAC_FLAGS =
 
-all:	Main.class mylib.class Solution.class 
+all:	Mylib.class Solution.class Main.class
 
-Main.class:	Main.java
-	$(JAVAC) $(JAVAC_FLAGS) Main.java
-
-mylib.class:	mylib.java
-	$(JAVAC) $(JAVAC_FLAGS) mylib.java
+Mylib.class:	Mylib.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
 
 Solution.class:	Solution.java
-	$(JAVAC) $(JAVAC_FLAGS) Solution.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
+
+Main.class:	Main.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
 
 clean:
 	rm ./*.class
