@@ -53,9 +53,12 @@ public class Solution {
         List<string> result = GenerateParenthesis(n);
 
         Console.WriteLine("Count = " + result.Count);
-        Console.WriteLine("result = \n" + List_to_String(result));
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
 
+        sw.Start();
+        Console.WriteLine("result = \n" + List_to_String(result));
         sw.Stop();
-        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
+
+        Console.WriteLine("List<String> to String Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

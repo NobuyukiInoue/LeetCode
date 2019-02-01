@@ -51,7 +51,12 @@ public class Solution {
         long end = System.currentTimeMillis();
 
         System.out.println("count = " + result.size());
+        System.out.println("Execute time ... " + Long.toString(end - start)  + "ms\n");
+
+        start = System.currentTimeMillis();
         System.out.println("result = \n" + list_to_String(result));
-        System.out.println((end - start)  + "ms\n");
+        end = System.currentTimeMillis();
+
+        System.out.println("List<String> to String Execute time ... " + Long.toString(end - start)  + "ms\n");
     }
 }
