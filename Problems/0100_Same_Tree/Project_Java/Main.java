@@ -21,13 +21,15 @@ public class Main {
             File file = new File(args[0]);
 
             BufferedReader br = new BufferedReader(new FileReader(file));
-            String str = br.readLine();
-
+            String line;
             Solution sl = new Solution();
-            while(str != null){
-                System.out.println(str);
-                sl.Main(str);
-                str = br.readLine();
+
+            while((line = br.readLine()) != null){
+                String trimmed_line = line.trim();
+                if (trimmed_line.equals(""))
+                    continue;
+                System.out.println(trimmed_line);
+                sl.Main(trimmed_line);
             }
 
             br.close();

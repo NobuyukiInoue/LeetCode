@@ -40,6 +40,15 @@ public class Solution {
         return outputStr;
     }
 
+    private void list_to_Console(List<String> list)
+    {
+        int listSize = list.size();
+        for (int i = 0; i < listSize; ++i)
+        {
+            System.out.println(Integer.toString(i + 1) + ":" + list.get(i));
+        }
+    }
+
     public void Main(String temp) {
         int n = Integer.parseInt(temp);
         System.out.println("n = " + Integer.toString(n));
@@ -53,10 +62,16 @@ public class Solution {
         System.out.println("count = " + result.size());
         System.out.println("Execute time ... " + Long.toString(end - start)  + "ms\n");
 
+        /*
         start = System.currentTimeMillis();
         System.out.println("result = \n" + list_to_String(result));
         end = System.currentTimeMillis();
-
         System.out.println("List<String> to String Execute time ... " + Long.toString(end - start)  + "ms\n");
+        */
+
+        start = System.currentTimeMillis();
+        list_to_Console(result);
+        end = System.currentTimeMillis();
+        System.out.println("List<String> to Console Execute time ... " + Long.toString(end - start)  + "ms\n");
     }
 }

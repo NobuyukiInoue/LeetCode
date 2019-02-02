@@ -664,30 +664,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\n1.inoue\\.nuget\\packages\\": {},
+    "C:\\Users\\sprin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0984_String_Without_AAA_or_BBB\\Project_CS\\Project_CS.csproj",
+      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0984_String_Without_AAA_or_BBB\\Project_CS\\Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "d:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0984_String_Without_AAA_or_BBB\\Project_CS\\Project_CS.csproj",
-      "packagesPath": "C:\\Users\\n1.inoue\\.nuget\\packages\\",
-      "outputPath": "d:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0984_String_Without_AAA_or_BBB\\Project_CS\\obj\\",
+      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0984_String_Without_AAA_or_BBB\\Project_CS\\Project_CS.csproj",
+      "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0984_String_Without_AAA_or_BBB\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\n1.inoue\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\sprin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

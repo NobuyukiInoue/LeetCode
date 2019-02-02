@@ -20,8 +20,11 @@ object Main {
 
         try {
             for (line <- s.getLines) {
-                println("args = " + line)
-                Solution.main(line)
+                var trimmed_line:String = line.trim
+                if (trimmed_line != "") {
+                    println("args = " + trimmed_line)
+                    Solution.main(trimmed_line)
+                }
             }
         } finally {
             s.close

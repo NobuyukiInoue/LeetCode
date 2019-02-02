@@ -41,6 +41,14 @@ public class Solution {
         return outputStr;
     }
 
+    private void List_to_Console(List<string> list)
+    {
+        for (int i = 0; i < list.Count; ++i)
+        {
+            Console.WriteLine((i + 1).ToString() + ":" + list[i]);
+        }
+    }
+
     public void Main(string args)
     {
         int n = int.Parse(args);
@@ -55,10 +63,17 @@ public class Solution {
         Console.WriteLine("Count = " + result.Count);
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms");
 
+        /*
         sw.Start();
         Console.WriteLine("result = \n" + List_to_String(result));
         sw.Stop();
-
         Console.WriteLine("List<String> to String Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
+        */
+
+        sw.Start();
+        Console.WriteLine("result = \n");
+        List_to_Console(result);
+        sw.Stop();
+        Console.WriteLine("List<String> to Console Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }
