@@ -52,8 +52,31 @@ public class Solution {
         return true;
     }
 
-    public void Main()
+    private string array_str_to_string(string[] strs)
     {
-        Console.Write(LongestCommonPrefix(new string[] {"flower", "flow", "flight"}));
+        if (strs.Length <= 0)
+            return "";
+
+        string resultStr = strs[0];
+        for (int i = 0; i < strs.Length; ++i)
+            resultStr += "," + strs[i];
+        
+        return resultStr;
+    }
+
+    public void Main(string args)
+    {
+        string[] strs = args.Replace("\"","").Replace("[","").Replace("]","").Trim().Split(',');
+
+        Console.WriteLine("strs = " + array_str_to_string(strs));
+
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
+
+        string result = LongestCommonPrefix(strs);
+        Console.WriteLine("result = " + result);
+        
+        sw.Stop();
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }
