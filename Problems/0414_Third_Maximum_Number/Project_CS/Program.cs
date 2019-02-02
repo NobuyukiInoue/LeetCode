@@ -29,7 +29,7 @@ namespace Project_CS
                 if (trimmed_line == "")
                     continue;
 
-                sl.Main(trimmed_line.Trim());
+                sl.Main(trimmed_line);
             }
 
             sr.Close();
