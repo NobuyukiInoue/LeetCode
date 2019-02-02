@@ -183,7 +183,7 @@ int loop_main(char *arg)
     printf("result = \n");
     output_tree(result);
     printf("result = %s\n", tree2str(result));
-    printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+    printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 
     // struct TreeNode* result free()
     free(result);
@@ -206,8 +206,9 @@ int loop_main(char *arg)
 
 int main(int argc, char *argv[])
 {
+#define fgets_MAX   65536
     FILE *fp;
-    char str[256];
+    char line[fgets_MAX];
 
     if (argc < 2) {
         printf("Usage %s <testdatafile>\n", argv[0]);
@@ -222,9 +223,12 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    while((fgets(str, 256, fp)) != NULL) {
-        printf("arg = %s\n", str);
-        loop_main(str);
+    while((fgets(line, fgets_MAX - 1, fp)) != NULL) {
+        trim(line);
+        if (*line == '\0')
+            continue;
+        printf("arg = %s\n", line);
+        loop_main(line);
     }
 
     fclose(fp);

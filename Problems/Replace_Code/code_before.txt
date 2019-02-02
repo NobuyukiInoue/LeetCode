@@ -1,0 +1,3 @@
+    for temp in lines:
+        print("argv[1] = %s" %temp)
+        loop_main(temp)

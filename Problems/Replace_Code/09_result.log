@@ -1,0 +1,315 @@
+PS C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\Replace_Code> .\00_replace_python_all_source.ps1 .\target_file_list.txt .\code_before.txt .\code_after.txt
+dotnet run  ..\0001_Two_Sum\Project_Python3\Two_Sum.py .\code_before.txt .\code_after.txt
+..\0001_Two_Sum\Project_Python3\Two_Sum.py was not changed.
+
+dotnet run  ..\0002_Add_Two_Number\Project_Python3\Add_Two_Number.py .\code_before.txt .\code_after.txt
+..\0002_Add_Two_Number\Project_Python3\Add_Two_Number.py was not changed.
+
+dotnet run  ..\0003_Longest_Substring_Without_Repeating_Characters\Project_Python3\Longest_Substring_Without_Repeating_Characters.py .\code_before.txt .\code_after.txt
+..\0003_Longest_Substring_Without_Repeating_Characters\Project_Python3\Longest_Substring_Without_Repeating_Characters.py was not changed.
+
+dotnet run  ..\0004_Median_of_Two_Sorted_Arrays\Project_Python3\Median_of_Two_Sorted_Arrays.py .\code_before.txt .\code_after.txt
+..\0004_Median_of_Two_Sorted_Arrays\Project_Python3\Median_of_Two_Sorted_Arrays.py was changed(overwrite).
+
+dotnet run  ..\0005_Longest_Palindromic_Substring\Project_Python3\Longest_Palindromic_Substring.py .\code_before.txt .\code_after.txt
+..\0005_Longest_Palindromic_Substring\Project_Python3\Longest_Palindromic_Substring.py was changed(overwrite).
+
+dotnet run  ..\0006_ZigZag_Conversion\Project_Python3\ZigZag_Conversion.py .\code_before.txt .\code_after.txt
+..\0006_ZigZag_Conversion\Project_Python3\ZigZag_Conversion.py was changed(overwrite).
+
+dotnet run  ..\0007_Reverse_Integer\Project_Python3\Reverse_Integer.py .\code_before.txt .\code_after.txt
+..\0007_Reverse_Integer\Project_Python3\Reverse_Integer.py was not changed.
+
+dotnet run  ..\0008_String_to_Integer\Project_Python3\String_to_Integer.py .\code_before.txt .\code_after.txt
+..\0008_String_to_Integer\Project_Python3\String_to_Integer.py was changed(overwrite).
+
+dotnet run  ..\0010_Regular_Expression_Matching\Project_Python3\Regular_Expression_Matching.py .\code_before.txt .\code_after.txt
+..\0010_Regular_Expression_Matching\Project_Python3\Regular_Expression_Matching.py was changed(overwrite).
+
+dotnet run  ..\0011_Container_With_Most_Water\Project_Python3\Container_With_Most_Water.py .\code_before.txt .\code_after.txt
+..\0011_Container_With_Most_Water\Project_Python3\Container_With_Most_Water.py was changed(overwrite).
+
+dotnet run  ..\0012_Integer_to_Roman\Project_Python3\Integer_to_Roman.py .\code_before.txt .\code_after.txt
+..\0012_Integer_to_Roman\Project_Python3\Integer_to_Roman.py was changed(overwrite).
+
+dotnet run  ..\0013_Roman_to_Integer\Project_Python3\Roman_to_Integer.py .\code_before.txt .\code_after.txt
+..\0013_Roman_to_Integer\Project_Python3\Roman_to_Integer.py was changed(overwrite).
+
+dotnet run  ..\0015_3Sum\Project_Python3\3Sum.py .\code_before.txt .\code_after.txt
+..\0015_3Sum\Project_Python3\3Sum.py was changed(overwrite).
+
+dotnet run  ..\0016_3Sum_Closet\Project_Python3\3Sum_Closet.py .\code_before.txt .\code_after.txt
+..\0016_3Sum_Closet\Project_Python3\3Sum_Closet.py was changed(overwrite).
+
+dotnet run  ..\0017_Letter_Combinations_of_a_Phone_Number\Project_Python3\Letter_Combinations_of_a_Phone_Number.py .\code_before.txt .\code_after.txt
+..\0017_Letter_Combinations_of_a_Phone_Number\Project_Python3\Letter_Combinations_of_a_Phone_Number.py was changed(overwrite).
+
+dotnet run  ..\0018_4Sum\Project_Python3\4Sum.py .\code_before.txt .\code_after.txt
+..\0018_4Sum\Project_Python3\4Sum.py was changed(overwrite).
+
+dotnet run  ..\0019_Remove_Nth_Node_From_End_of_List\Project_Python3\Remove_Nth_Node_From_End_of_List.py .\code_before.txt .\code_after.txt
+..\0019_Remove_Nth_Node_From_End_of_List\Project_Python3\Remove_Nth_Node_From_End_of_List.py was changed(overwrite).
+
+dotnet run  ..\0022_Generate_Parentheses\Project_Python3\Generate_Parentheses.py .\code_before.txt .\code_after.txt
+..\0022_Generate_Parentheses\Project_Python3\Generate_Parentheses.py was not changed.
+
+dotnet run  ..\0029_Divide_Two_Integers\project_Python3\Divide_Two_Integers.py .\code_before.txt .\code_after.txt
+..\0029_Divide_Two_Integers\project_Python3\Divide_Two_Integers.py was changed(overwrite).
+
+dotnet run  ..\0070_Climbing_Stairs\Project_Python3\Climbing_Stairs.py .\code_before.txt .\code_after.txt
+..\0070_Climbing_Stairs\Project_Python3\Climbing_Stairs.py was changed(overwrite).
+
+dotnet run  ..\0100_Same_Tree\Project_Python3\Same_Tree.py .\code_before.txt .\code_after.txt
+..\0100_Same_Tree\Project_Python3\Same_Tree.py was changed(overwrite).
+
+dotnet run  ..\0112_Path_Sum\Project_Python3\Path_Sum.py .\code_before.txt .\code_after.txt
+..\0112_Path_Sum\Project_Python3\Path_Sum.py was changed(overwrite).
+
+dotnet run  ..\0118_Pascals_Triangle\Project_Python3\Pascals_Triangle.py .\code_before.txt .\code_after.txt
+..\0118_Pascals_Triangle\Project_Python3\Pascals_Triangle.py was changed(overwrite).
+
+dotnet run  ..\0121_Best_Time_to_Buy_and_Sell_Stock\Project_Python3\Best_Time_to_Buy_and_Sell_Stock.py .\code_before.txt .\code_after.txt
+..\0121_Best_Time_to_Buy_and_Sell_Stock\Project_Python3\Best_Time_to_Buy_and_Sell_Stock.py was changed(overwrite).
+
+dotnet run  ..\0122_Best_Time_to_Buy_and_Sell_Stock2\Project_Python3\Best_Time_to_Buy_and_Sell_Stock2.py .\code_before.txt .\code_after.txt
+..\0122_Best_Time_to_Buy_and_Sell_Stock2\Project_Python3\Best_Time_to_Buy_and_Sell_Stock2.py was changed(overwrite).
+
+dotnet run  ..\0136_Single_Number\Project_Python3\Single_Number.py .\code_before.txt .\code_after.txt
+..\0136_Single_Number\Project_Python3\Single_Number.py was changed(overwrite).
+
+dotnet run  ..\0141_Linked_List_Cycle\Project_Python3\Linked_List_Cycle.py .\code_before.txt .\code_after.txt
+..\0141_Linked_List_Cycle\Project_Python3\Linked_List_Cycle.py was changed(overwrite).
+
+dotnet run  ..\0149_Max_Points_on_a_Line\Project_Python3\Max_Points_on_a_Line.py .\code_before.txt .\code_after.txt
+..\0149_Max_Points_on_a_Line\Project_Python3\Max_Points_on_a_Line.py was changed(overwrite).
+
+dotnet run  ..\0160_Intersection_of_Two_Linked_Lists\Project_Python3\Intersection_of_Two_Linked_Lists.py .\code_before.txt .\code_after.txt
+..\0160_Intersection_of_Two_Linked_Lists\Project_Python3\Intersection_of_Two_Linked_Lists.py was changed(overwrite).
+
+dotnet run  ..\0167_Two_Sum_2\Project_Python3\Two_Sum_2.py .\code_before.txt .\code_after.txt
+..\0167_Two_Sum_2\Project_Python3\Two_Sum_2.py was changed(overwrite).
+
+dotnet run  ..\0168_Excel_Sheet_Column_Title\Project_Python3\Excel_Sheet_Column_Title.py .\code_before.txt .\code_after.txt
+..\0168_Excel_Sheet_Column_Title\Project_Python3\Excel_Sheet_Column_Title.py was changed(overwrite).
+
+dotnet run  ..\0172_Factrial_Trailing_Zeros\Project_Python3\Factorial_Trailing_Zeros.py .\code_before.txt .\code_after.txt
+..\0172_Factrial_Trailing_Zeros\Project_Python3\Factorial_Trailing_Zeros.py was changed(overwrite).
+
+dotnet run  ..\0189_Rotate_Array\Project_Python3\Rotate_Array.py .\code_before.txt .\code_after.txt
+..\0189_Rotate_Array\Project_Python3\Rotate_Array.py was changed(overwrite).
+
+dotnet run  ..\0190_Reverse_Bits\Project_Python3\Reverse_Bits.py .\code_before.txt .\code_after.txt
+..\0190_Reverse_Bits\Project_Python3\Reverse_Bits.py was changed(overwrite).
+
+dotnet run  ..\0191_Number_of_1_Bits\Project_Python3\Number_of_1_Bits.py .\code_before.txt .\code_after.txt
+..\0191_Number_of_1_Bits\Project_Python3\Number_of_1_Bits.py was changed(overwrite).
+
+dotnet run  ..\0198_House_Robber\Project_Python3\House_Robber.py .\code_before.txt .\code_after.txt
+..\0198_House_Robber\Project_Python3\House_Robber.py was changed(overwrite).
+
+dotnet run  ..\0202_Happy_Number\Project_Python3\Happy_Number.py .\code_before.txt .\code_after.txt
+..\0202_Happy_Number\Project_Python3\Happy_Number.py was changed(overwrite).
+
+dotnet run  ..\0203_Remove_Linked_List_Elements\Project_Python3\Remove_Linked_List_Elements.py .\code_before.txt .\code_after.txt
+..\0203_Remove_Linked_List_Elements\Project_Python3\Remove_Linked_List_Elements.py was changed(overwrite).
+
+dotnet run  ..\0204_Count_Primes\Project_Python3\Count_Primes.py .\code_before.txt .\code_after.txt
+..\0204_Count_Primes\Project_Python3\Count_Primes.py was changed(overwrite).
+
+dotnet run  ..\0205_Isomorphic_Strings\Project_Python3\Isomorphic_Strings.py .\code_before.txt .\code_after.txt
+..\0205_Isomorphic_Strings\Project_Python3\Isomorphic_Strings.py was changed(overwrite).
+
+dotnet run  ..\0206_Reverse_Linked_List\Project_Python3\Reverse_Linked_List.py .\code_before.txt .\code_after.txt
+..\0206_Reverse_Linked_List\Project_Python3\Reverse_Linked_List.py was changed(overwrite).
+
+dotnet run  ..\0217_Contains_Duplicate\Project_Python3\Contains_Duplicate.py .\code_before.txt .\code_after.txt
+..\0217_Contains_Duplicate\Project_Python3\Contains_Duplicate.py was changed(overwrite).
+
+dotnet run  ..\0237_Delete_Node_in_a_Linked_List\Project_Python3\Delete_Node_in_a_Linked_List.py .\code_before.txt .\code_after.txt
+..\0237_Delete_Node_in_a_Linked_List\Project_Python3\Delete_Node_in_a_Linked_List.py was changed(overwrite).
+
+dotnet run  ..\0242_Valid_Anagram\Project_Python3\Valid_Anagram.py .\code_before.txt .\code_after.txt
+..\0242_Valid_Anagram\Project_Python3\Valid_Anagram.py was changed(overwrite).
+
+dotnet run  ..\0258_Add_Digits\Project_Python3\Add_Digits.py .\code_before.txt .\code_after.txt
+..\0258_Add_Digits\Project_Python3\Add_Digits.py was changed(overwrite).
+
+dotnet run  ..\0263_Ugly_Number\Project_Python3\Ugly_Number.py .\code_before.txt .\code_after.txt
+..\0263_Ugly_Number\Project_Python3\Ugly_Number.py was changed(overwrite).
+
+dotnet run  ..\0268_Missing_Number\Project_Python3\Missing_Number.py .\code_before.txt .\code_after.txt
+..\0268_Missing_Number\Project_Python3\Missing_Number.py was changed(overwrite).
+
+dotnet run  ..\0283_Move_Zeroes\Project_Python3\Move_Zeroes.py .\code_before.txt .\code_after.txt
+..\0283_Move_Zeroes\Project_Python3\Move_Zeroes.py was changed(overwrite).
+
+dotnet run  ..\0290_Word_Pattern\Project_Python3\Word_Pattern.py .\code_before.txt .\code_after.txt
+..\0290_Word_Pattern\Project_Python3\Word_Pattern.py was changed(overwrite).
+
+dotnet run  ..\0303_Range_Sum_Query\Project_Python3\Range_Sum_Query.py .\code_before.txt .\code_after.txt
+..\0303_Range_Sum_Query\Project_Python3\Range_Sum_Query.py was changed(overwrite).
+
+dotnet run  ..\0344_Reverse_String\Project_Python3\Reverse_String.py .\code_before.txt .\code_after.txt
+..\0344_Reverse_String\Project_Python3\Reverse_String.py was changed(overwrite).
+
+dotnet run  ..\0345_Reverse_Vowels_of_a_String\Project_Python3\Reverse_Vowels_of_a_string.py .\code_before.txt .\code_after.txt
+..\0345_Reverse_Vowels_of_a_String\Project_Python3\Reverse_Vowels_of_a_string.py was changed(overwrite).
+
+dotnet run  ..\0349_Intersection_of_Two_Arrays\Project_Python3\Intersection_of_Two_Arrays.py .\code_before.txt .\code_after.txt
+..\0349_Intersection_of_Two_Arrays\Project_Python3\Intersection_of_Two_Arrays.py was changed(overwrite).
+
+dotnet run  ..\0350_Intersection_of_Two_Arrays2\Project_Python3\Intersection_of_Two_Arrays2.py .\code_before.txt .\code_after.txt
+..\0350_Intersection_of_Two_Arrays2\Project_Python3\Intersection_of_Two_Arrays2.py was changed(overwrite).
+
+dotnet run  ..\0367_Valid_Perfect_Square\Project_Python3\Valid_Perfect_Square.py .\code_before.txt .\code_after.txt
+..\0367_Valid_Perfect_Square\Project_Python3\Valid_Perfect_Square.py was changed(overwrite).
+
+dotnet run  ..\0374_Guess_Number_Higher_or_Lower\Project_Python3\Guess_Number_Higher_or_Lower.py .\code_before.txt .\code_after.txt
+..\0374_Guess_Number_Higher_or_Lower\Project_Python3\Guess_Number_Higher_or_Lower.py was changed(overwrite).
+
+dotnet run  ..\0387_First_Unique_Character_in_a_String\Project_Python3\First_Unique_Charcter_in_a_String.py .\code_before.txt .\code_after.txt
+..\0387_First_Unique_Character_in_a_String\Project_Python3\First_Unique_Charcter_in_a_String.py was changed(overwrite).
+
+dotnet run  ..\0389_Find_the_Difference\Project_Python3\Find_the_Difference.py .\code_before.txt .\code_after.txt
+..\0389_Find_the_Difference\Project_Python3\Find_the_Difference.py was changed(overwrite).
+
+dotnet run  ..\0401_Binary_Watch\Project_Python3\Binary_Watch.py .\code_before.txt .\code_after.txt
+..\0401_Binary_Watch\Project_Python3\Binary_Watch.py was changed(overwrite).
+
+dotnet run  ..\0404_Sum_of_Leaves\Project_Python3\Sum_of_Leaves.py .\code_before.txt .\code_after.txt
+..\0404_Sum_of_Leaves\Project_Python3\Sum_of_Leaves.py was changed(overwrite).
+
+dotnet run  ..\0405_Convert_a_Number_to_Hexadecimal\Project_Python3\Convert_a_Number_to_Hexadecimal.py .\code_before.txt .\code_after.txt
+..\0405_Convert_a_Number_to_Hexadecimal\Project_Python3\Convert_a_Number_to_Hexadecimal.py was changed(overwrite).
+
+dotnet run  ..\0414_Third_Maximum_Number\Project_Python3\Third_Maximum_Number.py .\code_before.txt .\code_after.txt
+..\0414_Third_Maximum_Number\Project_Python3\Third_Maximum_Number.py was changed(overwrite).
+
+dotnet run  ..\0415_Add_Strings\Project_Python3\Add_Strings.py .\code_before.txt .\code_after.txt
+..\0415_Add_Strings\Project_Python3\Add_Strings.py was changed(overwrite).
+
+dotnet run  ..\0427_Construct_Quad_Tree\Project_Python3\Construct_Quad_Tree.py .\code_before.txt .\code_after.txt
+..\0427_Construct_Quad_Tree\Project_Python3\Construct_Quad_Tree.py was not changed.
+
+dotnet run  ..\0434_Number_of_Segments_in_a_String\Project_Python3\Number_of_Segments_in_a_String.py .\code_before.txt .\code_after.txt
+..\0434_Number_of_Segments_in_a_String\Project_Python3\Number_of_Segments_in_a_String.py was changed(overwrite).
+
+dotnet run  ..\0437_Path_Sum_Three\Project_Python3\Path_Sum_Three.py .\code_before.txt .\code_after.txt
+..\0437_Path_Sum_Three\Project_Python3\Path_Sum_Three.py was changed(overwrite).
+
+dotnet run  ..\0438_Find_All_Anagrams_in_a_String\Project_Python3\Find_All_Anagrams_in_a_String.py .\code_before.txt .\code_after.txt
+..\0438_Find_All_Anagrams_in_a_String\Project_Python3\Find_All_Anagrams_in_a_String.py was changed(overwrite).
+
+dotnet run  ..\0441_Arranging_Coins\Project_Python3\Arranging_Coins.py .\code_before.txt .\code_after.txt
+..\0441_Arranging_Coins\Project_Python3\Arranging_Coins.py was changed(overwrite).
+
+dotnet run  ..\0447_Number_of_Boomerangs\Project_Python3\Number_of_Boomerangs.py .\code_before.txt .\code_after.txt
+..\0447_Number_of_Boomerangs\Project_Python3\Number_of_Boomerangs.py was changed(overwrite).
+
+dotnet run  ..\0453_Minimum_Moves_to_Equal_Array_Elements\Project_Python3\Minimum_Moves_to_Equal_Array_Elements.py .\code_before.txt .\code_after.txt
+..\0453_Minimum_Moves_to_Equal_Array_Elements\Project_Python3\Minimum_Moves_to_Equal_Array_Elements.py was changed(overwrite).
+
+dotnet run  ..\0455_Assign_Cookies\Project_Python3\Assign_Cookies.py .\code_before.txt .\code_after.txt
+..\0455_Assign_Cookies\Project_Python3\Assign_Cookies.py was changed(overwrite).
+
+dotnet run  ..\0458_Poor_Pigs\Project_Python3\Poor_Pigs.py .\code_before.txt .\code_after.txt
+..\0458_Poor_Pigs\Project_Python3\Poor_Pigs.py was changed(overwrite).
+
+dotnet run  ..\0459_Repeated_Substring_Pattern\Project_Python3\Repeated_Substring_Pattern.py .\code_before.txt .\code_after.txt
+..\0459_Repeated_Substring_Pattern\Project_Python3\Repeated_Substring_Pattern.py was changed(overwrite).
+
+dotnet run  ..\0461_Hamming_Distance\Project_Python3\Hamming_Distance.py .\code_before.txt .\code_after.txt
+..\0461_Hamming_Distance\Project_Python3\Hamming_Distance.py was changed(overwrite).
+
+dotnet run  ..\0475_Heaters\Project_Python3\Heaters.py .\code_before.txt .\code_after.txt
+..\0475_Heaters\Project_Python3\Heaters.py was changed(overwrite).
+
+dotnet run  ..\0479_Largest_Palindrome_Product\Project_Python3\Largest_Palindrome_Product.py .\code_before.txt .\code_after.txt
+..\0479_Largest_Palindrome_Product\Project_Python3\Largest_Palindrome_Product.py was changed(overwrite).
+
+dotnet run  ..\0482_License_Key_Formatting\Project_Python3\License_Key_Formatting.py .\code_before.txt .\code_after.txt
+..\0482_License_Key_Formatting\Project_Python3\License_Key_Formatting.py was changed(overwrite).
+
+dotnet run  ..\0500_Keyboad_Row\Project_Python3\Keyboard_Row.py .\code_before.txt .\code_after.txt
+..\0500_Keyboad_Row\Project_Python3\Keyboard_Row.py was changed(overwrite).
+
+dotnet run  ..\0501_Find_Model_in_Binary_Seach_Tree\Project_Python3\Find_Model_in_Binary_Search_Tree.py .\code_before.txt .\code_after.txt
+..\0501_Find_Model_in_Binary_Seach_Tree\Project_Python3\Find_Model_in_Binary_Search_Tree.py was changed(overwrite).
+
+dotnet run  ..\0504_Base_7\Project_Python3\Base_7.py .\code_before.txt .\code_after.txt
+..\0504_Base_7\Project_Python3\Base_7.py was changed(overwrite).
+
+dotnet run  ..\0506_Relative_Ranks\Project_Python3\Relative_Ranks.py .\code_before.txt .\code_after.txt
+..\0506_Relative_Ranks\Project_Python3\Relative_Ranks.py was changed(overwrite).
+
+dotnet run  ..\0507_Perfect_Number\Project_Python3\Perfect_Number.py .\code_before.txt .\code_after.txt
+..\0507_Perfect_Number\Project_Python3\Perfect_Number.py was changed(overwrite).
+
+dotnet run  ..\0508_Fibonacci_Number\Project_Python3\Fibonacci.py .\code_before.txt .\code_after.txt
+..\0508_Fibonacci_Number\Project_Python3\Fibonacci.py was changed(overwrite).
+
+dotnet run  ..\0530_Minimum_Absolute_Difference_in_BST\Project_Python3\Minimum_Absolute_Difference_in_BST.py .\code_before.txt .\code_after.txt
+..\0530_Minimum_Absolute_Difference_in_BST\Project_Python3\Minimum_Absolute_Difference_in_BST.py was changed(overwrite).
+
+dotnet run  ..\0532_K-diff_Pairs_in_an_Array\Project_Python3\K-diff_Pairs_in_an_Array.py .\code_before.txt .\code_after.txt
+..\0532_K-diff_Pairs_in_an_Array\Project_Python3\K-diff_Pairs_in_an_Array.py was changed(overwrite).
+
+dotnet run  ..\0538_Convert_BST_to_Greater_Tree\Project_Python3\Convert_BST_to_Greater_Tree.py .\code_before.txt .\code_after.txt
+..\0538_Convert_BST_to_Greater_Tree\Project_Python3\Convert_BST_to_Greater_Tree.py was changed(overwrite).
+
+dotnet run  ..\0543_Diamete_of_Binary_Tree\Project_Python3\Diamete_of_Binary_Tree.py .\code_before.txt .\code_after.txt
+..\0543_Diamete_of_Binary_Tree\Project_Python3\Diamete_of_Binary_Tree.py was changed(overwrite).
+
+dotnet run  ..\0551_Student_Attendance_Record1\Project_Python3\Student_Attendance_Record1.py .\code_before.txt .\code_after.txt
+..\0551_Student_Attendance_Record1\Project_Python3\Student_Attendance_Record1.py was changed(overwrite).
+
+dotnet run  ..\0558_Quad_Tree_Intersection\Project_Python3\Quad_Tree_Intersection.py .\code_before.txt .\code_after.txt
+..\0558_Quad_Tree_Intersection\Project_Python3\Quad_Tree_Intersection.py was not changed.
+
+dotnet run  ..\0559_Maximum_Depth_of_N-ary_Tree\Project_Python3\Maximum_Depth_of_N-ary_Tree.py .\code_before.txt .\code_after.txt
+..\0559_Maximum_Depth_of_N-ary_Tree\Project_Python3\Maximum_Depth_of_N-ary_Tree.py was not changed.
+
+dotnet run  ..\0561_Array_Partition1\Project_Python3\Array_Partition1.py .\code_before.txt .\code_after.txt
+..\0561_Array_Partition1\Project_Python3\Array_Partition1.py was changed(overwrite).
+
+dotnet run  ..\0566_Reshape_the_Matrix\Project_Python3\Reshape_the_Matrix.py .\code_before.txt .\code_after.txt
+..\0566_Reshape_the_Matrix\Project_Python3\Reshape_the_Matrix.py was changed(overwrite).
+
+dotnet run  ..\0572_Subtree_of_Another_Tree\Project_Python3\Subtree_of_Another_Tree.py .\code_before.txt .\code_after.txt
+..\0572_Subtree_of_Another_Tree\Project_Python3\Subtree_of_Another_Tree.py was changed(overwrite).
+
+dotnet run  ..0605_Can_Place_Flowers\Project_Python3\Can_Place_Flowers.py .\code_before.txt .\code_after.txt
+..0605_Can_Place_Flowers\Project_Python3\Can_Place_Flowers.py not found.
+
+dotnet run  ..\0606_Construct_String_from_Binary_Tree\Project_Python3\Construct_String_from_Binary_Tree.py .\code_before.txt .\code_after.txt
+..\0606_Construct_String_from_Binary_Tree\Project_Python3\Construct_String_from_Binary_Tree.py was changed(overwrite).
+
+dotnet run  ..\0617_Merge_Two_Binary_Trees\Project_Python3\Merge_Two_Binary_Trees.py .\code_before.txt .\code_after.txt
+..\0617_Merge_Two_Binary_Trees\Project_Python3\Merge_Two_Binary_Trees.py was changed(overwrite).
+
+dotnet run  ..\0628_Maximum_Product_of_Three_Numbers\Project_Python3\Maximum_Product_of_Three_Numbers.py .\code_before.txt .\code_after.txt
+..\0628_Maximum_Product_of_Three_Numbers\Project_Python3\Maximum_Product_of_Three_Numbers.py was changed(overwrite).
+
+dotnet run  ..\0941_Valid_Mountain_Array\Project_Python3\Valid_Mountain_Array.py .\code_before.txt .\code_after.txt
+..\0941_Valid_Mountain_Array\Project_Python3\Valid_Mountain_Array.py was changed(overwrite).
+
+dotnet run  ..\0949_Largest_Time_for_Given_Digits\Project_Python3\Lagest_Time_for_Given_Digits.py .\code_before.txt .\code_after.txt
+..\0949_Largest_Time_for_Given_Digits\Project_Python3\Lagest_Time_for_Given_Digits.py was changed(overwrite).
+
+dotnet run  ..\0965_Univalued_Binary_Tree\Project_Python3\Univalued_Binary_Tree.py .\code_before.txt .\code_after.txt
+..\0965_Univalued_Binary_Tree\Project_Python3\Univalued_Binary_Tree.py was changed(overwrite).
+
+dotnet run  ..\0970_Powerful_Integers\Project_Python3\Powerful_Integers.py .\code_before.txt .\code_after.txt
+..\0970_Powerful_Integers\Project_Python3\Powerful_Integers.py was changed(overwrite).
+
+dotnet run  ..\0976_Largest_Perimeter_Triangle\Project_Python3\Largest_Perimeter_Triangle.py .\code_before.txt .\code_after.txt
+..\0976_Largest_Perimeter_Triangle\Project_Python3\Largest_Perimeter_Triangle.py was changed(overwrite).
+
+dotnet run  ..\0977_Squares_of_a_Sorted_Array\Project_Python3\Squares_of_a_Sorted_Array.py .\code_before.txt .\code_after.txt
+..\0977_Squares_of_a_Sorted_Array\Project_Python3\Squares_of_a_Sorted_Array.py was changed(overwrite).
+
+dotnet run  ..\0984_String_Without_AAA_or_BBB\Project_Python3\String_Without_AAA_or_BBB.py .\code_before.txt .\code_after.txt
+..\0984_String_Without_AAA_or_BBB\Project_Python3\String_Without_AAA_or_BBB.py was changed(overwrite).
+
+Usage: <target_file> <code_before_file> <code_after_file>
+PS C:\Users\sprin\OneDrive\Develop-works\LANGS\LeetCode\Problems\Replace_Code>

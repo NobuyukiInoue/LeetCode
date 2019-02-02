@@ -1,0 +1,6 @@
+    for temp in lines:
+        temp = temp.strip()
+        if temp == "":
+            continue
+        print("args = %s" %temp)
+        loop_main(temp)

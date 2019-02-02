@@ -58,10 +58,13 @@ def main():
     lines = testDataFile.readlines()
 
     for temp in lines:
+        temp = temp.strip()
+        if temp == "":
+            continue
         print("argv[1] = %s" %temp)
         loop_main(temp)
-    #    print("Hit Return to continue...")
-    #    input()
+    #   print("Hit Return to continue...")
+    #   input()
 
 
 def loop_main(temp):

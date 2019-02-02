@@ -1,7 +1,7 @@
 CC=gcc
 CC_FLAGS=-g -O0 -o
 
-PROJECT_NAME=calc_prime
+PROJECT_NAME=Count_Primes
 SOURCE=$(PROJECT_NAME).c
 
 MYLIB_PATH=../../mylib_C

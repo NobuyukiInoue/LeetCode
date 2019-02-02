@@ -87,6 +87,41 @@ void replace(char *buf, const char *str1, const char *str2)
     }
 }
 
+int trim(char *s)
+{
+    int i;
+    int count = 0;
+
+    if ( s == NULL ) { /* yes */
+        return -1;
+    }
+
+    if ((i = strlen(s)) <= 0) {
+        return 0;
+    }
+
+    while (i > 0 && (s[i] == '\0' || s[i] == ' ' || s[i] == '\n' || s[i] == '\r')) {
+        i--;
+        count++;
+    }
+
+    if (i == 0) {
+        s[0] = '\0';
+        return count;
+    }
+
+    s[i + 1] = '\0';
+
+    i = 0;
+    while ( s[i] != '\0' && s[i] == ' ' )
+        i++;
+
+    if (i > 0)
+        strcpy(s, &s[i]);
+
+    return i + count;
+}
+
 int str_to_int_array(char* str_nums[], int nums[], int length)
 {
     int i;
@@ -104,5 +139,5 @@ void output_int_array(int nums[], int length)
         else
             printf(",%d", nums[i]);
     }
-    printf("]\n");   
+    printf("]\n");
 }

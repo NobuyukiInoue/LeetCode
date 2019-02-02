@@ -30,11 +30,12 @@ int sumOfLeftLeaves(struct TreeNode* root)
     if (root == NULL)
         return 0;
     int sum = 0;
-    if (root->left != NULL)
+    if (root->left != NULL) {
         if (root->left->left == NULL && root->left->right == NULL)
             sum += root->left->val;
         else
             sum += sub_sumOfLeftLeaves(root->left);
+    }
     if (root->right != NULL)
         sum += sub_sumOfLeftLeaves(root->right);
     return sum;
@@ -43,11 +44,12 @@ int sumOfLeftLeaves(struct TreeNode* root)
 int sub_sumOfLeftLeaves(struct TreeNode* node)
 {
     int sum = 0;
-    if (node->left != NULL)
+    if (node->left != NULL) {
         if (node->left->left == NULL && node->left->right == NULL)
             sum = node->left->val;
         else
             sum += sub_sumOfLeftLeaves(node->left);
+    }
     if (node->right != NULL)
         sum += sub_sumOfLeftLeaves(node->right);
     return sum;
@@ -134,7 +136,7 @@ int loop_main(char *arg)
     clock_t time_end = clock();
 
     printf("result = %d\n", sumOfLeftLeaves(root));
-    printf("Execute time ... %.0f ms\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+    printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 
     // char* flds[] free().
     p_char_array_free(flds, flds_length);
@@ -144,8 +146,9 @@ int loop_main(char *arg)
 
 int main(int argc, char *argv[])
 {
+#define fgets_MAX   65536
     FILE *fp;
-    char str[256];
+    char line[fgets_MAX];
 
     if (argc < 2) {
         printf("Usage %s <testdatafile>\n", argv[0]);
@@ -160,9 +163,12 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    while((fgets(str, 256, fp)) != NULL) {
-        printf("arg = %s\n", str);
-        loop_main(str);
+    while((fgets(line, fgets_MAX - 1, fp)) != NULL) {
+        trim(line);
+        if (*line == '\0')
+            continue;
+        printf("arg = %s\n", line);
+        loop_main(line);
     }
 
     fclose(fp);

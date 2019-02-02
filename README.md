@@ -54,19 +54,19 @@ make all
 * Windows
 
 ```
-Two_Sum.exe ../testdata.txt
+./Two_Sum.exe ../testdata.txt
 ```
 
 * macOS
 
 ```
-Two_Sum_for_mac ../testdata.txt
+./Two_Sum_for_mac ../testdata.txt
 ```
 
 * Linux
 
 ```
-Two_Sum_for_linux ../testdata.txt
+./Two_Sum_for_linux ../testdata.txt
 ```
 
 

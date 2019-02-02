@@ -14,7 +14,7 @@ typedef unsigned int uint;
 
 int divide(int dividend, int divisor)
 {
-    if(divisor == 0 | (dividend  == INT_MIN && divisor == -1))
+    if(divisor == 0 || (dividend  == INT_MIN && divisor == -1))
         return INT_MAX;
     
     bool sign = (dividend > 0)^(divisor>0);
@@ -46,7 +46,7 @@ int loop_main(char* arg)
     dividend = strtol(flds[0], NULL, 10);
     divisor = strtol(flds[1], NULL, 10);
 
-    printf("result = %d\n", divide(dividend, divisor));
+    printf("result = %d\n\n", divide(dividend, divisor));
 
     // char* flds[] free().
     p_char_array_free(flds, flds_length);
@@ -56,8 +56,9 @@ int loop_main(char* arg)
 
 int main(int argc, char *argv[])
 {
+#define fgets_MAX   65536
     FILE *fp;
-    char str[256];
+    char line[fgets_MAX];
 
     if (argc < 2) {
         printf("Usage %s <testdatafile>\n", argv[0]);
@@ -72,9 +73,12 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    while((fgets(str, 256, fp)) != NULL) {
-        printf("arg = %s\n", str);
-        loop_main(str);
+    while((fgets(line, fgets_MAX - 1, fp)) != NULL) {
+        trim(line);
+        if (*line == '\0')
+            continue;
+        printf("arg = %s\n", line);
+        loop_main(line);
     }
 
     fclose(fp);

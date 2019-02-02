@@ -137,7 +137,12 @@ def main():
 
     testDataFile = open(argv[1], "r")
     lines = testDataFile.readlines()
+
     for temp in lines:
+        temp = temp.strip()
+        if temp == "":
+            continue
+        print("args = %s" %temp)
         loop_main(temp)
 
 if __name__ == "__main__":
