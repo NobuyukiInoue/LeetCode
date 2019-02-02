@@ -25,7 +25,11 @@ namespace Project_CS
 
             while ((line = sr.ReadLine()) != null)
             {
-                sl.Main(line);
+                string trimmed_line = line.Trim();
+                if (trimmed_line == "")
+                    continue;
+
+                sl.Main(trimmed_line);
             }
 
             sr.Close();
