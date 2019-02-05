@@ -1,14 +1,13 @@
 # My Submissions of LeetCode Problems.
 
-
 * LeetCode ProblemSet
 
 <https://leetcode.com/problemset/all/>
 
 
+# How to Build and Run
 
-How to Build and Run for [0001 Two Sum]
-
+Examples of How to Build and Run for 0001_Two_Sum Projects
 
 ## Project for Python3
 
@@ -22,8 +21,6 @@ cd Problems/0001_Two_Sum/Project_Python3
 ```
 python Two_Sum.py ../testdata.txt
 ```
-
-
 
 ## Project for C
 
