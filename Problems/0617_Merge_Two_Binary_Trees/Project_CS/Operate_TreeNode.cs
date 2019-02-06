@@ -23,6 +23,9 @@ public class Operate_TreeNode
         if (flds[cur_pos + pos] == "null")
             return null;
 
+        if (flds[cur_pos + pos] == "")
+            return null;
+
         try
         {
             TreeNode node = new TreeNode(int.Parse(flds[cur_pos + pos]));

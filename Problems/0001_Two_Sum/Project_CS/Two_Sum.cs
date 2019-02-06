@@ -78,14 +78,14 @@ public class Solution
         int[] nums = str_to_int_array(flds[0]);
         int target = int.Parse(flds[1]);
 
-        Console.WriteLine("nums = " + output_int_array(nums));
+        Console.WriteLine("nums = " + output_int_array(nums) + ", target = " + target.ToString());
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
         int[] result = TwoSum(nums, target);
-        Console.WriteLine("result = " + output_int_array(result));
         
         sw.Stop();
+        Console.WriteLine("result = " + output_int_array(result));
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

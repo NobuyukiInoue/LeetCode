@@ -45,6 +45,7 @@ public class Solution
 
     public void Main(string args)
     {
+        Console.WriteLine("args = " + args );
         string flds = args.Replace("\"", "").Replace("[", "").Replace("]", "").Trim();
         string[] nums = flds.Split(',');
 
