@@ -124,8 +124,6 @@ java Main ../testdata.txt
 ## Project for Scala
 
 
-
-
 ### Change Directory
 
 ```
@@ -151,4 +149,19 @@ make all
 
 ```
 scala Main ../testdata.txt
+```
+
+## Project for Go
+
+
+### Change Directory
+
+```
+cd Problems/0001_Two_Sum/Project_Go
+```
+
+### Run
+
+```
+go run main.go solution.go ../testdata.txt
 ```

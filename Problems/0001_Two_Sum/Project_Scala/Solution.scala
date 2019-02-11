@@ -46,11 +46,12 @@ object Solution {
         var temp:String = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[\\[", "").replaceFirst("\\]\\]", "")
         var flds:Array[String] = temp.split("\\],\\[")
         var nums:Array[Int] = str_to_int_array(flds(0))
-        var k:Int = flds(1).toInt
+        var target:Int = flds(1).toInt
+        println("nums = " + print_int_array(nums) + ", target = " + target)
  
         val time_start = System.currentTimeMillis
 
-        var result: Array[Int] = TwoSum(nums, k)
+        var result: Array[Int] = TwoSum(nums, target)
 
         val time_end = System.currentTimeMillis
 
