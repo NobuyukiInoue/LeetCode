@@ -26,35 +26,16 @@ func main() {
 	}
 
 	// 読み込み
-	/*
-			line := make([]byte, 65536)
-			for {
-				n, err := fp.Read(line)
-				if n == 0 {
-					break
-				}
-				if err != nil {
-					fmt.Println(err)
-					break
-				}
-
-				trimedLine := strings.Trim(string(line[:n]), " ")
-				trimedLine = strings.Trim(string(line[:n]), "\r")
-				trimedLine = strings.Trim(string(line[:n]), "\n")
-				fmt.Println(trimedLine)
-				LoopMain(trimedLine)
-		    }
-	*/
 	reader := bufio.NewReaderSize(fp, 65536)
 	for {
 		line, _, err := reader.ReadLine()
-		fmt.Printf("line = %s\n", string(line))
 		if err == io.EOF {
 			break
 		} else if err != nil {
 			panic(err)
 		}
 
+		fmt.Printf("line = %s\n", string(line))
 		LoopMain(string(line))
 	}
 }
