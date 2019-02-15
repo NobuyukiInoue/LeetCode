@@ -13,13 +13,13 @@ Examples of How to Build and Run for 0001_Two_Sum Projects
 
 ### Change Directory
 ```
-cd Problems/0001_Two_Sum/Project_Python3
+$ cd Problems/0001_Two_Sum/Project_Python3
 ```
 
 ### Run
 
 ```
-python Two_Sum.py ../testdata.txt
+$ python Two_Sum.py ../testdata.txt
 ```
 
 ## Project for C
@@ -28,7 +28,7 @@ python Two_Sum.py ../testdata.txt
 ### Change Directory
 
 ```
-cd Problems/0001_Two_Sum/Project_C
+$ cd Problems/0001_Two_Sum/Project_C
 ```
 
 ### Build
@@ -36,13 +36,13 @@ cd Problems/0001_Two_Sum/Project_C
 * Windows (Minimalist GNU for Windows)
 
 ```  
-mingw32make.exe all
+> mingw32make.exe all
 ```
 
 * macOS or Linux (gcc)
 
 ```
-make all
+$ make all
 ```
 
 
@@ -51,19 +51,19 @@ make all
 * Windows
 
 ```
-./Two_Sum.exe ../testdata.txt
+> ./Two_Sum.exe ../testdata.txt
 ```
 
 * macOS
 
 ```
-./Two_Sum_for_mac ../testdata.txt
+$ ./Two_Sum_for_mac ../testdata.txt
 ```
 
 * Linux
 
 ```
-./Two_Sum_for_linux ../testdata.txt
+$ ./Two_Sum_for_linux ../testdata.txt
 ```
 
 
@@ -74,13 +74,13 @@ make all
 ### Change Directory
 
 ```
-cd Problems/0001_Two_Sum/Project_CS
+$ cd Problems/0001_Two_Sum/Project_CS
 ```
 
 ### Run(dotnet) [Windows/macOS/Linux]
 
 ```
-dotnet run ../testdata.txt
+> dotnet run ../testdata.txt
 ```
 
 ### Run(PowerShell) [Windows/macOS/Linux]
@@ -88,7 +88,7 @@ dotnet run ../testdata.txt
 ```
 powershell.exe
 
-main.ps1 TwoSum.cs ../testdata.txt
+> main.ps1 TwoSum.cs ../testdata.txt
 ```
 
 ## Project for Java
@@ -97,7 +97,7 @@ main.ps1 TwoSum.cs ../testdata.txt
 ### Change Directory
 
 ```
-cd Problems/0001_Two_Sum/Project_Java
+$ cd Problems/0001_Two_Sum/Project_Java
 ```
 
 ### Build
@@ -105,20 +105,20 @@ cd Problems/0001_Two_Sum/Project_Java
 * Windows
 
 ```
-mingw32make all
+> mingw32make all
 ```
 
 * macOS/Linux
 
 ```
-make all
+$ make all
 ```
 
 
 ### Run
 
 ```
-java Main ../testdata.txt
+$ java Main ../testdata.txt
 ```
 
 ## Project for Scala
@@ -127,7 +127,7 @@ java Main ../testdata.txt
 ### Change Directory
 
 ```
-cd Problems/0001_Two_Sum/Project_Scala
+$ cd Problems/0001_Two_Sum/Project_Scala
 ```
 
 ### Build
@@ -136,32 +136,32 @@ cd Problems/0001_Two_Sum/Project_Scala
 * Windows
 
 ```
-mingw32make all
+> mingw32make all
 ```
 
 * macOS/Linux
 
 ```
-make all
+$ make all
 ```
 
 ### Run
 
 ```
-scala Main ../testdata.txt
+$ scala Main ../testdata.txt
 ```
 
-## Project for Go
+## Project for Golang
 
 
 ### Change Directory
 
 ```
-cd Problems/0001_Two_Sum/Project_Go
+$ cd Problems/0001_Two_Sum/Project_Go
 ```
 
 ### Run
 
 ```
-go run main.go solution.go ../testdata.txt
+$ go run main.go solution.go ../testdata.txt
 ```
