@@ -15,14 +15,34 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func isSameTree(p *TreeNode, q *TreeNode) bool {
-	if p == nil && q == nil {
-		return true
-	}
-	if p == nil || q == nil || p.Val != q.Val {
+func findTarget(root *TreeNode, k int) bool {
+	var s []int
+
+	return dfs(root, &s, k)
+}
+
+func dfs(root *TreeNode, s *[]int, k int) bool {
+	if root == nil {
 		return false
 	}
-	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+
+	if search(s, k-root.Val) >= 0 {
+		return true
+	}
+
+	*s = append(*s, root.Val)
+
+	return dfs(root.Left, s, k) || dfs(root.Right, s, k)
+}
+
+func search(s *[]int, target int) int {
+	for i, data := range *s {
+		if data == target {
+			return i
+		}
+	}
+
+	return -1
 }
 
 func str2IntArray(flds string) []int {
@@ -57,24 +77,21 @@ func LoopMain(args string) {
 	flds := strings.Split(temp, "],[")
 
 	numsStr1 := strings.Split(flds[0], ",")
-	numsStr2 := strings.Split(flds[1], ",")
+	k, _ := strconv.Atoi(flds[1])
 
 	fmt.Printf("nums1 = %s\n", numsStr1)
-	fmt.Printf("nums2 = %s\n", numsStr2)
 
-	l1 := setTreeNode(numsStr1)
-	l2 := setTreeNode(numsStr2)
-	fmt.Printf("l1 = %s", outputTreeNode(l1))
-	fmt.Printf("l1 = %s\n", Tree2str(l1))
-	fmt.Printf("l2 = %s", outputTreeNode(l2))
-	fmt.Printf("l2 = %s\n", Tree2str(l2))
+	root := setTreeNode(numsStr1)
+	fmt.Printf("root = %s", outputTreeNode(root))
+	fmt.Printf("root = %s\n", Tree2str(root))
 	fmt.Println()
 
 	timeStart := time.Now()
 
-	result := isSameTree(l1, l2)
+	result := findTarget(root, k)
 
 	timeEnd := time.Now()
 
 	fmt.Printf("result = %s\n", strconv.FormatBool(result))
-	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)}
+	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
+}
