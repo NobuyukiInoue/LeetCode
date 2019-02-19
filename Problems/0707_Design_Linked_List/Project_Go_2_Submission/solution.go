@@ -1,6 +1,6 @@
 package main
 
-import "./mylinkedlist"
+import "./mylinkedlistSubmission"
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func Hash_Main(ope []string, para []string) {
+func HashMain(ope []string, para []string) {
 	if len(ope) != len(para) {
 		return
 	}
@@ -18,7 +18,7 @@ func Hash_Main(ope []string, para []string) {
 		return
 	}
 
-	mh := new(mylinkedlist.MyLinkedList)
+	mh := new(mylinkedlistSubmission.MyLinkedList)
 
 	for i, _ := range ope {
 		// fmt.Printf("ope[%d] = %s, para[%d] = %s\n", i, ope[i], i, para[i])
@@ -28,31 +28,38 @@ func Hash_Main(ope []string, para []string) {
 			key, _ := strconv.Atoi(para[i])
 			result := mh.Get(key)
 			fmt.Printf("get[%s] = %d\n", para[i], result)
+			fmt.Printf("LinkedList[] = %s\n", mh.MyLinkedListStr())
 
 		} else if ope[i] == "addAtHead" {
+			fmt.Printf("addAtHead(%s)\n", para[i])
 			value, _ := strconv.Atoi(para[i])
 			mh.AddAtHead(value)
-			fmt.Printf("addAtHead(%s)\n", para[i])
+			fmt.Printf("LinkedList[] = %s\n", mh.MyLinkedListStr())
 
 		} else if ope[i] == "addAtTail" {
+			fmt.Printf("addAtTail(%s)\n", para[i])
 			value, _ := strconv.Atoi(para[i])
 			mh.AddAtTail(value)
-			fmt.Printf("addAtTail(%s)\n", para[i])
+			fmt.Printf("LinkedList[] = %s\n", mh.MyLinkedListStr())
 
 		} else if ope[i] == "addAtIndex" {
+			fmt.Printf("addAtIndex(%s)\n", para[i])
 			flds := strings.Split(para[i], ",")
 			index, _ := strconv.Atoi(flds[0])
 			value, _ := strconv.Atoi(flds[1])
 			mh.AddAtIndex(index, value)
-			fmt.Printf("addAtIndex(%s)\n", para[i])
+			fmt.Printf("LinkedList[] = %s\n", mh.MyLinkedListStr())
 
 		} else if ope[i] == "deleteAtIndex" {
+			fmt.Printf("deleteAtIndex[%s]\n", para[i])
 			data, _ := strconv.Atoi(para[i])
 			mh.DeleteAtIndex(data)
-			fmt.Printf("Remove[%s]\n", para[i])
+			fmt.Printf("LinkedList[] = %s\n", mh.MyLinkedListStr())
 
 		}
 	}
+
+	mh = nil
 }
 
 func LoopMain(args string) {
@@ -72,7 +79,7 @@ func LoopMain(args string) {
 
 	timeStart := time.Now()
 
-	Hash_Main(ope, para)
+	HashMain(ope, para)
 
 	timeEnd := time.Now()
 
