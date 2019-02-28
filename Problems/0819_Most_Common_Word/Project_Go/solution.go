@@ -7,13 +7,13 @@ import (
 )
 
 func mostCommonWord(paragraph string, banned []string) string {
-	targetStr := strings.Replace(paragraph, "'", "", -1)
-	targetStr = strings.Replace(targetStr, ";", "", -1)
-	targetStr = strings.Replace(targetStr, ".", "", -1)
-	targetStr = strings.Replace(targetStr, ", ", ",", -1)
+	targetStr := strings.Replace(paragraph, ", ", ",", -1)
 	targetStr = strings.Replace(targetStr, ",", " ", -1)
-	targetStr = strings.Replace(targetStr, "?", "", -1)
-	targetStr = strings.Replace(targetStr, "!", "", -1)
+
+	replaceChar := []string{"'", ";", ".", "?", "!"}
+	for _, rWord := range replaceChar {
+		targetStr = strings.Replace(targetStr, rWord, "", -1)
+	}
 
 	for _, rWord := range banned {
 		targetStr = strings.Replace(targetStr, " "+rWord, "", -1)
