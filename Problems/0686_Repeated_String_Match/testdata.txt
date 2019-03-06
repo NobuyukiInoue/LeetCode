@@ -1,0 +1,5 @@
+[["abcd"],["cdabcdab"]]
+[["abcd"],["cdabcdabcdab"]]
+[["abcabcabcabc"],["abac"]]
+[["aaaaaaaaaaaaaaaaaaaaaab"],["ba"]]
+[["abc"],["cabcabca"]]
