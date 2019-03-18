@@ -1,0 +1,4 @@
+[["MyQueue","push","push","peek","pop","empty"],[[],[1],[2],[],[],[]]]
+[["MyQueue","push","push","push","pop","empty"],[[],[1],[2],[3],[],[]]]
+[["MyQueue","push","push","push","pop","pop","empty"],[[],[1],[2],[3],[],[],[]]]
+[["MyQueue","push","push","push","pop","pop","pop","empty"],[[],[1],[2],[3],[],[],[],[]]]

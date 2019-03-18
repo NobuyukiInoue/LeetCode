@@ -12,23 +12,15 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def isSameTree(self, p, q):
-        """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
-        """
-        if (p == None) and (q == None):
-            return True
-        elif (p == None) or (q == None):
-            return False
-        if p.val == q.val:
-            if self.isSameTree(p.left, q.left):
-                return self.isSameTree(p.right, q.right)
+#    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':        
+    def lowestCommonAncestor(self, root, p, q):
+        while root:
+            if root.val > p.val and root.val > q.val:
+                root = root.left
+            elif root.val < p.val and root.val < q.val:
+                root = root.right
             else:
-                return False
-        else:
-            return False
+                return root
 
 class output_TreeNode:
     def output(self, node):
@@ -122,21 +114,24 @@ def main():
 def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
-    p = set_node(flds[0].split(","), 0, 0)
-    q = set_node(flds[1].split(","), 0, 0)
+    root = set_node(flds[0].split(","), 0, 0)
+    p = set_node(flds[1], 0, 0)
+    q = set_node(flds[2], 0, 0)
 
     ol = output_TreeNode()
-    print("node p = \n%s" %(ol.output(p)))
-    print("node q = \n%s" %(ol.output(q)))
+    print("root = \n%s" %(ol.output(root)))
+    print("root = %s\n" %ol.tree2str(root))
+    print("p = %s, q = %s" %(ol.tree2str(p), ol.tree2str(q)))
 
     time0 = time.time()
 
     sl = Solution()
-    print(sl.isSameTree(p, q))
+    result = sl.lowestCommonAncestor(root, p, q)
 
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("result = \n%s" %ol.output(result))
+    print("result = %s\n" %ol.tree2str(result))
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()
