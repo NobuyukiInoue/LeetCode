@@ -40,7 +40,7 @@ public class Solution
             return 1;
     }
     
-    public Node set_node()
+    public Node set_sample_node()
     {
         IList<Node> n1_list = new List<Node>();
         n1_list.Add(new Node(5, null));
@@ -130,10 +130,17 @@ public class Solution
     public void Main(string args)
     {
         Node root = json_text_to_Node(args.Trim());
-        //Node root = set_node();
+    //  Node root = set_sample_node();
 
         Console.WriteLine(output_node(root) + "\n");
 
+        System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+        sw.Start();
+
         int result = MaxDepth(root);
+
+        sw.Stop();
+        Console.WriteLine("result = " + result.ToString());
+        Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

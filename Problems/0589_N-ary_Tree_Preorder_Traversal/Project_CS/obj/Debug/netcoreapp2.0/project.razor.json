@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "d:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0589_N-ary_Tree_Preorder_Traversal\\Project_CS\\Project_CS.csproj",
+  "TargetFramework": "netcoreapp2.0",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}
