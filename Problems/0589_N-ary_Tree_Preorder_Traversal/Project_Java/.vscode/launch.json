@@ -12,23 +12,31 @@
             "args": 
             [
                 "../testdata.txt"
-            ]
+            ],
+            "classPaths":
+            [
+                ".",
+                "../../jackson/jackson-core-2.9.8.jar",
+                "../../jackson/jackson-databind-2.9.8.jar",
+                "../../jackson/jackson-annotations-2.9.8.jar"
+            ],
         },
         {
             "type": "java",
             "name": "Debug (Launch)-Main",
             "request": "launch",
             "mainClass": "Main",
-            "options": [
-                "-classpath",
-            //    "\"${fileDirname};.\""
-                ".;../../jackson/jackson-core-2.9.8.jar;../../jackson/jackson-databind-2.9.8.jar;../../jackson/jackson-annotations-2.9.8.jar"
-            ],
-            "externalConsole": true,
             "args": 
             [
                 "../testdata.txt"
-            ]
+            ],
+            "classPaths":
+            [
+                ".",
+                "../../jackson/jackson-core-2.9.8.jar",
+                "../../jackson/jackson-databind-2.9.8.jar",
+                "../../jackson/jackson-annotations-2.9.8.jar"
+            ],
         }
     ]
 }

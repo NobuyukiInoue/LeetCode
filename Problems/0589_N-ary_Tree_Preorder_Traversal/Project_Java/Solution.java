@@ -3,9 +3,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Solution {
 
-	public List<Integer> list = new ArrayList<>();
+    public List<Integer> list = new ArrayList<>();
 
-	public List<Integer> preorder(Node root) {
+    public List<Integer> preorder(Node root) {
         if (root == null)
             return list;
         
@@ -19,7 +19,7 @@ public class Solution {
     }
 
     /*
-	public List<Integer> preorder(Node root) {
+    public List<Integer> preorder(Node root) {
         List<Integer> list = new ArrayList<>();
 
         if (root == null)
@@ -41,17 +41,17 @@ public class Solution {
     }
     */
 
-	public String List_array_to_String(List<Integer> list) {
-		if (list.size() <= 0)
-			return "[]";
+    public String List_array_to_String(List<Integer> list) {
+        if (list.size() <= 0)
+            return "[]";
 
-		String resultStr = "[" + Integer.toString(list.get(0));
-		for (Integer i = 1; i < list.size(); i++) {
-			resultStr += "," + Integer.toString(list.get(i));
-		}
+        String resultStr = "[" + Integer.toString(list.get(0));
+        for (Integer i = 1; i < list.size(); i++) {
+            resultStr += "," + Integer.toString(list.get(i));
+        }
 
-		return resultStr + "]";
-	}
+        return resultStr + "]";
+    }
 
     public void Main(String args) {
         System.out.println("args = " + args);
@@ -66,9 +66,9 @@ public class Solution {
             System.exit(1);
         }
 
-		Operate_N_arr opn = new Operate_N_arr();
-	//	Node root = opn.set_sample_node();
-		System.out.println("root = " + opn.output_node(root));
+        Operate_N_arr opn = new Operate_N_arr();
+    //    Node root = opn.set_sample_node();
+        System.out.println("root = " + opn.output_node(root));
 
         Mylib ml = new Mylib();
 
