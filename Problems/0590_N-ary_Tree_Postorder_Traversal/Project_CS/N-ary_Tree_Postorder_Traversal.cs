@@ -25,42 +25,18 @@ public class Solution
 {
     public IList<int> list = new List<int>();
 
-    public IList<int> Preorder(Node root)
+    public IList<int> Postorder(Node root)
     {
-        if (root == null)
-            return list;
-
-        list.Add(root.val);
-        if (root.children == null)
-            return list;
-
-        foreach (var node in root.children) {
-            Preorder(node);
-        }
-
-        return list;
-    }
-
-    /*
-    public IList<int> Preorder(Node root)
-    {
-        IList<int> list = new List<int>();
-
-        if (root == null)
-            return list;
-
-        list.Add(root.val);
-        foreach (var node in root.children) {
-            IList<int> temp_list = Preorder(node);
-            for (int i = 0; i < temp_list.Count; i++)
-            {
-                list.Add(temp_list[i]);
+        if (root != null) {
+            if (root.children != null) {
+                foreach (var node in root.children) {
+                    Postorder(node);
+                }
             }
+            list.Add(root.val);
         }
-
         return list;
     }
-    */
     
     private Node json_text_to_Node(string json_text)
     {
@@ -98,7 +74,7 @@ public class Solution
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
-        IList<int> result = Preorder(root);
+        IList<int> result = Postorder(root);
 
         sw.Stop();
         Console.WriteLine("reuslt = " + ListArray_to_String(result));
