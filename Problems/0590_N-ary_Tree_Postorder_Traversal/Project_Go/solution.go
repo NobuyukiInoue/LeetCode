@@ -10,26 +10,17 @@ import (
 	"time"
 )
 
-func Preorder(root *Node) []int {
-	result := make([]int, 0)
+var result []int
 
-	if root == nil {
-		return result
-	}
-
-	result = append(result, root.val)
-
-	if root.children == nil {
-		return result
-	}
-
-	for _, node := range *root.children {
-		tempList := Preorder(&node)
-		for _, tempVal := range tempList {
-			result = append(result, tempVal)
+func PostOrder(root *Node) []int {
+	if root != nil {
+		if root.children != nil {
+			for _, node := range *root.children {
+				PostOrder(&node)
+			}
 		}
+		result = append(result, root.val)
 	}
-
 	return result
 }
 
@@ -62,7 +53,8 @@ func LoopMain(args string) {
 
 	timeStart := time.Now()
 
-	result := Preorder(root)
+	result := make([]int, 0)
+	result = PostOrder(root)
 
 	timeEnd := time.Now()
 
