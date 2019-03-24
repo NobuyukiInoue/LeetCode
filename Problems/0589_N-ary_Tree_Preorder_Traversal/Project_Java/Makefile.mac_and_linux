@@ -1,10 +1,7 @@
 JAVAC =javac
-JAVAC_FLAGS =-classpath .;../../jackson/jackson-core-2.9.8.jar;../../jackson/jackson-databind-2.9.8.jar;../../jackson/jackson-annotations-2.9.8.jar
+JAVAC_FLAGS =-classpath .:../../jackson/jackson-core-2.9.8.jar:../../jackson/jackson-databind-2.9.8.jar:../../jackson/jackson-annotations-2.9.8.jar
 
-all:	JsonUtil.class Node.class Operate_N_arr.class Mylib.class Solution.class Main.class
-
-JsonUtil.class:	JsonUtil.java
-	$(JAVAC) $(JAVAC_FLAGS) $<
+all:	Node.class Operate_N_arr.class Mylib.class Solution.class Main.class
 
 Node.class:	Node.java
 	$(JAVAC) $(JAVAC_FLAGS) $<
