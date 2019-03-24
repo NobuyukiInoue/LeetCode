@@ -35,6 +35,10 @@ func main() {
 			panic(err)
 		}
 
+		if len(line) == 0 {
+			continue
+		}
+
 		fmt.Printf("line = %s\n", string(line))
 		LoopMain(string(line))
 	}
