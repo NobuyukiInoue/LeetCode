@@ -13,7 +13,7 @@ Examples of How to Build and Run for 0001_Two_Sum Projects
 
 ### Change Directory
 ```
-$ cd Problems/0001_Two_Sum/Project_Python3
+$ cd Problems/0001_0099/0001_Two_Sum/Project_Python3
 ```
 
 ### Run
@@ -28,7 +28,7 @@ $ python Two_Sum.py ../testdata.txt
 ### Change Directory
 
 ```
-$ cd Problems/0001_Two_Sum/Project_C
+$ cd Problems/0001_0099/0001_Two_Sum/Project_C
 ```
 
 ### Build
@@ -74,7 +74,7 @@ $ ./Two_Sum_for_linux ../testdata.txt
 ### Change Directory
 
 ```
-$ cd Problems/0001_Two_Sum/Project_CS
+$ cd Problems/0001_0099/0001_Two_Sum/Project_CS
 ```
 
 ### Run(dotnet) [Windows/macOS/Linux]
@@ -97,7 +97,7 @@ powershell.exe
 ### Change Directory
 
 ```
-$ cd Problems/0001_Two_Sum/Project_Java
+$ cd Problems/0001_0099/0001_Two_Sum/Project_Java
 ```
 
 ### Build
@@ -127,7 +127,7 @@ $ java Main ../testdata.txt
 ### Change Directory
 
 ```
-$ cd Problems/0001_Two_Sum/Project_Scala
+$ cd Problems/0001_0099/0001_Two_Sum/Project_Scala
 ```
 
 ### Build
@@ -157,7 +157,7 @@ $ scala Main ../testdata.txt
 ### Change Directory
 
 ```
-$ cd Problems/0001_Two_Sum/Project_Go
+$ cd Problems/0001_0099/0001_Two_Sum/Project_Go
 ```
 
 ### Run
