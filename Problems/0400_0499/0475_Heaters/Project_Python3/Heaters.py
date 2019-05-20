@@ -44,15 +44,6 @@ class Solution:
                 radius = temp
         return radius
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -80,19 +71,21 @@ def main():
 def loop_main(temp):
     var_str = temp.replace("[[","").replace("]]","").rstrip()
     flds = var_str.split("],[")
-    houses = str_to_int_array(flds[0])
-    heaters = str_to_int_array(flds[1])
+
+    houses = [int(val) for val in flds[0].split(",")]
+    heaters = [int(val) for val in flds[1].split(",")]
+    print("houses = %s" %houses)
+    print("heaters = %s" %heaters)
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.findRadius(houses, heaters)
 
-    print("result = %s" %result)
-
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+
+    print("result = %s" %result)
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

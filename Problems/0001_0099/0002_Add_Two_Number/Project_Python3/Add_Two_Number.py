@@ -55,15 +55,6 @@ class Solution:
             curr.next = ListNode(carry)
         return dummyHead.next
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def set_nodes(nums, index):
     if index >= len(nums):
         return None
@@ -109,8 +100,8 @@ def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
 
-    num1 = str_to_int_array(flds[0])
-    num2 = str_to_int_array(flds[1])
+    num1 = [int(val) for val in flds[0].split(",")]
+    num2 = [int(val) for val in flds[1].split(",")]
     print("nums1 = %s " %num1)
     print("nums2 = %s " %num2)
 
@@ -124,9 +115,9 @@ def loop_main(temp):
     sl = Solution()
     result = sl.addTwoNumbers(l1, l2)
 
-    print("result = %s" %output_nodes(result))
-
     time1 = time.time()
+
+    print("result = %s" %output_nodes(result))
     print("Execute time ... : %f[s]" %(time1 - time0))
     print()
 

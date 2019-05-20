@@ -18,16 +18,6 @@ class Solution:
     def search2(self, nums, target):
         return -1 if target not in nums else nums.index(target)
 
-   
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -52,23 +42,22 @@ def main():
     #   print("Hit Return to continue...")
     #   input()
 
-
 def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip().split("],[")
-    nums = str_to_int_array(str_args[0])
+
+    nums = [int(n) for n in str_args[0].split(",")]
     target = int(str_args[1])
-    print("nums[] = %s, target = %d" %(nums, target))
+    print("nums = %s, target = %d" %(nums, target))
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.search(nums, target)
 
-    print("result = %s" %result)
-
     time1 = time.time()
-    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
+    print("result = %s" %result)
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

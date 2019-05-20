@@ -234,7 +234,7 @@ def json_to_QuadTree(data):
     
     return node
 
-def str_to_int_array(flds):
+def flds_to_int_array(flds):
     #grid = [[-1]*len(flds)]*len(flds)
     grid = [[-1 for j in range(len(flds))] for i in range(len(flds))]
 
@@ -242,9 +242,7 @@ def str_to_int_array(flds):
         return grid
 
     for i in range(0, len(flds)):
-        temp = flds[i].split(",")
-        temp_int = [int(n) for n in temp] 
-        grid[i] = temp_int
+        grid[i] = [int(n) for n in flds[i].split(",")]
 
     return grid
 
@@ -273,7 +271,7 @@ def main():
 def loop_main(temp):
     var_str = temp.replace("[[","").replace("]]","").rstrip()
     flds = var_str.split("],[")
-    grid = str_to_int_array(flds)
+    grid = flds_to_int_array(flds)
     print("grid = %s" %grid)
 
     time0 = time.time()

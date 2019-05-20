@@ -16,15 +16,6 @@ class Solution:
         squareA.sort()
         return squareA
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -51,18 +42,19 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("[","").replace("]","").rstrip()
-    A = str_to_int_array(flds)
+
+    A = [int(n) for n in flds.split(",")]
+    print("A = %s" %A)
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.sortedSquares(A)
-    print("result = %s" %result)
 
     time1 = time.time()
 
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("result = %s" %result)
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

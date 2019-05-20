@@ -10,20 +10,11 @@ class Solution:
         :type c: int
         :rtype: List[List[int]]
         """
-        r_pre,c_pre=len(nums),len(nums[0])
+        r_pre,c_pre = len(nums), len(nums[0])
         if r_pre*c_pre != r*c or r_pre==r and c_pre==c:
             return nums
         elements=[j for i in range(r_pre) for j in nums[i]]
-        return [elements[i:i+c] for i in range(0,r*c,c)]
-
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
+        return [elements[i:i+c] for i in range(0, r*c, c)]
 
 def main():
     argv = sys.argv
@@ -52,12 +43,10 @@ def main():
 
 def loop_main(temp):
     args_str = temp.rstrip().split("]],")
-
     nums_str = args_str[0].replace("[[", "").split("],[")
 
-    nums = []
-    for i in range(len(nums_str)):
-        nums.append(str_to_int_array(nums_str[i]))
+    nums = [[int(n) for n in target.split(",")] for target in nums_str]
+    print("nums = %s" %nums)
 
     r_and_c = args_str[1].split(",")
     r = int(r_and_c[0])

@@ -9,12 +9,6 @@ class Solution:
     def sortArrayByParity(self, A):
         return([i for i in A if i % 2 == 0] + [i for i in A if i % 2 != 0])
 
-def str_to_int_array(flds):
-    nums = [0]*len(flds)
-    for i in range(len(flds)):
-        nums[i] = int(flds[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -41,7 +35,7 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("[","").replace("]","").replace("\"","").replace(" ","").rstrip().split(",")
-    A = str_to_int_array(flds)
+    A = [int(val) for val in flds]
     
     print("A = %s" %A)
 

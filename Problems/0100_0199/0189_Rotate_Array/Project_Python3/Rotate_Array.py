@@ -19,15 +19,6 @@ class Solution:
             else:
                 nums[(i + k) % len(nums)] = temp_nums[i]
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -52,7 +43,8 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace(" ","").replace("[[","").replace("]]","").rstrip().split("],[")
-    nums = str_to_int_array(flds[0])
+
+    nums = [int(val) for val in flds[0].split(",")]
     k = int(flds[1])
     print("nums = %s, k = %s" %(nums, k))
 
@@ -60,10 +52,10 @@ def loop_main(temp):
 
     sl = Solution()
     sl.rotate(nums, k)
-    print("nums(result) = %s" %nums)
 
     time1 = time.time()
 
+    print("nums(result) = %s" %nums)
     print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":

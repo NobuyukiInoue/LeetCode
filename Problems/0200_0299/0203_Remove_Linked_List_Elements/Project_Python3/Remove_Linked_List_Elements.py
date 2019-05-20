@@ -41,11 +41,8 @@ class Solution:
 def str_to_int_array(flds):
     if len(flds) <= 0:
         return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
+    else:
+        return [int(val) for val in flds.split(",")]
 
 def set_nodes(nums, index):
     if nums == None:
@@ -93,7 +90,7 @@ def main():
     #    input()
 
 def loop_main(temp):
-    str_args = temp.replace("\"","").replace(" ","").replace("[","").replace("]","").rstrip()
+    str_args = temp.replace("\"","").replace(" ","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
 
     nums = str_to_int_array(flds[0])

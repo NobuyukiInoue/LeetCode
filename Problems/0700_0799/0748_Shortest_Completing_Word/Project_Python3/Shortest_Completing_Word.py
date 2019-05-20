@@ -38,15 +38,6 @@ class Solution:
         c2.subtract(counter1)
         return all(map(lambda x: x >= 0,c2.values()))    
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -83,9 +74,9 @@ def loop_main(temp):
     sl = Solution()
     result = sl.shortestCompletingWord(licensePlate, words)
 
-    print("result = %s" %result)
-
     time1 = time.time()
+
+    print("result = %s" %result)
     print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":

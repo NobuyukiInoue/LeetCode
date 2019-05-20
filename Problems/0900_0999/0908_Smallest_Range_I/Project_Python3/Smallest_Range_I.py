@@ -23,17 +23,7 @@ class Solution:
         if difference <= 2*K:
             return 0
         else:
-            return difference - 2*K  
-
-
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
+            return difference - 2*K
 
 def main():
     argv = sys.argv
@@ -62,9 +52,8 @@ def main():
 def loop_main(temp):
     flds = temp.replace("[[","").replace("]]","").replace("\"","").replace(" ","").rstrip().split("],[")
 
-    A = str_to_int_array(flds[0])
+    A = [int(n) for n in flds[0].split(",")]
     K = int(flds[1])
-
     print("A = %s, K = %d" %(A, K))
 
     time0 = time.time()
@@ -75,8 +64,7 @@ def loop_main(temp):
     time1 = time.time()
 
     print("result = %d" %result)
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

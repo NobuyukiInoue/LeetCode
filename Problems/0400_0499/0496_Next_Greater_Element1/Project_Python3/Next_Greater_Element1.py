@@ -25,15 +25,6 @@ class Solution:
                 result.append(-1)
         return result
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -60,9 +51,9 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("\"","").replace(" ","").replace("[[","").replace("]]","").rstrip().split("],[")
-    list1 = str_to_int_array(flds[0])
-    list2 = str_to_int_array(flds[1])
 
+    list1 = [int(val) for val in flds[0].split(",")]
+    list2 = [int(val) for val in flds[1].split(",")]
     print("list1 = %s" %list1)
     print("list2 = %s" %list2)
 

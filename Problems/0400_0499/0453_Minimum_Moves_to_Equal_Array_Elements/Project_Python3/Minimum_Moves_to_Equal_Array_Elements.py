@@ -21,23 +21,6 @@ class Solution:
                 max = nums[i]
         return max
 
-
-def str_to_int_array(flds):
-    nums = [0]*len(flds)
-
-    if len(flds) <= 0:
-        return None
-    for i in range(0, len(flds)):
-        nums[i] = int(flds[i])
-
-    return nums
-
-def print_array(nums):
-    resultStr = "[" + str(nums[0])
-    for i in range(1, len(nums)):
-        resultStr += "," + str(nums[i])
-    return resultStr + "]"
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -63,21 +46,20 @@ def main():
     #    input()
 
 def loop_main(temp):
-    var_str = temp.replace("[","").replace("]","").rstrip()
-    flds = var_str.split(",")
-    nums = str_to_int_array(flds)
-    print("%s" %(print_array(nums)))
+    flds = temp.replace("[","").replace("]","").rstrip()
+
+    nums = [int(val) for val in flds.split(",")]
+    print("%s" %nums)
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.minMoves(nums)
 
-    print("result = %d" %result)
-
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+
+    print("result = %d" %result)
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

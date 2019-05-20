@@ -24,15 +24,6 @@ class Solution:
         even, odd = [a for a in A if not a % 2], [a for a in A if a % 2]
         return [even.pop() if not i % 2 else odd.pop() for i in range(len(A))]
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -60,8 +51,7 @@ def main():
 def loop_main(temp):
     flds = temp.replace("[","").replace("]","").replace("\"","").replace(" ","").rstrip()
 
-    A = str_to_int_array(flds)
-
+    A = [int(n) for n in flds.split(",")]
     print("A = %s" %A)
 
     time0 = time.time()
@@ -72,8 +62,7 @@ def loop_main(temp):
     time1 = time.time()
 
     print("result = %s" %result)
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

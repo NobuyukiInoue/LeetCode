@@ -22,15 +22,6 @@ class Solution:
             output.append("".join(op))
         return output
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -58,6 +49,7 @@ def main():
 
 def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip().split("],[")
+
     words = str_args[0].split(",")
     maxwidth = int(str_args[1])
     print("words[] = %s, maxwidth = %d" %(words, maxwidth))
@@ -67,9 +59,9 @@ def loop_main(temp):
     sl = Solution()
     result = sl.fullJustify(words, maxwidth)
 
-    print("result = %s" %result)
-
     time1 = time.time()
+
+    print("result = %s" %result)
     print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":

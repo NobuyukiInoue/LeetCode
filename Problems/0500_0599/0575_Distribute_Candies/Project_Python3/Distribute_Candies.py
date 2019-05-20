@@ -10,15 +10,6 @@ class Solution:
     def distributeCandies(self, candies):
         return int(min(len(candies) / 2, len(set(candies))))
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -45,7 +36,9 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("[","").replace("]","").rstrip()
-    candies = str_to_int_array(flds)
+
+    candies = [int(n) for n in flds.split(",")]
+    print("candies = %s" %candies)
 
     time0 = time.time()
 

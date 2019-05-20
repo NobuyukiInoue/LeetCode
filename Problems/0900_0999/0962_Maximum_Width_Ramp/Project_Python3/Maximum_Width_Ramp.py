@@ -19,15 +19,6 @@ class Solution:
                 res = max(res, j - i)
         return res
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -55,8 +46,7 @@ def main():
 def loop_main(temp):
     flds = temp.replace("[","").replace("]","").replace("\"","").replace(" ","").rstrip()
 
-    A = str_to_int_array(flds)
-
+    A = [int(n) for n in flds.split(",")]
     print("A = %s" %A)
 
     time0 = time.time()
@@ -67,8 +57,7 @@ def loop_main(temp):
     time1 = time.time()
 
     print("result = %d" %result)
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

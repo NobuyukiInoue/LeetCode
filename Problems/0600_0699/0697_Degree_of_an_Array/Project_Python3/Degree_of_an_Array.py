@@ -27,15 +27,6 @@ class Solution:
             shortest_len = min(shortest_len,temp)
         return shortest_len
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -62,7 +53,8 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("\"","").replace(" ","").replace("[","").replace("]","").rstrip()
-    nums = str_to_int_array(flds)
+
+    nums = [int(n) for n in flds.split(",")]
     print("nums = %s\n" %nums)
 
     time0 = time.time()
@@ -71,6 +63,7 @@ def loop_main(temp):
     result = sl.findShortestSubArray(nums)
 
     time1 = time.time()
+
     print("result = %s" %result)
     print("Execute time ... : %f[s]\n" %(time1 - time0))
 

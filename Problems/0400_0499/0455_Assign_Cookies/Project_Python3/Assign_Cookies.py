@@ -38,16 +38,6 @@ class Solution:
             cookie += 1
         return child
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -75,21 +65,21 @@ def main():
 def loop_main(temp):
     var_str = temp.replace("[[","").replace("]]","").rstrip()
     flds = var_str.split("],[")
-    g = str_to_int_array(flds[0])
-    s = str_to_int_array(flds[1])
-    print("g[] = %s" %g)
-    print("s[] = %s" %s)
+
+    g = [int(val) for val in flds[0].split(",")]
+    s = [int(val) for val in flds[1].split(",")]
+    print("g = %s" %g)
+    print("s = %s" %s)
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.findContentChildren(g, s)
 
-    print("result = %s" %result)
-
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+
+    print("result = %s" %result)
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

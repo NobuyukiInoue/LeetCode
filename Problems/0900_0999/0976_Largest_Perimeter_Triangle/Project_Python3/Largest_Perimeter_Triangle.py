@@ -16,15 +16,6 @@ class Solution:
                 return A[i] + A[i - 1] + A[i - 2]
         return 0
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -50,17 +41,18 @@ def main():
     #    input()
 
 def loop_main(temp):
-    flds = temp.replace("[","").replace("]","").rstrip()
-    A = str_to_int_array(flds)
+    flds = temp.replace("[","").replace("]","").rstrip().split(",")
+    A = [int(val) for val in flds]
+    print("A = %s" %A)
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.largestPerimeter(A)
-    print("result = %s" %result)
 
     time1 = time.time()
 
+    print("result = %s" %result)
     print("Execute time ... : %f[s]" %(time1 - time0))
     print()
 

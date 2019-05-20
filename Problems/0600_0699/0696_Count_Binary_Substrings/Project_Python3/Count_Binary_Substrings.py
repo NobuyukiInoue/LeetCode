@@ -46,15 +46,6 @@ class Solution:
                 result += 1
         return result
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -89,6 +80,7 @@ def loop_main(temp):
     result = sl.countBinarySubstrings(s)
 
     time1 = time.time()
+
     print("result = %s" %result)
     print("Execute time ... : %f[s]\n" %(time1 - time0))
 

@@ -664,30 +664,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sprin\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/yuza/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0009_Palindrome\\Project_CS\\Project_CS.csproj",
+      "projectUniqueName": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0001_0099/0009_Palindrome/Project_CS/Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0009_Palindrome\\Project_CS\\Project_CS.csproj",
-      "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0009_Palindrome\\Project_CS\\obj\\",
+      "projectPath": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0001_0099/0009_Palindrome/Project_CS/Project_CS.csproj",
+      "packagesPath": "/Users/yuza/.nuget/packages/",
+      "outputPath": "/Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/0001_0099/0009_Palindrome/Project_CS/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\sprin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/yuza/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

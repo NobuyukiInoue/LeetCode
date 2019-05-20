@@ -21,15 +21,6 @@ class Solution:
 
         return result
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -54,23 +45,23 @@ def main():
     #    print("Hit Return to continue...")
     #    input()
 
-
 def loop_main(temp):
     flds = temp.replace("\"","").replace("[[","").replace("]]","").rstrip().split("],[")
-    nums1 = str_to_int_array(flds[0])
-    nums2 = str_to_int_array(flds[1])
+
+    nums1 = [int(val) for val in flds[0].split(",")]
+    nums2 = [int(val) for val in flds[1].split(",")]
+    print("nums1 = %s, nums2 = %s" %(nums1, nums2))
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.findMedianSortedArrays(nums1, nums2)
 
-    print("result = %s" %result)
-
     time1 = time.time()
+
+    print("result = %s" %result)
     print("Execute time ... : %f[s]" %(time1 - time0))
     print()
-
 
 if __name__ == "__main__":
     main()

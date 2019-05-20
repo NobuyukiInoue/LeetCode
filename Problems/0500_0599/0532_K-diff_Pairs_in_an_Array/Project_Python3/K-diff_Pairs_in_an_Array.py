@@ -52,17 +52,6 @@ class Solution:
             pre_num_j = -sys.maxsize
         return count
 
-def str_to_int_array(flds):
-    data = flds.split(",")
-    nums = [0]*len(data)
-
-    if (len(data) <= 0):
-        return []
-    for i in range((len(data))):
-        nums[i] = int(data[i])
-
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -89,19 +78,20 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").rstrip().split("],[")
-    nums = str_to_int_array(flds[0])
+
+    nums = [int(n) for n in flds[0].split(",")]
     k = int(flds[1])
+    print("nums = %s, k = %d" %(nums, k))
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.findPairs(nums, k)
 
-    print("result = %d" %result)
-
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+
+    print("result = %d" %result)
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

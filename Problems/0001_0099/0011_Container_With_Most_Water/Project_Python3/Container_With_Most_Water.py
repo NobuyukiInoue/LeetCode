@@ -49,12 +49,6 @@ class Solution:
                     # print("i = %d, j = %d, area = %d" %(i, j, area))
         return max_area
 
-def str_to_int_array(flds):
-    nums = [0]*len(flds)
-    for i in range(len(flds)):
-        nums[i] = int(flds[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -81,16 +75,18 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("[","").replace("]","").rstrip().split(",")
-    height = str_to_int_array(flds)
+
+    height = [int(val) for val in flds]
+    print("height = %s" %height)
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.maxArea(height)
 
-    print("result = %d" %result)
-
     time1 = time.time()
+
+    print("result = %d" %result)
     print("Execute time ... : %f[s]" %(time1 - time0))
     print()
 

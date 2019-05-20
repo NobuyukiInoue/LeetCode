@@ -23,15 +23,6 @@ class Solution:
 
         return head
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def set_nodes(nums, index):
     if nums == None:
         return None
@@ -78,7 +69,8 @@ def main():
 
 def loop_main(temp):
     str_args = temp.replace("\"","").replace("[","").replace("]","").rstrip()
-    nums = str_to_int_array(str_args)
+
+    nums = [int(val) for val in str_args.split(",")]
     print("nums = %s " %nums)
 
     head = set_nodes(nums, 0)
@@ -90,6 +82,7 @@ def loop_main(temp):
     result = sl.swapPairs(head)
 
     time1 = time.time()
+
     print("result = %s" %output_nodes(result))
     print("Execute time ... : %f[s]\n" %(time1 - time0))
 

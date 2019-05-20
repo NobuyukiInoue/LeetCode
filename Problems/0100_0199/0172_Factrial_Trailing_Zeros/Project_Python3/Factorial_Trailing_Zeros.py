@@ -42,21 +42,6 @@ class Solution:
                 return count
         return count
 
-def array_str_to_int(numbersStr):
-    numbers = [0]*len(numbersStr)
-    for i in range(len(numbersStr)):
-        numbers[i] = int(numbersStr[i])
-    return numbers
-
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -83,6 +68,7 @@ def main():
 
 def loop_main(temp):
     str_args = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+
     n = int(str_args)
     print("n = %s" %n)
 
@@ -92,6 +78,7 @@ def loop_main(temp):
     result = sl.trailingZeroes(n)
 
     time1 = time.time()
+
     print("result = %s" %result)
     print("Execute time ... : %f[s]\n" %(time1 - time0))
 

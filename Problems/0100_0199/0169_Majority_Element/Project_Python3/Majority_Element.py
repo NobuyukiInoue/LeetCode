@@ -35,15 +35,6 @@ class Solution:
                 max_key = key
         return max_key
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -70,15 +61,17 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("\"","").replace(" ","").replace("[","").replace("]","").rstrip()
-    nums = str_to_int_array(flds)
 
+    nums = [int(val) for val in flds.split(",")]
     print("nums = %s" %nums)
+
     time0 = time.time()
 
     sl = Solution()
     result = sl.majorityElement(nums)
 
     time1 = time.time()
+
     print("result = %d" %result)
     print("Execute time ... : %f[s]\n" %(time1 - time0))
 

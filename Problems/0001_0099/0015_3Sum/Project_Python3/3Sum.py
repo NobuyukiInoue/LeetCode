@@ -47,12 +47,6 @@ class Solution:
                         results.append(temp_arr)    
         return results
 
-def str_to_int_array(flds):
-    nums = [0]*len(flds)
-    for i in range(len(flds)):
-        nums[i] = int(flds[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -79,16 +73,18 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("[","").replace("]","").rstrip().split(",")
-    nums = str_to_int_array(flds)
+
+    nums = [int(val) for val in flds]
+    print("nums = %s" %nums)
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.threeSum(nums)
 
-    print("result = %s" %result)
-
     time1 = time.time()
+
+    print("result = %s" %result)
     print("Execute time ... : %f[s]" %(time1 - time0))
     print()
 

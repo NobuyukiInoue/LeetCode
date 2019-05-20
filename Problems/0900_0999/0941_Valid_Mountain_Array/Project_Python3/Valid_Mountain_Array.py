@@ -42,12 +42,6 @@ class Solution:
         else:
             return False
 
-def str_to_int_array(flds):
-    nums = [0]*len(flds)
-    for i in range(len(flds)):
-        nums[i] = int(flds[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -73,19 +67,18 @@ def main():
     #    input()
 
 def loop_main(temp):
-    flds = temp.replace("[","").replace("]","").rstrip().split(",")
-    A = str_to_int_array(flds)
+    flds = temp.replace("[","").replace("]","").rstrip()
 
+    A = [int(n) for n in flds.split(",")]
     time0 = time.time()
 
     sl = Solution()
     result = sl.validMountainArray(A)
 
-    print("result = %s" %result)
-
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+
+    print("result = %s" %result)
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

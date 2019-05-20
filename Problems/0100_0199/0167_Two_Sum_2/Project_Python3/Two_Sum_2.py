@@ -65,21 +65,6 @@ class Solution:
                 else:
                     r = mid - 1
 
-def array_str_to_int(numbersStr):
-    numbers = [0]*len(numbersStr)
-    for i in range(len(numbersStr)):
-        numbers[i] = int(numbersStr[i])
-    return numbers
-
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -107,21 +92,20 @@ def main():
 
 def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip().split("],[")
-    numbers = str_to_int_array(str_args[0])
+
+    numbers = [int(val) for val in str_args[0].split(",")]
     target = int(str_args[1])
-    print("nums[] = %s, target = %d" %(numbers, target))
+    print("nums = %s, target = %d" %(numbers, target))
 
     time0 = time.time()
 
     sl = Solution()
     result = sl.twoSum3(numbers, target)
 
-    print("result = %s" %result)
-
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
 
+    print("result = %s" %result)
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

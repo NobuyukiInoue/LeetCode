@@ -19,15 +19,6 @@ class Solution:
                 max = prices[i] - min
         return max
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -54,7 +45,9 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
-    prices = str_to_int_array(flds)
+
+    prices = [int(val) for val in flds.split(",")]
+    print("prices = %s" %prices)
 
     time0 = time.time()
 

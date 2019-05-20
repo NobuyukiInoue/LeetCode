@@ -3,15 +3,6 @@ import sys
 import time
 import mylinkedlist_work
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    temp = flds.split(",")
-    nums = [0]*len(temp)
-    for i in range(len(temp)):
-        nums[i] = int(temp[i])
-    return nums
-
 def Hash_Loop(ope, para):
     if len(ope) <= 0 or len(para) <= 0:
         return
