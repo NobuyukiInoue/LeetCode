@@ -1,0 +1,5 @@
+["a","b","c","a","c","c"]
+["aa","bb","ab","ba"]
+["abc","acb","bac","bca","cab","cba"]
+["abcd","cdab","adcb","cbad"]
+
