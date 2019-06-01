@@ -2,75 +2,119 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
 )
 
-func robotSim3(commands []int, obstacles [][]int) int {
-	// 3612ms
-	directions := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
-
-	x, y, direction, maxDistSquare := 0, 0, 1, 0
-	for i, _ := range commands {
-		if commands[i] == -2 {
-			direction--
-			if direction < 0 {
-				direction += 4
-			}
-		} else if commands[i] == -1 {
-			direction++
-			direction %= 4
-		} else {
-			step := 0
-			Hit := false
-			for step < commands[i] {
-				for _, val := range obstacles {
-					if val[0] == x+directions[direction][0] {
-						if val[1] == y+directions[direction][1] {
-							Hit = true
-							break
-						}
-					}
-				}
-				if Hit {
-					break
-				}
-
-				x += directions[direction][0]
-				y += directions[direction][1]
-				step++
-			}
-		}
-		maxDistSquare = max(maxDistSquare, x*x+y*y)
-	}
-
-	return maxDistSquare
-}
-
 func robotSim(commands []int, obstacles [][]int) int {
-	// 1716ms
+	// 88ms
 	directions := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
 
+	max := 30000
+	obs := make([][]int, max-(-max)+1)
+
+	for i, _ := range obs {
+		obs[i] = make([]int, 0)
+	}
+
+	for i, _ := range obstacles {
+		obs[obstacles[i][0]+max+1] = append(obs[obstacles[i][0]+max+1], obstacles[i][1])
+	}
+
+	/*
+		for _, t_obs := range obs {
+			sort.Slice(t_obs, func(i, j int) bool {
+				return t_obs[i] < t_obs[j]
+			})
+		}
+	*/
+
 	x, y, direction, maxDistSquare := 0, 0, 1, 0
-	for i, _ := range commands {
-		if commands[i] == -2 {
+	for _, cmd := range commands {
+		if cmd == -2 {
 			direction--
 			if direction < 0 {
 				direction += 4
 			}
-		} else if commands[i] == -1 {
+		} else if cmd == -1 {
 			direction++
 			direction %= 4
 		} else {
-			step := 0
-			for step < commands[i] {
-				if positionHit(obstacles, x+directions[direction][0], y+directions[direction][1]) {
+			for step := 0; step < cmd; step++ {
+				nextX := x + directions[direction][0]
+				nextY := y + directions[direction][1]
+				if positionHit2(&obs[nextX+max+1], nextY) {
 					break
 				}
-				x += directions[direction][0]
-				y += directions[direction][1]
-				step++
+				x, y = nextX, nextY
+			}
+		}
+		maxDistSquare = max2(maxDistSquare, x*x+y*y)
+	}
+	return maxDistSquare
+}
+
+func positionHit2(obs *[]int, y int) bool {
+	for _, val := range *obs {
+		if val == y {
+			return true
+		}
+	}
+	return false
+}
+
+/*
+func positionHit2(obs *[]int, y int) bool {
+	for _, val := range *obs {
+		if val < y {
+			continue
+		} else if val == y {
+			return true
+		} else {
+			return false
+		}
+	}
+	return false
+}
+*/
+
+func max2(a int, b int) int {
+	if a > b {
+		return a
+	} else {
+		return b
+	}
+}
+
+func robotSim_old(commands []int, obstacles [][]int) int {
+	// 1108ms
+	directions := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
+
+	// sort obstacles
+	sort.Slice(obstacles, func(i, j int) bool {
+		return obstacles[i][0] < obstacles[j][0]
+	})
+
+	x, y, direction, maxDistSquare := 0, 0, 1, 0
+	for _, cmd := range commands {
+		if cmd == -2 {
+			direction--
+			if direction < 0 {
+				direction += 4
+			}
+		} else if cmd == -1 {
+			direction++
+			direction %= 4
+		} else {
+			for step := 0; step < cmd; step++ {
+				nextX := x + directions[direction][0]
+				nextY := y + directions[direction][1]
+				if positionHit(&obstacles, nextX, nextY) {
+					break
+				}
+				x, y = nextX, nextY
 			}
 		}
 		maxDistSquare = max(maxDistSquare, x*x+y*y)
@@ -79,12 +123,14 @@ func robotSim(commands []int, obstacles [][]int) int {
 	return maxDistSquare
 }
 
-func positionHit(obstacles [][]int, x int, y int) bool {
-	for _, val := range obstacles {
-		if val[0] == x {
-			if val[1] == y {
-				return true
-			}
+func positionHit(obstacles *[][]int, x int, y int) bool {
+	for _, val := range *obstacles {
+		if val[0] < x {
+			continue
+		} else if val[0] == x && val[1] == y {
+			return true
+		} else if val[0] > x {
+			return false
 		}
 	}
 	return false
