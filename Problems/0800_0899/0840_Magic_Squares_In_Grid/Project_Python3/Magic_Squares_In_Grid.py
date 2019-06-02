@@ -37,15 +37,10 @@ def main():
     #    input()
 
 def loop_main(temp):
-    flds = temp.replace("[[","").replace("]]","").replace("\"","").replace(" ","").rstrip().split("],[")
+    str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
+    flds = str_args.split("],[")
 
-    grid = [0]*len(flds)
-    for i in range(len(flds)):
-        pt = flds[i].split(",")
-        grid[i] = [0]*len(pt)
-        for j in range(len(pt)):
-            grid[i][j] = int(pt[j])
-    
+    grid = [[int(col) for col in data.split(",")] for data in flds]
     print("grid = %s" %grid)
 
     time0 = time.time()
