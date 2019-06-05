@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "../../mylib_C/mylib.h"
+#include "../../../mylib_C/mylib.h"
 
 /* Definition for a binary tree node.*/
 struct TreeNode {

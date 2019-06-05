@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "../../mylib_C/mylib.h"
+#include "../../../mylib_C/mylib.h"
 
 /* Function prototype declaration */
 double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size);

@@ -18,6 +18,23 @@ int loop_main(char* arg);
 
 int** generate(int numRows, int** columnSizes)
 {
+    int** returnArray = (int**)malloc(sizeof(int*)*numRows);
+    *columnSizes = (int*)malloc(sizeof(int)*numRows);
+    for (int i = 0; i < numRows; i++) {
+        (*columnSizes)[i] = i + 1;
+        returnArray[i] = (int*)malloc(sizeof(int)*(i+1));
+        returnArray[i][0] = 1;
+        returnArray[i][i] = 1;
+        for (int j = 1; j < i; j++) {
+            returnArray[i][j] = returnArray[i - 1][j] + returnArray[i - 1][j - 1];
+        }
+    }
+    return returnArray;
+}
+
+/*
+int** generate(int numRows, int** columnSizes)
+{
     int **data;
     int i;
 
@@ -68,6 +85,7 @@ int* calc_next(int* data, int data_length)
 
     return result;
 }
+*/
 
 void print_data(int *data, int size)
 {

@@ -4,7 +4,7 @@
 #include <limits.h>
 #include <stdbool.h>
 
-#include "../../mylib_C/mylib.h"
+#include "../../../mylib_C/mylib.h"
 
 /* Function prototype declaration */
 int divide(int dividend, int divisor);

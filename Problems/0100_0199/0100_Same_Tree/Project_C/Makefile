@@ -4,7 +4,7 @@ CC_FLAGS=-g -O0 -o
 PROJECT_NAME=Same_Tree
 SOURCE=$(PROJECT_NAME).c
 
-MYLIB_PATH=../../mylib_C
+MYLIB_PATH=../../../mylib_C
 MYLIB_NAME=mylib.c
 
 ifeq ($(OS),Windows_NT)

@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "../../mylib_C/mylib.h"
+#include "../../../mylib_C/mylib.h"
 
 /* Function prototype declaration */
 int countPrimes(int n);
