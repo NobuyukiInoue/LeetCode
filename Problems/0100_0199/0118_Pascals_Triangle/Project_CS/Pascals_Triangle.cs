@@ -2,91 +2,85 @@ using System;
 using System.Collections.Generic;
 
 public class Solution {
+/*
+    public IList<IList<int>> Generate(int numRows) {
+        IList<IList<int>> result = new List<IList<int>>();
+        for(int i = 1; i <= numRows; i++){
+            IList<int> singleLine = new List<int>();
+            for(int j = 1; j <= i; j++)
+                singleLine.Add(j == 1 || j == i ? 1 : result[i - 2][j - 2] + result[i - 2][j - 1]);
+            result.Add(singleLine);
+        }
+        return result;
+    }
+*/
     public IList<IList<int>> Generate(int numRows)
     {
-        IList<IList<int>> result_list;
-    //    result_list = new IList<IList<int>>();
-    //    result_list = new IList<int>();
-        IList<int> data1 = new IList<int>();
-        data1.Add(1);
+        int i, j;
+        IList<IList<int>> rows = new List<IList<int>>();
 
-        IList<int> data2 = new IList<int>();
-        data2.Add(1);
-        data2.Add(1);
+        IList<int>[] tempList = new List<int>[numRows];
+        for (i = 0; i < numRows; i++)
+        {
+            tempList[i] = new List<int>();
+        }
 
-        result_list.Add(data1);
-        result_list.Add(data2);
+        if (numRows <= 0)
+            return rows;
 
-        return result_list;
-    }
+        tempList[0].Add(1);
+        rows.Add(tempList[0]);
+        if (numRows <= 1)
+            return rows;
 
-    private int[] calc_next(int[] data)
-    {
-        int[] result = new int[data.Length + 1];
+        tempList[1].Add(1);
+        tempList[1].Add(1);
+        rows.Add(tempList[1]);
 
-        result[0] = 1;
-        result[result.Length - 1] = 1;
-
-        int i;
-        for(i = 1; i < result.Length / 2; ++i) {
-            if ( i - 1 >= 0) {
-                result[i] = data[i - 1] + data[i];
-                result[result.Length - 1 - i] = data[data.Length - 1 - i + 1] + data[data.Length - 1 - i];
+        for (i = 2; i < numRows; i++) {
+            tempList[i].Add(1);
+            for (j = 1; j < i; j++) {
+                tempList[i].Add(rows[i - 1][j] + rows[i - 1][j - 1]);
             }
+            tempList[i].Add(1);
+            rows.Add(tempList[i]);
+        }
+        return rows;
+    }
+
+    public string output_IList_array(IList<IList<int>> flds)
+    {
+        string results = "";
+        if (flds.Count <= 0)
+            return results;
+        
+        results = "[";
+        for (int i = 0; i < flds.Count; ++i)
+        {
+            results += "[" + flds[i][0].ToString();
+            for (int n = 1; n < flds[i].Count; ++n)
+                results += ", " + flds[i][n].ToString();
+            if (i < flds.Count - 1)
+                results += "],";
+            else
+                results += "]";
         }
 
-        if (result.Length % 2 == 1)
-            result[i] =  data[i - 1] + data[i];
-
-        return result;
-    }
-
-    private void test_Main()
-    {
-        calc_next(new int[] {1});
-        calc_next(new int[] {1,1});
-        calc_next(new int[] {1,2,1});
-        calc_next(new int[] {1,3,3,1});
-        calc_next(new int[] {1,4,6,4,1});
-    }
-
-    private void test2_Main(int num)
-    {
-        int[] current_data = new int[] {1};
-        int[] next_data;
-        for (int i = 0; i <= num; ++i) {
-            next_data = calc_next(current_data);
-            Console.WriteLine("result[" + i.ToString() + "] = " + output_array(next_data));
-            current_data = next_data;
-        }
-    }
-
-    private string output_array(int[] data)
-    {
-        if (data.Length == 0)
-            return "";
-
-        string result = data[0].ToString();
-        for (int i = 1; i < data.Length; ++i)
-            result += "," + data[i].ToString();
-
-        return result;
+        return results + "]";
     }
 
     public void Main(string args)
     {
         Console.WriteLine("args = " + args);
-        int num = int.Parse(args);
+
+        int numRows = int.Parse(args);
+        Console.WriteLine("numRows = " + numRows.ToString());
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
-        /*
-        Ilist<List<int>> results_array = new IList(num);
-        */
-
-    //    test_Main();
-        test2_Main(10);
+        IList<IList<int>> result = Generate(numRows);
+        Console.WriteLine("result = " + output_IList_array(result));
 
         sw.Stop();
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");

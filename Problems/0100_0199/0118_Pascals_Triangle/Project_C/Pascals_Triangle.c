@@ -1,11 +1,14 @@
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
+#include "../../../mylib_C/mylib.h"
+
+int** generate(int numRows, int** columnSizes);
 int* calc_next(int* data, int data_length);
 void print_data(int *data, int size);
-void test_Main(int num);
-void test_Main2(int num);
+int loop_main(char* arg);
 
 /**
  * Return an array of arrays.
@@ -19,7 +22,7 @@ int** generate(int numRows, int** columnSizes)
     int i;
 
     data = (int **)malloc(numRows*sizeof(int *));
-    *columnSizes = (int *)malloc(numRows*sizeof(int ));
+    *columnSizes = (int *)malloc(numRows*sizeof(int));
 
     for (i = 0; i < numRows; ++i) {
         data[i] = (int *)malloc( (i + 1) * sizeof(int) );
@@ -79,48 +82,71 @@ void print_data(int *data, int size)
     printf("\n");
 }
 
-void test_Main(int num)
+int loop_main(char* arg)
 {
-    int **data;
-    int i;
+    int argv_length = strlen(arg);
+    char* flds[2];
+    char* str_nums[256];
+    int nums[256];
 
-    data = (int **)malloc(num*sizeof(int **));
+    replace(arg, "[", "");
+    replace(arg, "]", "");
+    replace(arg, "\n", "");
 
-    for (i = 0; i < num; ++i) {
-        data[i] = (int *)malloc( (i + 1) * sizeof(int) );
-    }
+    // int nums[] size check.
+    int numRows = atoi(arg);
+    printf("numRows = %d\n", numRows);
 
-    data[0][0] = 1;
+    clock_t time_start = clock();
 
-    for (i = 0; i < num; ++i)
-        data[i + 1] = calc_next(data[i], i + 1);
-
-    for (i = 0; i < num; ++i) {
-        printf("data[%d] = ", i);
-        print_data(data[i], i + 1);
-    }
-}
-
-void test_Main2(int num)
-{
     int **columnsSizes;
     int **result;
+    result = generate(numRows, columnsSizes);
 
-    result = generate(num, columnsSizes);
+    clock_t time_end = clock();
 
-    for (int i = 0; i < num; ++i) {
+    // result print.
+    for (int i = 0; i < numRows; ++i) {
         printf("columnsSizes[%d] = %d, result[%d] = ", i, *columnsSizes[i], i);
         print_data(result[i], *columnsSizes[i]);
     }
 
+    printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // int** result clear.
+    free(result);
+
+    return 0;
 }
 
-void main(int argc, char *args[])
+int main(int argc, char* argv[])
 {
-    printf("============= test_Main() ==============\n");
-    test_Main(10);
+    #define fgets_MAX   65536
 
-    printf("============= test_Main2() ==============\n");
-    test_Main2(10);
+    FILE *fp;
+    char line[fgets_MAX];
+
+    if (argc < 2) {
+        printf("Usage %s <testdatafile>\n", argv[0]);
+        return -1;
+    }
+
+    // File Open
+    fp = fopen(argv[1], "r");
+
+    if (fp == NULL) {
+        printf("%s Open Failed...\n", argv[1]);
+        return -1;
+    }
+
+    while((fgets(line, fgets_MAX - 1, fp)) != NULL) {
+        trim(line);
+        if (*line == '\0')
+            continue;
+        printf("arg = %s\n", line);
+        loop_main(line);
+    }
+
+    fclose(fp);
+    return 0;
 }
-
