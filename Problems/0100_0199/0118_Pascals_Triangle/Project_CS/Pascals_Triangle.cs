@@ -72,8 +72,8 @@ public class Solution {
     public void Main(string args)
     {
         Console.WriteLine("args = " + args);
-
-        int numRows = int.Parse(args);
+        String flds = args.Replace("[", "").Replace("]", "");
+        int numRows = int.Parse(flds);
         Console.WriteLine("numRows = " + numRows.ToString());
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();

@@ -19,22 +19,22 @@ public class Solution {
     }
 
     public String longestWord(String[] words) {
-        TrieNode root = new TrieNode ();
+        TrieNode root = new TrieNode();
         root.word = "-";
         for (String word : words)
             root.insert (word);
-        return dfs (root, "");
+        return dfs(root, "");
     }
 
     String dfs (TrieNode node, String accum) {
-        if (node == null || node.word.length () == 0)
+        if (node == null || node.word.length() == 0)
             return accum;
         String res = "";
         if (!node.word.equals ("-"))
             accum = node.word;
         for (TrieNode child : node.links) {
             String curRes = dfs (child, accum);
-            if (curRes.length () > res.length () || (curRes.length () == res.length () && curRes.compareTo (res) < 0))
+            if (curRes.length() > res.length() || (curRes.length() == res.length() && curRes.compareTo(res) < 0))
                 res = curRes;
         }
         return res;

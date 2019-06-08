@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0949_Largest_Time_for_Given_Digits\\Project_CS\\Project_CS.csproj",
+      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0900_0999\\0949_Largest_Time_for_Given_Digits\\Project_CS\\Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0949_Largest_Time_for_Given_Digits\\Project_CS\\Project_CS.csproj",
+      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0900_0999\\0949_Largest_Time_for_Given_Digits\\Project_CS\\Project_CS.csproj",
       "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0949_Largest_Time_for_Given_Digits\\Project_CS\\obj\\",
+      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0900_0999\\0949_Largest_Time_for_Given_Digits\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

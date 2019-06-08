@@ -515,10 +515,11 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
-      "sha512": "VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
+      "sha512": "CCf4NjmDOoise7FAij2VPuHIgKKsu696vkTwhOkPVQfLsTmB2WLFfQ4yeO5Udtk8FD636UBMx6Y9eovzJKT76A==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.0.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
@@ -664,30 +665,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\n1.inoue\\.nuget\\packages\\": {},
+    "C:\\Users\\sprin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0104_Maximum_Depth_of_Binary_Tree\\Project_CS\\Project_CS.csproj",
+      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0100_0199\\0104_Maximum_Depth_of_Binary_Tree\\Project_CS\\Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0104_Maximum_Depth_of_Binary_Tree\\Project_CS\\Project_CS.csproj",
-      "packagesPath": "C:\\Users\\n1.inoue\\.nuget\\packages\\",
-      "outputPath": "D:\\n1.inoue\\Develop-Work\\LANGS\\LeetCode\\Problems\\0104_Maximum_Depth_of_Binary_Tree\\Project_CS\\obj\\",
+      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0100_0199\\0104_Maximum_Depth_of_Binary_Tree\\Project_CS\\Project_CS.csproj",
+      "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0100_0199\\0104_Maximum_Depth_of_Binary_Tree\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\n1.inoue\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\sprin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

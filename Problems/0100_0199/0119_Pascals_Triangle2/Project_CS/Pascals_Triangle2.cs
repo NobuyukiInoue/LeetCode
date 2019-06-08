@@ -45,8 +45,8 @@ public class Solution {
     public void Main(string args)
     {
         Console.WriteLine("args = " + args);
-
-        int rowIndex = int.Parse(args);
+        String flds = args.Replace("[", "").Replace("]", "");
+        int rowIndex = int.Parse(flds);
         Console.WriteLine("rowIndex = " + rowIndex.ToString());
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();

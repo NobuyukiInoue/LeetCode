@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func rotatedDigits2(N int) int {
+func rotatedDigits(N int) int {
 	// 4ms
 	count := 0
 	for num := 0; num <= N; num++ {

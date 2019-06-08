@@ -671,11 +671,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0590_N-ary_Tree_Postorder_Traversal\\Project_CS\\Project_CS.csproj",
+      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0500_0599\\0590_N-ary_Tree_Postorder_Traversal\\Project_CS\\Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0590_N-ary_Tree_Postorder_Traversal\\Project_CS\\Project_CS.csproj",
+      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0500_0599\\0590_N-ary_Tree_Postorder_Traversal\\Project_CS\\Project_CS.csproj",
       "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0590_N-ary_Tree_Postorder_Traversal\\Project_CS\\obj\\",
+      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\LeetCode\\Problems\\0500_0599\\0590_N-ary_Tree_Postorder_Traversal\\Project_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

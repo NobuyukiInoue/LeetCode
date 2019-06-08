@@ -1,10 +1,4 @@
-//import java.awt.List;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
-
-import com.sun.xml.internal.fastinfoset.util.StringArray;
+import java.util.*;
 
 public class Solution {
     public List<String> fullJustify(String[] words, int maxWidth) {
