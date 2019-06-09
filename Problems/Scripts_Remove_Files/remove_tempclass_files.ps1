@@ -5,9 +5,12 @@ $RemoveFiles="*`$*.class"
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
 $LogFile="removeList_$Now.log"
 
-$list=Get-ChildItem $targetPath\$TargetProject -Recurse | Select-String -Pattern ":"
+$list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
 
 foreach ($currentLine in $list) {
+    $currentLine=[String]$currentLine
+    $currentLine=$currentLine.Replace("`n", "")
+
     if ($currentLine -eq "") {
         continue
     }

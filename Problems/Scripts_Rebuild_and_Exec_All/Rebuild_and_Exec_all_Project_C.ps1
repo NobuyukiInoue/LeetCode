@@ -1,22 +1,28 @@
 $TargetPath=".."
-$TargetProject=".\Project_C"
+$TargetProject="Project_C"
+
 $MakeCommand="mingw32-make.exe"
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
-$LogFile="execList_$Now.log"
+$LogFile="${TargetProject}_${Now}.log"
 
 $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
-$currentPath=Get-Location
+$StartPath=Get-Location
 
 foreach ($currentLine in $list) {
+    $currentLine=[String]$currentLine
+    $currentLine=$currentLine.Replace("`n", "")
+
     if ($currentLine -eq "") {
         continue
     }
 
-    ## Write-Host $currentLine
-    & cd $currentLine
-    Get-Location
-    & $MakeCommand
+    Write-Output ${currentLine} | Out-File ${StartPath}\${LogFile} -Append -Encoding Default
+
+    Set-Location -Path ${currentLine}
+    $resultPath=Get-Location
+    Write-Host $resultPath
+    $MakeCommand
 
     $exeFiles=Get-ChildItem -Name *.exe
     foreach ($current_exe in $exeFiles) {
@@ -24,9 +30,11 @@ foreach ($currentLine in $list) {
         if ($current_exe -eq "") {
             continue
         }
-        Write-Host "./$current_exe ../testdata.txt"
-        & ./$current_exe ../testdata.txt
+
+        Write-Host "##==== Execute ====###"
+        $ExecCmd="./$current_exe ../testdata.txt"
+        invoke-expression $ExecCmd
     }
 }
 
-Set-Location $currentPath
+Set-Location $StartPath
