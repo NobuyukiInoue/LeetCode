@@ -1,5 +1,5 @@
-$TargetPath="~\OneDrive\Develop-works\LANGS\LeetCode\Problems"
-$TargetProject=".\Project_Go"
+$TargetPath=".."
+$TargetProject=".\Project_CS"
 $MakeCommand=""
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
@@ -13,12 +13,12 @@ foreach ($currentLine in $list) {
         continue
     }
 
-    Write-Host $currentLine
+    ## Write-Host $currentLine
     & cd $currentLine
     Get-Location
     # & $MakeCommand
 
-    & ./go_run.ps1
+    & dotnet run ../testdata.txt
 }
 
 Set-Location $currentPath

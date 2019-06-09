@@ -1,4 +1,4 @@
-$TargetPath="~\OneDrive\Develop-works\LANGS\LeetCode\Problems"
+$TargetPath=".."
 $TargetProject=".\Project_Python3"
 $MakeCommand=""
 

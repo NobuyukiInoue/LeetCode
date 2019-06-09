@@ -1,5 +1,5 @@
-$TargetPath="~\OneDrive\Develop-works\LANGS\LeetCode\Problems"
-$TargetProject=".\Project_C"
+$TargetPath=".."
+$TargetProject=".\Project_Java"
 $MakeCommand="mingw32-make.exe"
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
@@ -13,20 +13,12 @@ foreach ($currentLine in $list) {
         continue
     }
 
-    Write-Host $currentLine
+    ## Write-Host $currentLine
     & cd $currentLine
     Get-Location
     & $MakeCommand
 
-    $exeFiles=Get-ChildItem -Name *.exe
-    foreach ($current_exe in $exeFiles) {
-        Write-Host $current_exe
-        if ($current_exe -eq "") {
-            continue
-        }
-        Write-Host "./$current_exe ../testdata.txt"
-        & ./$current_exe ../testdata.txt
-    }
+    & java Main ../testdata.txt
 }
 
 Set-Location $currentPath

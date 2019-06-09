@@ -1,6 +1,6 @@
-$TargetPath="~\OneDrive\Develop-works\LANGS\LeetCode\Problems"
-$TargetProject=".\Project_CS"
-$MakeCommand=""
+$TargetPath=".."
+$TargetProject=".\Project_Scala"
+$MakeCommand="mingw32-make.exe"
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
 $LogFile="execList_$Now.log"
@@ -13,12 +13,12 @@ foreach ($currentLine in $list) {
         continue
     }
 
-    Write-Host $currentLine
+    ## Write-Host $currentLine
     & cd $currentLine
     Get-Location
-    # & $MakeCommand
+    & $MakeCommand
 
-    & dotnet run ../testdata.txt
+    & scala Main ../testdata.txt
 }
 
 Set-Location $currentPath
