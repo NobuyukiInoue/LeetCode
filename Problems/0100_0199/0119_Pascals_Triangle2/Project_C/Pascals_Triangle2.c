@@ -5,38 +5,31 @@
 
 #include "../../../mylib_C/mylib.h"
 
-//int** generate(int numRows, int** columnSizes);
-int** generate(int numRows, int* returnSize, int** returnColumnSizes);
+int* getRow(int rowIndex, int* returnSize);
 
 void print_data(int *data, int size);
 int loop_main(char* arg);
 
 /**
- * Return an array of arrays.
- * The sizes of the arrays are returned as *columnSizes array.
- * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
+ * Note: The returned array must be malloced, assume caller calls free().
  */
 
-
-//int** generate(int numRows, int** columnSizes)
-int** generate(int numRows, int* returnSize, int** returnColumnSizes)
+int* getRow(int rowIndex, int* returnSize)
 {
-    int** returnArray = (int**)malloc(sizeof(int*)*numRows);
-    *returnColumnSizes = (int*)malloc(sizeof(int)*numRows);
-    for (int i = 0; i < numRows; i++) {
-        (*returnColumnSizes)[i] = i + 1;
-        returnArray[i] = (int*)malloc(sizeof(int)*(i+1));
+    int** returnArray = (int**)malloc(sizeof(int*)*(rowIndex + 1));
+    for (int i = 0; i < rowIndex + 1; i++) {
+        returnArray[i] = (int*)malloc(sizeof(int)*(i + 1));
         returnArray[i][0] = 1;
         returnArray[i][i] = 1;
         for (int j = 1; j < i; j++) {
             returnArray[i][j] = returnArray[i - 1][j] + returnArray[i - 1][j - 1];
         }
     }
-    *returnSize = numRows;
-    return returnArray;
+    *returnSize = rowIndex + 1;
+    return returnArray[rowIndex];
 }
 
-void print_data(int *data, int size)
+void print_data2(int *data, int size)
 {
     if (size <= 0)
         return;
@@ -61,26 +54,22 @@ int loop_main(char* arg)
     replace(arg, "\n", "");
 
     // int nums[] size check.
-    int numRows = atoi(arg);
-    printf("numRows = %d\n", numRows);
+    int rowIndex = atoi(arg);
+    printf("rowIndex = %d\n", rowIndex);
 
     clock_t time_start = clock();
 
     int *returnSize;
-    int **returnColumnSizes;
-    int **result;
+    int *result;
 
 //  returnSize = (int*)malloc(sizeof(int));
-    returnColumnSizes = (int **)malloc(numRows*sizeof(int *));
-    result = generate(numRows, returnSize, returnColumnSizes);
+    result = getRow(rowIndex, returnSize);
 
     clock_t time_end = clock();
 
     // result print.
-    for (int i = 0; i < numRows; ++i) {
-        printf("returnColumnSizes[%d] = %d, result[%d] = ", i, (*returnColumnSizes)[i], i);
-        print_data(result[i], (*returnColumnSizes)[i]);
-    }
+    printf("result = ");
+    print_data2(result, *returnSize);
 
     printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 
