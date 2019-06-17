@@ -7,31 +7,18 @@ import (
 	"time"
 )
 
-func bitwiseComplement(N int) int {
-	if N == 0 {
+func lastRemaining(n int) int {
+	if n == 1 {
 		return 1
 	}
-	temp := 0
-	for i := 1; N > temp; i++ {
-		temp = pow(2, i)
+	if n <= 3 {
+		return 2
 	}
-
-	if N == temp {
-		return N - 1
+	if (n/2)%2 == 1 {
+		return 4 * lastRemaining((n-2)/4)
 	} else {
-		return temp - 1 - N
+		return 4*lastRemaining(n/4) - 2
 	}
-}
-
-func pow(x int, y int) int {
-	if y == 0 {
-		return 1
-	}
-	result := 1
-	for i := 0; i < y; i++ {
-		result *= x
-	}
-	return result
 }
 
 func str2IntArray(flds string) []int {
@@ -65,12 +52,12 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
 
-	N, _ := strconv.Atoi(flds)
-	fmt.Printf("N = %d\n", N)
+	n, _ := strconv.Atoi(flds)
+	fmt.Printf("n = %d\n", n)
 
 	timeStart := time.Now()
 
-	result := bitwiseComplement(N)
+	result := lastRemaining(n)
 
 	timeEnd := time.Now()
 
