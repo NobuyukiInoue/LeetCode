@@ -1,0 +1,46 @@
+package nummatrix
+
+import "fmt"
+
+type NumMatrix_1 struct {
+	matrix [][]int
+}
+
+func Constructor(matrix [][]int) NumMatrix {
+	nm := new(NumMatrix)
+	nm.matrix = make([][]int, len(matrix))
+	for i := 0; i < len(matrix); i++ {
+		nm.matrix[i] = make([]int, len(matrix[i]))
+	}
+	copy(nm.matrix, matrix)
+
+	return *nm
+}
+
+func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
+	sum := 0
+	for i := row1; i < row2+1; i++ {
+		for j := col1; j < col2+1; j++ {
+			sum += this.matrix[i][j]
+		}
+	}
+	return sum
+}
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * obj := Constructor(matrix);
+ * param_1 := obj.SumRegion(row1,col1,row2,col2);
+ */
+
+func (this *NumMatrix) PrintMatrix() {
+	fmt.Printf("[\n")
+	for i := 0; i < len(this.matrix); i++ {
+		fmt.Printf("[")
+		for j := 0; j < len(this.matrix[i]); j++ {
+			fmt.Printf(" %d", this.matrix[i][j])
+		}
+		fmt.Printf("]\n")
+	}
+	fmt.Printf("]\n")
+}
