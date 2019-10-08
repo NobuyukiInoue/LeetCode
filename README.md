@@ -36,7 +36,7 @@ $ cd Problems/0001_0099/0001_Two_Sum/Project_C
 * Windows (Minimalist GNU for Windows)
 
 ```  
-> mingw32make.exe all
+> mingw32-make.exe all
 ```
 
 * macOS or Linux (gcc)
@@ -105,7 +105,8 @@ $ cd Problems/0001_0099/0001_Two_Sum/Project_Java
 * Windows
 
 ```
-> mingw32make all
+> del *.class
+> mingw32-make all
 ```
 
 * macOS/Linux
@@ -136,7 +137,8 @@ $ cd Problems/0001_0099/0001_Two_Sum/Project_Scala
 * Windows
 
 ```
-> mingw32make all
+> del *.class
+> mingw32-make all
 ```
 
 * macOS/Linux
