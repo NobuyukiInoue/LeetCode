@@ -133,7 +133,7 @@ def main():
     argv = sys.argv
     argc = len(argv)
 
-    if (argc < 2):
+    if argc < 2:
         print("Usage: python %s <testdata.txt>" %(argv[0]))
         exit(0)
 
