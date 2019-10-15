@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+import solution "./solution"
+
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Printf("Usage)\n" +
@@ -40,7 +42,7 @@ func main() {
 		}
 
 		fmt.Printf("line = %s\n", string(line))
-		LoopMain(string(line))
+		solution.LoopMain(string(line))
 	}
 }
 

@@ -1,6 +1,6 @@
 $TargetPath=".."
 $TargetProject="Project_Go"
-$ExecCmd="./go_run.ps1"
+$ExecCmd="go run ./main.go ../testdata.txt"
 $MakeCommand=""
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
