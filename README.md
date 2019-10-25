@@ -165,5 +165,5 @@ $ cd Problems/0001_0099/0001_Two_Sum/Project_Go
 ### Run
 
 ```
-$ go run main.go solution.go ../testdata.txt
+$ go run main.go ../testdata.txt
 ```
