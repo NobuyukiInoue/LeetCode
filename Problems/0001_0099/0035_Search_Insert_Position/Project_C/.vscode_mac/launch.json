@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Search_Insert_Position_for_mac",
+            "program": "${workspaceFolder}/debug_Search_Insert_Position_for_mac",
             "args": [
                 "../testdata.txt"
             ],

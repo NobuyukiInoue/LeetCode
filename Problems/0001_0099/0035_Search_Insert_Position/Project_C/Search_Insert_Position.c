@@ -45,7 +45,7 @@ int loop_main(char* arg)
         err_exit("nums[] size error.");
 
     int numsSize = str_to_int_array(str_nums, nums, str_numsSize);
-    int target = atoi(flds[1]);
+    int target = strtol(flds[1], NULL, 10);
 
     clock_t time_start = clock();
     int results = searchInsert(nums, numsSize, target);

@@ -8,8 +8,8 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/Longest_Substring_Without_Repeating_Characters.exe",
-            "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
+            "program": "${workspaceRoot}/debug_Longest_Substring_Without_Repeating_Characters.exe",
+            "miDebuggerPath": "C:\\programs\\mingw\\bin\\gdb.exe",
             //"args": [],
             "args": [
                 "../testdata.txt"

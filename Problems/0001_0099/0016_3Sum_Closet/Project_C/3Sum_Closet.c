@@ -1,33 +1,65 @@
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
-#include <math.h>
 #include <time.h>
 
 #include "../../../mylib_C/mylib.h"
 
 /* Function prototype declaration */
-int* twoSum(int* nums, int numsSize, int target);
+int comparefn( const void* a, const void* b);
+int threeSumClosest(int* nums, int numsSize, int target);
 int loop_main(char* arg);
 
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-int* twoSum(int* nums, int numsSize, int target)
-{
-    int *results = malloc(sizeof(int)*2);
+#define ABS(x) ((x)<0?-(x):(x))
 
-    for (int i = 0; i < numsSize - 1; ++i) {
-        for (int j = i + 1; j < numsSize; ++j) {
-            if (nums[i] + nums[j] == target) {
-                results[0] = i;
-                results[1] = j; 
+int comparefn( const void* a, const void* b)
+{
+     int int_a = * ( (int*) a );
+     int int_b = * ( (int*) b );
+
+     if ( int_a == int_b ) return 0;
+     else if ( int_a < int_b ) return -1;
+     else return 1;
+}
+
+int threeSumClosest(int* nums, int numsSize, int target)
+{
+    // sort the array
+    qsort(nums, numsSize, sizeof(int), comparefn);
+    int i, j, k, diff, min_diff = INT_MAX;
+    for(i = 0 ; i < numsSize ; i++)
+    {
+        j = i + 1;
+        k = numsSize - 1;
+        while(j < k)
+        {
+            diff = nums[i] + nums[j] + nums[k] - target;
+            //temp = ABS(temp);
+            if(diff == 0)
+            {
+                return target;
+            }
+            else
+            {
+                if(ABS(diff) < ABS(min_diff))
+                {
+                    min_diff = diff;
+                }
+                if(diff < 0)
+                {// increase value
+                    j++;
+                }
+                else//>0
+                {
+                    k--;
+                }
             }
         }
     }
-
-    return results;
+    return target + min_diff;
 }
 
 int loop_main(char* arg)
@@ -48,18 +80,15 @@ int loop_main(char* arg)
         err_exit("nums[] size error.");
 
     int nums_length = str_to_int_array(str_nums, nums, str_nums_length);
-    int target = atoi(flds[1]);
+    int target = strtol(flds[1], NULL, 10);
 
     clock_t time_start = clock();
-    int* results = twoSum(nums, nums_length, target);
+    int result =  threeSumClosest(nums, nums_length, target);
     clock_t time_end = clock();
 
     // result print.
-    output_int_array(results, 2);
+    printf("results = %d\n", result);
     printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
-
-    // int* results clear.
-    free(results);
 
     // char* str_nums[] free().
     p_char_array_free(str_nums, str_nums_length);

@@ -85,7 +85,7 @@ int loop_main(char* arg)
 
     int nums2_length = str_to_int_array(str_nums, nums2, str_nums_length);
 
-    int target = atoi(flds[1]);
+    int target = strtol(flds[1], NULL, 10);
 
     clock_t time_start = clock();
     double result = findMedianSortedArrays(nums1, nums1_length, nums2, nums2_length);

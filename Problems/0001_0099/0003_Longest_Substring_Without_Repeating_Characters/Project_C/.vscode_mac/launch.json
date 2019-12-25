@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Longest_Substring_Without_Repeating_Characters_for_mac",
+            "program": "${workspaceFolder}/debug_Longest_Substring_Without_Repeating_Characters_for_mac",
             "args": [
                 "../testdata.txt"
             ],

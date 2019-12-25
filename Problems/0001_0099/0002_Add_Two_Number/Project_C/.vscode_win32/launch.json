@@ -8,8 +8,8 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/Add_Two_Number.exe",
-            "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
+            "program": "${workspaceRoot}/debug_Add_Two_Number.exe",
+            "miDebuggerPath": "C:\\programs\\mingw\\bin\\gdb.exe",
             //"args": [],
             "args": [
                 "../testdata.txt"

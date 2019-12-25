@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Add_Two_Number_for_mac",
+            "program": "${workspaceFolder}/debug_Add_Two_Number_for_mac",
             "args": [
                 "../testdata.txt"
             ],

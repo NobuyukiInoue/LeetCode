@@ -8,8 +8,8 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/3Sum_Closet.exe",
-            "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
+            "program": "${workspaceRoot}/debug_3Sum_Closet.exe",
+            "miDebuggerPath": "C:\\programs\\mingw\\bin\\gdb.exe",
             //"args": [],
             "args": [
                 "../testdata.txt"

@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Median_of_Two_Sorted_Arrays_for_mac",
+            "program": "${workspaceFolder}/debug_Median_of_Two_Sorted_Arrays_for_mac",
             "args": [
                 "../testdata.txt"
             ],
