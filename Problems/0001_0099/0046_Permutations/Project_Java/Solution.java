@@ -25,27 +25,25 @@ public class Solution {
     }
 
     public String intArrayToString(int[] data) {
-        String result = "";
+        if (data.length <= 0)
+            return "";
+
+        StringBuilder result = new StringBuilder(Integer.toString(data[0]));
+        for (int i = 1; i < data.length; i++)
+            result.append("," + Integer.toString(data[i]));
     
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-            result += Integer.toString(data[i]);
-        }
-    
-        return result;
+        return result.toString();
     }
 
     private String listlistIntToString(List<List<Integer>> list) {
         if (list.size() <= 0)
             return "[]";
 
-        String resultStr = "[" + listIntArrayToString(list.get(0));
-        for (int i = 1; i < list.size(); i++) {
-            resultStr += "," + listIntArrayToString(list.get(i));
-        }
+        StringBuilder resultStr = new StringBuilder("[" + listIntArrayToString(list.get(0)));
+        for (int i = 1; i < list.size(); i++)
+            resultStr.append(", " + listIntArrayToString(list.get(i)));
 
-        return resultStr + "]";
+        return resultStr.append("]").toString();
     }
 
     public String listIntArrayToString(List<Integer> list) {
