@@ -13,7 +13,7 @@ public class Solution {
         int[][] matrix = new int[matrix_str.length][];
 
         for (int n = 0; n < matrix.length; n++) {
-            matrix[n] = ml.str_to_int_array(matrix_str[n]);
+            matrix[n] = ml.stringTointArray(matrix_str[n]);
         }
 
         NumMatrix nm = new NumMatrix(matrix);

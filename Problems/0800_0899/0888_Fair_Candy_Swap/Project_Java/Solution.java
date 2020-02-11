@@ -48,11 +48,11 @@ public class Solution {
 
         String[] data;
         
-        int[] A = ml.str_to_int_array(flds[0]);
-        int[] B = ml.str_to_int_array(flds[1]);
+        int[] A = ml.stringTointArray(flds[0]);
+        int[] B = ml.stringTointArray(flds[1]);
 
-        System.out.println("A = " + ml.output_int_array(A));
-        System.out.println("B = " + ml.output_int_array(B));
+        System.out.println("A = " + ml.intArrayToString(A));
+        System.out.println("B = " + ml.intArrayToString(B));
     
         long start = System.currentTimeMillis();
         
@@ -60,7 +60,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + ml.output_int_array(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

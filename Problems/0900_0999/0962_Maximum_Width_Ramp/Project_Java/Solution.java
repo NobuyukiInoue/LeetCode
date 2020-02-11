@@ -29,8 +29,8 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] A = ml.str_to_int_array(flds);
-        System.out.println("A = " + ml.output_int_array(A));
+        int[] A = ml.stringTointArray(flds);
+        System.out.println("A = " + ml.intArrayToString(A));
 
         long start = System.currentTimeMillis();
 

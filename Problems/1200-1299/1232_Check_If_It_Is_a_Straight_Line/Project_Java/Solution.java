@@ -25,15 +25,15 @@ public class Solution {
         int[][] coordinates = new int[flds.length][];
     
         for (int i = 0; i < flds.length; i++) {
-            coordinates[i] = ml.str_to_int_array(flds[i]);
+            coordinates[i] = ml.stringTointArray(flds[i]);
         }
 
         System.out.print("coordinates = [");
         for (int i = 0; i < coordinates.length; i++) {
             if (i == 0)
-                System.out.print(ml.output_int_array(coordinates[i]));
+                System.out.print(ml.intArrayToString(coordinates[i]));
             else
-                System.out.print("," + ml.output_int_array(coordinates[i]));
+                System.out.print("," + ml.intArrayToString(coordinates[i]));
         }
         System.out.println("]");
 

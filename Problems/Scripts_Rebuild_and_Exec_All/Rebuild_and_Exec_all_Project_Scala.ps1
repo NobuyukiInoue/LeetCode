@@ -22,7 +22,7 @@ foreach ($currentLine in $list) {
     Set-Location -Path ${currentLine}
     $resultPath=Get-Location
     Write-Host $resultPath
-    $MakeCommand
+    Start-Process -Wait $MakeCommand
 
     Write-Host "##==== Execute ====###"
     invoke-expression $ExecCmd

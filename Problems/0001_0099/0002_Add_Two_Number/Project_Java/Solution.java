@@ -31,11 +31,11 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib mc = new Mylib();
-        int[] nums1 = mc.str_to_int_array(flds[0]);
-        int[] nums2 = mc.str_to_int_array(flds[1]);
+        int[] nums1 = mc.stringTointArray(flds[0]);
+        int[] nums2 = mc.stringTointArray(flds[1]);
 
-        System.out.println("nums1 = " + mc.output_int_array(nums1));
-        System.out.println("nums2 = " + mc.output_int_array(nums2));
+        System.out.println("nums1 = " + mc.intArrayToString(nums1));
+        System.out.println("nums2 = " + mc.intArrayToString(nums2));
 
         Operate_ListNode ope = new Operate_ListNode();
         ListNode l1 = ope.set_ListNode(nums1);

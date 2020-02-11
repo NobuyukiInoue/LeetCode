@@ -31,15 +31,15 @@ public class Solution {
         int[][] paths = new int[data.length][];
     
         for (int i = 0; i < data.length; i++) {
-            paths[i] = ml.str_to_int_array(data[i]);
+            paths[i] = ml.stringTointArray(data[i]);
         }
 
         System.out.print("paths = [");
         for (int i = 0; i < paths.length; i++) {
             if (i == 0)
-                System.out.print("[" + ml.output_int_array(paths[i]) + "]");
+                System.out.print("[" + ml.intArrayToString(paths[i]) + "]");
             else
-                System.out.print(",[" + ml.output_int_array(paths[i]) + "]");
+                System.out.print(",[" + ml.intArrayToString(paths[i]) + "]");
         }
         System.out.println("]");
 
@@ -49,7 +49,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + ml.output_int_array(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

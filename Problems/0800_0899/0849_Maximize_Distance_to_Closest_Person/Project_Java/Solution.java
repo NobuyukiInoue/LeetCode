@@ -20,9 +20,9 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] seats = ml.str_to_int_array(flds);
+        int[] seats = ml.stringTointArray(flds);
 
-        System.out.println("seats = " + ml.output_int_array(seats));
+        System.out.println("seats = " + ml.intArrayToString(seats));
 
         long start = System.currentTimeMillis();
         

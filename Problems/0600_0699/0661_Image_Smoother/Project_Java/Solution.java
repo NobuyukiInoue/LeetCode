@@ -78,8 +78,8 @@ public class Solution {
 
         int[][] M = new int[flds.length][];
         for (int i = 0; i < flds.length; i++) {
-            M[i] = ml.str_to_int_array(flds[i]);
-            System.out.println("nums[" + Integer.toString(i) + "] = " + ml.output_int_array(M[i]));
+            M[i] = ml.stringTointArray(flds[i]);
+            System.out.println("nums[" + Integer.toString(i) + "] = " + ml.intArrayToString(M[i]));
         }
 
         long start = System.currentTimeMillis();
@@ -90,7 +90,7 @@ public class Solution {
 
         System.out.println();
         for (int i = 0; i < flds.length; i++) {
-            System.out.println("result[" + Integer.toString(i) + "] = " + ml.output_int_array(result[i]));
+            System.out.println("result[" + Integer.toString(i) + "] = " + ml.intArrayToString(result[i]));
         }
 
         System.out.println((end - start)  + "ms\n");

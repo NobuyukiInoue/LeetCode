@@ -27,7 +27,7 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib mc = new Mylib();
-        int[] nums0 = mc.str_to_int_array(flds[0]);
+        int[] nums0 = mc.stringTointArray(flds[0]);
         Operate_ListNode ope = new Operate_ListNode();
         ListNode head = ope.set_ListNode(nums0);
         System.out.println("head = " + ope.output_ListNode(head));

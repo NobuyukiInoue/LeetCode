@@ -18,9 +18,9 @@ public class Solution {
     }
 
     private String intIntArrayToString(Mylib ml, int[][] matrix) {
-        String resultStr = "[" + ml.output_int_array(matrix[0]);
+        String resultStr = "[" + ml.intArrayToString(matrix[0]);
         for (int i = 1; i < matrix.length; i++) {
-            resultStr +=  "," + ml.output_int_array(matrix[i]);
+            resultStr +=  "," + ml.intArrayToString(matrix[i]);
         }
         resultStr += "]";
         return resultStr;
@@ -34,7 +34,7 @@ public class Solution {
         int[][] matrix = new int[flds.length][];
     
         for (int i = 0; i < matrix.length; i++) {
-            matrix[i] = ml.str_to_int_array(flds[i]);
+            matrix[i] = ml.stringTointArray(flds[i]);
         }
 
         System.out.println("matrix = " + intIntArrayToString(ml, matrix));

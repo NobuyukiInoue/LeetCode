@@ -31,8 +31,8 @@ public class Solution {
             String[] nums = flds[1].split("\\],\\[");
             ops = new int[nums.length][];
             for (int i = 0; i < nums.length; i++) {
-                ops[i] = ml.str_to_int_array(nums[i]);
-                System.out.println("ops[" + Integer.toString(i) + "] = " + ml.output_int_array(ops[i]));
+                ops[i] = ml.stringTointArray(nums[i]);
+                System.out.println("ops[" + Integer.toString(i) + "] = " + ml.intArrayToString(ops[i]));
             }
         }
 

@@ -57,9 +57,9 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] nums = ml.str_to_int_array(flds);
+        int[] nums = ml.stringTointArray(flds);
 
-        System.out.println("nums = " + ml.output_int_array(nums));
+        System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
         

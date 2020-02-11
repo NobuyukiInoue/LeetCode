@@ -91,7 +91,7 @@ public class Solution {
             edges = new int[dataStr.length][];
             System.out.print("edge = [");
             for (int i = 0; i < dataStr.length; i++) {
-                edges[i] = ml.str_to_int_array(dataStr[i]);
+                edges[i] = ml.stringTointArray(dataStr[i]);
                 if (i == 0)
                     System.out.println("[" + intArrayToString(edges[i]) + "]");
                 else

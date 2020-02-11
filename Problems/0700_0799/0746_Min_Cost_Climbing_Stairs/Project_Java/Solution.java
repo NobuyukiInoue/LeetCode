@@ -40,9 +40,9 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib mc = new Mylib();
-        int[] cost = mc.str_to_int_array(flds);
+        int[] cost = mc.stringTointArray(flds);
 
-        System.out.println("cost = " + mc.output_int_array(cost));
+        System.out.println("cost = " + mc.intArrayToString(cost));
 
         long start = System.currentTimeMillis();
         

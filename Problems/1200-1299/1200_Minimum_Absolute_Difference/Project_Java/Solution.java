@@ -60,7 +60,7 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib mc = new Mylib();
-        int[] arr = mc.str_to_int_array(flds);
+        int[] arr = mc.stringTointArray(flds);
         System.out.println("arr = [" + Int_array_to_String(arr) + "]");
 
         long start = System.currentTimeMillis();

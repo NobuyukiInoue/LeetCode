@@ -33,10 +33,10 @@ public class Solution {
 
         String[] data;
         
-        int[] A = ml.str_to_int_array(flds[0]);
+        int[] A = ml.stringTointArray(flds[0]);
         int K = Integer.parseInt(flds[1]);
 
-        System.out.println("A = " + ml.output_int_array(A));
+        System.out.println("A = " + ml.intArrayToString(A));
         System.out.println("K = " + Integer.toString(K));
 
         long start = System.currentTimeMillis();

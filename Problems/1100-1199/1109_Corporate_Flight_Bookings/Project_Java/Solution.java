@@ -54,7 +54,7 @@ public class Solution {
         int[][] bookings = new int[bookings_str.length][];
     
         for (int i = 0; i < bookings_str.length; i++) {
-            bookings[i] = ml.str_to_int_array(bookings_str[i]);
+            bookings[i] = ml.stringTointArray(bookings_str[i]);
         }
 
         int n = Integer.parseInt(flds[1].replace("]]", ""));
@@ -62,9 +62,9 @@ public class Solution {
         System.out.print("bookings = [");
         for (int i = 0; i < bookings.length; i++) {
             if (i == 0)
-                System.out.print(ml.output_int_array(bookings[i]));
+                System.out.print(ml.intArrayToString(bookings[i]));
             else
-                System.out.print("," + ml.output_int_array(bookings[i]));
+                System.out.print("," + ml.intArrayToString(bookings[i]));
         }
         System.out.println("]");
         System.out.println("n = " + Integer.toString(n));
@@ -75,7 +75,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + ml.output_int_array(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

@@ -21,9 +21,9 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] deck = ml.str_to_int_array(flds);
+        int[] deck = ml.stringTointArray(flds);
 
-        System.out.println("deck = " + ml.output_int_array(deck));
+        System.out.println("deck = " + ml.intArrayToString(deck));
 
         long start = System.currentTimeMillis();
         

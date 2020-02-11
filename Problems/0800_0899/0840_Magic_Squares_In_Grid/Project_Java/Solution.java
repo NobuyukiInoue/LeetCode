@@ -47,12 +47,12 @@ public class Solution {
         int[][] grid = new int[flds.length][];
     
         for (int i = 0; i < flds.length; i++) {
-            grid[i] = ml.str_to_int_array(flds[i]);
+            grid[i] = ml.stringTointArray(flds[i]);
         }
 
         System.out.println("grid = ");
         for (int i = 0; i < grid.length; i++)
-            System.out.println(ml.output_int_array(grid[i]));
+            System.out.println(ml.intArrayToString(grid[i]));
 
         long start = System.currentTimeMillis();
         

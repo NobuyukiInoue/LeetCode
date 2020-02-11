@@ -51,7 +51,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + mc.output_int_array(result));
+        System.out.println("result = " + mc.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

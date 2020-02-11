@@ -22,9 +22,9 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] time = ml.str_to_int_array(flds);
+        int[] time = ml.stringTointArray(flds);
 
-        System.out.println("time = " + ml.output_int_array(time));
+        System.out.println("time = " + ml.intArrayToString(time));
 
         long start = System.currentTimeMillis();
         

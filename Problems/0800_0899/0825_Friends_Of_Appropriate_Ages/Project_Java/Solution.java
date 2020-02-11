@@ -48,9 +48,9 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib mc = new Mylib();
-        int[] ages = mc.str_to_int_array(flds);
+        int[] ages = mc.stringTointArray(flds);
 
-        System.out.println("ages = " + mc.output_int_array(ages));
+        System.out.println("ages = " + mc.intArrayToString(ages));
 
         long start = System.currentTimeMillis();
 

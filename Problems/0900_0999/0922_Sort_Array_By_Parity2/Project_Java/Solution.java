@@ -22,8 +22,8 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] A = ml.str_to_int_array(flds);
-        System.out.println("A = " + ml.output_int_array(A));
+        int[] A = ml.stringTointArray(flds);
+        System.out.println("A = " + ml.intArrayToString(A));
 
         long start = System.currentTimeMillis();
 
@@ -31,7 +31,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + ml.output_int_array(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

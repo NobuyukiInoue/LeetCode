@@ -83,7 +83,7 @@ public class Solution {
         String flds[] = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib mc = new Mylib();
-        int[] coins = mc.str_to_int_array(flds[0]);
+        int[] coins = mc.stringTointArray(flds[0]);
         System.out.println("coins = [" + intArrayToString(coins) + "]");
 
         int amount = Integer.parseInt(flds[1]);

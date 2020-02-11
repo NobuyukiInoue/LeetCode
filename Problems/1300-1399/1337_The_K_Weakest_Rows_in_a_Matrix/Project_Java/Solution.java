@@ -34,16 +34,16 @@ public class Solution {
         Mylib ml = new Mylib();
         int[][] mat = new int[str_mat.length][];
             for (int i = 0; i < str_mat.length; i++) {
-            mat[i] = ml.str_to_int_array(str_mat[i]);
+            mat[i] = ml.stringTointArray(str_mat[i]);
         }
         int k = Integer.parseInt(flds[1].replace("]]", ""));
 
         System.out.println("mat = [");
         for (int i = 0; i < mat.length; i++) {
             if (i == 0)
-                System.out.println("  " + ml.output_int_array(mat[i]));
+                System.out.println("  " + ml.intArrayToString(mat[i]));
             else
-                System.out.println(", " + ml.output_int_array(mat[i]));
+                System.out.println(", " + ml.intArrayToString(mat[i]));
         }
         System.out.println("]");
         System.out.println("k = " + Integer.toString(k));

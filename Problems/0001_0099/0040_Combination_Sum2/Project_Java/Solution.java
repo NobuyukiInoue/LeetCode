@@ -69,10 +69,10 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib mc = new Mylib();
-        int[] candidates = mc.str_to_int_array(flds[0]);
+        int[] candidates = mc.stringTointArray(flds[0]);
         int target = Integer.parseInt(flds[1]);
 
-        System.out.println("candidates = " + mc.output_int_array(candidates) + ", target = " + String.valueOf(target));
+        System.out.println("candidates = " + mc.intArrayToString(candidates) + ", target = " + String.valueOf(target));
         
         long start = System.currentTimeMillis();
         

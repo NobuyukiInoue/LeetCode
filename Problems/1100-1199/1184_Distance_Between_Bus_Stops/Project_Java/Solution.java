@@ -36,12 +36,12 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] distance = ml.str_to_int_array(flds[0]);
+        int[] distance = ml.stringTointArray(flds[0]);
         String []flds2 = flds[1].split(",");
         int start = Integer.parseInt(flds2[0]);
         int destination = Integer.parseInt(flds2[1]);
 
-        System.out.println("distance = " + ml.output_int_array(distance) +
+        System.out.println("distance = " + ml.intArrayToString(distance) +
                            ", start = " + Integer.toString(start) +
                            ", destination = " + Integer.toString(destination));
 

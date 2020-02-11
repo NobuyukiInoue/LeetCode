@@ -29,9 +29,9 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib mc = new Mylib();
-        int[] bits = mc.str_to_int_array(flds);
+        int[] bits = mc.stringTointArray(flds);
 
-        System.out.println("bits = " + mc.output_int_array(bits));
+        System.out.println("bits = " + mc.intArrayToString(bits));
 
         long start = System.currentTimeMillis();
         

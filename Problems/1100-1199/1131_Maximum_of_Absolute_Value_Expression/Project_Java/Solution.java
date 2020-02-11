@@ -34,10 +34,10 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] arr1 = ml.str_to_int_array(flds[0]);
-        int[] arr2 = ml.str_to_int_array(flds[1]);
+        int[] arr1 = ml.stringTointArray(flds[0]);
+        int[] arr2 = ml.stringTointArray(flds[1]);
 
-        System.out.println("arr1 = " + ml.output_int_array(arr1) + ", arr2 = " + ml.output_int_array(arr2));
+        System.out.println("arr1 = " + ml.intArrayToString(arr1) + ", arr2 = " + ml.intArrayToString(arr2));
 
         long t_start = System.currentTimeMillis();
 

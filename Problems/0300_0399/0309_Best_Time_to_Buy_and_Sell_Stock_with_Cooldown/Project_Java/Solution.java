@@ -19,8 +19,8 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] prices = ml.str_to_int_array(flds);
-        System.out.println("prices = " + ml.output_int_array(prices));
+        int[] prices = ml.stringTointArray(flds);
+        System.out.println("prices = " + ml.intArrayToString(prices));
 
         long start = System.currentTimeMillis();
         

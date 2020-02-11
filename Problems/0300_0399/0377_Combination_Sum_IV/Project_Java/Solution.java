@@ -21,10 +21,10 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] nums = ml.str_to_int_array(flds[0]);
+        int[] nums = ml.stringTointArray(flds[0]);
         int target = Integer.parseInt(flds[1]);
 
-        System.out.println("nums = " + ml.output_int_array(nums));
+        System.out.println("nums = " + ml.intArrayToString(nums));
         System.out.println("target = " + Integer.toString(target));
 
         long start = System.currentTimeMillis();

@@ -20,8 +20,8 @@ public class Solution {
     
         Mylib ml = new Mylib();
 
-        System.out.println("rec1 = " + ml.output_int_array(rec1));
-        System.out.println("rec2 = " + ml.output_int_array(rec2));
+        System.out.println("rec1 = " + ml.intArrayToString(rec1));
+        System.out.println("rec2 = " + ml.intArrayToString(rec2));
 
         long start = System.currentTimeMillis();
         

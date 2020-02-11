@@ -62,7 +62,7 @@ public class Solution {
             matrix = new int[dataStr.length][];
             System.out.print("matrix = [");
             for (int i = 0; i < dataStr.length; i++) {
-                matrix[i] = ml.str_to_int_array(dataStr[i]);
+                matrix[i] = ml.stringTointArray(dataStr[i]);
                 if (i == 0)
                     System.out.println("[" + intArrayToString(matrix[i]) + "]");
                 else

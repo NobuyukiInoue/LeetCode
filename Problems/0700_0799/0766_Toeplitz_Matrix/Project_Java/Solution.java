@@ -15,8 +15,8 @@ public class Solution {
 
         int[][] matrix = new int[flds.length][];
         for (int i = 0; i < flds.length; i++) {
-            matrix[i] = ml.str_to_int_array(flds[i]);
-            System.out.println("matrix[" + Integer.toString(i) + "] = " + ml.output_int_array(matrix[i]));
+            matrix[i] = ml.stringTointArray(flds[i]);
+            System.out.println("matrix[" + Integer.toString(i) + "] = " + ml.intArrayToString(matrix[i]));
         }
 
         long start = System.currentTimeMillis();

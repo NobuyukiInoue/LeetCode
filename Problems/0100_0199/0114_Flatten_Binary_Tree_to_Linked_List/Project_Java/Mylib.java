@@ -1,5 +1,5 @@
 public class Mylib {
-    public int[] str_to_int_array(String s) {
+    public int[] stringTointArray(String s) {
         if (s.length() <= 0)
             return null;
 
@@ -16,16 +16,17 @@ public class Mylib {
         return nums;
     }
 
-    public String output_int_array(int[] nums) {
+    public String intArrayToString(int[] nums) {
+        if (nums == null)
+            return "";
         if (nums.length <= 0)
             return "";
 
-        String resultStr = "[" +  Integer.toString(nums[0]);
-    
-        for (int i = 1; i < nums.length; ++i) {
-            resultStr += "," + Integer.toString(nums[i]);
-        }
+        StringBuilder resultStr = new StringBuilder("[" +  Integer.toString(nums[0]));
 
-        return resultStr + "]";
+        for (int i = 1; i < nums.length; ++i)
+            resultStr.append("," + Integer.toString(nums[i]));
+
+        return resultStr.append("]").toString();
     }
 }

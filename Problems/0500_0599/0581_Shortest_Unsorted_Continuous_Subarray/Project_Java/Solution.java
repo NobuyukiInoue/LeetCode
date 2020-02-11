@@ -33,7 +33,7 @@ public class Solution {
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] nums = ml.str_to_int_array(flds);
+        int[] nums = ml.stringTointArray(flds);
 
         long start = System.currentTimeMillis();
 

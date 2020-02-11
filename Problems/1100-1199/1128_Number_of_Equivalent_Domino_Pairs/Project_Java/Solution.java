@@ -22,15 +22,15 @@ public class Solution {
         int[][] dominoes = new int[flds.length][];
     
         for (int i = 0; i < flds.length; i++) {
-            dominoes[i] = ml.str_to_int_array(flds[i]);
+            dominoes[i] = ml.stringTointArray(flds[i]);
         }
 
         System.out.print("dominoes = [");
         for (int i = 0; i < dominoes.length; i++) {
             if (i == 0)
-                System.out.print(ml.output_int_array(dominoes[i]));
+                System.out.print(ml.intArrayToString(dominoes[i]));
             else
-                System.out.print("," + ml.output_int_array(dominoes[i]));
+                System.out.print("," + ml.intArrayToString(dominoes[i]));
         }
         System.out.println("]");
 

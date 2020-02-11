@@ -20,11 +20,11 @@ public class Solution {
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] nums1 = ml.str_to_int_array(flds[0]);
-        int[] nums2 = ml.str_to_int_array(flds[1]);
+        int[] nums1 = ml.stringTointArray(flds[0]);
+        int[] nums2 = ml.stringTointArray(flds[1]);
 
-        System.out.println("nums1 = " + ml.output_int_array(nums1));
-        System.out.println("nums2 = " + ml.output_int_array(nums2));
+        System.out.println("nums1 = " + ml.intArrayToString(nums1));
+        System.out.println("nums2 = " + ml.intArrayToString(nums2));
 
         long start = System.currentTimeMillis();
 
@@ -32,7 +32,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " +  ml.output_int_array(result));
+        System.out.println("result = " +  ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

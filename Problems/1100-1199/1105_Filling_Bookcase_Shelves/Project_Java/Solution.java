@@ -31,7 +31,7 @@ public class Solution {
         int[][] books = new int[books_str.length][];
     
         for (int i = 0; i < books_str.length; i++) {
-            books[i] = ml.str_to_int_array(books_str[i]);
+            books[i] = ml.stringTointArray(books_str[i]);
         }
 
         int shelf_width = Integer.parseInt(flds[1].replace("]]", ""));
@@ -39,9 +39,9 @@ public class Solution {
         System.out.print("books = [");
         for (int i = 0; i < books.length; i++) {
             if (i == 0)
-                System.out.print(ml.output_int_array(books[i]));
+                System.out.print(ml.intArrayToString(books[i]));
             else
-                System.out.print("," + ml.output_int_array(books[i]));
+                System.out.print("," + ml.intArrayToString(books[i]));
         }
         System.out.println("]");
         System.out.println("shelf_width = " + Integer.toString(shelf_width));

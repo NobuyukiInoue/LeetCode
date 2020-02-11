@@ -24,8 +24,8 @@ public class Solution {
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] nums = ml.str_to_int_array(flds);
-        System.out.println("nums[] = " + ml.output_int_array(nums));
+        int[] nums = ml.stringTointArray(flds);
+        System.out.println("nums[] = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
 

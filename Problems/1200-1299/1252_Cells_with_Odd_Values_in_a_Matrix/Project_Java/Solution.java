@@ -30,15 +30,15 @@ public class Solution {
         int[][] indices = new int[data.length][];
     
         for (int i = 0; i < data.length; i++) {
-            indices[i] = ml.str_to_int_array(data[i]);
+            indices[i] = ml.stringTointArray(data[i]);
         }
 
         System.out.print("indices = [");
         for (int i = 0; i < indices.length; i++) {
             if (i == 0)
-                System.out.print(ml.output_int_array(indices[i]));
+                System.out.print(ml.intArrayToString(indices[i]));
             else
-                System.out.print("," + ml.output_int_array(indices[i]));
+                System.out.print("," + ml.intArrayToString(indices[i]));
         }
         System.out.println("]");
 

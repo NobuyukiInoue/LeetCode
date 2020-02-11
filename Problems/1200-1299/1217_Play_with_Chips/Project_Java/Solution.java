@@ -44,7 +44,7 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib mc = new Mylib();
-        int[] chips = mc.str_to_int_array(flds);
+        int[] chips = mc.stringTointArray(flds);
         System.out.println("chips = [" + intArrayToString(chips) + "]");
 
         long start = System.currentTimeMillis();

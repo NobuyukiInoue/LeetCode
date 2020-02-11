@@ -12,9 +12,9 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib mc = new Mylib();
-        int[] nums = mc.str_to_int_array(flds);
+        int[] nums = mc.stringTointArray(flds);
 
-        System.out.println("nums = " + mc.output_int_array(nums));
+        System.out.println("nums = " + mc.intArrayToString(nums));
 
         Operate_ListNode ope = new Operate_ListNode();
         ListNode head = ope.set_ListNode(nums);

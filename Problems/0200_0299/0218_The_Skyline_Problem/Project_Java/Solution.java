@@ -82,7 +82,7 @@ public class Solution {
         int[][] buildings = new int[flds.length][];
         System.out.print("buildings = [");
         for (int i = 0; i < flds.length; i++) {
-            buildings[i] = ml.str_to_int_array(flds[i]);
+            buildings[i] = ml.stringTointArray(flds[i]);
             if (i == 0)
                 System.out.print("[" + intArrayToString(buildings[i]) + "]");
             else

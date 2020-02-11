@@ -23,9 +23,9 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] bills = ml.str_to_int_array(flds);
+        int[] bills = ml.stringTointArray(flds);
 
-        System.out.println("bills = " + ml.output_int_array(bills));
+        System.out.println("bills = " + ml.intArrayToString(bills));
 
         long start = System.currentTimeMillis();
         

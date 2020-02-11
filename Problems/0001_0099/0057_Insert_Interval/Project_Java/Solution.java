@@ -32,9 +32,9 @@ public class Solution {
         if (list.length <= 0)
             return "[]";
 
-        String resultStr = "[" + ml.output_int_array(list[0]);
+        String resultStr = "[" + ml.intArrayToString(list[0]);
         for (int i = 1; i < list.length; i++) {
-                resultStr += ",[" + ml.output_int_array(list[i]) + "]";
+                resultStr += ",[" + ml.intArrayToString(list[i]) + "]";
         }
 
         return resultStr + "]";
@@ -48,12 +48,12 @@ public class Solution {
         int[][] intervals = new int[data0.length][];
 
         for (int i = 0; i < data0.length; i++) {
-            intervals[i] = ml.str_to_int_array(data0[i]);
+            intervals[i] = ml.stringTointArray(data0[i]);
         }
-        int[] newInterval = ml.str_to_int_array(flds[1].replace("]]", ""));
+        int[] newInterval = ml.stringTointArray(flds[1].replace("]]", ""));
 
         System.out.println("intervals = " + intintArrayToString(ml, intervals));
-        System.out.println("newInterval = " + ml.output_int_array(newInterval));
+        System.out.println("newInterval = " + ml.intArrayToString(newInterval));
 
         long start = System.currentTimeMillis();
 

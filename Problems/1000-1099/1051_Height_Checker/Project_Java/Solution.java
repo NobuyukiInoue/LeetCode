@@ -18,9 +18,9 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] heights = ml.str_to_int_array(flds);
+        int[] heights = ml.stringTointArray(flds);
 
-        System.out.println("heights = " + ml.output_int_array(heights));
+        System.out.println("heights = " + ml.intArrayToString(heights));
 
         long start = System.currentTimeMillis();
         

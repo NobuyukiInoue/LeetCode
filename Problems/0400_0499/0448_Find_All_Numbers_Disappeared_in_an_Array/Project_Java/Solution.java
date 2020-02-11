@@ -37,8 +37,8 @@ public class Solution {
 
         Mylib sl = new Mylib();
 
-        int[] nums = sl.str_to_int_array(flds);
-        System.out.println("num = " + sl.output_int_array(nums));
+        int[] nums = sl.stringTointArray(flds);
+        System.out.println("num = " + sl.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
 

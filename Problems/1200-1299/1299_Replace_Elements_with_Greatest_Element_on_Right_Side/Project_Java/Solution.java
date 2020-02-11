@@ -11,9 +11,9 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib mc = new Mylib();
-        int[] arr = mc.str_to_int_array(flds);
+        int[] arr = mc.stringTointArray(flds);
 
-        System.out.println("arr = " + mc.output_int_array(arr));
+        System.out.println("arr = " + mc.intArrayToString(arr));
 
         long start = System.currentTimeMillis();
 
@@ -21,7 +21,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + mc.output_int_array(result));
+        System.out.println("result = " + mc.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

@@ -22,7 +22,7 @@ foreach ($currentLine in $list) {
     Set-Location -Path ${currentLine}
     $resultPath=Get-Location
     Write-Host $resultPath
-    $MakeCommand
+    Start-Process -Wait $MakeCommand
 
     $exeFiles=Get-ChildItem -Name *.exe
     foreach ($current_exe in $exeFiles) {

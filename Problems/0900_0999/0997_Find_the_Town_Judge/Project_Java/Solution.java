@@ -26,15 +26,15 @@ public class Solution {
     
         Mylib ml = new Mylib();
         for (int i = 0; i < flds1.length; i++) {
-            trust[i] = ml.str_to_int_array(flds1[i]);
+            trust[i] = ml.stringTointArray(flds1[i]);
         }
 
         System.out.print("trust = [");
         for (int i = 0; i < trust.length; i++) {
             if (i == 0)
-                System.out.print(ml.output_int_array(trust[i]));
+                System.out.print(ml.intArrayToString(trust[i]));
             else
-                System.out.print("," + ml.output_int_array(trust[i]));
+                System.out.print("," + ml.intArrayToString(trust[i]));
         }
         System.out.println("]\n");
 

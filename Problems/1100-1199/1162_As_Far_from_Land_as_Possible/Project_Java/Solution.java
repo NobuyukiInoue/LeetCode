@@ -54,15 +54,15 @@ public class Solution {
         int[][] grid = new int[grid_str.length][];
     
         for (int i = 0; i < grid_str.length; i++) {
-            grid[i] = ml.str_to_int_array(grid_str[i]);
+            grid[i] = ml.stringTointArray(grid_str[i]);
         }
 
         System.out.print("grid = [");
         for (int i = 0; i < grid.length; i++) {
             if (i == 0)
-                System.out.print(ml.output_int_array(grid[i]));
+                System.out.print(ml.intArrayToString(grid[i]));
             else
-                System.out.print("," + ml.output_int_array(grid[i]));
+                System.out.print("," + ml.intArrayToString(grid[i]));
         }
         System.out.println("]");
 

@@ -17,10 +17,10 @@ public class Solution {
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] nums = ml.str_to_int_array(flds[0]);
+        int[] nums = ml.stringTointArray(flds[0]);
         int k = Integer.parseInt(flds[1]);
 
-        System.out.println("nums[] = " + ml.output_int_array(nums));
+        System.out.println("nums[] = " + ml.intArrayToString(nums));
         System.out.println("k = " + Integer.toString(k));
 
         long start = System.currentTimeMillis();

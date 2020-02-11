@@ -10,7 +10,7 @@ public class Solution {
             return;
         
         Mylib ml = new Mylib();
-        int[] nums = ml.str_to_int_array(para[0]);
+        int[] nums = ml.stringTointArray(para[0]);
 
         NumArray nm = new NumArray(nums);
 

@@ -75,8 +75,8 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] commands = ml.str_to_int_array(str_args[0].replace("[[",""));
-        System.out.println("commands = " + ml.output_int_array(commands));
+        int[] commands = ml.stringTointArray(str_args[0].replace("[[",""));
+        System.out.println("commands = " + ml.intArrayToString(commands));
 
         String[] str_obstacles = str_args[1].replace("]]]", "").split("\\],\\[");
 
@@ -87,7 +87,7 @@ public class Solution {
             obstacles = new int[str_obstacles.length][2];
 
             for (int i = 0; i < str_obstacles.length; i++) {
-                obstacles[i] = ml.str_to_int_array(str_obstacles[i]);
+                obstacles[i] = ml.stringTointArray(str_obstacles[i]);
                 if (i == 0)
                     System.out.print("[" + Integer.toString(obstacles[i][0]) + "," + Integer.toString(obstacles[i][1]) + "]");
                 else

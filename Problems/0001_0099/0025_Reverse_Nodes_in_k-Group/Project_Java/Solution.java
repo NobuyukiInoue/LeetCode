@@ -23,7 +23,7 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib mc = new Mylib();
-        int[] nums1 = mc.str_to_int_array(flds[0]);
+        int[] nums1 = mc.stringTointArray(flds[0]);
         int k = Integer.parseInt(flds[1]);
 
         Operate_ListNode ope = new Operate_ListNode();

@@ -3,6 +3,9 @@ import java.util.*;
 public class Solution {
     public int[] arrayRankTransform(int[] arr) {
         // 43ms
+        if (arr == null)
+            return null;
+
         int N = arr.length;
         int[] ranks = Arrays.copyOf(arr, N);
         Arrays.sort(ranks);
@@ -32,22 +35,6 @@ public class Solution {
         return res;
     }
 
-    public String Int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
     public String List_array_to_String(List<Integer> list) {
         if (list.size() <= 0)
             return "[]";
@@ -63,9 +50,10 @@ public class Solution {
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] arr = mc.str_to_int_array(flds);
-        System.out.println("arr = [" + Int_array_to_String(arr) + "]");
+        Mylib ml = new Mylib();
+        int[] arr = ml.stringTointArray(flds);
+        if (arr != null)
+            System.out.println("arr = [" + ml.intArrayToString(arr) + "]");
 
         long start = System.currentTimeMillis();
         
@@ -73,7 +61,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + Int_array_to_String(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }
