@@ -18,15 +18,17 @@ public class Mylib {
 
     public String intArrayToString(int[] nums) {
         if (nums == null)
-            return "";
+            return "[]";
         if (nums.length <= 0)
-            return "";
+            return "[]";
 
-        StringBuilder resultStr = new StringBuilder("[" +  Integer.toString(nums[0]));
+        StringBuilder resultStr = new StringBuilder("[" + Integer.toString(nums[0]));
 
         for (int i = 1; i < nums.length; ++i)
             resultStr.append("," + Integer.toString(nums[i]));
 
-        return resultStr.append("]").toString();
+        resultStr.append("]");
+
+        return resultStr.toString();
     }
 }
