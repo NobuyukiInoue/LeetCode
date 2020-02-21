@@ -17,7 +17,11 @@ dirs=(
   "./1300_1399/"
 )
 
+total=0
 for dir in ${dirs[@]}; do
-  printf "${dir}* = "
-  ls -alRd ${dir}* | wc -l
+  count=`ls -alRd ${dir}* | wc -l`
+  printf "${dir}* = $count\n"
+  total=$(($total+$count))
 done
+
+printf "total = $total\n"

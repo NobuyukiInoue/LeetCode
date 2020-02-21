@@ -15,7 +15,13 @@ $dirs = @(
   ".\1300_1399\"
 )
 
+$total = 0
 foreach ($dir in $dirs) {
-    $resultStr = "$dir" + "`t...`t" + (Get-ChildItem $dir -Name).Count
+    $count = (Get-ChildItem $dir -Name).Count
+    $resultStr = "$dir" + "`t...`t" + $count
     Write-Output $resultStr
+    $total += $count
 }
+
+$resultStr = "Total = " + $total
+Write-Output $resultStr
