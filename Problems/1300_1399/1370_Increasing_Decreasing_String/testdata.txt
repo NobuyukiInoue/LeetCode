@@ -1,0 +1,5 @@
+["aaaabbbbcccc"]
+["rat"]
+["leetcode"]
+["ggggggg"]
+["spo"]
