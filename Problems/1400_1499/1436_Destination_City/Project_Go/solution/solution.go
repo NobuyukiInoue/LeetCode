@@ -26,7 +26,7 @@ func destCity(paths [][]string) string {
 	return res
 }
 
-func strArayToString(data []string) string {
+func strArrayToString(data []string) string {
 	if len(data) <= 0 {
 		return ""
 	}
@@ -39,14 +39,14 @@ func strArayToString(data []string) string {
 	return res + "]"
 }
 
-func strArayArayToString(data [][]string) string {
+func strArrayArrayToString(data [][]string) string {
 	if len(data) <= 0 {
 		return ""
 	}
 
-	res := strArayToString(data[0])
+	res := strArrayToString(data[0])
 	for i := 1; i < len(data); i++ {
-		res += ", " + strArayToString(data[i])
+		res += ", " + strArrayToString(data[i])
 	}
 
 	return res
@@ -65,7 +65,7 @@ func LoopMain(args string) {
 		paths[i] = strings.Split(data[i], ",")
 	}
 
-	fmt.Printf("paths = [%s]\n", strArayArayToString(paths))
+	fmt.Printf("paths = [%s]\n", strArrayArrayToString(paths))
 	timeStart := time.Now()
 
 	result := destCity(paths)
