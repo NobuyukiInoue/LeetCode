@@ -8,14 +8,6 @@ import (
 	"time"
 )
 
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 	var leaves1, leaves2 []int
 	dfs(root1, &leaves1)
@@ -35,30 +27,6 @@ func dfs(node *TreeNode, leavesOfTree *[]int) {
 	dfs(node.Right, leavesOfTree)
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -66,17 +34,11 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	numsStr1 := strings.Split(flds[0], ",")
-	numsStr2 := strings.Split(flds[1], ",")
-
-	fmt.Printf("nums1 = %s\n", numsStr1)
-	fmt.Printf("nums2 = %s\n", numsStr2)
-
-	root1 := setTreeNode(numsStr1)
-	root2 := setTreeNode(numsStr2)
-	fmt.Printf("root1 = %s", outputTreeNode(root1))
+	root1 := CreateTreeNode(flds[0])
+	root2 := CreateTreeNode(flds[1])
+	fmt.Printf("root1 = %s", TreeToStaircaseString(root1))
 	fmt.Printf("root1 = %s\n", Tree2str(root1))
-	fmt.Printf("root2 = %s", outputTreeNode(root2))
+	fmt.Printf("root2 = %s", TreeToStaircaseString(root2))
 	fmt.Printf("root2 = %s\n", Tree2str(root2))
 	fmt.Println()
 

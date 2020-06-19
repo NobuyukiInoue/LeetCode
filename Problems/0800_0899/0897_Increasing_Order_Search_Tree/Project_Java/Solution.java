@@ -16,12 +16,14 @@ public class Solution {
 
     public void Main(String args) {
         System.out.println("args = " + args);
-        String[] flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
+        String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_TreeNode(flds);
-        System.out.print("root = \n" + ope_t.output_TreeNode(root));
-        System.out.println("root = " + ope_t.Tree2str(root));
+        OperateTreeNode ope_t = new OperateTreeNode();
+        TreeNode root = ope_t.createTreeNode(flds);
+    //  Codec codec = new Codec();
+    //  TreeNode root = codec.deserialize(flds);
+        System.out.print("root = \n" + ope_t.treeToStaircaseString(root));
+        System.out.println("root = " + ope_t.tree2str(root));
 
         long start = System.currentTimeMillis();
 
@@ -29,8 +31,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + ope_t.output_TreeNode(result));
-        System.out.println("result = " + ope_t.Tree2str(result) + "\n");
+        System.out.println("result = " + ope_t.treeToStaircaseString(result));
+        System.out.println("result = " + ope_t.tree2str(result) + "\n");
         System.out.println((end - start)  + "ms\n");
     }
 }

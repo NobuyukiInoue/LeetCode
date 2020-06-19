@@ -25,12 +25,11 @@ public class Solution {
     public void Main(String args) {
         System.out.println("args = " + args);
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
-        String[] nums = flds.split(",");
 
-        Operate_Node ope_t = new Operate_Node();
-        Node root = ope_t.set_Node(nums);
-        System.out.print("root = \n" + ope_t.output_Node(root));
-        System.out.println("root = " + ope_t.Tree2str(root));
+        OperateNode ope_n = new OperateNode();
+        Node root = ope_n.createNode(flds);
+        System.out.print("root = \n" + ope_n.treeToStaircaseString(root));
+        System.out.println("root = " + ope_n.tree2str(root));
 
         long start = System.currentTimeMillis();
 
@@ -38,8 +37,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.print("result = \n" + ope_t.output_Node_with_next(result));
-        System.out.println("result = " + ope_t.Tree2str(result));
+        System.out.print("result = \n" + ope_n.treeToStaircaseString_with_next(result));
+        System.out.println("result = " + ope_n.tree2str(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

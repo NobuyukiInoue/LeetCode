@@ -2,14 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-// Definition for a binary tree node.
- public class TreeNode {
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
-    public TreeNode(int x) { val = x; }
-}
-
 public class Solution
 {
     public List<double> AverageOfLevels_2(TreeNode root)
@@ -111,69 +103,15 @@ public class Solution
         return result;
     }
 
-    public string output_int_array(int[] nums)
-    {
-        if (nums.Length <= 0)
-            return "";
-
-        string resultStr = nums[0].ToString();
-
-        for (int i = 1; i < resultStr.Length; ++i)
-        {
-            resultStr += ", " + nums[i].ToString();
-        }
-
-        return resultStr;
-    }
-
-    public string output_ListList_Array(List<List<int>> list)
-    {
-        if (list == null)
-            return "";
-
-        string resultStr = "[\n";
-        for (int i = 0; i < list.Count; ++i)
-        {
-            if (list[i].Count <= 0)
-                continue;
-
-            resultStr += "\t[" + list[i][0].ToString();
-            for (int j = 0; j < list[i].Count; ++j)
-            {
-                resultStr += ", " + list[i][j].ToString();
-            }
-            resultStr += "]\n";
-        }
-
-        return resultStr + "]\n";
-    }
-
-    public string output_List_Array(List<double> list)
-    {
-        if (list == null)
-            return "";
-        if (list.Count <= 0)
-            return "";
-
-        string resultStr = "[" + list[0].ToString();
-        for (int i = 1; i < list.Count; ++i)
-        {
-            resultStr += "," + list[i].ToString();
-        }
-
-        return resultStr + "]\n";
-    }
-
     public void Main(string args)
     {
         Console.WriteLine("args = " + args );
         string flds = args.Replace("\"", "").Replace("[", "").Replace("]", "").Trim();
-        string[] nums = flds.Split(',');
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_TreeNode(nums);
+        OperateTreeNode ope_t = new OperateTreeNode();
+        TreeNode root = ope_t.CreateTreeNode(flds);
 
-        Console.Write("root = \n" + ope_t.output_TreeNode(root));
+        Console.Write("root = \n" + ope_t.TreeToStaircaseString(root));
         Console.WriteLine("root = " + ope_t.Tree2str(root));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
@@ -182,7 +120,7 @@ public class Solution
         List<double> result = AverageOfLevels(root);
 
         sw.Stop();
-        Console.WriteLine("result = \n" + output_List_Array(result));
+        Console.WriteLine("result = [" + String.Join(",", result) + "]");
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

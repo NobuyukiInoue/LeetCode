@@ -4,12 +4,9 @@ import os
 import sys
 import time
 
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from TreeNode.Codec import Codec
+from TreeNode.TreeNode import TreeNode
+from TreeNode.OperateTreeNode import OperateTreeNode
 
 class BSTIterator:
     # 72ms
@@ -24,7 +21,7 @@ class BSTIterator:
                 dfs(node.left)
             self.nums.append(node.val)
             if node.right != None:
-                dfs(node.right)                
+                dfs(node.right)
 
         dfs(root)
         self.index = 0
@@ -62,71 +59,6 @@ class Solution:
             elif cmd == "hasNext" and BI != None:
                 print("iterator.hasNext();\t ... {0}".format(BI.hasNext()))
 
-class output_TreeNode:
-    def output(self, node):
-        self.resultStr = []
-        self.output_TreeNode(node, 0)
-        return self.print_resultStr()
-
-    def output_TreeNode(self, node, n):
-        if node == None:
-            return
-        if len(self.resultStr) <= n:
-            self.resultStr.append("(" + str(node.val) + ")")
-        else:
-            self.resultStr[n] += ",(" + str(node.val) + ")"
-        if node.left != None:
-            self.output_TreeNode(node.left, n + 1)
-        if node.right != None:
-            self.output_TreeNode(node.right, n + 1)
-        return
-
-    def print_resultStr(self):
-        outputStr = ""
-        for i in range(len(self.resultStr)):
-            outputStr += self.resultStr[i] + "\n"
-        self.resultStr.clear()
-        return outputStr
-
-    def tree2str(self, t):
-        """
-        :type t: TreeNode
-        :rtype: str
-        """
-        if t == None:
-            return ""
-
-        resultStr = str(t.val)
-
-        if t.left == None and t.right == None:
-            return resultStr
-
-        resultStr += "(" + self.tree2str(t.left) + ")"
-        if t.right != None:
-            resultStr += "(" + self.tree2str(t.right) + ")"
-
-        return resultStr
-
-def set_node(flds, depth, pos):
-    if len(flds) <= 0:
-        return None
-
-    cur_pos = 0
-    for i in range(depth):
-        cur_pos += 2 ** i
-    
-    if cur_pos + pos > len(flds) - 1:
-        return None
-
-    if flds[cur_pos + pos] == 'null':
-        return None
-
-    node = TreeNode(int(flds[cur_pos + pos]))
-    node.left = set_node(flds, depth + 1, 2*pos)
-    node.right = set_node(flds, depth + 1, 2*pos + 1)
-
-    return node
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -156,22 +88,23 @@ def loop_main(temp):
     cmds = flds[0].replace("[[", "").split(",")
 
     node_flds = (flds[1].split("]],["))[0]
-    if len(node_flds) <= 0:
-        mynode = None
+    ope_t = OperateTreeNode()
+
+    if len(node_flds) > 0:
+        mynode = ope_t.createTreeNode(node_flds)
     else:
-        mynode = set_node(node_flds.split(","), 0, 0)
+        mynode = None
 
-    ol = output_TreeNode()
-    print("mynode = \n[%s]" %(ol.output(mynode)))
-
-    time0 = time.time()
+    print("mynode = \n[%s]" %(ope_t.treeToStaircaseString(mynode)))
 
     sl = Solution()
+    time0 = time.time()
+
     sl.main(cmds, mynode)
 
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+
+    print("Execute time ... : %f[s]\n" %(time1 - time0))
 
 if __name__ == "__main__":
     main()

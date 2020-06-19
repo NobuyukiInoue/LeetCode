@@ -8,14 +8,6 @@ import (
 	"time"
 )
 
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 var res int
 var count int
 
@@ -56,8 +48,8 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 
 	flds := strings.Split(temp, "],[")
-	root := setTreeNode(strings.Split(flds[0], ","))
-	fmt.Printf("root = %s", outputTreeNode(root))
+	root := CreateTreeNode(flds[0])
+	fmt.Printf("root = \n%s", TreeToStaircaseString(root))
 	fmt.Printf("root = %s\n", Tree2str(root))
 	k, _ := strconv.Atoi(flds[1])
 

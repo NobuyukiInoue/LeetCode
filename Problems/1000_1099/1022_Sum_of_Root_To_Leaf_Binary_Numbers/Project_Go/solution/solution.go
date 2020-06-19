@@ -2,18 +2,9 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
-
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
 
 func sumRootToLeaf(root *TreeNode) int {
 	if root == nil {
@@ -37,39 +28,14 @@ func subsumRootToLeaf(node *TreeNode, val int) int {
 	return l + r
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
 	temp = strings.Replace(temp, "[", "", -1)
-	temp = strings.Replace(temp, "]", "", -1)
-	flds := strings.Split(temp, ",")
+	flds := strings.Replace(temp, "]", "", -1)
 
-	root := setTreeNode(flds)
-	fmt.Printf("root = %s", outputTreeNode(root))
+	root := CreateTreeNode(flds)
+	fmt.Printf("root = \n%s", TreeToStaircaseString(root))
 	fmt.Printf("root = %s\n", Tree2str(root))
 
 	timeStart := time.Now()

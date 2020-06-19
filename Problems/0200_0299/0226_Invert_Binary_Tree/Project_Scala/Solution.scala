@@ -8,25 +8,13 @@ object Solution {
         invertTree(root.left)
         invertTree(root.right)
         return root
-}
-
-    def print_int_array(nums:Array[Int]):String = {
-        if (nums.size <= 0)
-            return ""
-
-        var resultStr:String = nums(0).toString
-        for (i <- 1 until nums.length) {
-            resultStr += ", " + nums(i).toString
-        }
-
-        return resultStr
     }
 
-    def main(args:String) {
-        var flds:Array[String] = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[", "").replaceFirst("\\]", "").split(",")
-        var root:TreeNode = Operate_TreeNode.set_TreeNode(flds);
-        println("root = \n" + Operate_TreeNode.output_TreeNode(root))
-        println("root = " + Operate_TreeNode.tree2str(root))
+    def main(args:String): Unit = {
+        var flds:String = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
+        var root:TreeNode = OperateTreeNode.createTreeNode(flds);
+        println("root = \n" + OperateTreeNode.treeToStaircaseString(root))
+        println("root = " + OperateTreeNode.tree2str(root))
 
         val time_start = System.currentTimeMillis
 
@@ -34,8 +22,8 @@ object Solution {
 
         val time_end = System.currentTimeMillis
 
-        println("result = \n" + Operate_TreeNode.output_TreeNode(result))
-        println("result = " + Operate_TreeNode.tree2str(result))
+        println("result = \n" + OperateTreeNode.treeToStaircaseString(result))
+        println("result = " + OperateTreeNode.tree2str(result))
         println("Execute time: " + (time_end - time_start) + " ms\n")
     }
 }

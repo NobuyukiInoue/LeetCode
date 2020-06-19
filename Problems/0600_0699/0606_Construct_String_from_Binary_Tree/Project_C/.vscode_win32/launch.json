@@ -8,9 +8,10 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/Construct_String_from_Binary_Tree.exe",
-            "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
-            //"args": [],
+            "program": "${workspaceRoot}/main.exe",
+        //  "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
+            "miDebuggerPath": "C:\\Programs\\mingw\\bin\\gdb.exe",
+        //  "args": [],
             "args": [
                 "../testdata.txt"
             ],

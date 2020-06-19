@@ -1,12 +1,12 @@
 SCALAC = scalac
 SCALAC_FLAGS = 
 
-all:	TreeNode.class Operate_TreeNode.class Solution.class Main.class
+all:	TreeNode.class OperateTreeNode.class Solution.class Main.class
 
 TreeNode.class:	TreeNode.scala
 	$(SCALAC) $(SCALAC_FLAGS) $<
 
-Operate_TreeNode.class:	Operate_TreeNode.scala
+OperateTreeNode.class:	OperateTreeNode.scala
 	$(SCALAC) $(SCALAC_FLAGS) $<
 
 Solution.class:	Solution.scala

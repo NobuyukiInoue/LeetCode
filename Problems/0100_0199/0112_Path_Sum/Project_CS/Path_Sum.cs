@@ -1,15 +1,5 @@
 using System;
 
-// Definition for a binary tree node.
-public class TreeNode {
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
-    public TreeNode(int x) {
-        val = x;
-    }
-}
-
 public class Solution {
     public bool HasPathSum(TreeNode root, int sum)
     {
@@ -37,22 +27,21 @@ public class Solution {
     {
         Console.WriteLine("args = " + args );
         string[] flds = args.Replace("\"", "").Replace("[[", "").Replace("]]", "").Trim().Split("],[", StringSplitOptions.None);
-        string[] nums1 = flds[0].Split(',');
-        int sum = int.Parse(flds[1]);
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_TreeNode(nums1);
-
-        Console.Write("root = \n" + ope_t.output_TreeNode(root));
+        OperateTreeNode ope_t = new OperateTreeNode();
+        TreeNode root = ope_t.CreateTreeNode(flds[0]);
+        Console.Write("root = \n" + ope_t.TreeToStaircaseString(root));
         Console.WriteLine("root = " + ope_t.Tree2str(root));
+        int sum = int.Parse(flds[1]);
+        Console.WriteLine("sum = " + sum.ToString());
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
 
         bool result =  HasPathSum(root, sum);
-        Console.WriteLine("Result = " + result.ToString());
-        
+
         sw.Stop();
+        Console.WriteLine("Result = " + result.ToString());
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }
 }

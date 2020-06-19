@@ -2,18 +2,9 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
-
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
 
 func buildTree(postorder []int, inorder []int) *TreeNode {
 	// 16ms
@@ -41,30 +32,6 @@ func helper(inorder []int, inStart int, inEnd int, postorder []int, postStart in
 	return root
 }
 
-func stringToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -72,11 +39,11 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	inorder := stringToIntArray(flds[0])
-	postorder := stringToIntArray(flds[1])
+	inorder := StringToIntArray(flds[0])
+	postorder := StringToIntArray(flds[1])
 
-	fmt.Printf("inorder = [%s]\n", intArrayToString(inorder))
-	fmt.Printf("postorder = [%s]\n", intArrayToString(postorder))
+	fmt.Printf("inorder = [%s]\n", IntArrayToString(inorder))
+	fmt.Printf("postorder = [%s]\n", IntArrayToString(postorder))
 
 	timeStart := time.Now()
 
@@ -84,7 +51,7 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s", outputTreeNode(result))
+	fmt.Printf("result = %s", TreeToStaircaseString(result))
 	fmt.Printf("result = %s\n", Tree2str(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

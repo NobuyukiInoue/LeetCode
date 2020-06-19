@@ -23,11 +23,19 @@ public class Solution {
         String[] cmds = flds[0].replace("[[", "").split(",");
 
         String node_flds = (flds[1].split("\\]\\],\\["))[0];
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode mynode = ope_t.set_TreeNode(node_flds.split(","));
+        OperateTreeNode ope_t = new OperateTreeNode();
+    //  Codec codec = new Codec();
+        TreeNode mynode;
+        
+        if (node_flds.length() > 0) {
+            mynode = ope_t.createTreeNode(node_flds);
+        //  mynode = codec.deserialize(node_flds);
+        } else {
+            mynode = null;
+        }
 
-        System.out.print("mynode = \n" + ope_t.output_TreeNode(mynode));
-        System.out.println("mynode = " + ope_t.Tree2str(mynode));
+        System.out.print("mynode = \n" + ope_t.treeToStaircaseString(mynode));
+        System.out.println("mynode = " + ope_t.tree2str(mynode));
 
         long start = System.currentTimeMillis();
 

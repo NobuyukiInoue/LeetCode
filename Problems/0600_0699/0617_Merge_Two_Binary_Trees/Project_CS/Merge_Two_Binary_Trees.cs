@@ -1,14 +1,5 @@
 using System;
 
-// Definition for a binary tree node.
-public class TreeNode
-{
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
-    public TreeNode(int x) { val = x; }
-}
-
 public class Solution
 {
     public TreeNode MergeTrees(TreeNode t1, TreeNode t2)
@@ -44,44 +35,27 @@ public class Solution
         }
     }
 
-    public string output_int_array(int[] nums)
-    {
-        if (nums.Length <= 0)
-            return "";
-
-        string resultStr = nums[0].ToString();
-
-        for (int i = 1; i < resultStr.Length; ++i)
-        {
-            resultStr += ", " + nums[i].ToString();
-        }
-
-        return resultStr;
-    }
-
     public void Main(string args)
     {
         Console.WriteLine("args = " + args );
         string[] flds = args.Replace("\"", "").Replace("[[", "").Replace("]]", "").Trim().Split("],[", StringSplitOptions.None);
-        string[] nums1 = flds[0].Split(',');
-        string[] nums2 = flds[1].Split(',');
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode t1 = ope_t.set_TreeNode(nums1);
-        TreeNode t2 = ope_t.set_TreeNode(nums2);
+        OperateTreeNode ope_t = new OperateTreeNode();
+        TreeNode t1 = ope_t.CreateTreeNode(flds[0]);
+        TreeNode t2 = ope_t.CreateTreeNode(flds[1]);
 
-        Console.Write("t1 = \n" + ope_t.output_TreeNode(t1));
+        Console.Write("t1 = \n" + ope_t.TreeToStaircaseString(t1));
         Console.WriteLine("t1 = " + ope_t.Tree2str(t1));
-        Console.Write("t2 = \n" + ope_t.output_TreeNode(t2));
+        Console.Write("t2 = \n" + ope_t.TreeToStaircaseString(t2));
         Console.WriteLine("t2 = " + ope_t.Tree2str(t2));
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-
         sw.Start();
-        TreeNode result = MergeTrees(t1, t2);
-        sw.Stop();
 
-        Console.Write("result = \n" + ope_t.output_TreeNode(result));
+        TreeNode result = MergeTrees(t1, t2);
+
+        sw.Stop();
+        Console.Write("result = \n" + ope_t.TreeToStaircaseString(result));
         Console.WriteLine("result = " + ope_t.Tree2str(result));
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }

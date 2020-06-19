@@ -7,14 +7,6 @@ import (
 	"time"
 )
 
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	// 8ms
 	if root == p || root == q {
@@ -32,30 +24,6 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 		return left
 	}
 	return right
-}
-
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
 }
 
 func setTargetNode(node *TreeNode, target int) *TreeNode {
@@ -83,10 +51,8 @@ func LoopMain(args string) {
 	nump, _ := strconv.Atoi(flds[1])
 	numq, _ := strconv.Atoi(flds[2])
 
-	numsStr := strings.Split(flds[0], ",")
-	fmt.Printf("nums = %s\n", numsStr)
-	root := setTreeNode(numsStr)
-	fmt.Printf("root = %s", outputTreeNode(root))
+	root := CreateTreeNode(flds[0])
+	fmt.Printf("root = \n%s", TreeToStaircaseString(root))
 	fmt.Printf("root = %s\n", Tree2str(root))
 	p := setTargetNode(root, nump)
 	q := setTargetNode(root, numq)

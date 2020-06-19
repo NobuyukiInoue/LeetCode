@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Diamete_of_Binary_Tree_for_mac",
+            "program": "${workspaceFolder}/main_for_mac",
             "args": [
                 "../testdata.txt"
             ],

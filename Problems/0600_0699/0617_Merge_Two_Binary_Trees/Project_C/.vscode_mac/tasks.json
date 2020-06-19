@@ -6,7 +6,7 @@
         {
             "label": "LANG C Project",
             "type": "shell",
-            "command": "make debug",
+            "command": "make all",
             "problemMatcher": "$tsc", 
             "group": {
                 "kind": "build",

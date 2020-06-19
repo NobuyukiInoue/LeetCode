@@ -25,12 +25,12 @@ object Solution {
         return resultStr
     }
 
-    def main(args:String) {
-        var nums_str1:Array[String] = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[", "").replaceFirst("\\]", "").split(",")
+    def main(args:String): Unit = {
+        var flds:String = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
 
-        var root:TreeNode = Operate_TreeNode.set_TreeNode(nums_str1);
-        print("root = \n" + Operate_TreeNode.output_TreeNode(root))
-        println("root = " + Operate_TreeNode.tree2str(root))
+        var root:TreeNode = OperateTreeNode.createTreeNode(flds);
+        print("root = \n" + OperateTreeNode.treeToStaircaseString(root))
+        println("root = " + OperateTreeNode.tree2str(root))
 
         val time_start = System.currentTimeMillis
 
@@ -38,8 +38,8 @@ object Solution {
 
         val time_end = System.currentTimeMillis
 
-        print("result = \n" + Operate_TreeNode.output_TreeNode(result))
-        println("result = " + Operate_TreeNode.tree2str(result))
+        print("result = \n" + OperateTreeNode.treeToStaircaseString(result))
+        println("result = " + OperateTreeNode.tree2str(result))
         println("Execute time: " + (time_end - time_start) + " ms\n")
     }
 }

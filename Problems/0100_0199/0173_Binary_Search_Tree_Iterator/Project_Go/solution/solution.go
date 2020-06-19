@@ -7,14 +7,6 @@ import (
 	"time"
 )
 
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func BSTIteratorMain(cmds []string, mynode *TreeNode) {
 	BI := Constructor(mynode)
 	isExistBI := false
@@ -42,9 +34,14 @@ func LoopMain(args string) {
 
 	nodeFlds := strings.Split(flds[1], "]],[")
 	fmt.Printf("nodeFlds = %s\n", nodeFlds[0])
-	nodeNums := strings.Split(nodeFlds[0], ",")
-	mynode := setTreeNode(nodeNums)
-	fmt.Printf("mynode = %s", outputTreeNode(mynode))
+
+	var mynode *TreeNode
+	if len(nodeFlds[0]) > 0 {
+		mynode = CreateTreeNode(nodeFlds[0])
+	} else {
+		mynode = nil
+	}
+	fmt.Printf("mynode = %s", TreeToStaircaseString(mynode))
 	fmt.Printf("mynode = %s\n", Tree2str(mynode))
 
 	timeStart := time.Now()

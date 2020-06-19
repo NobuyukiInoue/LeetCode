@@ -15,22 +15,10 @@ object Solution {
         return resultStr
     }
 
-    def print_int_array(nums:Array[Int]):String = {
-        if (nums.size <= 0)
-            return ""
-
-        var resultStr:String = nums(0).toString
-        for (i <- 1 until nums.length) {
-            resultStr += ", " + nums(i).toString
-        }
-
-        return resultStr
-    }
-
-    def main(args:String) {
-        var flds:Array[String] = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[", "").replaceFirst("\\]", "").split(",")
-        var t:TreeNode = Operate_TreeNode.set_TreeNode(flds);
-        println("t = \n" + Operate_TreeNode.output_TreeNode(t))
+    def main(args:String): Unit = {
+        var flds:String = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
+        var t:TreeNode = OperateTreeNode.createTreeNode(flds);
+        println("t = \n" + OperateTreeNode.treeToStaircaseString(t))
 
         val time_start = System.currentTimeMillis
 

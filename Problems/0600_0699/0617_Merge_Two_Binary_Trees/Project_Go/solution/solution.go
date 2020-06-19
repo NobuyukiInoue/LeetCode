@@ -7,14 +7,6 @@ import (
 	"time"
 )
 
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
 	// 28ms
 	if t1 == nil {
@@ -43,14 +35,14 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, " ", "", -1)
 	temp = strings.Replace(temp, "[[", "", -1)
 	temp = strings.Replace(temp, "]]", "", -1)
-
 	flds := strings.Split(temp, "],[")
-	t1 := setTreeNode(strings.Split(flds[0], ","))
-	fmt.Printf("t1 = %s", outputTreeNode(t1))
+
+	t1 := CreateTreeNode(flds[0])
+	fmt.Printf("t1 = \n%s", TreeToStaircaseString(t1))
 	fmt.Printf("t1 = %s\n", Tree2str(t1))
 
-	t2 := setTreeNode(strings.Split(flds[1], ","))
-	fmt.Printf("t2 = %s", outputTreeNode(t2))
+	t2 := CreateTreeNode(flds[1])
+	fmt.Printf("t2 = \n%s", TreeToStaircaseString(t2))
 	fmt.Printf("t2 = %s\n", Tree2str(t2))
 
 	timeStart := time.Now()
@@ -59,7 +51,7 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s", outputTreeNode(result))
+	fmt.Printf("result = \n%s", TreeToStaircaseString(result))
 	fmt.Printf("result = %s\n", Tree2str(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

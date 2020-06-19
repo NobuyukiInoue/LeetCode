@@ -7,14 +7,6 @@ import (
 	"time"
 )
 
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func searchBST(root *TreeNode, val int) *TreeNode {
 	if root == nil {
 		return nil
@@ -41,30 +33,6 @@ func searchBST(root *TreeNode, val int) *TreeNode {
 	return result
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -72,17 +40,13 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	numsStr1 := strings.Split(flds[0], ",")
-	val, err := strconv.Atoi(flds[1])
-	if err != nil {
-		fmt.Println("%s is can not convert integer\n", flds[1])
-		return
-	}
 
-	root := setTreeNode(numsStr1)
-	fmt.Printf("root = \n%s", outputTreeNode(root))
+	root := CreateTreeNode(flds[0])
+	fmt.Printf("root = \n%s", TreeToStaircaseString(root))
 	fmt.Printf("root = %s\n", Tree2str(root))
-	fmt.Println()
+
+	val, _ := strconv.Atoi(flds[1])
+	fmt.Printf("val = %d\n", val)
 
 	timeStart := time.Now()
 
@@ -90,7 +54,7 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = \n%s", outputTreeNode(result))
+	fmt.Printf("result = \n%s", TreeToStaircaseString(result))
 	fmt.Printf("result = %s\n", Tree2str(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

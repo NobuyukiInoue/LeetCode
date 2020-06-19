@@ -7,14 +7,6 @@ import (
 	"time"
 )
 
-// Definition for a binary tree node.
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func pathSum(root *TreeNode, sum int) [][]int {
 	// 4ms
 	results := make([][]int, 0)
@@ -35,19 +27,6 @@ func helper(root *TreeNode, sum int, results *[][]int, tempArr []int) {
 	helper(root.Right, sum-root.Val, results, append(tempArr, root.Val))
 }
 
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -55,8 +34,8 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	root := setTreeNode(strings.Split(flds[0], ","))
-	fmt.Printf("root = %s", outputTreeNode(root))
+	root := CreateTreeNode(flds[0])
+	fmt.Printf("root = \n%s", TreeToStaircaseString(root))
 	fmt.Printf("root = %s\n", Tree2str(root))
 	sum, _ := strconv.Atoi(flds[1])
 
@@ -66,15 +45,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = [")
-	for i := 0; i < len(result); i++ {
-		if i == 0 {
-			fmt.Printf("[%s]", intArrayToString(result[i]))
-		} else {
-			fmt.Printf(",[%s]", intArrayToString(result[i]))
-		}
-	}
-	fmt.Printf("]\n")
-
+	fmt.Printf("result = %s\n", IntIntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

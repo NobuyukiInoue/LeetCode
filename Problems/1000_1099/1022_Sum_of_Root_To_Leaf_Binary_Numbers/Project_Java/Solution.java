@@ -4,7 +4,7 @@ public class Solution {
     public int sumRootToLeaf(TreeNode root) {
         if (root == null)
             return 0;
-        return sub_sumRootToLeaf(root, 0);        
+        return sub_sumRootToLeaf(root, 0);
     }
 
     public int sub_sumRootToLeaf(TreeNode node, int val) {
@@ -21,12 +21,14 @@ public class Solution {
 
     public void Main(String args) {
         System.out.println("args = " + args);
-        String[] flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
+        String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_TreeNode(flds);
-        System.out.print("root = \n" + ope_t.output_TreeNode(root));
-        System.out.println("root = " + ope_t.Tree2str(root));
+        OperateTreeNode ope_t = new OperateTreeNode();
+        TreeNode root = ope_t.createTreeNode(flds);
+    //  Codec codec = new Codec();
+    //  TreeNode root = codec.deserialize(flds);
+        System.out.print("root = \n" + ope_t.treeToStaircaseString(root));
+        System.out.println("root = " + ope_t.tree2str(root));
 
         long start = System.currentTimeMillis();
 

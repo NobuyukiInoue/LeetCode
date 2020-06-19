@@ -54,10 +54,12 @@ public void Main(String args) {
         System.out.println("args = " + args);
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_TreeNode(flds[0].split(","));
-        System.out.print("root = \n" + ope_t.output_TreeNode(root));
-        System.out.println("root = " + ope_t.Tree2str(root));
+        OperateTreeNode ope_t = new OperateTreeNode();
+        TreeNode root = ope_t.createTreeNode(flds[0]);
+    //  Codec codec = new Codec();
+    //  TreeNode root = codec.deserialize(flds[0]);
+        System.out.print("root = \n" + ope_t.treeToStaircaseString(root));
+        System.out.println("root = " + ope_t.tree2str(root));
 
         int k = Integer.parseInt(flds[1]);
         System.out.println("k = " + Integer.toString(k));

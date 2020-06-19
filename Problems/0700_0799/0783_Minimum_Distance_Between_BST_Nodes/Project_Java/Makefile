@@ -1,7 +1,7 @@
 JAVAC =javac
 JAVAC_FLAGS =
 
-all:	Mylib.class TreeNode.class Operate_TreeNode.class Solution.class Main.class
+all:	Mylib.class TreeNode.class Codec.class OperateTreeNode.class Solution.class Main.class
 
 Mylib.class:	Mylib.java
 	$(JAVAC) $(JAVAC_FLAGS) $<
@@ -9,7 +9,10 @@ Mylib.class:	Mylib.java
 TreeNode.class:	TreeNode.java
 	$(JAVAC) $(JAVAC_FLAGS) $<
 
-Operate_TreeNode.class:	Operate_TreeNode.java
+Codec.class:	Codec.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
+
+OperateTreeNode.class:	OperateTreeNode.java
 	$(JAVAC) $(JAVAC_FLAGS) $<
 
 Solution.class:	Solution.java

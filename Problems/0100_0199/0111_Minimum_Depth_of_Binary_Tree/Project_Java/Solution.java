@@ -1,41 +1,42 @@
 import java.util.*;
 
 public class Solution {
-    public boolean isBalanced(TreeNode root) {
-        return isBalanced_Sub(root, 0) >= 0;
-    }
-
-    private int isBalanced_Sub(TreeNode root, int height) {
+    public int minDepth(TreeNode root) {
         if (root == null) {
-            return height;
+            return 0;
         }
-        
-        int leftTree = isBalanced_Sub(root.left, height + 1);
-        int rightTree = isBalanced_Sub(root.right, height + 1);
-        if (leftTree < 0 || rightTree < 0 || Math.abs(leftTree - rightTree) > 1) {
-            return -1;
-        }
-        
-        return Math.max(leftTree, rightTree);
+
+        if (root.left != null && root.right != null) {
+            int l = minDepth(root.left) + 1;
+            int r = minDepth(root.right) + 1;
+            return Math.min(l, r);
+        } else if (root.left != null) {
+            return minDepth(root.left) + 1;
+        } else if (root.right != null) {
+            return minDepth(root.right) + 1;
+        } else {
+            return 1;
+        }   
     }
 
     public void Main(String args) {
         System.out.println("args = " + args);
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib ml = new Mylib();
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode root = ope_t.set_TreeNode(flds.split(","));
-        System.out.print("root = \n" + ope_t.output_TreeNode(root));
-        System.out.println("root = " + ope_t.Tree2str(root));
+        OperateTreeNode ope_t = new OperateTreeNode();
+        TreeNode root = ope_t.createTreeNode(flds);
+    //  Codec codec = new Codec();
+    //  TreeNode root = codec.deserialize(flds);
+        System.out.print("root = \n" + ope_t.treeToStaircaseString(root));
+        System.out.println("root = " + ope_t.tree2str(root));
 
         long start = System.currentTimeMillis();
 
-        boolean result = isBalanced(root);
+        int result = minDepth(root);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + Boolean.toString(result));
+        System.out.println("result = " + Integer.toString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

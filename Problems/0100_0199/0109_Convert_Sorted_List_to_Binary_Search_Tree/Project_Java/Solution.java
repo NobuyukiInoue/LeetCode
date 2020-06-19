@@ -57,9 +57,9 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        System.out.print("result = \n" + ope_t.output_TreeNode(result));
-        System.out.println("result = " + ope_t.Tree2str(result));
+        OperateTreeNode ope_t = new OperateTreeNode();
+        System.out.print("result = \n" + ope_t.treeToStaircaseString(result));
+        System.out.println("result = " + ope_t.tree2str(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

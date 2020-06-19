@@ -61,18 +61,19 @@ public class Solution {
     public void Main(String args) {
         System.out.println("args = " + args);
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
-        String[] nums = flds.split(",");
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
+        OperateTreeNode ope_t = new OperateTreeNode();
+    //  Codec codec = new Codec();
         TreeNode root;
-        
+
         if (flds.length() > 0) {
-            root = ope_t.set_TreeNode(nums);
+            root = ope_t.createTreeNode(flds);
+        //  root = codec.deserialize(flds);
+            System.out.print("root = \n" + ope_t.treeToStaircaseString(root));
+            System.out.println("root = " + ope_t.tree2str(root));
         } else {
             root = null;
         }
-        System.out.print("root = \n" + ope_t.output_TreeNode(root));
-        System.out.println("root = " + ope_t.Tree2str(root));
 
         long start = System.currentTimeMillis();
 

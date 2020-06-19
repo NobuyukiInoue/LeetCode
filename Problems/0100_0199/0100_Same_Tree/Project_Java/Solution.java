@@ -20,16 +20,17 @@ public class Solution {
     public void Main(String args) {
         System.out.println("args = " + args);
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
-        String[] nums1 = flds[0].split(",");
-        String[] nums2 = flds[1].split(",");
 
-        Operate_TreeNode ope_t = new Operate_TreeNode();
-        TreeNode p = ope_t.set_TreeNode(nums1);
-        TreeNode q = ope_t.set_TreeNode(nums2);
-        System.out.print("p = \n" + ope_t.output_TreeNode(p));
-        System.out.print("q = \n" + ope_t.output_TreeNode(q));
-        System.out.println("p = " + ope_t.Tree2str(p));
-        System.out.println("q = " + ope_t.Tree2str(q));
+        OperateTreeNode ope_t = new OperateTreeNode();
+        TreeNode p = ope_t.createTreeNode(flds[0]);
+        TreeNode q = ope_t.createTreeNode(flds[1]);
+    //  Codec codec = new Codec();
+    //  TreeNode p = codec.deserialize(flds[0]);
+    //  TreeNode q = codec.deserialize(flds[1]);
+        System.out.print("p = \n" + ope_t.treeToStaircaseString(p));
+        System.out.print("q = \n" + ope_t.treeToStaircaseString(q));
+        System.out.println("p = " + ope_t.tree2str(p));
+        System.out.println("q = " + ope_t.tree2str(q));
 
         long start = System.currentTimeMillis();
 

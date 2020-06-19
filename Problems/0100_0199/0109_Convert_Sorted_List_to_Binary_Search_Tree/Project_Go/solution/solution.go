@@ -2,23 +2,9 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
-
-// Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-// Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
 
 func sortedListToBST(head *ListNode) *TreeNode {
 	// 428ms
@@ -74,33 +60,15 @@ func sortedListToBST2(head *ListNode) *TreeNode {
 	return node
 }
 
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
 	temp = strings.Replace(temp, "[", "", -1)
-	temp = strings.Replace(temp, "]", "", -1)
+	flds := strings.Replace(temp, "]", "", -1)
 
-	flds := strings.Split(temp, ",")
-	nums := make([]int, len(flds))
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(flds[i])
-	}
-
+	nums := StringToIntArray(flds)
 	head := setListNode(nums)
-	fmt.Printf("head = %s", outputListNode(head))
+	fmt.Printf("head = %s\n", outputListNode(head))
 
 	timeStart := time.Now()
 
@@ -108,6 +76,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = \n[%s]\n", outputTreeNode(result))
+	fmt.Printf("result = \n%s", TreeToStaircaseString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

@@ -6,7 +6,7 @@
         {
             "label": "LANG C Project",
             "type": "shell",
-            "command": "mingw32-make.exe debug",
+            "command": "mingw32-make.exe all",
             "problemMatcher": "$tsc", 
             "group": {
                 "kind": "build",
