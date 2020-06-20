@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -31,38 +30,14 @@ func IntMin(a int, b int) int {
 	}
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
 
-	cost := str2IntArray(flds)
-	fmt.Printf("cost = %s\n", printIntArray(cost))
+	cost := StringToIntArray(flds)
+	fmt.Printf("cost = [%s]\n", IntArrayToString(cost))
 
 	timeStart := time.Now()
 

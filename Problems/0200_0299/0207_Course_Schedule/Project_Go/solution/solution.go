@@ -40,33 +40,6 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 	return len(bfs) == numCourses
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -85,11 +58,11 @@ func LoopMain(args string) {
 		prerequisites = make([][]int, len(dataStr))
 		fmt.Printf("prerequisites = [\n")
 		for i := 0; i < len(prerequisites); i++ {
-			prerequisites[i] = strToIntArray(dataStr[i])
+			prerequisites[i] = StringToIntArray(dataStr[i])
 			if i == 0 {
-				fmt.Printf("  %s\n", intArrayToString(prerequisites[i]))
+				fmt.Printf("  %s\n", IntArrayToString(prerequisites[i]))
 			} else {
-				fmt.Printf(", %s\n", intArrayToString(prerequisites[i]))
+				fmt.Printf(", %s\n", IntArrayToString(prerequisites[i]))
 			}
 		}
 		fmt.Printf("]\n")

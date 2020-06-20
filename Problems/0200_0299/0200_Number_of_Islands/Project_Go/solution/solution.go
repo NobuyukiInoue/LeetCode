@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 	"time"
-	"unsafe"
 )
 
 func numIslands(grid [][]byte) int {
@@ -40,16 +39,6 @@ func searchIslands(grid [][]byte, i int, j int) {
 	}
 }
 
-func strToByteArray(flds string) []byte {
-	nums := make([]byte, len(flds))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i] = (byte)(flds[i])
-	}
-
-	return nums
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -61,18 +50,9 @@ func LoopMain(args string) {
 
 	grid := make([][]byte, len(flds))
 	for i := 0; i < len(flds); i++ {
-		grid[i] = strToByteArray(flds[i])
+		grid[i] = StringToByteArray(flds[i])
 	}
-
-	fmt.Printf("grid = [")
-	for i := 0; i < len(grid); i++ {
-		if i == 0 {
-			fmt.Printf("[%s]", *(*string)(unsafe.Pointer(&grid[i])))
-		} else {
-			fmt.Printf(", [%s]", *(*string)(unsafe.Pointer(&grid[i])))
-		}
-	}
-	fmt.Printf("]\n")
+	fmt.Printf("grid = %s\n", ByteByteArrayToGridString(grid))
 
 	timeStart := time.Now()
 

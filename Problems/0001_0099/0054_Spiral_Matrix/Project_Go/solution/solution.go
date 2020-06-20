@@ -51,22 +51,6 @@ func spiralOrder(matrix [][]int) []int {
 	return result
 }
 
-func intArrayTostring(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := ""
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, "\"", "", -1)
@@ -83,15 +67,7 @@ func LoopMain(args string) {
 			matrix[i][j], _ = strconv.Atoi(line[j])
 		}
 	}
-	fmt.Printf("matrix = [")
-	for i := 0; i < len(matrix); i++ {
-		if i == 0 {
-			fmt.Printf("[%s]", intArrayTostring(matrix[i]))
-		} else {
-			fmt.Printf(",[%s]", intArrayTostring(matrix[i]))
-		}
-	}
-	fmt.Printf("]\n")
+	fmt.Printf("matrix = %s\n", IntIntArrayToGridString(matrix))
 
 	timeStart := time.Now()
 
@@ -99,6 +75,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", intArrayTostring(result))
+	fmt.Printf("result = %s\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

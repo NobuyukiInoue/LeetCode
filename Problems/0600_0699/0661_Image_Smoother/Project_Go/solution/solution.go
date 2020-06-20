@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -71,22 +70,6 @@ func imageSmoother(M [][]int) [][]int {
 	return res
 }
 
-func IntArray2string(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, "\"", "", -1)
@@ -97,14 +80,9 @@ func LoopMain(args string) {
 
 	M := make([][]int, len(flds))
 	for i, _ := range flds {
-		line := strings.Split(flds[i], ",")
-		//	fmt.Printf("line = %s\n", line)
-		M[i] = make([]int, len(line))
-		for j, _ := range line {
-			M[i][j], _ = strconv.Atoi(line[j])
-		}
-		fmt.Printf("M = %s\n", IntArray2string(M[i]))
+		M[i] = StringToIntArray(flds[i])
 	}
+	fmt.Printf("M = %s\n", IntIntArrayToGridString(M))
 
 	timeStart := time.Now()
 
@@ -112,9 +90,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	for i, _ := range result {
-		fmt.Printf("result[%d] = %s\n", i, IntArray2string(result[i]))
-	}
-
+	fmt.Printf("result = %s\n", IntIntArrayToGridString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

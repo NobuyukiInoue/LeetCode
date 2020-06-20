@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -68,30 +67,6 @@ func (uf *unionFind) find(i int) int {
 	return uf.parent[i]
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -105,15 +80,15 @@ func LoopMain(args string) {
 	data := strings.Split(flds[1], "],[")
 	pairs := make([][]int, len(data))
 	for i := 0; i < len(data); i++ {
-		pairs[i] = strToIntArray(data[i])
+		pairs[i] = StringToIntArray(data[i])
 	}
 
 	fmt.Printf("pairs = [")
 	for i, _ := range pairs {
 		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(pairs[i]))
+			fmt.Printf("[%s]", IntArrayToString(pairs[i]))
 		} else {
-			fmt.Printf(",[%s]", printIntArray(pairs[i]))
+			fmt.Printf(",[%s]", IntArrayToString(pairs[i]))
 		}
 	}
 	fmt.Printf("]\n")

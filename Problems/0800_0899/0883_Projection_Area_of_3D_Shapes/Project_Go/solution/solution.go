@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -37,30 +36,6 @@ func max(a int, b int) int {
 	}
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i, _ := range nums {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -69,16 +44,10 @@ func LoopMain(args string) {
 
 	flds := strings.Split(temp, "],[")
 	grid := make([][]int, len(flds))
-	fmt.Printf("grid = [")
 	for i, _ := range grid {
-		grid[i] = str2IntArray(flds[i])
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(grid[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(grid[i]))
-		}
+		grid[i] = StringToIntArray(flds[i])
 	}
-	fmt.Printf("]\n")
+	fmt.Printf("grid = %s\n", IntIntArrayToGridString(grid))
 
 	timeStart := time.Now()
 

@@ -26,30 +26,6 @@ func checkStraightLine(coordinates [][]int) bool {
 	return true
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -60,18 +36,9 @@ func LoopMain(args string) {
 
 	coordinates := make([][]int, len(flds))
 	for i := 0; i < len(flds); i++ {
-		coordinates[i] = str2IntArray(flds[i])
+		coordinates[i] = StringToIntArray(flds[i])
 	}
-
-	fmt.Printf("coordinates = [")
-	for i, _ := range coordinates {
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(coordinates[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(coordinates[i]))
-		}
-	}
-	fmt.Printf("]\n")
+	fmt.Printf("coordinates = %s\n", IntIntArrayToString(coordinates))
 
 	timeStart := time.Now()
 

@@ -44,55 +44,6 @@ func abs(x int) int {
 	}
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
-func printInt2Array(nums [][]int) string {
-	if len(nums) <= 0 {
-		return "[]"
-	}
-
-	resultStr := "["
-	for i := 0; i < len(nums); i++ {
-		if i == 0 {
-			resultStr += "["
-		} else {
-			resultStr += ",["
-		}
-		for j := 0; j < len(nums[i]); j++ {
-			if j == 0 {
-				resultStr += strconv.Itoa(nums[i][j])
-			} else {
-				resultStr += ", " + strconv.Itoa(nums[i][j])
-			}
-		}
-		resultStr += "]"
-	}
-	resultStr += "]"
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -113,6 +64,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", printInt2Array(result))
+	fmt.Printf("result = %s\n", IntIntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

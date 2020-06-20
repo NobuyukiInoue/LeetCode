@@ -28,7 +28,7 @@ func main() {
 	}
 
 	// 読み込み
-	reader := bufio.NewReaderSize(fp, 65536)
+	reader := bufio.NewReaderSize(fp, 1048576)
 	for {
 		line, _, err := reader.ReadLine()
 		if err == io.EOF {

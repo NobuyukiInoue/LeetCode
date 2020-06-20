@@ -32,7 +32,7 @@ func majorityElement2(nums []int) int {
 	return nums[len(nums)/2]
 }
 
-func str2IntArray(flds string) []int {
+func StringToIntArray(flds string) []int {
 	numsStr := strings.Split(flds, ",")
 	nums := make([]int, len(numsStr))
 
@@ -43,7 +43,7 @@ func str2IntArray(flds string) []int {
 	return nums
 }
 
-func printIntArray(nums []int) string {
+func IntArrayToString(nums []int) string {
 	if len(nums) <= 0 {
 		return ""
 	}
@@ -61,9 +61,9 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, " ", "", -1)
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
-	nums := str2IntArray(flds)
+	nums := StringToIntArray(flds)
 
-	fmt.Printf("nums[] = %s\n", printIntArray(nums))
+	fmt.Printf("nums[] = [%s]\n", IntArrayToString(nums))
 
 	timeStart := time.Now()
 

@@ -40,30 +40,6 @@ func myMin(a int, b int) int {
 	return b
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return "[]"
-	}
-
-	resultStr := "[" + strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -72,10 +48,10 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	arr1 := strToIntArray(flds[0])
-	arr2 := strToIntArray(flds[1])
+	arr1 := StringToIntArray(flds[0])
+	arr2 := StringToIntArray(flds[1])
 	d, _ := strconv.Atoi(flds[2])
-	fmt.Printf("arr1 = %s, arr2 = %s, d = %d\n", intArrayToString(arr1), intArrayToString(arr2), d)
+	fmt.Printf("arr1 = [%s], arr2 = [%s], d = %d\n", IntArrayToString(arr1), IntArrayToString(arr2), d)
 
 	timeStart := time.Now()
 

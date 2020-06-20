@@ -36,30 +36,6 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 	return data
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -73,21 +49,8 @@ func LoopMain(args string) {
 	lower, _ := strconv.Atoi(fld0[1])
 	fmt.Printf("upper = %d, lower = %d\n", upper, lower)
 
-	data := strings.Split(flds[1], ",")
-	colsum := make([]int, len(data))
-	for i := 0; i < len(data); i++ {
-		colsum[i], _ = strconv.Atoi(data[i])
-	}
-
-	fmt.Printf("colsum = [")
-	for i, _ := range colsum {
-		if i == 0 {
-			fmt.Printf("%d", colsum[i])
-		} else {
-			fmt.Printf(",%d", colsum[i])
-		}
-	}
-	fmt.Printf("]\n")
+	colsum := StringToIntArray(flds[1])
+	fmt.Printf("colsum = [%s]\n", IntArrayToString(colsum))
 
 	timeStart := time.Now()
 

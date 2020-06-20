@@ -59,33 +59,6 @@ func findMinHeightTrees(n int, edges [][]int) []int {
 	return []int{}
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -102,19 +75,13 @@ func LoopMain(args string) {
 	var edges [][]int
 	if len(dataStr) > 0 {
 		edges = make([][]int, len(dataStr))
-		fmt.Printf("edges = [\n")
 		for i := 0; i < len(edges); i++ {
-			edges[i] = strToIntArray(dataStr[i])
-			if i == 0 {
-				fmt.Printf("  %s\n", intArrayToString(edges[i]))
-			} else {
-				fmt.Printf(", %s\n", intArrayToString(edges[i]))
-			}
+			edges[i] = StringToIntArray(dataStr[i])
 		}
-		fmt.Printf("]\n")
 	} else {
 		edges = make([][]int, 0)
 	}
+	fmt.Printf("edges = %s\n", IntIntArrayToGridString(edges))
 
 	timeStart := time.Now()
 
@@ -122,6 +89,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", intArrayToString(result))
+	fmt.Printf("result = %s\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

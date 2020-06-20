@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -46,33 +45,6 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 	return a
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArray2string(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -81,17 +53,17 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	arr1 := str2IntArray(flds[0])
-	arr2 := str2IntArray(flds[1])
+	arr1 := StringToIntArray(flds[0])
+	arr2 := StringToIntArray(flds[1])
 
-	fmt.Printf("arr1 = %s, arr2 = %s\n", intArray2string(arr1), intArray2string(arr2))
+	fmt.Printf("arr1 = [%s], arr2 = [%s]\n", IntArrayToString(arr1), IntArrayToString(arr2))
 
 	timeStart := time.Now()
 
 	result := relativeSortArray(arr1, arr2)
-	fmt.Printf("result = %s\n", intArray2string(result))
 
 	timeEnd := time.Now()
 
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

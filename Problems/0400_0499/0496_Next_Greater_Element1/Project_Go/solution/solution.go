@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -62,30 +61,6 @@ func nextGreaterElement_work_bug(nums1 []int, nums2 []int) []int {
 	return result
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, "\"", "", -1)
@@ -94,10 +69,10 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 
 	flds := strings.Split(temp, "],[")
-	nums1 := str2IntArray(flds[0])
-	nums2 := str2IntArray(flds[1])
-	fmt.Printf("nums1 = %s\n", printIntArray(nums1))
-	fmt.Printf("nums2 = %s\n", printIntArray(nums2))
+	nums1 := StringToIntArray(flds[0])
+	nums2 := StringToIntArray(flds[1])
+	fmt.Printf("nums1 = [%s]\n", IntArrayToString(nums1))
+	fmt.Printf("nums2 = [%s]\n", IntArrayToString(nums2))
 
 	timeStart := time.Now()
 
@@ -105,6 +80,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", printIntArray(result))
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

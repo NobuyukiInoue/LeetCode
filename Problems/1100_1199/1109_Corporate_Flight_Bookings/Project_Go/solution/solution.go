@@ -22,30 +22,6 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 	return res
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -56,20 +32,11 @@ func LoopMain(args string) {
 
 	bookings := make([][]int, len(bookings_str))
 	for i := 0; i < len(bookings_str); i++ {
-		bookings[i] = str2IntArray(bookings_str[i])
+		bookings[i] = StringToIntArray(bookings_str[i])
 	}
+	fmt.Printf("bookings = %s\n",IntIntArrayToString(bookings))
 
 	n, _ := strconv.Atoi(strings.Replace(flds[1], "]]", "", -1))
-
-	fmt.Printf("bookings = [")
-	for i, _ := range bookings {
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(bookings[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(bookings[i]))
-		}
-	}
-	fmt.Printf("]\n")
 	fmt.Printf("n = %d\n", n)
 
 	timeStart := time.Now()
@@ -78,6 +45,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = [%s]\n", printIntArray(result))
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

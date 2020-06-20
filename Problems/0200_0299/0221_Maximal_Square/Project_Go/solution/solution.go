@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 	"time"
-	"unsafe"
 )
 
 func maximalSquare(matrix [][]byte) int {
@@ -45,16 +44,6 @@ func max(a int, b int) int {
 	}
 }
 
-func strToByteArray(flds string) []byte {
-	nums := make([]byte, len(flds))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i] = (byte)(flds[i])
-	}
-
-	return nums
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -66,18 +55,9 @@ func LoopMain(args string) {
 
 	matrix := make([][]byte, len(flds))
 	for i := 0; i < len(flds); i++ {
-		matrix[i] = strToByteArray(flds[i])
+		matrix[i] = StringToByteArray(flds[i])
 	}
-
-	fmt.Printf("matrix = [\n")
-	for i := 0; i < len(matrix); i++ {
-		if i == 0 {
-			fmt.Printf(" [%s]\n", *(*string)(unsafe.Pointer(&matrix[i])))
-		} else {
-			fmt.Printf(",[%s]\n", *(*string)(unsafe.Pointer(&matrix[i])))
-		}
-	}
-	fmt.Printf("]\n")
+	fmt.Printf("matrix = %s\n", ByteByteArrayToGridString(matrix))
 
 	timeStart := time.Now()
 

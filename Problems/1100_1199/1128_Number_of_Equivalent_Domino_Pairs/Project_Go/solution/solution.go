@@ -43,7 +43,7 @@ func numEquivDominoPairs2(dominoes [][]int) int {
 	return pairs
 }
 
-func str2IntArray(flds string) []int {
+func StringToIntArray(flds string) []int {
 	numsStr := strings.Split(flds, ",")
 	nums := make([]int, len(numsStr))
 
@@ -54,7 +54,7 @@ func str2IntArray(flds string) []int {
 	return nums
 }
 
-func printIntArray(nums []int) string {
+func IntArrayToString(nums []int) string {
 	if len(nums) <= 0 {
 		return ""
 	}
@@ -77,15 +77,15 @@ func LoopMain(args string) {
 
 	dominoes := make([][]int, len(flds))
 	for i := 0; i < len(flds); i++ {
-		dominoes[i] = str2IntArray(flds[i])
+		dominoes[i] = StringToIntArray(flds[i])
 	}
 
 	fmt.Printf("dominoes = [")
 	for i, _ := range dominoes {
 		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(dominoes[i]))
+			fmt.Printf("[%s]", IntArrayToString(dominoes[i]))
 		} else {
-			fmt.Printf(",[%s]", printIntArray(dominoes[i]))
+			fmt.Printf(",[%s]", IntArrayToString(dominoes[i]))
 		}
 	}
 	fmt.Printf("]\n")

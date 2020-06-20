@@ -76,43 +76,6 @@ func (h *heap) build() {
 	}
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
-func strArrayToString(data []string) string {
-	if len(data) <= 0 {
-		return ""
-	}
-
-	resultStr := data[0]
-	for i := 1; i < len(data); i++ {
-		resultStr += ", " + data[i]
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -120,9 +83,9 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 
 	flds := strings.Split(temp, "],[")
-	nums := strToIntArray(flds[0])
+	nums := StringToIntArray(flds[0])
 	k, _ := strconv.Atoi(flds[1])
-	fmt.Printf("nums = [%s], k = %d\n", intArrayToString(nums), k)
+	fmt.Printf("nums = [%s], k = %d\n", IntArrayToString(nums), k)
 
 	timeStart := time.Now()
 

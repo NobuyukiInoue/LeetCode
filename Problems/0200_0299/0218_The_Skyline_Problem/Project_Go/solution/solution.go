@@ -4,7 +4,6 @@ import (
 	"container/heap"
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -127,33 +126,6 @@ func (points *PQ) Pop() interface{} {
 	return tmp
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -165,11 +137,11 @@ func LoopMain(args string) {
 	buildings := make([][]int, len(flds))
 	fmt.Printf("buildings = [\n")
 	for i := 0; i < len(buildings); i++ {
-		buildings[i] = strToIntArray(flds[i])
+		buildings[i] = StringToIntArray(flds[i])
 		if i == 0 {
-			fmt.Printf("  %s\n", intArrayToString(buildings[i]))
+			fmt.Printf("  %s\n", IntArrayToString(buildings[i]))
 		} else {
-			fmt.Printf(", %s\n", intArrayToString(buildings[i]))
+			fmt.Printf(", %s\n", IntArrayToString(buildings[i]))
 		}
 	}
 	fmt.Printf("]\n")
@@ -183,9 +155,9 @@ func LoopMain(args string) {
 	fmt.Printf("result = [\n")
 	for i := 0; i < len(result); i++ {
 		if i == 0 {
-			fmt.Printf("  %s\n", intArrayToString(result[i]))
+			fmt.Printf("  %s\n", IntArrayToString(result[i]))
 		} else {
-			fmt.Printf(", %s\n", intArrayToString(result[i]))
+			fmt.Printf(", %s\n", IntArrayToString(result[i]))
 		}
 	}
 	fmt.Printf("]\n")

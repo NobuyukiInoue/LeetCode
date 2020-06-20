@@ -26,7 +26,7 @@ func Min(a int, b int) int {
 	}
 }
 
-func intArrayTostring(arr []int) string {
+func IntArrayToString(arr []int) string {
 	if len(arr) <= 0 {
 		return ""
 	}
@@ -61,9 +61,9 @@ func LoopMain(args string) {
 	fmt.Printf("triangle = [")
 	for i := 0; i < len(triangle); i++ {
 		if i == 0 {
-			fmt.Printf("[%s]", intArrayTostring(triangle[i]))
+			fmt.Printf("[%s]", IntArrayToString(triangle[i]))
 		} else {
-			fmt.Printf(",[%s]", intArrayTostring(triangle[i]))
+			fmt.Printf(",[%s]", IntArrayToString(triangle[i]))
 		}
 	}
 	fmt.Printf("]\n")

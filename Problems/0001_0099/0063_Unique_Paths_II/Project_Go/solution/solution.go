@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -45,42 +44,6 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	return obstacleGrid[m-1][n-1]
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
-func printGrid(grid [][]int) {
-	fmt.Printf("obstacleGrid = [\n")
-	for i, _ := range grid {
-		if i == 0 {
-			fmt.Printf(" [%s]\n", intArrayToString(grid[i]))
-		} else {
-			fmt.Printf(",[%s]\n", intArrayToString(grid[i]))
-		}
-	}
-	fmt.Printf("]\n")
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -91,10 +54,10 @@ func LoopMain(args string) {
 
 	obstacleGrid := make([][]int, len(flds))
 	for i := 0; i < len(obstacleGrid); i++ {
-		obstacleGrid[i] = strToIntArray(flds[i])
+		obstacleGrid[i] = StringToIntArray(flds[i])
 	}
+	fmt.Printf("obstacleGrid = %s\n", IntIntArrayToGridString(obstacleGrid))
 
-	printGrid(obstacleGrid)
 	timeStart := time.Now()
 
 	result := uniquePathsWithObstacles(obstacleGrid)

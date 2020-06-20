@@ -32,34 +32,6 @@ func merge(intervals [][]int) [][]int {
 	return ans
 }
 
-func intArrayTostring(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := ""
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr
-}
-
-func intintArrayToString(nums [][]int) string {
-	resultStr := ""
-	for i := 0; i < len(nums); i++ {
-		if i == 0 {
-			resultStr += "[" + intArrayTostring(nums[i]) + "]"
-		} else {
-			resultStr += ",[" + intArrayTostring(nums[i]) + "]"
-		}
-	}
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, "\"", "", -1)
@@ -76,7 +48,7 @@ func LoopMain(args string) {
 			intervals[i][j], _ = strconv.Atoi(line[j])
 		}
 	}
-	fmt.Printf("intervals = [" + intintArrayToString(intervals) + "]\n")
+	fmt.Printf("intervals = %s\n", IntIntArrayToString(intervals))
 
 	timeStart := time.Now()
 
@@ -84,6 +56,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = [" + intintArrayToString(result) + "]\n")
+	fmt.Printf("result = %s\n", IntIntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

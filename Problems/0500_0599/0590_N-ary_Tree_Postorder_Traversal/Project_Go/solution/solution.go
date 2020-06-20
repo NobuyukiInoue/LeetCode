@@ -4,7 +4,6 @@ import (
 	//	"encoding/json"
 
 	"fmt"
-	"strconv"
 
 	//	"strings"
 	"time"
@@ -22,22 +21,6 @@ func PostOrder(root *Node) []int {
 		result = append(result, root.val)
 	}
 	return result
-}
-
-func IntArray2string(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
 }
 
 func LoopMain(args string) {
@@ -58,6 +41,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", IntArray2string(result))
+	fmt.Printf("result = %s\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

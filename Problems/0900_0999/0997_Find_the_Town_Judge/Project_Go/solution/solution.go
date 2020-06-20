@@ -22,30 +22,6 @@ func findJudge(N int, trust [][]int) int {
 	return -1
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -60,18 +36,9 @@ func LoopMain(args string) {
 	flds1 := strings.Split(strings.Replace(flds[1], "]]]", "", -1), "],[")
 	trust := make([][]int, len(flds1))
 	for i := 0; i < len(flds1); i++ {
-		trust[i] = str2IntArray(flds1[i])
+		trust[i] = StringToIntArray(flds1[i])
 	}
-
-	fmt.Printf("trust = [")
-	for i, _ := range trust {
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(trust[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(trust[i]))
-		}
-	}
-	fmt.Printf("]\n\n")
+	fmt.Printf("trust = %s\n", IntIntArrayToString(trust))
 
 	timeStart := time.Now()
 

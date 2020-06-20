@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -15,23 +14,8 @@ type myMap struct {
 
 type myMaps []myMap
 
-func (l myMaps) Len() int {
-	return len(l)
-}
-
-func (l myMaps) Swap(i, j int) {
-	l[i], l[j] = l[j], l[i]
-}
-
-func (l myMaps) Less(i, j int) bool {
-	if l[i].count == l[j].count {
-		return (l[i].num < l[j].num)
-	}
-	return (l[i].count < l[j].count)
-}
-
 func rearrangeBarcodes(barcodes []int) []int {
-	// 72ms
+	// 80ms
 	barcodeLength := len(barcodes)
 	dict := map[int]int{}
 	for _, num := range barcodes {
@@ -49,7 +33,9 @@ func rearrangeBarcodes(barcodes []int) []int {
 		dict2 = append(dict2, e)
 	}
 
-	sort.Sort(sort.Reverse(dict2))
+	sort.Slice(dict2, func(i, j int) bool {
+		return dict2[i].count >= dict2[j].count
+	})
 
 	res := make([]int, barcodeLength)
 	i := 0
@@ -65,50 +51,21 @@ func rearrangeBarcodes(barcodes []int) []int {
 	return res
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
 	temp = strings.Replace(temp, "\"", "", -1)
 	temp = strings.Replace(temp, "[", "", -1)
-	temp = strings.Replace(temp, "]", "", -1)
-	flds := strings.Split(temp, ",")
+	flds := strings.Replace(temp, "]", "", -1)
 
-	barcodes := make([]int, len(flds))
-	for i := 0; i < len(flds); i++ {
-		barcodes[i], _ = strconv.Atoi(flds[i])
-	}
-
-	fmt.Printf("barcodes = %s\n", intArrayToString(barcodes))
+	barcodes := StringToIntArray(flds)
+	fmt.Printf("barcodes = [%s]\n", IntArrayToString(barcodes))
 	timeStart := time.Now()
 
 	result := rearrangeBarcodes(barcodes)
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", intArrayToString(result))
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

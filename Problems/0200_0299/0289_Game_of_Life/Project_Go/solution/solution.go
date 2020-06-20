@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -63,37 +62,13 @@ func myMin(a int, b int) int {
 	return b
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func printBoard(board [][]int) {
 	fmt.Printf("board = [\n")
 	for i, _ := range board {
 		if i == 0 {
-			fmt.Printf(" [%s]\n", printIntArray(board[i]))
+			fmt.Printf(" [%s]\n", IntArrayToString(board[i]))
 		} else {
-			fmt.Printf(",[%s]\n", printIntArray(board[i]))
+			fmt.Printf(",[%s]\n", IntArrayToString(board[i]))
 		}
 	}
 	fmt.Printf("]\n")
@@ -109,16 +84,15 @@ func LoopMain(args string) {
 
 	board := make([][]int, len(flds))
 	for i := 0; i < len(board); i++ {
-		board[i] = strToIntArray(flds[i])
+		board[i] = StringToIntArray(flds[i])
 	}
-
 	printBoard(board)
+
 	timeStart := time.Now()
 
 	gameOfLife(board)
 
 	timeEnd := time.Now()
 
-	//	fmt.Printf("result = %d\n", result)
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

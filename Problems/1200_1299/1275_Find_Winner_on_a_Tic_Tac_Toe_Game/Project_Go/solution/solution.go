@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -69,30 +68,6 @@ func tictactoe(moves [][]int) string {
 	}
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -103,18 +78,9 @@ func LoopMain(args string) {
 
 	moves := make([][]int, len(flds))
 	for i := 0; i < len(flds); i++ {
-		moves[i] = str2IntArray(flds[i])
+		moves[i] = StringToIntArray(flds[i])
 	}
-
-	fmt.Printf("moves = [")
-	for i, _ := range moves {
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(moves[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(moves[i]))
-		}
-	}
-	fmt.Printf("]\n")
+	fmt.Printf("moves = %s\n", IntIntArrayToString(moves))
 
 	timeStart := time.Now()
 

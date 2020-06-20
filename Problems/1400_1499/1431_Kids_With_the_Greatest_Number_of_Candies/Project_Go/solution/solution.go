@@ -32,30 +32,6 @@ func myMax(nums []int) int {
 	return max
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func boolArrayToString(data []bool) string {
 	if len(data) <= 0 {
 		return ""
@@ -76,10 +52,10 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 
 	flds := strings.Split(temp, "],[")
-	candies := strToIntArray(flds[0])
+	candies := StringToIntArray(flds[0])
 	extraCandies, _ := strconv.Atoi(flds[1])
 
-	fmt.Printf("candies = [%s], extraCandies = %d\n", intArrayToString(candies), extraCandies)
+	fmt.Printf("candies = [%s], extraCandies = %d\n", IntArrayToString(candies), extraCandies)
 
 	timeStart := time.Now()
 

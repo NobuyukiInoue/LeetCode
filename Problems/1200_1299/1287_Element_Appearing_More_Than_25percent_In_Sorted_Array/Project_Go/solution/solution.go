@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -26,43 +25,6 @@ func findSpecialInteger(arr []int) int {
 	return arr[0]
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intintArrayToString(nums [][]int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := "[" + intArrayToString(nums[0]) + "]"
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", [" + intArrayToString(nums[i]) + "]"
-	}
-
-	return resultStr
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -70,9 +32,9 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
 
-	arr := str2IntArray(flds)
+	arr := StringToIntArray(flds)
+	fmt.Printf("arr = [%s]\n", IntArrayToString(arr))
 
-	fmt.Printf("arr = [%s]\n", intArrayToString(arr))
 	timeStart := time.Now()
 
 	result := findSpecialInteger(arr)

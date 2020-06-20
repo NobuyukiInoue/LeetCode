@@ -42,30 +42,6 @@ func myMin(a int, b int) int {
 	return b
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -76,20 +52,11 @@ func LoopMain(args string) {
 
 	books := make([][]int, len(books_str))
 	for i := 0; i < len(books_str); i++ {
-		books[i] = str2IntArray(books_str[i])
+		books[i] = StringToIntArray(books_str[i])
 	}
+	fmt.Printf("books = %s\n",IntIntArrayToString(books))
 
 	shelf_width, _ := strconv.Atoi(strings.Replace(flds[1], "]]", "", -1))
-
-	fmt.Printf("books = [")
-	for i, _ := range books {
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(books[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(books[i]))
-		}
-	}
-	fmt.Printf("]\n")
 	fmt.Printf("shelf_width = %d\n", shelf_width)
 
 	timeStart := time.Now()

@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -20,42 +19,6 @@ func countNegatives(grid [][]int) int {
 	return count
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
-func printGrid(title string, grid [][]int) {
-	fmt.Printf("%s = [", title)
-	for i, _ := range grid {
-		if i == 0 {
-			fmt.Printf(" [%s]", intArrayToString(grid[i]))
-		} else {
-			fmt.Printf(",[%s]", intArrayToString(grid[i]))
-		}
-	}
-	fmt.Printf("]\n")
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -66,9 +29,9 @@ func LoopMain(args string) {
 
 	grid := make([][]int, len(nums))
 	for i := 0; i < len(nums); i++ {
-		grid[i] = strToIntArray(nums[i])
+		grid[i] = StringToIntArray(nums[i])
 	}
-	printGrid("grid", grid)
+	fmt.Printf("grid = %s\n", IntIntArrayToGridString(grid))
 
 	timeStart := time.Now()
 

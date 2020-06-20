@@ -43,27 +43,6 @@ func helper(r int, cols []bool, d1 []bool, d2 []bool, board []string, res *[][]s
 	}
 }
 
-func str2ArrayToString(result [][]string) string {
-	if len(result) <= 0 {
-		return "[]"
-	}
-
-	res := ""
-	for i := 0; i < len(result); i++ {
-		res += "[\n"
-		for j := 0; j < len(result[i]); j++ {
-			if j == 0 {
-				res += " [" + result[i][j] + "]\n"
-			} else {
-				res += ",[" + result[i][j] + "]\n"
-			}
-		}
-		res += "]\n"
-	}
-
-	return res
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -80,6 +59,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result =\n%s", str2ArrayToString(result))
+	fmt.Printf("result =\n%s", StringStringArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

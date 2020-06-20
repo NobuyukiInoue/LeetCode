@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -23,30 +22,6 @@ func heightChecker(heights []int) int {
 	return count
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -54,8 +29,8 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
 
-	heights := str2IntArray(flds)
-	fmt.Printf("heights = %s\n", printIntArray(heights))
+	heights := StringToIntArray(flds)
+	fmt.Printf("heights = [%s]\n", IntArrayToString(heights))
 
 	timeStart := time.Now()
 

@@ -29,33 +29,6 @@ func myMin(a int, b int) int {
 	return b
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -65,9 +38,9 @@ func LoopMain(args string) {
 	flds := strings.Split(temp, "],[")
 
 	s, _ := strconv.Atoi(flds[0])
-	nums := strToIntArray(flds[1])
+	nums := StringToIntArray(flds[1])
 
-	fmt.Printf("s = %d, nums = %s\n", s, intArrayToString(nums))
+	fmt.Printf("s = %d, nums = %s\n", s, IntArrayToString(nums))
 
 	timeStart := time.Now()
 

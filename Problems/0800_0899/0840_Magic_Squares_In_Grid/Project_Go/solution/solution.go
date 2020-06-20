@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -60,30 +59,6 @@ func helper(x int, y int, grid [][]int) bool {
 	return true
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -94,16 +69,17 @@ func LoopMain(args string) {
 
 	grid := make([][]int, len(flds))
 	for i := 0; i < len(flds); i++ {
-		grid[i] = str2IntArray(flds[i])
-		fmt.Printf("%s\n", printIntArray(grid[i]))
+		grid[i] = StringToIntArray(flds[i])
 	}
+	fmt.Printf("grid = %s\n", IntIntArrayToGridString(grid))
+
 
 	timeStart := time.Now()
 
 	result := numMagicSquaresInside(grid)
-	fmt.Printf("result = %d\n", result)
 
 	timeEnd := time.Now()
 
+	fmt.Printf("result = %d\n", result)
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

@@ -55,32 +55,6 @@ func generateMatrix(n int) [][]int {
 	return result
 }
 
-func intIntArrayToString(nums [][]int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := "[" + intArrayToString(nums[0]) + "]"
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", [" + intArrayToString(nums[i]) + "]"
-	}
-
-	return resultStr
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -96,6 +70,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = [%s]\n", intIntArrayToString(result))
+	fmt.Printf("result = %s\n", IntIntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

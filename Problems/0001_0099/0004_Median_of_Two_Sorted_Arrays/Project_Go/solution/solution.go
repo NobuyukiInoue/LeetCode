@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -34,30 +33,6 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	}
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -65,11 +40,11 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 
 	flds := strings.Split(temp, "],[")
-	nums1 := str2IntArray(flds[0])
-	nums2 := str2IntArray(flds[1])
+	nums1 := StringToIntArray(flds[0])
+	nums2 := StringToIntArray(flds[1])
 
-	fmt.Printf("nums1 = %s\n", printIntArray(nums1))
-	fmt.Printf("nums2 = %s\n", printIntArray(nums2))
+	fmt.Printf("nums1 = [%s]\n", IntArrayToString(nums1))
+	fmt.Printf("nums2 = [%s]\n", IntArrayToString(nums2))
 
 	timeStart := time.Now()
 

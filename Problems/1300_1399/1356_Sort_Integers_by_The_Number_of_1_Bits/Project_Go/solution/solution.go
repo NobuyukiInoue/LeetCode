@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -60,30 +59,6 @@ func countBits(num int) int {
 	return count
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -91,8 +66,8 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
 
-	arr := strToIntArray(flds)
-	fmt.Printf("arr = [%s]\n", intArrayToString(arr))
+	arr := StringToIntArray(flds)
+	fmt.Printf("arr = [%s]\n", IntArrayToString(arr))
 
 	timeStart := time.Now()
 
@@ -100,6 +75,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = [%s]\n", intArrayToString(result))
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

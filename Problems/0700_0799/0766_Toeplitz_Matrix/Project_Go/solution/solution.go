@@ -19,22 +19,6 @@ func isToeplitzMatrix(matrix [][]int) bool {
 	return true
 }
 
-func IntArray2string(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, "\"", "", -1)
@@ -45,14 +29,9 @@ func LoopMain(args string) {
 
 	matrix := make([][]int, len(flds))
 	for i, _ := range flds {
-		line := strings.Split(flds[i], ",")
-		//	fmt.Printf("line = %s\n", line)
-		matrix[i] = make([]int, len(line))
-		for j, _ := range line {
-			matrix[i][j], _ = strconv.Atoi(line[j])
-		}
-		fmt.Printf("matrix = %s\n", IntArray2string(matrix[i]))
+		matrix[i] = StringToIntArray(flds[i])
 	}
+	fmt.Printf("matrix = %s\n", IntIntArrayToGridString(matrix))
 
 	timeStart := time.Now()
 

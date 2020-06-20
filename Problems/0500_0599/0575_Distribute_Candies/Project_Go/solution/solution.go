@@ -24,22 +24,6 @@ func distributeCandies(candies []int) int {
 	}
 }
 
-func IntArray2string(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, "\"", "", -1)
@@ -53,7 +37,7 @@ func LoopMain(args string) {
 		candies[i], _ = strconv.Atoi(flds[i])
 	}
 
-	fmt.Printf("candies = %s\n", IntArray2string(candies))
+	fmt.Printf("candies = %s\n", IntArrayToString(candies))
 
 	timeStart := time.Now()
 

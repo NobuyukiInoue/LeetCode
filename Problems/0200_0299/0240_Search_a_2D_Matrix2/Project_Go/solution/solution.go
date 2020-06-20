@@ -27,33 +27,6 @@ func searchMatrix(matrix [][]int, target int) bool {
 	return false
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -65,19 +38,13 @@ func LoopMain(args string) {
 	var matrix [][]int
 	if len(dataStr) > 0 {
 		matrix = make([][]int, len(dataStr))
-		fmt.Printf("matrix = [\n")
 		for i := 0; i < len(matrix); i++ {
-			matrix[i] = strToIntArray(dataStr[i])
-			if i == 0 {
-				fmt.Printf("  %s\n", intArrayToString(matrix[i]))
-			} else {
-				fmt.Printf(", %s\n", intArrayToString(matrix[i]))
-			}
+			matrix[i] = StringToIntArray(dataStr[i])
 		}
-		fmt.Printf("]\n")
 	} else {
 		matrix = make([][]int, 0)
 	}
+	fmt.Printf("matrix = %s\n", IntIntArrayToGridString(matrix))
 
 	flds[1] = strings.Replace(flds[1], "]", "", -1)
 	target, _ := strconv.Atoi(flds[1])

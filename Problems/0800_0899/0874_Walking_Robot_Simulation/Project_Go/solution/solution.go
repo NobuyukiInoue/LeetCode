@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -144,37 +143,13 @@ func max(a int, b int) int {
 	}
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i, val := range numsStr {
-		nums[i], _ = strconv.Atoi(val)
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
 	str_args := strings.Split(temp, "],[[")
 
-	commands := str2IntArray(strings.Replace(str_args[0], "[[", "", -1))
-	fmt.Printf("commands = [%s]\n", printIntArray(commands))
+	commands := StringToIntArray(strings.Replace(str_args[0], "[[", "", -1))
+	fmt.Printf("commands = [%s]\n", IntArrayToString(commands))
 
 	flds := strings.Split(strings.Replace(str_args[1], "]]]", "", -1), "],[")
 
@@ -183,21 +158,16 @@ func LoopMain(args string) {
 	if len(flds) > 0 && flds[0] != "" {
 		obstacles = make([][]int, len(flds))
 
-		fmt.Printf("obstacles = [")
 		for i, val := range flds {
-			obstacles[i] = str2IntArray(val)
-			if i == 0 {
-				fmt.Printf("[%s]", printIntArray(obstacles[i]))
-			} else {
-				fmt.Printf(",[%s]", printIntArray(obstacles[i]))
-			}
+			obstacles[i] = StringToIntArray(val)
 		}
 		fmt.Printf("]\n")
 
 	} else {
 		obstacles = make([][]int, 0)
-		fmt.Printf("obstacles = [[]]\n")
 	}
+
+	fmt.Printf("obstacles = %s\n", IntIntArrayToString(obstacles))
 
 	timeStart := time.Now()
 

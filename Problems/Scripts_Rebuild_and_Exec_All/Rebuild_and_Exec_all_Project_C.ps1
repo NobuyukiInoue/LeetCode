@@ -1,4 +1,4 @@
-param($enable_log)
+param($enable_log, $dirList)
 
 ##--------------------------------------------------------##
 ## ENABLE LOG Check.
@@ -26,9 +26,18 @@ $MakeCommand="mingw32-make.exe"
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
 $LogFile="${TargetProject}_${Now}.log"
-
-$list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
 $StartPath=Get-Location
+
+if (-Not($dirList)) {
+    $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+}
+else {
+    if ((Test-Path $dirList) -eq $FALSE) {
+        Write-Host "$dirList Not found."
+        return
+    }
+    $list = (Get-Content $dirList) -as [string[]]
+}
 
 ##--------------------------------------------------------##
 

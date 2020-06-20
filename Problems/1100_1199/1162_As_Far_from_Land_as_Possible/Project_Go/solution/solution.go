@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"math"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -103,30 +102,6 @@ func myAbs(a int) int {
 	return -a
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -137,18 +112,9 @@ func LoopMain(args string) {
 
 	grid := make([][]int, len(grid_str))
 	for i := 0; i < len(grid_str); i++ {
-		grid[i] = str2IntArray(grid_str[i])
+		grid[i] = StringToIntArray(grid_str[i])
 	}
-
-	fmt.Printf("grid = [")
-	for i, _ := range grid {
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(grid[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(grid[i]))
-		}
-	}
-	fmt.Printf("]\n")
+	fmt.Printf("grid = %s\n", IntIntArrayToGridString(grid))
 
 	timeStart := time.Now()
 

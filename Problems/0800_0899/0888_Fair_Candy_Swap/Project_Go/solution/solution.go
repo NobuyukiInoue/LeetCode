@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -34,30 +33,6 @@ func fairCandySwap(A []int, B []int) []int {
 	return ans
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -66,19 +41,18 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	A := str2IntArray(flds[0])
-	B := str2IntArray(flds[1])
+	A := StringToIntArray(flds[0])
+	B := StringToIntArray(flds[1])
 
-	fmt.Printf("A = %s\n", printIntArray(A))
-	fmt.Printf("B = %s\n", printIntArray(B))
+	fmt.Printf("A = [%s]\n", IntArrayToString(A))
+	fmt.Printf("B = [%s]\n", IntArrayToString(B))
 
 	timeStart := time.Now()
 
 	result := fairCandySwap(A, B)
 
-	fmt.Printf("result = %s\n", printIntArray(result))
-
 	timeEnd := time.Now()
 
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

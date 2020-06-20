@@ -18,30 +18,6 @@ func shuffle(nums []int, n int) []int {
 	return res
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func boolArrayToString(data []bool) string {
 	if len(data) <= 0 {
 		return ""
@@ -62,10 +38,10 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 
 	flds := strings.Split(temp, "],[")
-	nums := strToIntArray(flds[0])
+	nums := StringToIntArray(flds[0])
 	n, _ := strconv.Atoi(flds[1])
 
-	fmt.Printf("nums = [%s], n = %d\n", intArrayToString(nums), n)
+	fmt.Printf("nums = [%s], n = %d\n", IntArrayToString(nums), n)
 
 	timeStart := time.Now()
 
@@ -73,6 +49,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = [%s]\n", intArrayToString(result))
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

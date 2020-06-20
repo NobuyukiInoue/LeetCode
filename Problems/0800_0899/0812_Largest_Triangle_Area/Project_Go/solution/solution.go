@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"math"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -27,30 +26,6 @@ func largestTriangleArea(points [][]int) float64 {
 	return area / 2.0
 }
 
-func IntArray2string(arr [][]int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i == 0 {
-			resultStr += "["
-		} else {
-			resultStr += ",["
-		}
-		for j := 0; j < len(arr[i]); j++ {
-			if j > 0 {
-				resultStr += ","
-			}
-			resultStr += strconv.Itoa(arr[i][j])
-		}
-		resultStr += "]"
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -59,27 +34,19 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 
 	flds := strings.Split(temp, "],[")
+
 	points := make([][]int, len(flds))
 	for i := 0; i < len(flds); i++ {
-		points[i] = make([]int, 2)
-
-		pt := strings.Split(flds[i], ",")
-		temp, _ := strconv.Atoi(pt[0])
-		points[i][0] = temp
-
-		temp, _ = strconv.Atoi(pt[1])
-		points[i][1] = temp
-
+		points[i] = StringToIntArray(flds[i])
 	}
-
-	fmt.Printf("points[] = %s\n", IntArray2string(points))
+	fmt.Printf("points = %s\n", IntIntArrayToGridString(points))
 
 	timeStart := time.Now()
 
 	result := largestTriangleArea(points)
-	fmt.Printf("result = %f\n", result)
 
 	timeEnd := time.Now()
 
+	fmt.Printf("result = %f\n", result)
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

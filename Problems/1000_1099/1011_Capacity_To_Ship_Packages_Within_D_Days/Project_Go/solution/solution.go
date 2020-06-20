@@ -41,30 +41,6 @@ func myMax(a int, b int) int {
 	return b
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -72,10 +48,10 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 
 	flds := strings.Split(temp, "],[")
-	weights := strToIntArray(flds[0])
+	weights := StringToIntArray(flds[0])
 	D, _ := strconv.Atoi(flds[1])
 
-	fmt.Printf("weights = [%s], D = %d\n", intArrayToString(weights), D)
+	fmt.Printf("weights = [%s], D = %d\n", IntArrayToString(weights), D)
 
 	timeStart := time.Now()
 

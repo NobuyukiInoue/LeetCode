@@ -62,7 +62,7 @@ func LoopMain(args string) {
 	flds0 = strings.Replace(flds0, "]", "", -1)
 	ope := strings.Split(flds0, ",")
 
-	flds1 := strings.Replace(flds[1], "]]", "", -1)
+	flds1 := strings.Replace(flds[1], "]]]", "", -1)
 	params := strings.Split(flds1, "],[")
 
 	fmt.Printf("ope = %s\n", strArrayToString(ope))

@@ -23,17 +23,6 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 	return reverse(res)
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
 func reverse(lists []int) []int {
 	var ans []int
 	for i := len(lists) - 1; i >= 0; i -- {
@@ -58,35 +47,6 @@ func DFS(curr int, visited *[]int, graph *[][]int, res *[]int) bool{
 	(*visited)[curr] = 1
 	*res = append(*res, curr)
 	return true
-}
-
-func intArrayToString(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
-func intintArrayToString(arr [][]int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "[" + intArrayToString(arr[0])
-	for i := 1; i < len(arr); i++ {
-		resultStr += ", " + intArrayToString(arr[i])
-	}
-
-	return resultStr + "]"
 }
 
 func LoopMain(args string) {
@@ -115,7 +75,7 @@ func LoopMain(args string) {
 		if len(dataStr) > 0 {
 			prerequisites = make([][]int, len(dataStr))
 			for i := 0; i < len(prerequisites); i++ {
-				prerequisites[i] = strToIntArray(dataStr[i])
+				prerequisites[i] = StringToIntArray(dataStr[i])
 			}
 		} else {
 			prerequisites = make([][]int, 0)
@@ -124,7 +84,7 @@ func LoopMain(args string) {
 		prerequisites = make([][]int, 0)
 	}
 
-	fmt.Printf("prerequisites = [%s]\n", intintArrayToString(prerequisites))
+	fmt.Printf("prerequisites = %s\n", IntIntArrayToString(prerequisites))
 
 	timeStart := time.Now()
 
@@ -132,6 +92,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", intArrayToString(result))
+	fmt.Printf("result = %s\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

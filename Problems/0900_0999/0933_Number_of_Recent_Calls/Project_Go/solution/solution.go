@@ -7,26 +7,6 @@ import (
 	"time"
 )
 
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := ""
-	for i := 0; i < len(nums); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		if nums[i] == -1 {
-			resultStr += "null"
-		} else {
-			resultStr += strconv.Itoa(nums[i])
-		}
-	}
-
-	return resultStr
-}
-
 type Cmds struct {
 	cmd string
 	arg string
@@ -83,6 +63,6 @@ func LoopMain(args string) {
 	}
 
 	timeEnd := time.Now()
-	fmt.Printf("\nresult = %s\n", printIntArray(result))
+	fmt.Printf("\nresult = %s\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

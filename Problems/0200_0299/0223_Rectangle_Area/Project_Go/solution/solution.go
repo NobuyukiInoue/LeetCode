@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -36,30 +35,6 @@ func myMin(a int, b int) int {
 	return b
 }
 
-func strToIntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -67,7 +42,7 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
 
-	nums := strToIntArray(flds)
+	nums := StringToIntArray(flds)
 	A, B, C, D, E, F, G, H := nums[0], nums[1], nums[2], nums[3], nums[4], nums[5], nums[6], nums[7]
 	fmt.Printf("A = %d, B = %d, C = %d, D = %d, E = %d, F = %d, G = %d, H = %d\n", A, B, C, D, E, F, G, H)
 

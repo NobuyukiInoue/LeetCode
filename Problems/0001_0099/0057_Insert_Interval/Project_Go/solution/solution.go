@@ -2,7 +2,6 @@ package solution
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -42,43 +41,6 @@ func min(a, b int) int {
 	return b
 }
 
-func stringToIntArray(data string) []int {
-	flds := strings.Split(data, ",")
-	nums := make([]int, len(flds))
-	for i, _ := range flds {
-		nums[i], _ = strconv.Atoi(flds[i])
-	}
-	return nums
-}
-
-func intArrayToString(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := ""
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr
-}
-
-func intintArrayToString(nums [][]int) string {
-	resultStr := ""
-	for i := 0; i < len(nums); i++ {
-		if i == 0 {
-			resultStr += "[" + intArrayToString(nums[i]) + "]"
-		} else {
-			resultStr += ",[" + intArrayToString(nums[i]) + "]"
-		}
-	}
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, "\"", "", -1)
@@ -89,13 +51,13 @@ func LoopMain(args string) {
 	data0 := strings.Split(flds[0], "],[")
 	intervals := make([][]int, len(data0))
 	for i, _ := range data0 {
-		intervals[i] = stringToIntArray(data0[i])
+		intervals[i] = StringToIntArray(data0[i])
 	}
-	data1 := strings.Replace(flds[1], "]]", "", -1)
-	newInterval := stringToIntArray(data1)
+	fmt.Printf("intervals = %s\n", IntIntArrayToString(intervals))
 
-	fmt.Printf("intervals = [" + intintArrayToString(intervals) + "]\n")
-	fmt.Printf("newInterval = [" + intArrayToString(newInterval) + "]\n")
+	data1 := strings.Replace(flds[1], "]]", "", -1)
+	newInterval := StringToIntArray(data1)
+	fmt.Printf("newInterval = [%s]\n", IntArrayToString(newInterval))
 
 	timeStart := time.Now()
 
@@ -103,6 +65,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = [" + intintArrayToString(result) + "]\n")
+	fmt.Printf("result = %s\n", IntIntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

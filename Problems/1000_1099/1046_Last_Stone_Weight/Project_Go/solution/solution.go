@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -18,44 +17,16 @@ func lastStoneWeight(stones []int) int {
 	return stones[0]
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
 	temp = strings.Replace(temp, "\"", "", -1)
 	temp = strings.Replace(temp, "[", "", -1)
-	temp = strings.Replace(temp, "]", "", -1)
-	flds := strings.Split(temp, ",")
+	flds := strings.Replace(temp, "]", "", -1)
 
-	stones := make([]int, len(flds))
-	for i := 0; i < len(flds); i++ {
-		stones[i], _ = strconv.Atoi(flds[i])
-	}
+	stones := StringToIntArray(flds)
+	fmt.Printf("stones = [%s]\n", IntArrayToString(stones))
 
-	fmt.Printf("stones = %s\n", printIntArray(stones))
 	timeStart := time.Now()
 
 	result := lastStoneWeight(stones)

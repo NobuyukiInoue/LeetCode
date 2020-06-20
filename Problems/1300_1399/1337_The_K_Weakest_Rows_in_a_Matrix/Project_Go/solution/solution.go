@@ -36,30 +36,6 @@ func countSoldier(arr []int) int {
 	return res
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -70,20 +46,12 @@ func LoopMain(args string) {
 	str_mat := strings.Split(flds[0], "],[")
 	mat := make([][]int, len(str_mat))
 	for i := 0; i < len(str_mat); i++ {
-		mat[i] = str2IntArray(str_mat[i])
+		mat[i] = StringToIntArray(str_mat[i])
 	}
-
-	fmt.Printf("mat = [")
-	for i, _ := range mat {
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(mat[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(mat[i]))
-		}
-	}
-	fmt.Printf("]\n")
+	fmt.Printf("mat = %s\n", IntIntArrayToGridString(mat))
 
 	k, _ := strconv.Atoi(strings.Replace(flds[1], "]]", "", -1))
+	fmt.Printf("k = %d\n", k)
 
 	timeStart := time.Now()
 
@@ -91,15 +59,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = [")
-	for i, _ := range result {
-		if i == 0 {
-			fmt.Printf("%d", result[i])
-		} else {
-			fmt.Printf(",%d", result[i])
-		}
-	}
-	fmt.Printf("]\n")
-
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

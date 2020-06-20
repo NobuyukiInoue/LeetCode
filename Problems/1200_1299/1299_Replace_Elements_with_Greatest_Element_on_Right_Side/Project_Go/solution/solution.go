@@ -24,7 +24,7 @@ func Max(a int, b int) int {
 	}
 }
 
-func str2IntArray(flds string) []int {
+func StringToIntArray(flds string) []int {
 	numsStr := strings.Split(flds, ",")
 	nums := make([]int, len(numsStr))
 
@@ -35,7 +35,7 @@ func str2IntArray(flds string) []int {
 	return nums
 }
 
-func printIntArray(nums []int) string {
+func IntArrayToString(nums []int) string {
 	if len(nums) <= 0 {
 		return ""
 	}
@@ -54,8 +54,8 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
 
-	arr := str2IntArray(flds)
-	fmt.Printf("arr = %s\n", printIntArray(arr))
+	arr := StringToIntArray(flds)
+	fmt.Printf("arr = %s\n", IntArrayToString(arr))
 
 	timeStart := time.Now()
 
@@ -63,6 +63,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", printIntArray(result))
+	fmt.Printf("result = %s\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

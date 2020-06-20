@@ -39,7 +39,7 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 	return dummy.Next
 }
 
-func str2IntArray(flds string) []int {
+func StringToIntArray(flds string) []int {
 	numsStr := strings.Split(flds, ",")
 	nums := make([]int, len(numsStr))
 
@@ -50,7 +50,7 @@ func str2IntArray(flds string) []int {
 	return nums
 }
 
-func printIntArray(nums []int) string {
+func IntArrayToString(nums []int) string {
 	if len(nums) <= 0 {
 		return ""
 	}
@@ -70,7 +70,7 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	nums0 := str2IntArray(flds[0])
+	nums0 := StringToIntArray(flds[0])
 	head := setListNode(nums0)
 	fmt.Printf("head = %s\n", outputListNode(head))
 

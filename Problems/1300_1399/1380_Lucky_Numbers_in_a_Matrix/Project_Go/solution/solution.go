@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"math"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -53,56 +52,6 @@ func myMin(a int, b int) int {
 	return b
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
-func intintArrayToString(nums [][]int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := "[\n  " + intArrayToString(nums[0]) + "\n"
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + intArrayToString(nums[i]) + "\n"
-	}
-
-	return resultStr + "]"
-}
-
-func intArrayToString(nums []int) string {
-	if len(nums) <= 0 {
-		return "[]"
-	}
-
-	resultStr := "[" + strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -113,10 +62,9 @@ func LoopMain(args string) {
 	str_matrix := strings.Split(flds, "],[")
 	matrix := make([][]int, len(str_matrix))
 	for i := 0; i < len(str_matrix); i++ {
-		matrix[i] = str2IntArray(str_matrix[i])
+		matrix[i] = StringToIntArray(str_matrix[i])
 	}
-
-	fmt.Printf("matrix = %s\n", intintArrayToString(matrix))
+	fmt.Printf("matrix = %s\n", IntIntArrayToGridString(matrix))
 
 	timeStart := time.Now()
 
@@ -124,6 +72,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", intArrayToString(result))
+	fmt.Printf("result = [%s]\n", IntArrayToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

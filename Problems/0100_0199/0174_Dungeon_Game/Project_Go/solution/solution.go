@@ -3,7 +3,6 @@ package solution
 import (
 	"fmt"
 	"math"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -41,30 +40,6 @@ func myMin(a int, b int) int {
 	return b
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -75,19 +50,10 @@ func LoopMain(args string) {
 
 	dungeon := make([][]int, len(dungeon_str))
 	for i := 0; i < len(dungeon_str); i++ {
-		dungeon[i] = str2IntArray(dungeon_str[i])
+		dungeon[i] = StringToIntArray(dungeon_str[i])
 	}
 
-	fmt.Printf("dungeon = [")
-	for i, _ := range dungeon {
-		if i == 0 {
-			fmt.Printf("[%s]", printIntArray(dungeon[i]))
-		} else {
-			fmt.Printf(",[%s]", printIntArray(dungeon[i]))
-		}
-	}
-	fmt.Printf("]\n")
-
+	fmt.Printf("dungeon = %s\n", IntIntArrayToString(dungeon))
 	timeStart := time.Now()
 
 	result := calculateMinimumHP(dungeon)

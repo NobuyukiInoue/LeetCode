@@ -37,30 +37,6 @@ func partition(head *ListNode, x int) *ListNode {
 	return smaller_sentinel.Next
 }
 
-func str2IntArray(flds string) []int {
-	numsStr := strings.Split(flds, ",")
-	nums := make([]int, len(numsStr))
-
-	for i := 0; i < len(nums); i++ {
-		nums[i], _ = strconv.Atoi(numsStr[i])
-	}
-
-	return nums
-}
-
-func printIntArray(nums []int) string {
-	if len(nums) <= 0 {
-		return ""
-	}
-
-	resultStr := strconv.Itoa(nums[0])
-	for i := 1; i < len(nums); i++ {
-		resultStr += ", " + strconv.Itoa(nums[i])
-	}
-
-	return resultStr
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -68,8 +44,8 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	nums := str2IntArray(flds[0])
-	fmt.Printf("nums = %s\n", printIntArray(nums))
+	nums := StringToIntArray(flds[0])
+	fmt.Printf("nums = [%s]\n", IntArrayToString(nums))
 
 	head := setListNode(nums)
 	x, _ := strconv.Atoi(flds[1])

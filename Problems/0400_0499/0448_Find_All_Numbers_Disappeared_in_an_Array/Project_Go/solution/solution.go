@@ -23,22 +23,6 @@ func findDisappearedNumbers(nums []int) []int {
 	return out
 }
 
-func IntArray2string(arr []int) string {
-	if len(arr) <= 0 {
-		return ""
-	}
-
-	resultStr := "["
-	for i := 0; i < len(arr); i++ {
-		if i > 0 {
-			resultStr += ","
-		}
-		resultStr += strconv.Itoa(arr[i])
-	}
-
-	return resultStr + "]"
-}
-
 func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, " ", "", -1)
@@ -51,12 +35,12 @@ func LoopMain(args string) {
 		nums[i], _ = strconv.Atoi(val)
 	}
 
-	fmt.Printf("nums = %s\n", IntArray2string(nums))
+	fmt.Printf("nums = [%s]\n", IntArrayToString(nums))
 
 	timeStart := time.Now()
 
 	result := findDisappearedNumbers(nums)
-	fmt.Printf("result = %s\n", IntArray2string(result))
+	fmt.Printf("result = %s\n", IntArrayToString(result))
 
 	timeEnd := time.Now()
 

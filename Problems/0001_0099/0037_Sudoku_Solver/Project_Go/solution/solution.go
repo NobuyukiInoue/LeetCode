@@ -92,11 +92,7 @@ func LoopMain(args string) {
 		rowStr := strings.Replace(flds[i], ",", "", -1)
 		board[i] = *(*[]byte)(unsafe.Pointer(&rowStr))
 	}
-
-	fmt.Printf("board = \n")
-	for _, data := range board {
-		fmt.Printf("%s\n", data)
-	}
+	fmt.Printf("board = %s\n", ByteByteArrayToGridString(board))
 
 	timeStart := time.Now()
 
@@ -104,9 +100,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("board = \n")
-	for _, data := range board {
-		fmt.Printf("%s\n", data)
-	}
+	fmt.Printf("result = %s\n", ByteByteArrayToGridString(board))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }
