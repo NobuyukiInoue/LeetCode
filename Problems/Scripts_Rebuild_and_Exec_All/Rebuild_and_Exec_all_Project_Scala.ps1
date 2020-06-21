@@ -22,14 +22,28 @@ else {
 $TargetPath=".."
 $TargetProject="Project_Scala"
 $ExecCmd="scala Main ../testdata.txt"
-$MakeCommand="mingw32-make.exe"
+
+if ($IsMacOS -Or $IsLinux) {
+    $MakeCommand="make"
+}
+elseif ($IsWindows) {
+    $MakeCommand="mingw32-make.exe"
+}
+else {
+    $MakeCommand="mingw32-make.exe"
+}
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
 $LogFile="${TargetProject}_${Now}.log"
 $StartPath=Get-Location
 
 if (-Not($dirList)) {
-    $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    if ($IsWindows) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    }
+    elseif ($IsMacOS -Or $IsLinux) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern "/"
+    }
 }
 else {
     if ((Test-Path $dirList) -eq $FALSE) {
@@ -59,10 +73,10 @@ foreach ($currentLine in $list) {
     Set-Location -Path ${currentLine}
     $resultPath=Get-Location
     Write-Host $resultPath
-    Start-Process -Wait $MakeCommand
+    Invoke-Expression $MakeCommand
 
     Write-Host "##==== Execute ====###"
-    invoke-expression $ExecCmd
+    Invoke-Expression $ExecCmd
 }
 
 Set-Location $StartPath

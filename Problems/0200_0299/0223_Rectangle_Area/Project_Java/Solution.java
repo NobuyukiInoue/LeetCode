@@ -15,7 +15,7 @@ public class Solution {
         return areaOfSqrA + areaOfSqrB - overlap;
     }
 
-    public int computeArea_bad(int A, int B, int C, int D, int E, int F, int G, int H {
+    public int computeArea_bad(int A, int B, int C, int D, int E, int F, int G, int H) {
         return (G - E) * (H - F) + (C - A) * (D - B) - (Math.max(Math.min(C, G)  -  Math.max(E, A), 0) * Math.max(Math.min(D, H) - Math.max(F, B), 0));
     }
 

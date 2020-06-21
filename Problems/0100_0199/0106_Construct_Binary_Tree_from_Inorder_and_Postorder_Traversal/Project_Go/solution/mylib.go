@@ -71,8 +71,7 @@ func ByteByteArrayToString(grid [][]byte) string {
 		return "[[]]"
 	}
 
-	resultStr := "["
-	resultStr += "[" + *(*string)(unsafe.Pointer(&grid[0])) + "]"
+	resultStr := "[[" + *(*string)(unsafe.Pointer(&grid[0])) + "]"
 	for i := 1; i < len(grid); i++ {
 		resultStr += ", [" + *(*string)(unsafe.Pointer(&grid[i])) + "]"
 	}

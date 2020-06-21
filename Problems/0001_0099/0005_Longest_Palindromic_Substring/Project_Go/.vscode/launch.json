@@ -19,8 +19,18 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${fileDirname}",
+            "program": "${workspaceFolder}",
             "env": {},
+            "args": [
+                "../testdata.txt"
+            ]
+        },
+        {
+            "name": "Launch Package main.go",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/main.go",
             "args": [
                 "../testdata.txt"
             ]

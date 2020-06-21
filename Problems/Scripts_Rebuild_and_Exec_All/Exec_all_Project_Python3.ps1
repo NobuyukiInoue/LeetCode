@@ -1,4 +1,4 @@
-param($enable_log)
+param($enable_log, $dirList)
 
 ##--------------------------------------------------------##
 ## ENABLE LOG Check.
@@ -26,9 +26,23 @@ $TargetProject="Project_Python3"
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
 $LogFile="${TargetProject}_${Now}.log"
-
-$list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
 $StartPath=Get-Location
+
+if (-Not($dirList)) {
+    if ($IsWindows) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    }
+    elseif ($IsMacOS -Or $IsLinux) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern "/"
+    }
+}
+else {
+    if ((Test-Path $dirList) -eq $FALSE) {
+        Write-Host "$dirList Not found."
+        return
+    }
+    $list = (Get-Content $dirList) -as [string[]]
+}
 
 ##--------------------------------------------------------##
 

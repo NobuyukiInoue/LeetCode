@@ -22,14 +22,30 @@ else {
 $TargetPath=".."
 $TargetProject="Project_C"
 
-$MakeCommand="mingw32-make.exe"
+if ($IsMacOS -Or $IsLinux) {
+    $MakeCommand="make"
+}
+elseif ($IsWindows) {
+    $MakeCommand="mingw32-make.exe"
+}
+else {
+    $MakeCommand="mingw32-make.exe"
+}
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"
 $LogFile="${TargetProject}_${Now}.log"
 $StartPath=Get-Location
 
 if (-Not($dirList)) {
-    $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    if ($IsMacOS -Or $IsLinux) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern "/"
+    }
+    elseif ($IsWindows) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    }
+    else {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    }
 }
 else {
     if ((Test-Path $dirList) -eq $FALSE) {
@@ -59,7 +75,7 @@ foreach ($currentLine in $list) {
     Set-Location -Path ${currentLine}
     $resultPath=Get-Location
     Write-Host $resultPath
-    Start-Process -Wait $MakeCommand
+    Invoke-Expression $MakeCommand
 
     $exeFiles=Get-ChildItem -Name *.exe
     foreach ($current_exe in $exeFiles) {
@@ -70,7 +86,7 @@ foreach ($currentLine in $list) {
 
         Write-Host "##==== Execute ====###"
         $ExecCmd="./$current_exe ../testdata.txt"
-        invoke-expression $ExecCmd
+        Invoke-Expression $ExecCmd
     }
 }
 

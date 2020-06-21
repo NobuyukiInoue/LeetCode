@@ -29,7 +29,15 @@ $LogFile="${TargetProject}_${Now}.log"
 $StartPath=Get-Location
 
 if (-Not($dirList)) {
-    $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    if ($IsMacOS -Or $IsLinux) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern "/"
+    }
+    elseif ($IsWindows) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    }
+    else {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
+    }
 }
 else {
     if ((Test-Path $dirList) -eq $FALSE) {
@@ -59,7 +67,7 @@ foreach ($currentLine in $list) {
     Set-Location -Path ${currentLine}
     $resultPath=Get-Location
     Write-Host $resultPath
-  # Start-Process -Wait $MakeCommand
+
 
     Write-Host "##==== Execute ====###"
     invoke-expression $ExecCmd
