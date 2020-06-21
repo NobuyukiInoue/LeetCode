@@ -67,7 +67,7 @@ foreach ($currentLine in $list) {
     Set-Location -Path ${currentLine}
     $resultPath=Get-Location
     Write-Host $resultPath
-    Invoke-Expression $MakeCommand
+
 
     Write-Host "##==== Execute ====###"
     Invoke-Expression $ExecCmd

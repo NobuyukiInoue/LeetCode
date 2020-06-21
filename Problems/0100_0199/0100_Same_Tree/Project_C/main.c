@@ -33,11 +33,11 @@ int loop_main(char *arg)
     char *nums1[256];
     char *nums2[256];
 
-    replace(arg, "[[", "");
-    replace(arg, "]]", "");
-    replace(arg, "\n", "");
+    ml_replace(arg, "[[", "");
+    ml_replace(arg, "]]", "");
+    ml_replace(arg, "\n", "");
 
-    int flds_length = split(arg, "],[", flds, sizeof(flds)/sizeof(flds[0]));
+    int flds_length = ml_split(arg, "],[", flds, sizeof(flds)/sizeof(flds[0]));
 
     struct TreeNode *p = createTreeNode(flds[0]);
     struct TreeNode *q = createTreeNode(flds[1]);
@@ -73,7 +73,7 @@ int loop_main(char *arg)
     printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 
     // char* flds[] free().
-    p_char_array_free(flds, flds_length);
+    ml_p_char_array_free(flds, flds_length);
     return 0;
 }
 
@@ -96,8 +96,8 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    while((fgets(line, fgets_MAX - 1, fp)) != NULL) {
-        trim(line);
+    while ((fgets(line, fgets_MAX - 1, fp)) != NULL) {
+        ml_trim(line);
         if (*line == '\0')
             continue;
         printf("args = %s\n", line);

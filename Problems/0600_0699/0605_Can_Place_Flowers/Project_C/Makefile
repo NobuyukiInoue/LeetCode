@@ -1,11 +1,11 @@
 CC=gcc
-CC_FLAGS=-g -O0 -o
+CC_FLAGS_DEBUG=-g -lm -O0 -o
+CC_FLAGS_RELEASE=-lm -o
 
-PROJECT_NAME=Can_Place_Flowers
+PROJECT_NAME=main
 SOURCE=$(PROJECT_NAME).c
 
-MYLIB_PATH=../../../mylib_C
-MYLIB_NAME=mylib.c
+MYLIB_PATH=lib/mylib.c
 
 ifeq ($(OS),Windows_NT)
 	TARGET_FILE=$(PROJECT_NAME).exe
@@ -24,8 +24,11 @@ endif
 
 all:	$(TARGET_FILE)
 
-$(TARGET_FILE):	$(SOURCE) $(MYLIB_PATH)/$(MYLIB_NAME)
-	$(CC) $(CC_FLAGS)$(TARGET_FILE) $(SOURCE) $(MYLIB_PATH)/$(MYLIB_NAME)
+$(TARGET_FILE):	$(SOURCE) $(MYLIB_PATH)
+	$(CC) $(CC_FLAGS_RELEASE)$(TARGET_FILE) $(SOURCE) $(MYLIB_PATH)
+
+debug:	$(SOURCE) $(MYLIB_PATH)
+	$(CC) $(CC_FLAGS_DEBUG)$(TARGET_FILE) $(SOURCE) $(MYLIB_PATH)
 
 clean:
 	rm $(TARGET_FILE)	# Can not run on Windows

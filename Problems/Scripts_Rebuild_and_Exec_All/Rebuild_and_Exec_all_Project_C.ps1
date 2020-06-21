@@ -23,13 +23,13 @@ $TargetPath=".."
 $TargetProject="Project_C"
 
 if ($IsMacOS -Or $IsLinux) {
-    $MakeCommand="make"
+    $MakeCommand="make debug"
 }
 elseif ($IsWindows) {
-    $MakeCommand="mingw32-make.exe"
+    $MakeCommand="mingw32-make.exe debug"
 }
 else {
-    $MakeCommand="mingw32-make.exe"
+    $MakeCommand="mingw32-make.exe debug"
 }
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"

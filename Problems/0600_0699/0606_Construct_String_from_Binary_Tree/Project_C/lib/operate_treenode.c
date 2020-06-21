@@ -13,7 +13,7 @@ struct TreeNode *createTreeNode(char *flds)
 {
     char *nums[65535];
 
-    int nums_length = split(flds, ",", nums, sizeof(nums)/sizeof(nums[0]));
+    int nums_length = ml_split(flds, ",", nums, sizeof(nums)/sizeof(nums[0]));
     nums[nums_length] = NULL;
 
     return createSubTreeNode(nums, nums_length, 0, 0);
@@ -21,7 +21,7 @@ struct TreeNode *createTreeNode(char *flds)
 
 struct TreeNode *createSubTreeNode(char *flds[], int flds_length, int depth, int pos)
 {
-    if ( flds_length == 0)
+    if (flds_length == 0)
         return NULL;
 
     int cur_pos = 0;
@@ -97,7 +97,6 @@ void tree_to_staircase_substring(struct TreeNode *node, char *resultList[], int 
     }
 }
 
-/*
 char* tree2str(struct TreeNode *t) {
     if (t == NULL)
         return "";
@@ -128,4 +127,3 @@ char* tree2str(struct TreeNode *t) {
 
     return resultStr;
 }
-*/

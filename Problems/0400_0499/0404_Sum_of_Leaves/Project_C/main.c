@@ -50,15 +50,11 @@ int sub_sumOfLeftLeaves(struct TreeNode* node)
 
 int loop_main(char *arg)
 {
-    char *flds;
-    char *nums1[256];
-    char *nums2[256];
+    ml_replace(arg, "[", "");
+    ml_replace(arg, "]", "");
+    ml_replace(arg, "\n", "");
 
-    replace(arg, "[", "");
-    replace(arg, "]", "");
-    replace(arg, "\n", "");
-    flds = arg;
-
+    char *flds = arg;
     struct TreeNode *root = createTreeNode(flds);
 
     char *resultStr;
@@ -78,6 +74,9 @@ int loop_main(char *arg)
 
     printf("result = %d\n", result);
     printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // struct treenode root clear.
+    free(root);
 
     return 0;
 }
@@ -101,8 +100,8 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    while((fgets(line, fgets_MAX - 1, fp)) != NULL) {
-        trim(line);
+    while ((fgets(line, fgets_MAX - 1, fp)) != NULL) {
+        ml_trim(line);
         if (*line == '\0')
             continue;
         printf("args = %s\n", line);

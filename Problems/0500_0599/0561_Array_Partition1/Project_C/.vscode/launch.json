@@ -8,9 +8,10 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/Array_Partition1.exe",
-            "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
-            //"args": [],
+            "program": "${workspaceRoot}/main.exe",
+        //  "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
+            "miDebuggerPath": "C:\\Programs\\mingw\\bin\\gdb.exe",
+        //  "args": [],
             "args": [
                 "../testdata.txt"
             ],
@@ -19,7 +20,7 @@
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            //"miDebuggerPath": "/path/to/gdb",
+         // "miDebuggerPath": "/path/to/gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
