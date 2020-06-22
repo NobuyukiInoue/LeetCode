@@ -4,11 +4,10 @@ param($enable_log, $dirList)
 ## ENABLE LOG Check.
 ##--------------------------------------------------------##
 if (-Not($enable_log)) {
-    $enable_log = $TRUE
+    $enable_log = $FALSE
 }
 else {
-    $enable_log = $enable_log.ToLower()
-    if ($enable_log -eq "TRUE") {
+    if ($enable_log -eq $TRUE) {
         $enable_log = $TRUE
     }
     else {

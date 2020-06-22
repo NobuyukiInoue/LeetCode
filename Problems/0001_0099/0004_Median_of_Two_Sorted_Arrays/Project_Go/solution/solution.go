@@ -53,4 +53,5 @@ func LoopMain(args string) {
 	timeEnd := time.Now()
 
 	fmt.Printf("result = %f\n", result)
-	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)}
+	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
+}

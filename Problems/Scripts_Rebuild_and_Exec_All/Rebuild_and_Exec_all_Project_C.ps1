@@ -1,18 +1,32 @@
-param($enable_log, $dirList)
+param($enable_log, $dirList, $enable_debug)
 
 ##--------------------------------------------------------##
 ## ENABLE LOG Check.
 ##--------------------------------------------------------##
 if (-Not($enable_log)) {
-    $enable_log = $TRUE
+    $enable_log = $FALSE
 }
 else {
-    $enable_log = $enable_log.ToLower()
-    if ($enable_log -eq "TRUE") {
+    if ($enable_log -eq $TRUE) {
         $enable_log = $TRUE
     }
     else {
         $enable_log = $FALSE
+    }
+}
+
+##--------------------------------------------------------##
+## ENABLE DEBUG Check.
+##--------------------------------------------------------##
+if (-Not($enable_debug)) {
+    $enable_debug = $FALSE
+}
+else {
+    if ($enable_debug -eq $TRUE) {
+        $enable_debug = $TRUE
+    }
+    else {
+        $enable_debug = $FALSE
     }
 }
 
@@ -23,13 +37,17 @@ $TargetPath=".."
 $TargetProject="Project_C"
 
 if ($IsMacOS -Or $IsLinux) {
-    $MakeCommand="make debug"
+    $MakeCommand = "make"
 }
 elseif ($IsWindows) {
-    $MakeCommand="mingw32-make.exe debug"
+    $MakeCommand = "mingw32-make.exe"
 }
 else {
-    $MakeCommand="mingw32-make.exe debug"
+    $MakeCommand = "mingw32-make.exe"
+}
+
+if ($enable_debug) {
+    $MakeCommand += " debug"
 }
 
 $Now=Get-Date -UFormat "%Y%m%d_%H%M%S"

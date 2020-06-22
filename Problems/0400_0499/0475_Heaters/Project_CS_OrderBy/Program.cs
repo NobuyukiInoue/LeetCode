@@ -1,45 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.IO;
 
-namespace Project_CS_OrderBy
+namespace Project_CS
 {
-    public static class Program
+    class Program
     {
-        static void Main( string[] args )
+        static void Main(string[] args)
         {
-            int[]       dataA   = new int[] { 3, 1, 2, 0, 4 };
-            List<float> dataB   = new List<float>() { 1.5f, 1.3f, 3.2f };
-            string[]    dataC   = new string[] { "正一郎", "清次郎", "誠三郎", "征史郎" };
-
-            // 昇順に並べ替える
-            IOrderedEnumerable<int>     orderedDataA    = dataA.OrderBy( value => value );
-            IOrderedEnumerable<float>   orderedDataB    = dataB.OrderBy( value => value );
-            IOrderedEnumerable<string>  orderedDataC    = dataC.OrderBy( value => value );
-
-            System.Console.WriteLine( "dataA        :{0}", dataA.Text() );
-            System.Console.WriteLine( "dataA ordered:{0}", orderedDataA.Text() );
-            System.Console.WriteLine( "dataB        :{0}", dataB.Text() );
-            System.Console.WriteLine( "dataB ordered:{0}", orderedDataB.Text() );
-            System.Console.WriteLine( "dataC        :{0}", dataC.Text() );
-            System.Console.WriteLine( "dataC ordered:{0}", orderedDataC.Text() );
-
-            // 入力待ち用
-            System.Console.ReadKey();
-        }
-
-        /// <summary>
-        /// 簡易的なシーケンスのテキスト取得処理
-        /// </summary>
-        public static string Text( this IEnumerable i_source )
-        {
-            string text = string.Empty;
-            foreach( var value in i_source )
+           if (args.Length < 1)
             {
-                text += string.Format( "[{0}], ", value );
+                Console.WriteLine("Usage: dotnet run <testdata.txt>");
+                return;
             }
-            return text;
-        }
 
-    } // class Program
+            if (System.IO.File.Exists(args[0]) == false)
+            {
+                Console.WriteLine(args[0] + " not found.");
+                return;
+            }
+
+            Solution sl = new Solution();
+            StreamReader sr = new StreamReader(args[0]);
+            string line;
+
+            while ((line = sr.ReadLine()) != null)
+            {
+                string trimmed_line = line.Trim();
+                if (trimmed_line == "")
+                    continue;
+
+                sl.Main(trimmed_line);
+            }
+
+            sr.Close();
+            sl = null;
+        }
+    }
 }

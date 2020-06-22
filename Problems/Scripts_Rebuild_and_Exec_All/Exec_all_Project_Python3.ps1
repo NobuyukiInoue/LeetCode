@@ -4,11 +4,10 @@ param($enable_log, $dirList)
 ## ENABLE LOG Check.
 ##--------------------------------------------------------##
 if (-Not($enable_log)) {
-    $enable_log = $TRUE
+    $enable_log = $FALSE
 }
 else {
-    $enable_log = $enable_log.ToLower()
-    if ($enable_log -eq "TRUE") {
+    if ($enable_log -eq $TRUE) {
         $enable_log = $TRUE
     }
     else {
@@ -29,11 +28,14 @@ $LogFile="${TargetProject}_${Now}.log"
 $StartPath=Get-Location
 
 if (-Not($dirList)) {
-    if ($IsWindows) {
+    if ($IsMacOS -Or $IsLinux) {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern "/"
+    }
+    elseif ($IsWindows) {
         $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
     }
-    elseif ($IsMacOS -Or $IsLinux) {
-        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern "/"
+    else {
+        $list=Get-ChildItem $targetPath\$TargetProject -Recurse -Directory | Select-String -Pattern ":"
     }
 }
 else {

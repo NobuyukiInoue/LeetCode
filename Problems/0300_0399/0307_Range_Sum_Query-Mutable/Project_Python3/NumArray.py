@@ -27,7 +27,7 @@ class NumArray:
         sum_j = self.get_sum(j)
         return sum_j - sum_i
         
-    def get_sum(self, i):        
+    def get_sum(self, i):
         s = 0
         i += 1
         while i > 0:

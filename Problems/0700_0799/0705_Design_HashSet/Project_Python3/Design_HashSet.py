@@ -6,7 +6,7 @@ import MyHashSet
 def HashMain_test():
     hashSet = MyHashSet.MyHashSet()
     hashSet.add(1)
-    hashSet.add(2)         
+    hashSet.add(2)
 
     ret = hashSet.contains(1)    # returns true
     print(ret)
@@ -14,11 +14,11 @@ def HashMain_test():
     ret = hashSet.contains(3)    # returns false (not found)
     print(ret)
 
-    hashSet.add(2)          
+    hashSet.add(2)
     ret = hashSet.contains(2)    # returns true
     print(ret)
 
-    hashSet.remove(2)          
+    hashSet.remove(2)
 
     ret = hashSet.contains(2)    # returns false (already removed)
     print(ret)
