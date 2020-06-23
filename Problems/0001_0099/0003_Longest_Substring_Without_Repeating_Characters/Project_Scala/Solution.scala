@@ -39,7 +39,7 @@ object Solution {
         resultMap.getOrElse("max", 0)
     }
 
-    def main(args:String) {
+    def main(args:String): Unit = {
         var s:String = args.stripLineEnd.replaceAll(" ", "").replaceAll("\"", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
         println("s = " + s )
  

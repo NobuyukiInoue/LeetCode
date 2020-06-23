@@ -1,6 +1,6 @@
 object Solution {
     def checkRecord(s: String): Boolean = {
-        return !(s.indexOf("A") != s.lastIndexOf("A") || s.contains("LLL"));        
+        return !(s.indexOf("A") != s.lastIndexOf("A") || s.contains("LLL"));
     }
 
     def str_to_int_array(flds:String):Array[Int] = {
@@ -26,7 +26,7 @@ object Solution {
         return resultStr
     }
 
-    def main(args:String) {
+    def main(args:String): Unit = {
         var s:String = args.stripLineEnd.replaceAll(" ", "").replaceAll("\"", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
         println(s)
 

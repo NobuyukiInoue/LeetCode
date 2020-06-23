@@ -2,12 +2,12 @@ import java.io.File
 import scala.io.Source
 
 object Main {
-    def main(args:Array[String]) {
+    def main(args:Array[String]): Unit = {
         var className:String = new Object(){}.getClass().getEnclosingClass().getName()
 
         if (args.size < 1) {
             println("Usage)\n" +
-                    "scala " + className.diff("$") + " <testdataFile>\n")
+                    "scala " + className.toSeq.diff("$") + " <testdataFile>\n")
             sys.exit()
         }
 

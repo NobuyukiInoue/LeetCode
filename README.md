@@ -31,7 +31,7 @@ $ python Two_Sum.py ../testdata.txt
 $ cd Problems/0001_0099/0001_Two_Sum/Project_C
 ```
 
-### Build
+### Build(no debug info)
 
 * Windows (Minimalist GNU for Windows)
 
@@ -39,31 +39,45 @@ $ cd Problems/0001_0099/0001_Two_Sum/Project_C
 > mingw32-make.exe all
 ```
 
+
 * macOS or Linux (gcc)
 
 ```
 $ make all
 ```
 
+### Build(with debug info)
+
+* Windows (Minimalist GNU for Windows)
+
+```
+> mingw32-make.exe debug
+```
+
+* macOS or Linux (gcc)
+
+```
+$ make debug
+```
 
 ### Run
 
 * Windows
 
 ```
-> ./Two_Sum.exe ../testdata.txt
+> ./main.exe ../testdata.txt
 ```
 
 * macOS
 
 ```
-$ ./Two_Sum_for_mac ../testdata.txt
+$ ./main_for_mac ../testdata.txt
 ```
 
 * Linux
 
 ```
-$ ./Two_Sum_for_linux ../testdata.txt
+$ ./main_for_linux ../testdata.txt
 ```
 
 

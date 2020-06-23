@@ -62,7 +62,7 @@ object Solution {
         return resultStr
     }
 
-    def main(args:String) {
+    def main(args:String): Unit = {
         var temp:String = args.stripLineEnd.replaceAll(" ", "").replaceFirst("\\[\\[", "").replaceFirst("\\]\\]", "")
         var flds:Array[String] = temp.split("\\],\\[")
 

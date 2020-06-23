@@ -1,17 +1,22 @@
-param($enable_log, $dirList, $enable_debug)
+##-------------------------------------------------------------------------------##"
+## If you want to save the execution result in the log, execute the following."
+## > ./Rebuild_and_Exec_all_Project_?.ps1 | Out-File -Encording default <FileName>"
+##-------------------------------------------------------------------------------##"
+param($enablePathLog, $dirList, $enable_debug)
+
 
 ##--------------------------------------------------------##
 ## ENABLE LOG Check.
 ##--------------------------------------------------------##
-if (-Not($enable_log)) {
-    $enable_log = $FALSE
+if (-Not($enablePathLog)) {
+    $enablePathLog = $FALSE
 }
 else {
-    if ($enable_log -eq $TRUE) {
-        $enable_log = $TRUE
+    if ($enablePathLog -eq $TRUE) {
+        $enablePathLog = $TRUE
     }
     else {
-        $enable_log = $FALSE
+        $enablePathLog = $FALSE
     }
 }
 
@@ -36,13 +41,20 @@ else {
 $TargetPath=".."
 $TargetProject="Project_C"
 
-if ($IsMacOS -Or $IsLinux) {
+if ($IsMacOS) {
+    $exeFiles="main_for_mac"
+    $MakeCommand = "make"
+}
+elseif ($IsLinux) {
+    $exeFiles="main_for_linux"
     $MakeCommand = "make"
 }
 elseif ($IsWindows) {
+    $exeFiles="main.exe"
     $MakeCommand = "mingw32-make.exe"
 }
 else {
+    $exeFiles="main.exe"
     $MakeCommand = "mingw32-make.exe"
 }
 
@@ -67,7 +79,7 @@ if (-Not($dirList)) {
 }
 else {
     if ((Test-Path $dirList) -eq $FALSE) {
-        Write-Host "$dirList Not found."
+        Write-Output "$dirList Not found."
         return
     }
     $list = (Get-Content $dirList) -as [string[]]
@@ -83,26 +95,23 @@ foreach ($currentLine in $list) {
         continue
     }
 
-    if ($enable_log) {
-        Write-Output ${currentLine} | Out-File ${StartPath}\${LogFile} -Append -Encoding Default
-    }
-    else {
-        Write-Output ${currentLine}
-    }
-
     Set-Location -Path ${currentLine}
     $resultPath=Get-Location
-    Write-Host $resultPath
+
+    Write-Output ${resultPath}
+    if ($enablePathLog) {
+        Write-Output ${resultPath}.Path | Out-File ${StartPath}\${LogFile} -Append -Encoding Default
+    }
+
     Invoke-Expression $MakeCommand
 
-    $exeFiles=Get-ChildItem -Name *.exe
     foreach ($current_exe in $exeFiles) {
-        Write-Host $current_exe
+        Write-Output $current_exe
         if ($current_exe -eq "") {
             continue
         }
 
-        Write-Host "##==== Execute ====###"
+        Write-Output "##==== Execute ====###"
         $ExecCmd="./$current_exe ../testdata.txt"
         Invoke-Expression $ExecCmd
     }

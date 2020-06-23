@@ -7,37 +7,49 @@ def main():
     argv = sys.argv
     argc = len(argv)
 
-    # 引数チェック
+    # check Arguments.
     if argc < 2:
         exit_msg(argv[0])
     target_path = argv[1]
 
-    # ファイル一覧の取得
+    targetChar = "\\r\\n"
+    if argc >= 3:
+        argv2 = str(argv[2]).replace("\"", "")
+        if argv2 == "CRLF":
+           targetChar = "\\r\\n"
+        elif argv2 == "CR":
+           targetChar = "\\r"
+        elif argv2 == "LF":
+           targetChar = "\\n"
+
+    # Get file list.
     files_list = glob.glob(target_path, recursive=True)
 
-    """
+    count = 0
     for filename in files_list:
-        print(filename)
-    """
-
-    for filename in files_list:
-        # ファイルの内容を読み込む
         f = open(filename, "rb")
         contents = f.readlines()
         f.close
 
-        # target_commandの実行結果を取得する
         for i in range(len(contents)):
             contents_str = str(contents[i])
-            if "\\r\\n" in contents_str:
-                print("{0}    found CRLF.".format(filename))
+            if targetChar in contents_str:
+                print("{0}".format(filename, targetChar))
+                count += 1
                 break
 
+    print("\ntargetChar \"{0}\" was Found in {1:d} files".format(targetChar, count))
+
 def exit_msg(argv0):
-    """使用例を表示する"""
-    print("Usage: python {0} <target_pattern>\n"
+    """ print usage and exit"""
+    print("Usage: python {0} <target_pattern> [targetChar]\n"
+          "\n"
+          "targetChar)\n"
+          "    [CRLF(default) | CR | LF]\n"
+          "\n"
           "example)\n"
-          "python {0} \"../*/*/Project_C/*.c\"\n"
+          "python {0} \"../*/*/Project_C/*.c\" CRLF\n"
+          "python {0} \"../*/*/Project_C/*.c\" LF\n"
           "python {0} \"../*/*/Project_C/lib/*.c\"\n"
           "python {0} \"../*/*/Project_C/include/*.h\"\n"
           "python {0} \"../*/*/Project_CS/*.cs\"\n"

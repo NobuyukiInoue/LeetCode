@@ -1,17 +1,21 @@
-param($enable_log, $dirList)
+##-------------------------------------------------------------------------------##"
+## If you want to save the execution result in the log, execute the following."
+## > ./Rebuild_and_Exec_all_Project_?.ps1 | Out-File -Encording default <FileName>"
+##-------------------------------------------------------------------------------##"
+param($enablePathLog, $dirList)
 
 ##--------------------------------------------------------##
 ## ENABLE LOG Check.
 ##--------------------------------------------------------##
-if (-Not($enable_log)) {
-    $enable_log = $FALSE
+if (-Not($enablePathLog)) {
+    $enablePathLog = $FALSE
 }
 else {
-    if ($enable_log -eq $TRUE) {
-        $enable_log = $TRUE
+    if ($enablePathLog -eq $TRUE) {
+        $enablePathLog = $TRUE
     }
     else {
-        $enable_log = $FALSE
+        $enablePathLog = $FALSE
     }
 }
 
@@ -41,7 +45,7 @@ if (-Not($dirList)) {
 }
 else {
     if ((Test-Path $dirList) -eq $FALSE) {
-        Write-Host "$dirList Not found."
+        Write-Output "$dirList Not found."
         return
     }
     $list = (Get-Content $dirList) -as [string[]]
@@ -57,19 +61,18 @@ foreach ($currentLine in $list) {
         continue
     }
 
-    if ($enable_log) {
-        Write-Output ${currentLine} | Out-File ${StartPath}\${LogFile} -Append -Encoding Default
-    }
-    else {
-        Write-Output ${currentLine}
-    }
-
     Set-Location -Path ${currentLine}
     $resultPath=Get-Location
-    Write-Host $resultPath
 
+    Write-Output ${resultPath}
+    if ($enablePathLog) {
+        Write-Output ${resultPath}.Path | Out-File ${StartPath}\${LogFile} -Append -Encoding Default
+    }
 
-    Write-Host "##==== Execute ====###"
+  ##Invoke-Expression $MakeCommand
+
+    Write-Output "##==== Execute ====###"
+
     Invoke-Expression $ExecCmd
 }
 

@@ -30,7 +30,7 @@ object Solution {
         return resultStr
     }
 
-    def main(args:String) {
+    def main(args:String): Unit = {
         var s:String = args.stripLineEnd.replaceAll(" ", "").replaceAll("\"", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
         var nums:Array[Int] = str_to_int_array(s)
 

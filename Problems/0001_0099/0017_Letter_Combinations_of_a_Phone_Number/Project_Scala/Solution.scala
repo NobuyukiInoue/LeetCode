@@ -51,7 +51,7 @@ object Solution {
         return resultStr
     }
 
-    def main(args:String) {
+    def main(args:String): Unit = {
         var digits:String = args.stripLineEnd.replaceAll(" ", "").replaceAll("\"", "").replaceFirst("\\[", "").replaceFirst("\\]", "")
         println("digits = " + digits)
  
