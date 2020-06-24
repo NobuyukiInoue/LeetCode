@@ -88,8 +88,12 @@ int loop_main(char* arg)
     printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 
     // char s[], t[] clear.
-    free(t);
-    free(s);
+    if (strlen(t) > 0) {
+        free(t);
+    }
+    if (strlen(s) > 0) {
+        free(s);
+    }
 
     // char* flds[] clear.
     ml_p_char_array_free(flds, flds_length);

@@ -89,12 +89,13 @@ int loop_main(char* arg)
     int ret_l1 = ListNode_free(l2);
     int ret_l2 = ListNode_free(l1);
 
-    // char result[] clear.
-    free(result);
-
     // int nums1[], nums2[] clear.
-    free(nums2);
-    free(nums1);
+    if (nums2 != NULL) {
+        free(nums2);
+    }
+    if (nums1 != NULL) {
+        free(nums1);
+    }
 
     // char* flds[] clear.
     ml_p_char_array_free(flds, flds_length);

@@ -29,14 +29,11 @@ bool isSameTree(struct TreeNode* p, struct TreeNode* q)
 
 int loop_main(char *arg)
 {
-    char *flds[2];
-    char *nums1[256];
-    char *nums2[256];
-
     ml_replace(arg, "[[", "");
     ml_replace(arg, "]]", "");
     ml_replace(arg, "\n", "");
 
+    char *flds[2];
     int flds_length = ml_split(arg, "],[", flds, sizeof(flds)/sizeof(flds[0]));
 
     struct TreeNode *p = createTreeNode(flds[0]);
@@ -71,6 +68,12 @@ int loop_main(char *arg)
         printf("result = false\n");
 
     printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
+
+    // strunct TreeNode *p. *t clear.
+    // printf("treenode_free(q) ... %d\n", treenode_free(q));
+    // printf("treenode_free(p) ... %d\n", treenode_free(p));
+    treenode_free(q);
+    treenode_free(p);
 
     // char* flds[] free().
     ml_p_char_array_free(flds, flds_length);

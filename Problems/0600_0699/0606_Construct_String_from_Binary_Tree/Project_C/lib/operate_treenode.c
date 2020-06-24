@@ -127,3 +127,18 @@ char* tree2str(struct TreeNode *t) {
 
     return resultStr;
 }
+
+int treenode_free(struct TreeNode *t) {
+    if (t == NULL)
+        return 0;
+    
+    int count = 0;
+    if (t->right != NULL)
+        count += treenode_free(t->right);
+    if (t->left != NULL)
+        count += treenode_free(t->left);
+
+    free(t);
+    
+    return ++count;
+}
