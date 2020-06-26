@@ -7,12 +7,6 @@ import (
 	"time"
 )
 
-// Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func reverseBetween(head *ListNode, m int, n int) *ListNode {
 	// 0ms
 	if head == nil {
@@ -70,9 +64,8 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "]]", "", -1)
 	flds := strings.Split(temp, "],[")
 
-	nums0 := StringToIntArray(flds[0])
-	head := setListNode(nums0)
-	fmt.Printf("head = %s\n", outputListNode(head))
+	head := CreateListNode(flds[0])
+	fmt.Printf("head = %s\n", ListNodeToString(head))
 
 	nums1 := strings.Split(flds[1], ",")
 	m, _ := strconv.Atoi(nums1[0])
@@ -85,6 +78,6 @@ func LoopMain(args string) {
 
 	timeEnd := time.Now()
 
-	fmt.Printf("result = %s\n", outputListNode(result))
+	fmt.Printf("result = %s\n", ListNodeToString(result))
 	fmt.Printf("Execute time: %.3f [ms]\n\n", timeEnd.Sub(timeStart).Seconds()*1000)
 }

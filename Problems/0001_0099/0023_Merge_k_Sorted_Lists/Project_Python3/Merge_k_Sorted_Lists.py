@@ -2,21 +2,19 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
 
 class Solution:
     def mergeKLists(self, lists: 'List[ListNode]') -> 'ListNode':
         ans = []
+        ope_l = OperateListNode()
         for ln in lists:
             while ln:
                 ans.append(ln.val)
                 ln = ln.next
         ans.sort()
-        result = set_nodes(ans, 0)
+        result = ope_l.createSubListNode(ans, 0)
 
         return result
 
@@ -59,31 +57,6 @@ class Solution:
 
         return root
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    return [int(val) for val in flds.split(",")]
-
-def set_nodes(nums, index):
-    if nums == None:
-        return None
-    if index >= len(nums):
-        return None
-    
-    node = ListNode(nums[index])
-    node.next = set_nodes(nums, index + 1)
-
-    return node
-
-def output_nodes(ll):
-    if ll == None:
-        return ""
-
-    retStr = str(ll.val)
-    if ll.next != None:
-        retStr += " -> " + output_nodes(ll.next)
-    return retStr
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -112,15 +85,14 @@ def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
 
-    nums = [0]*len(flds)
-    for i in range(len(flds)):
-        nums[i] = str_to_int_array(flds[i])
-        print("nums[%d] = %s " %(i, nums[i]))
-
     lists = []
-    for i in range(len(nums)):
-        lists.append(set_nodes(nums[i], 0))
-        print("lists[%d] = %s " %(i, output_nodes(lists[i])))
+    ope_l = OperateListNode()
+    if len(flds) >= 1 and flds[0] != "":
+        for i in range(len(flds)):
+            lists.append(ope_l.createListNode(flds[i]))
+            print("lists[{0:d}] = {1} ".format(i, ope_l.ListNodeToString(lists[i])))
+    else:
+        lists = [None]
 
     time0 = time.time()
 
@@ -128,8 +100,8 @@ def loop_main(temp):
     result = sl.mergeKLists(lists)
 
     time1 = time.time()
-    print("result = %s" %output_nodes(result))
-    print("Execute time ... : %f[s]\n" %(time1 - time0))
+    print("result = {0}".format(ope_l.ListNodeToString(result)))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

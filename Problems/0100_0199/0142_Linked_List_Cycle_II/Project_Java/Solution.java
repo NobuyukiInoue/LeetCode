@@ -39,14 +39,10 @@ public class Solution {
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds[0]);
+        OperateListNode ope = new OperateListNode();
+        ListNode head = ope.createListNode(flds[0]);
+        System.out.println("head = " + ope.listNodeToString(head));
 
-        System.out.println("nums = " + mc.intArrayToString(nums));
-
-        Operate_ListNode ope = new Operate_ListNode();
-        ListNode head = ope.set_ListNode(nums);
-        System.out.println("head = " + ope.output_ListNode(head));
         int pos = Integer.parseInt(flds[1]);
         System.out.println("pos = " + Integer.toString(pos));
 
@@ -56,7 +52,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + ope.output_ListNode(result));
+        System.out.println("result = " + ope.listNodeToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

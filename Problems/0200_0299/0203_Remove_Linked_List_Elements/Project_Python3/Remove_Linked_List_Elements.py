@@ -4,11 +4,9 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
+
 
 class Solution:
     def removeElements(self, head, val):
@@ -38,33 +36,6 @@ class Solution:
             temp_node = temp_node.next
         return head
 
-def str_to_int_array(flds):
-    if len(flds) <= 0:
-        return None
-    else:
-        return [int(val) for val in flds.split(",")]
-
-def set_nodes(nums, index):
-    if nums == None:
-        return None
-
-    if index >= len(nums):
-        return None
-    
-    node = ListNode(nums[index])
-    node.next = set_nodes(nums, index + 1)
-
-    return node
-
-def output_nodes(node):
-    if node == None:
-        return ""
-    retStr = str(node.val) 
-
-    if node.next != None:
-        retStr += " -> " + output_nodes(node.next)
-    return retStr
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -93,23 +64,22 @@ def loop_main(temp):
     str_args = temp.replace("\"","").replace(" ","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
 
-    nums = str_to_int_array(flds[0])
+    ope_l = OperateListNode()
+    head = ope_l.createListNode(flds[0])
+    print("nodes = {0}".format(ope_l.ListNodeToString(head)))
+
     val = int(flds[1])
-    print("nums1 = %s " %nums)
-    print("val = %d" %val)
-
-    head = set_nodes(nums, 0)
-    print("nodes = %s " %output_nodes(head))
-
-    time0 = time.time()
+    print("val = {0:d}".format(val))
 
     sl = Solution()
+    time0 = time.time()
+
     result = sl.removeElements(head, val)
 
     time1 = time.time()
 
-    print("result = %s" %output_nodes(result))
-    print("Execute time ... : %f[s]\n" %(time1 - time0))
+    print("result = {0}".format(ope_l.ListNodeToString(result)))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

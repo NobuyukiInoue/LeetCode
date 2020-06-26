@@ -3,11 +3,9 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
+
 
 class Solution:
 #   def detectCycle(self, head: ListNode) -> ListNode:
@@ -38,22 +36,6 @@ class Solution:
                 return head
         return None
 
-def set_nodes(nums, index):
-    if index >= len(nums):
-        return None
-    
-    node = ListNode(nums[index])
-    node.next = set_nodes(nums, index + 1)
-
-    return node
-
-def output_nodes(ll):
-    retStr = str(ll.val) 
-
-    if ll.next != None:
-        retStr += " -> " + output_nodes(ll.next)
-    return retStr
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -82,12 +64,10 @@ def main():
 def loop_main(temp):
     flds = temp.replace("\"","").replace("[[","").replace("]]","").rstrip().split("],[")
 
-    nums = [int(val) for val in flds[0].split(",")]
-    print("nums = {0}".format(nums))
-
-    head = set_nodes(nums, 0)
+    ope_l = OperateListNode()
+    head = ope_l.createListNode(flds[0])
     pos = int(flds[1])
-    print("head = {0}, x = {1:d}".format(output_nodes(head), pos))
+    print("head = {0}, x = {1:d}".format(ope_l.ListNodeToString(head), pos))
 
     time0 = time.time()
 
@@ -97,7 +77,7 @@ def loop_main(temp):
     time1 = time.time()
 
     if result != None:
-        print("result = {0}".format(output_nodes(result)))
+        print("result = {0}".format(ope_l.ListNodeToString(result)))
     else:
         print("result = None")
     print("Execute time ... : {0:f}[s]\n".format(time1 - time0))

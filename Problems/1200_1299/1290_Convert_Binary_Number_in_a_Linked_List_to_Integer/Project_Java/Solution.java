@@ -13,14 +13,9 @@ public class Solution {
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds);
-
-        System.out.println("nums = " + mc.intArrayToString(nums));
-
-        Operate_ListNode ope = new Operate_ListNode();
-        ListNode head = ope.set_ListNode(nums);
-        System.out.println("head = " + ope.output_ListNode(head));
+        OperateListNode ope = new OperateListNode();
+        ListNode head = ope.createListNode(flds);
+        System.out.println("head = " + ope.listNodeToString(head));
 
         long start = System.currentTimeMillis();
 

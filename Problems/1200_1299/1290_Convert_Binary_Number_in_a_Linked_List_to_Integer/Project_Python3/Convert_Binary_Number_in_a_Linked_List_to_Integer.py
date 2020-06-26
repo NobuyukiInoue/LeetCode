@@ -2,11 +2,10 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
+
 
 class Solution:
 #   def getDecimalValue(self, head: ListNode) -> int:
@@ -27,22 +26,6 @@ class Solution:
             total += head.val
             head = head.next
         return total
-
-def set_nodes(nums, index):
-    if index >= len(nums):
-        return None
-    
-    node = ListNode(nums[index])
-    node.next = set_nodes(nums, index + 1)
-
-    return node
-
-def output_nodes(ll):
-    retStr = str(ll.val) 
-
-    if ll.next != None:
-        retStr += " -> " + output_nodes(ll.next)
-    return retStr
 
 def main():
     argv = sys.argv
@@ -72,15 +55,13 @@ def main():
 def loop_main(temp):
     flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
 
-    nums = [int(val) for val in flds.split(",")]
-    print("nums1 = {0}".format(nums))
-
-    head = set_nodes(nums, 0)
-    print("head = {0}".format(output_nodes(head)))
-
-    time0 = time.time()
+    ope_l = OperateListNode()
+    head = ope_l.createListNode(flds)
+    print("head = {0}".format(ope_l.ListNodeToString(head)))
 
     sl = Solution()
+    time0 = time.time()
+
     result = sl.getDecimalValue(head)
 
     time1 = time.time()

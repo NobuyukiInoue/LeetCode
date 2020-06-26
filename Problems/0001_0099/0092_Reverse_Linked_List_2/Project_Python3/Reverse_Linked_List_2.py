@@ -5,11 +5,8 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
 
 class Solution:
 #   def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
@@ -51,23 +48,6 @@ class Solution:
 
         return hat.next
 
-def set_nodes(nums, index):
-    if index >= len(nums):
-        return None
-    
-    node = ListNode(nums[index])
-    node.next = set_nodes(nums, index + 1)
-
-    return node
-
-def output_nodes(ll):
-    retStr = str(ll.val) 
-
-    if ll.next != None:
-        retStr += " -> " + output_nodes(ll.next)
-    return retStr
-
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -95,21 +75,22 @@ def main():
 def loop_main(temp):
     flds = temp.replace("\"","").replace(" ","").replace("[[","").replace("]]","").rstrip().split("],[")
 
-    head = set_nodes([int(n) for n in flds[0].split(",")], 0)
-    print("head = {0}".format(output_nodes(head)))
+    ope_l = OperateListNode()
+    head = ope_l.createListNode(flds[0])
+    print("head = {0}".format(ope_l.ListNodeToString(head)))
 
     flds1 = flds[1].split(",")
     m, n = int(flds1[0]), int(flds1[1])
     print("m = {0:d}, n = {1:d}".format(m, n))
 
+    sl = Solution()
     time0 = time.time()
 
-    sl = Solution()
     result = sl.reverseBetween(head, m, n)
 
     time1 = time.time()
 
-    print("result = {0}".format(output_nodes(result)))
+    print("result = {0}".format(ope_l.ListNodeToString(result)))
     print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":

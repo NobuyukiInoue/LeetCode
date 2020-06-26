@@ -66,9 +66,8 @@ func LoopMain(args string) {
 	temp = strings.Replace(temp, "[", "", -1)
 	flds := strings.Replace(temp, "]", "", -1)
 
-	nums := StringToIntArray(flds)
-	head := setListNode(nums)
-	fmt.Printf("head = %s\n", outputListNode(head))
+	head := CreateListNode(flds)
+	fmt.Printf("head = %s\n", ListNodeToString(head))
 
 	timeStart := time.Now()
 

@@ -4,10 +4,8 @@ import os
 import sys
 import time
 
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
 
 class Solution(object):
     def getIntersectionNode(self, headA, headB):
@@ -77,28 +75,6 @@ class Solution(object):
         if headA.val == headB.val:
             return self.check_equal(headA.next, headB.next)
 
-def set_node(data):
-    if len(data) <= 0:
-        return None
-
-    node = ListNode(data[0])
-    temp_node = node
-    for i in range(1,len(data)):
-        temp_node.next = ListNode(data[i])
-        temp_node = temp_node.next
-    
-    return node
-
-def output_node(node):
-    if node == None:
-        return 'None'
-    tempStr = node.val
-    temp_node = node.next
-    while temp_node != None:
-        tempStr += ',' + temp_node.val
-        temp_node = temp_node.next
-    return tempStr
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -126,21 +102,23 @@ def main():
 def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
-    node1 = set_node(flds[0].split(","))
-    node2 = set_node(flds[1].split(","))
 
-    print("node1 = %s" %(output_node(node1)))
-    print("node2 = %s" %(output_node(node2)))
+    ope_l = OperateListNode()
+    node1 = ope_l.createListNode(flds[0])
+    node2 = ope_l.createListNode(flds[1])
 
-    time0 = time.time()
+    print("node1 = {0}".format(ope_l.ListNodeToString(node1)))
+    print("node2 = {0}".format(ope_l.ListNodeToString(node2)))
 
     sl = Solution()
+    time0 = time.time()
+
     common_node = sl.getIntersectionNode(node1, node2)
-    print("common_node = %s" %(output_node(common_node)))
 
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+
+    print("common_node = {0}".format(ope_l.ListNodeToString(common_node)))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

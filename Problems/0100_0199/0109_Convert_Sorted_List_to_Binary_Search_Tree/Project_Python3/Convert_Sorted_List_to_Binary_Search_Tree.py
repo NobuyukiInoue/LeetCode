@@ -4,18 +4,10 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
+from TreeNode.TreeNode import TreeNode
+from TreeNode.OperateTreeNode import OperateTreeNode
 
 class Solution:
 #   def sortedListToBST(self, head: ListNode) -> TreeNode:
@@ -38,88 +30,6 @@ class Solution:
         treelist[mid].left = self.helper(treelist[:mid])
         treelist[mid].right = self.helper(treelist[mid + 1:])
         return treelist[mid]
-
-class Operate_TreeNode:
-    def set_node(self, flds, depth, pos):
-        if len(flds) <= 0:
-            return None
-
-        cur_pos = 0
-        for i in range(depth):
-            cur_pos += 2 ** i
-        
-        if cur_pos + pos > len(flds) - 1:
-            return None
-
-        if flds[cur_pos + pos] == 'null':
-            return None
-
-        node = TreeNode(int(flds[cur_pos + pos]))
-        node.left = set_node(flds, depth + 1, 2*pos)
-        node.right = set_node(flds, depth + 1, 2*pos + 1)
-
-        return node
-
-    def output(self, node):
-        self.resultStr = []
-        self.output_TreeNode(node, 0)
-        return self.print_resultStr()
-
-    def output_TreeNode(self, node, n):
-        if node == None:
-            return
-        if len(self.resultStr) <= n:
-            self.resultStr.append("(" + str(node.val) + ")")
-        else:
-            self.resultStr[n] += ",(" + str(node.val) + ")"
-        if node.left != None:
-            self.output_TreeNode(node.left, n + 1)
-        if node.right != None:
-            self.output_TreeNode(node.right, n + 1)
-        return
-
-    def print_resultStr(self):
-        outputStr = ""
-        for i in range(len(self.resultStr)):
-            outputStr += self.resultStr[i] + "\n"
-        self.resultStr.clear()
-        return outputStr
-
-    def tree2str(self, t):
-        """
-        :type t: TreeNode
-        :rtype: str
-        """
-        if t == None:
-            return ""
-
-        resultStr = str(t.val)
-
-        if t.left == None and t.right == None:
-            return resultStr
-
-        resultStr += "(" + self.tree2str(t.left) + ")"
-        if t.right != None:
-            resultStr += "(" + self.tree2str(t.right) + ")"
-
-        return resultStr
-
-class Operate_ListNode:
-    def set_nodes(self, nums, index):
-        if index >= len(nums):
-            return None
-        
-        node = ListNode(nums[index])
-        node.next = self.set_nodes(nums, index + 1)
-
-        return node
-
-    def listToString(self, ll):
-        retStr = str(ll.val) 
-
-        if ll.next != None:
-            retStr += " -> " + self.listToString(ll.next)
-        return retStr
 
 def main():
     argv = sys.argv
@@ -147,11 +57,10 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
-    nums = [int(n) for n in flds.split(",")]
 
-    ol = Operate_ListNode()
-    head = ol.set_nodes(nums, 0)
-    print("head = {0}".format(ol.listToString(head)))
+    ope_l = OperateListNode()
+    head = ope_l.createListNode(flds)
+    print("head = {0}".format(ope_l.ListNodeToString(head)))
 
     time0 = time.time()
 
@@ -160,9 +69,9 @@ def loop_main(temp):
 
     time1 = time.time()
 
-    ot = Operate_TreeNode()
-    print("\nresult = {0}"
-            "result = {1}\n".format(ot.output(result), ot.tree2str(result)))
+    ope_t = OperateTreeNode()
+    print("result = \n{0}".format(ope_t.treeToStaircaseString(result)))
+    print("result = {0}".format(ope_t.tree2str(result)))
     print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":

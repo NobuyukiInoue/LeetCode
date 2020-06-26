@@ -2,11 +2,8 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
 
 class Solution:
     def reverseKGroup(self, head: 'ListNode', k: 'int') -> 'ListNode':
@@ -34,22 +31,6 @@ class Solution:
             tail.next = next_head or current
                 
         return ret
-
-def set_nodes(nums, index):
-    if index >= len(nums):
-        return None
-    
-    node = ListNode(nums[index])
-    node.next = set_nodes(nums, index + 1)
-
-    return node
-
-def output_nodes(ll):
-    retStr = str(ll.val) 
-
-    if ll.next != None:
-        retStr += " -> " + output_nodes(ll.next)
-    return retStr
 
 def main():
     argv = sys.argv
@@ -80,23 +61,20 @@ def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
 
-    num1 = [int(val) for val in flds[0].split(",")]
-    print("nums1 = %s " %num1)
-
+    ope_l = OperateListNode()
+    head = ope_l.createListNode(flds[0])
     k = int(flds[1])
-    head = set_nodes(num1, 0)
-    print("head = %s, k = %d" %(output_nodes(head), k))
-
-    time0 = time.time()
+    print("head = {0}, k = {1:d}".format(ope_l.ListNodeToString(head), k))
 
     sl = Solution()
+    time0 = time.time()
+
     result = sl.reverseKGroup(head, k)
 
     time1 = time.time()
 
-    print("result = %s" %output_nodes(result))
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("result = {0}".format(ope_l.ListNodeToString(result)))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

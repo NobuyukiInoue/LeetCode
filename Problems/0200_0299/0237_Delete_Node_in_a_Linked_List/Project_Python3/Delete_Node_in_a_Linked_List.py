@@ -4,11 +4,8 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
 
 class Solution:
     def deleteNode(self, node):
@@ -24,32 +21,6 @@ class Solution:
             else:
                 break
         prev_node.next = None
-
-def output_ListNode(node):
-    if node == None:
-        return
-
-    resultStr = node.val
-
-    work_node = node
-    while work_node.next != None:
-        resultStr += " -> " + str(work_node.next.val)
-        work_node = work_node.next
-    
-    return resultStr
-
-def set_node(flds):
-    if len(flds) <= 0:
-        return None
-
-    node = ListNode(flds[0])
-    work_node = node
-
-    for i in range(1, len(flds)):
-        work_node.next = ListNode(flds[i])
-        work_node = work_node.next
-
-    return node
 
 def main():
     argv = sys.argv
@@ -78,19 +49,19 @@ def main():
 def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
-    node = set_node(flds[0].split(","))
-
-    print("node = %s" %(output_ListNode(node)))
-
-    time0 = time.time()
+    
+    ope_l = OperateListNode()
+    node = ope_l.createListNode(flds[0])
+    print("node = {0}".format(ope_l.ListNodeToString(node)))
 
     sl = Solution()
+    time0 = time.time()
+
     sl.deleteNode(node)
-    print("node = %s" %(output_ListNode(node)))
 
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("node = {0}".format(ope_l.ListNodeToString(node)))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

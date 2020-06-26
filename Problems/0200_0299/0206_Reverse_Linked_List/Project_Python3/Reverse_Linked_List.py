@@ -4,11 +4,8 @@ import os
 import sys
 import time
 
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
 
 class Solution:
     def reverseList(self, head):
@@ -37,28 +34,6 @@ class Solution:
         return result_top
 
 
-def set_node(data):
-    node = ListNode(data[0])
-    temp_node = node
-
-    for i in range(1,len(data)):
-        temp_node.next = ListNode(data[i])
-        temp_node = temp_node.next
-    
-    return node
-
-
-def output_node(node):
-    if node == None:
-        return ''
-    tempStr = node.val
-    temp_node = node.next
-    while temp_node != None:
-        tempStr += ',' + temp_node.val
-        temp_node = temp_node.next
-    return tempStr
-
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -83,22 +58,21 @@ def main():
 
 
 def loop_main(temp):
-    tempStr = temp.replace("[","").replace("]","").rstrip()
-    flds = tempStr.split(',')
-    node = set_node(flds)
+    flds = temp.replace("[","").replace("]","").rstrip()
 
-    print("node = %s" %(output_node(node)))
-
-    time0 = time.time()
+    ope_l = OperateListNode()
+    node = ope_l.createListNode(flds)
+    print("node = {0}".format(ope_l.ListNodeToString(node)))
 
     sl = Solution()
+    time0 = time.time()
+
     result_node = sl.reverseList(node)
 
-    print("result = %s" %(output_node(result_node)))
-
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+
+    print("result = {0}".format(ope_l.ListNodeToString(result_node)))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 
 if __name__ == "__main__":

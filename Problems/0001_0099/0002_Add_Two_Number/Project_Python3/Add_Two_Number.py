@@ -2,11 +2,8 @@ import os
 import sys
 import time
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from ListNode.ListNode import ListNode
+from ListNode.OperateListNode import OperateListNode
 
 class Solution:
     def addTwoNumbers(self, l1, l2):
@@ -55,22 +52,6 @@ class Solution:
             curr.next = ListNode(carry)
         return dummyHead.next
 
-def set_nodes(nums, index):
-    if index >= len(nums):
-        return None
-    
-    node = ListNode(nums[index])
-    node.next = set_nodes(nums, index + 1)
-
-    return node
-
-def output_nodes(ll):
-    retStr = str(ll.val) 
-
-    if ll.next != None:
-        retStr += " -> " + output_nodes(ll.next)
-    return retStr
-
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -100,26 +81,21 @@ def loop_main(temp):
     str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
 
-    num1 = [int(val) for val in flds[0].split(",")]
-    num2 = [int(val) for val in flds[1].split(",")]
-    print("nums1 = %s " %num1)
-    print("nums2 = %s " %num2)
-
-    l1 = set_nodes(num1, 0)
-    l2 = set_nodes(num2, 0)
-    print("l1 = %s " %output_nodes(l1))
-    print("l2 = %s " %output_nodes(l2))
-
-    time0 = time.time()
+    ope_l = OperateListNode()
+    l1 = ope_l.createListNode(flds[0])
+    l2 = ope_l.createListNode(flds[1])
+    print("l1 = {0}".format(ope_l.ListNodeToString(l1)))
+    print("l2 = {0}".format(ope_l.ListNodeToString(l2)))
 
     sl = Solution()
+    time0 = time.time()
+
     result = sl.addTwoNumbers(l1, l2)
 
     time1 = time.time()
 
-    print("result = %s" %output_nodes(result))
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("result = {0}".format(ope_l.ListNodeToString(result)))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

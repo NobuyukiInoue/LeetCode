@@ -1,12 +1,16 @@
 SCALAC = scalac
 SCALAC_FLAGS = 
 
-all:	ListNode.class Operate_ListNode.class Solution.class Main.class
+all:	Mylib.class ListNode.class OperateListNode.class Solution.class Main.class
+
+
+Mylib.class:	Mylib.scala
+	$(SCALAC) $(SCALAC_FLAGS) $<
 
 ListNode.class:	ListNode.scala
 	$(SCALAC) $(SCALAC_FLAGS) $<
 
-Operate_ListNode.class:	Operate_ListNode.scala
+OperateListNode.class:	OperateListNode.scala
 	$(SCALAC) $(SCALAC_FLAGS) $<
 
 Solution.class:	Solution.scala

@@ -41,15 +41,10 @@ public class Solution {
 
     public void Main(String args) {
         System.out.println("args = " + args);
-        String flds[] = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
+        String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        int[] nums = new int[flds.length];
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = Integer.parseInt(flds[i]);
-        }
-
-        Operate_ListNode ope_l = new Operate_ListNode();
-        ListNode head = ope_l.set_ListNode(nums);
+        OperateListNode ope_l = new OperateListNode();
+        ListNode head = ope_l.createListNode(flds);
 
         long start = System.currentTimeMillis();
 
