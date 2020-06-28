@@ -5,7 +5,6 @@ def shape(arr, isHour=False, isMin=False):
         a = [i for i in arr if i < 60]
     return a
 
-
 def main():
     arr = []
     arr.append(1)
@@ -19,7 +18,6 @@ def main():
     a = shape(arr, True, True)
 
     print(a)
-
 
 if __name__ == "__main__":
     main()

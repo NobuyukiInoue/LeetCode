@@ -34,11 +34,11 @@ def main():
     argc = len(argv)
 
     if argc < 2:
-        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
         exit(0)
 
     if not os.path.exists(argv[1]):
-        print("%s not found..." %argv[1])
+        print("{0} not found...".format(argv[1]))
         exit(0)
 
     testDataFile = open(argv[1], "r")
@@ -48,17 +48,18 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("args = %s" %temp)
+        print("args = {0}".format(temp))
         loop_main(temp)
-    #    print("Hit Return to continue...")
-    #    input()
+    #   print("Hit Return to continue...")
+    #   input()
 
 def loop_main(temp):
     flds = temp.replace("\"","").replace(" ","").replace("[[[","").replace("]]]","").rstrip().split("]],[[")
+
     m_and_n = flds[0].split("],[")
     m = int(m_and_n[0])
     n = int(m_and_n[1])
-    print("m = %d, n = %d" %(m, n))
+    print("m = {0:d}, n = {1:d}".format(m, n))
 
     if len(flds[1]) == 0:
         ops = []
@@ -71,23 +72,23 @@ def loop_main(temp):
             line = nums[i].split(",")
             for j in range(len(line)):
                 ops[i][j] = int(line[j])
-            print("ops[%d] = %s" %(i, ops[i]))
+            print("ops[{0:d}] = {1}".format(i, ops[i]))
  
-    print("ops[] = %s" %ops)
-
-    time0 = time.time()
+    print("ops[] = {0}",format(ops))
 
     sl = Solution()
+    time0 = time.time()
+
     result = sl.maxCount(m, n, ops)
 
     time1 = time.time()
 
     print()
-    print("result = %d" %result)
+    print("result = {0:d}".format(result))
     for i in range(len(ops)):
-        print("ops[%d] = %s" %(i, ops[i]))
+        print("ops[{0:d}] = {1}".format(i, ops[i]))
 
-    print("Execute time ... : %f[s]\n" %(time1 - time0))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

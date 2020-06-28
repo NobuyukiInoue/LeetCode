@@ -15,7 +15,6 @@ class Solution:
         index=[s.index(l) for l in letters if s.count(l) == 1]
         return min(index) if len(index) > 0 else -1
 
-
     def firstUniqChar2(self, s):
         """
         :type s: str
@@ -29,7 +28,6 @@ class Solution:
                     return index
                 del hash_table[e]
         return -1
-
 
     def firstUniqChar_old(self, s):
         """
@@ -55,17 +53,16 @@ class Solution:
         
         return -1
 
-
 def main():
     argv = sys.argv
     argc = len(argv)
 
     if argc < 2:
-        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
         exit(0)
 
     if not os.path.exists(argv[1]):
-        print("%s not found..." %argv[1])
+        print("{0} not found...".format(argv[1]))
         exit(0)
 
     testDataFile = open(argv[1], "r")
@@ -75,28 +72,24 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("args = %s" %temp)
+        print("args = {0}".format(temp))
         loop_main(temp)
-    #    print("Hit Return to continue...")
-    #    input()
-
+    #   print("Hit Return to continue...")
+    #   input()
 
 def loop_main(temp):
-    var_str = temp.replace("\"","").rstrip()
+    flds = temp.replace("\"","").rstrip()
 
-    print("s = %s" %var_str)
-
-    time0 = time.time()
+    print("s = {0}".format(flds))
 
     sl = Solution()
-    result = sl.firstUniqChar(var_str)
+    time0 = time.time()
 
-    print("result = %s" %result)
+    result = sl.firstUniqChar(flds)
 
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
-
+    print("result = {0}".format(result))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

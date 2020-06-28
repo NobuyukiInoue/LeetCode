@@ -29,7 +29,6 @@ class Solution:
                 res.append(i - m + 1)
         return res
 
-
     def findAnagrams_old(self, s, p):
         """
         :type s: str
@@ -64,34 +63,30 @@ class Solution:
 
         return result
 
-
 def turple_to_str(target):
     resultStr = ""
     for temp in target:
         resultStr += temp
     return resultStr
 
-
 def output_turple_match_pattern(turple_match_pattern):
     for i in range(len(turple_match_pattern)):
-        print("turple_match_pattern[%d] = %s" %(i, turple_match_pattern[i]))
-
+        print("turple_match_pattern[{0:d}] = {1}".format(i, turple_match_pattern[i]))
 
 def output_match_pattern(match_pattern):
     for i in range(len(match_pattern)):
-        print("match_pattern[%d] = %s" %(i, match_pattern[i]))
-
+        print("match_pattern[{0:d}] = {1}".format(i, match_pattern[i]))
 
 def main():
     argv = sys.argv
     argc = len(argv)
 
     if argc < 2:
-        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
         exit(0)
 
     if not os.path.exists(argv[1]):
-        print("%s not found..." %argv[1])
+        print("{0} not found...".format(argv[1]))
         exit(0)
 
     testDataFile = open(argv[1], "r")
@@ -101,31 +96,28 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("args = %s" %temp)
+        print("args = {0}".format(temp))
         loop_main(temp)
-    #    print("Hit Return to continue...")
-    #    input()
-
+    #   print("Hit Return to continue...")
+    #   input()
 
 def loop_main(temp):
     var_str = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
+
     flds = var_str.split("],[")
     s = flds[0]
     p = flds[1]
-
-    print("s = %s, p = %s" %(s, p))
-
-    time0 = time.time()
+    print("s = {0}, p = {1}".format(s, p))
 
     sl = Solution()
+    time0 = time.time()
+
     result = sl.findAnagrams(s, p)
 
-    print("result = %s" %result)
-
     time1 = time.time()
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
 
+    print("result = {0}".format(result))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

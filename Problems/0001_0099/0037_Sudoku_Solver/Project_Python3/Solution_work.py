@@ -76,6 +76,6 @@ class Solution_work:
 
         print("board = ")
         for i in range(0, len(board)):
-            print("%s" %board[i])
+            print("{0}".format(board[i]))
 
         return

@@ -71,7 +71,7 @@ def output_TreeNode(node, id):
     return resultStr
 
 def str_to_QuadTree(json_filename):
-    print("JSON fileopen = %s" %json_filename)
+    print("JSON fileopen = {0}".format(json_filename))
     f = open(json_filename, 'r')
     data = json.load(f)
 
@@ -101,11 +101,11 @@ def main():
     argc = len(argv)
 
     if argc < 2:
-        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
         exit(0)
 
     if not os.path.exists(argv[1]):
-        print("%s not found..." %argv[1])
+        print("{0} not found...".format(argv[1]))
         exit(0)
 
     testDataFile = open(argv[1], "r")
@@ -115,28 +115,28 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("args = %s" %temp)
+        print("args = {0}".format(temp))
         loop_main(temp)
+    #   print("Hit Return to continue...")
+    #   input()
 
 def loop_main(temp):
     json_filenames = temp.rstrip().replace("\"", "").replace("[[", "").replace("]]", "").split("],[")
+
     quadTree1 = str_to_QuadTree(json_filenames[0])
     quadTree2 = str_to_QuadTree(json_filenames[1])
-
-    print("quadTree1 = \n%s" %output_all_TreeNode(quadTree1))
-    print("quadTree2 = \n%s" %output_all_TreeNode(quadTree2))
-
-    time0 = time.time()
+    print("quadTree1 = \n{0}".format(output_all_TreeNode(quadTree1)))
+    print("quadTree2 = \n{0}".format(output_all_TreeNode(quadTree2)))
 
     sl = Solution()
+    time0 = time.time()
+
     result = sl.intersect(quadTree1, quadTree2)
 
     time1 = time.time()
 
-    print("result = \n%s" %output_all_TreeNode(result))
-
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
+    print("result = \n{0}".format(output_all_TreeNode(result)))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

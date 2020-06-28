@@ -31,7 +31,6 @@ class Solution:
                         prime_flag[j] = False
         return count
 
-
     def countPrimes_old(self, n):
         """
         :type n: int
@@ -59,7 +58,6 @@ class Solution:
         """
         return calc_prime_number(n)
 
-
 def calc_prime_number(n):
     count, resultStr = 1, "2"
     for i in range(3, n + 1, 2):
@@ -71,20 +69,19 @@ def calc_prime_number(n):
         if k == 0:
             resultStr += " " + str(i)
             count += 1
-    print("%s" %resultStr)
+    print("{0}".format(resultStr))
     return count
-
 
 def main():
     argv = sys.argv
     argc = len(argv)
 
     if argc < 2:
-        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
         exit(0)
 
     if not os.path.exists(argv[1]):
-        print("%s not found..." %argv[1])
+        print("{0} not found...".format(argv[1]))
         exit(0)
 
     testDataFile = open(argv[1], "r")
@@ -94,24 +91,23 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("args = %s" %temp)
+        print("args = {0}".format(temp))
         loop_main(temp)
-
+    #   print("Hit Return to continue...")
+    #   input()
 
 def loop_main(temp):
     n = int(temp)
 
+    sl = Solution()
     time0 = time.time()
 
-    sl = Solution()
     result = sl.countPrimes(n)
-    print("result = %d" %result)
 
     time1 = time.time()
 
-    print("Execute time ... : %f[s]" %(time1 - time0))
-    print()
-
+    print("result = {0:d}".format(result))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

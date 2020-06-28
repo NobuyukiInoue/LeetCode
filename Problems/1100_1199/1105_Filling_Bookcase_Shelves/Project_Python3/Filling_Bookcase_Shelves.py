@@ -29,11 +29,11 @@ def main():
     argc = len(argv)
 
     if argc < 2:
-        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
         exit(0)
 
     if not os.path.exists(argv[1]):
-        print("%s not found..." %argv[1])
+        print("{0} not found...".format(argv[1]))
         exit(0)
 
     testDataFile = open(argv[1], "r")
@@ -43,10 +43,10 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("args = %s" %temp)
+        print("args = {0}".format(temp))
         loop_main(temp)
-    #    print("Hit Return to continue...")
-    #    input()
+    #   print("Hit Return to continue...")
+    #   input()
 
 def loop_main(temp):
     flds = temp.replace("\"","").replace("[[[","").rstrip().split("]],[")
@@ -57,9 +57,8 @@ def loop_main(temp):
     shelf_width = int(flds[1].replace("]]",""))
     print("shelf_sheld = {0:d}".format(shelf_width))
 
-    time0 = time.time()
-
     sl = Solution()
+    time0 = time.time()
     result = sl.minHeightShelves(books, shelf_width)
 
     time1 = time.time()

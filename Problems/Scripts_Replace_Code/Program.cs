@@ -66,7 +66,7 @@ namespace Project_CS
 
             if (resultCode == readCode)
             {
-                Console.WriteLine(@write_FileName + " was not changed.");
+            //  Console.WriteLine(@write_FileName + " was not changed.");
                 return;
             }
 

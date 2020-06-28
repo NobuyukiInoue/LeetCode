@@ -41,11 +41,11 @@ def main():
     argc = len(argv)
 
     if argc < 2:
-        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
         exit(0)
 
     if not os.path.exists(argv[1]):
-        print("%s not found..." %argv[1])
+        print("{0} not found...".format(argv[1]))
         exit(0)
 
     testDataFile = open(argv[1], "r")
@@ -55,28 +55,28 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("args = %s" %temp)
+        print("args = {0}".format(temp))
         loop_main(temp)
-    #    print("Hit Return to continue...")
-    #    input()
+    #   print("Hit Return to continue...")
+    #   input()
 
 def loop_main(temp):
-    nums_str = temp.rstrip().replace("[[", "").replace("]]", "").split("],[")
+    flds = temp.rstrip().replace("[[", "").replace("]]", "").split("],[")
 
-    nums1 = [int(val) for val in nums_str[0].split(",")]
-    nums2 = [int(val) for val in nums_str[1].split(",")]
-    print("nums1 = %s" %nums1)
-    print("nums2 = %s" %nums2)
-
-    time0 = time.time()
+    nums1 = [int(val) for val in flds[0].split(",")]
+    nums2 = [int(val) for val in flds[1].split(",")]
+    print("nums1 = {0}".format(nums1))
+    print("nums2 = {0}".format(nums2))
 
     sl = Solution()
+    time0 = time.time()
+
     result = sl.intersect(nums1, nums2)
 
     time1 = time.time()
 
-    print("result = %s" %result)
-    print("Execute time ... : %f[s]\n" %(time1 - time0))
+    print("result = {0}".format(result))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

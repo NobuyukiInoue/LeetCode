@@ -129,9 +129,9 @@ class Solution:
 def main():
     sl = Solution()
     node = sl.set_node()
-    print("%s" %(sl.output_node(node)))
+    print("{0}".format(sl.output_node(node)))
     llist = sl.levelOrder(node)
-    #print("%s" %(sl.outputOrder(llist)))
+    #print("{0}".format(sl.outputOrder(llist)))
     print(llist)
 
 if __name__ == "__main__":

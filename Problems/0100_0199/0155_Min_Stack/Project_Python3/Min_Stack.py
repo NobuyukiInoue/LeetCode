@@ -74,16 +74,16 @@ def calc():
     print("push(-3)")
 
     result = minStack.getMin()
-    print("getMin() => %s" %result)
+    print("getMin() => {0}".format(result))
 
     minStack.pop()
     print("pop()")
 
     result = minStack.top()
-    print("top() => %s" %result)
+    print("top() => {0}".format(result))
 
     result = minStack.getMin()
-    print("getMin() => %s" %result)
+    print("getMin() => {0}".format(result))
 
 def main():
     calc()

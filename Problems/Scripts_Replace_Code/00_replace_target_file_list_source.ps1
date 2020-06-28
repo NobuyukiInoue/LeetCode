@@ -6,7 +6,7 @@ if (-Not($targetList) -Or -Not($code_before) -Or -Not($code_after)) {
     Write-Host "Usage : $CommandName <targetList_file> <code_before_file> <code_after_file>"
     Write-Host
     Write-Host "Example)"
-    Write-Host $CommandName .\01_target_file_list.txt .\code_before.txt .\code_after.txt
+    Write-Host $CommandName .\target_file_list.txt .\code_before.txt .\code_after.txt
     exit
 }
 

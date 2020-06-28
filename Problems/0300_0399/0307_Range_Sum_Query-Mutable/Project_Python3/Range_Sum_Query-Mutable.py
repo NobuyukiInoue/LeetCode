@@ -17,22 +17,22 @@ def NumArray_Loop(ope, para):
 
         elif ope[i] == "update":
             numA.update(para[i][0], para[i][1])
-            print("NumArray.update(%d, %d)" %(para[i][0], para[i][1]))
+            print("NumArray.update({0:d}, {1:d})".format(para[i][0], para[i][1]))
 
         elif ope[i] == "sumRange":
             sum = numA.sumRange(para[i][0], para[i][1])
-            print("NumArray.sumRange(%d, %d) = %d" %(para[i][0], para[i][1], sum))
+            print("NumArray.sumRange({0:d}, {1:d}) = {2:d}".format(para[i][0], para[i][1], sum))
 
 def main():
     argv = sys.argv
     argc = len(argv)
 
     if argc < 2:
-        print("Usage: python %s <testdata.txt>" %(argv[0]))
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
         exit(0)
 
     if not os.path.exists(argv[1]):
-        print("%s not found..." %argv[1])
+        print("{0} not found...".format(argv[1]))
         exit(0)
 
     testDataFile = open(argv[1], "r")
@@ -42,7 +42,7 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("argv[1] = %s" %temp)
+        print("argv[1] = {0}".format(temp))
         loop_main(temp)
     #   print("Hit Return to continue...")
     #   input()
@@ -53,10 +53,10 @@ def loop_main(temp):
 
     if len(str_args) > 1:
         params = str_args[1].split("]],[")
-#       print("operations[] = %s, params = %s" %(ope, params))
+#       print("operations[] = {0}, params = {1}".format(ope, params))
 
         nums_str = params[0].split(",")
-#       print("nums_str = %s" %nums_str)
+#       print("nums_str = {0}".format(nums_str))
 
         nums = [int(data) for data in params[0].split(",")]
         data2 = [[int(col) for col in row.split(",")] for row in params[1].replace("]]]", "").split("],[")]
@@ -65,15 +65,15 @@ def loop_main(temp):
     else:
         para = [[]]
 
-    print("operations[] = %s, para = %s" %(ope, para))
-    print("nums = %s" %para[0])
+    print("operations[] = {0}, para = {1}".format(ope, para))
+    print("nums = {0}".format(para[0]))
 
     time0 = time.time()
 
     NumArray_Loop(ope, para)
 
     time1 = time.time()
-    print("Execute time ... : %f[s]\n" %(time1 - time0))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()
