@@ -22,8 +22,15 @@ def main():
         exit_msg(argv[0])
 
     f = open(pattern_file, "rt", encoding="ascii")
-    target_command = f.readlines()
+    target_pattern = f.readlines()
     f.close
+
+    """print patten_file contents"""
+    print(pattern_file)
+    print("----------------------------------------")
+    for i in range(len(target_pattern)):
+        print("{0:05d}: {1}".format(i, target_pattern[i]), end="")
+    print("----------------------------------------")
 
     enable_regularexpression = True
     if argc >= 3:
@@ -43,6 +50,7 @@ def main():
    
     # ファイル一覧の取得
     files_list = glob.glob(target_path)
+    files_list.sort()
 
     """
     for filename in files_list:
@@ -55,16 +63,16 @@ def main():
         contents = f.readlines()
         f.close
 
-        # target_commandの実行結果を取得する
+        # target_patternの実行結果を取得する
         if enable_regularexpression:
-            result = get_contents_target_regular_pattern(contents, target_command)
+            result = get_line_target_regular_pattern(contents, target_pattern)
         else:
-            result = get_contents_target_perfect_pattern(contents, target_command)
+            result = get_line_target_perfect_pattern(contents, target_pattern)
 
-        # target_commandの実行結果を表示する
+        # target_patternの実行結果を表示する
         if result:
             print(filename)
-            for i in range(result[0], result[1] + 1):
+            for i in range(result[0], result[1]):
                 print("{0:05d}: {1}".format(i, contents[i]), end="")
 
 def exit_msg(argv0):
@@ -79,35 +87,35 @@ def exit_msg(argv0):
           .format(argv0))
     exit(0)
 
-def get_contents_target_perfect_pattern(contents, target_command):
-    """ target_commandと一致する行を検索する（完全一致）"""
+def get_line_target_perfect_pattern(contents, target_pattern):
+    """ target_patternと一致する行を検索する（完全一致）"""
     for i in range(len(contents)):
         src_i, dst_i = i, 0
         hit = True
-        while src_i < len(contents) and dst_i < len(target_command):
-            if contents[src_i] != target_command[dst_i]:
+        while src_i < len(contents) and dst_i < len(target_pattern):
+            if contents[src_i] != target_pattern[dst_i]:
                 hit = False
                 break
             src_i += 1
             dst_i += 1
         if hit == True:
-            if src_i < len(contents):
+            if src_i - i == len(target_pattern):
                 return (i, src_i)
     return None
 
 
-def get_contents_target_regular_pattern(contents, target_command):
-    """ target_commandと一致する行を検索する（正規表現）"""
+def get_line_target_regular_pattern(contents, target_pattern):
+    """ target_patternと一致する行を検索する（正規表現）"""
     for i in range(len(contents)):
         src_i, dst_i = i, 0
         hit = True
-        while src_i < len(contents) and dst_i < len(target_command):
-            if target_command[dst_i] == "\n":
-                if contents[src_i] != target_command[dst_i]:
+        while src_i < len(contents) and dst_i < len(target_pattern):
+            if target_pattern[dst_i] == "\n":
+                if contents[src_i] != target_pattern[dst_i]:
                     hit = False
                     break
             else:
-                res = re.search(target_command[dst_i].replace("\n", ""), contents[src_i])
+                res = re.search(target_pattern[dst_i].replace("\n", ""), contents[src_i])
                 if res == None:
                     hit = False
                     break
@@ -117,7 +125,7 @@ def get_contents_target_regular_pattern(contents, target_command):
             src_i += 1
             dst_i += 1
         if hit == True:
-            if src_i < len(contents):
+            if src_i - i == len(target_pattern):
                 return (i, src_i)
     return None
 
