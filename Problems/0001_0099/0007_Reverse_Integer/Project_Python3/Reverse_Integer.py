@@ -10,36 +10,10 @@ class Solution:
         :type x: int
         :rtype: int
         """
-        if x < 0:
-            result = (0 - int(str(0-x)[::-1]))
-            if result <= 2147483647 and result >= -2147483648:
-                return result
-            else:
-                return 0
-        else:
-            result = int(str(x)[::-1])
-            if result <= 2147483647 and result >= -2147483648:
-                return result
-            else:
-                return 0
-
-    def reverse2(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
-        result = 0
-        neg = False
-        if x < 0:
-            neg = True
-            x = -x
-        while x != 0:
-            v = x % 10
-            x = x / 10
-            result = result * 10 + v
-        if neg:
-            result = -result
-        return result if result >= -2147483648 and result <= 2147483647 else 0
+        # 32ms
+        s = (x > 0) - (x < 0)
+        r = int(str(x*s)[::-1])
+        return s*r * (r < 2**31)
 
 def main():
     argv = sys.argv
@@ -66,7 +40,8 @@ def main():
     #   input()
 
 def loop_main(temp):
-    x = int(temp)
+    fld = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    x = int(fld)
 
     sl = Solution()
     time0 = time.time()

@@ -8,7 +8,7 @@ public class Solution
         {
             return string.Empty;
         }
-  
+
         int start = 0, end = 0;
         string result = string.Empty;
         while(end < s.Length)
@@ -27,7 +27,7 @@ public class Solution
         }
         return result;
     }
-    
+
     private bool IsPalindrome(string s, int start, int end)
     {
         while(start < end){

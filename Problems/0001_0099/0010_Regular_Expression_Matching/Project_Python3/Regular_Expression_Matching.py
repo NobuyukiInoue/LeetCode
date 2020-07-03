@@ -10,6 +10,35 @@ class Solution:
         :type p: str
         :rtype: bool
         """
+        # 40ms
+        return self.isMatch2(s, p, {("",""):True})
+
+    def isMatch2(self, s, p, memo):
+        if not p and s:
+            return False
+        if not s and p:
+            return set(p[1::2]) == {"*"} and not (len(p) % 2)
+        if (s, p) in memo:
+            return memo[s,p]
+
+        char, exp, prev = s[-1], p[-1], 0 if len(p) < 2 else p[-2]
+        memo[s,p] =\
+               (exp == '*' and ( \
+                   (prev in {char, '.'} and self.isMatch2(s[:-1], p, memo)) \
+                   or self.isMatch2(s, p[:-2], memo))) \
+                   or (exp in {char, '.'} and self.isMatch2(s[:-1], p[:-1], memo) \
+               )
+
+        return memo[s,p]
+
+    '''
+    def isMatch(self, s, p):
+        """
+        :type s: str
+        :type p: str
+        :rtype: bool
+        """
+        # Time Exceeded
         return self.isMatch2(s, p, 0, 0)
     
     def isMatch2(self, s, p, i, j):
@@ -24,6 +53,7 @@ class Solution:
         elif i < len(s) and s[i] == p[j] or p[j] == '.':
             return self.isMatch2(s, p, i + 1, j + 1)
         return False
+    '''
 
 def main():
     argv = sys.argv

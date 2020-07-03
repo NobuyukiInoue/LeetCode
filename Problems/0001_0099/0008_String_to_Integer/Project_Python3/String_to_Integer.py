@@ -95,7 +95,7 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[","").replace("]","").replace("\n","")
+    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
     print("str = {0}".format(flds))
 
     sl = Solution()

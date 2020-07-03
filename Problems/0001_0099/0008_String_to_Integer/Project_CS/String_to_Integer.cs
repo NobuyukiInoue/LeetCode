@@ -15,7 +15,7 @@ public class Solution
                 continue;
             }
             if (i==0 && str[0] == '+')
-            {                   
+            {
                 continue;
             }
             if (str[i] < '0' || str[i] > '9')
@@ -34,8 +34,7 @@ public class Solution
 
     public void Main(string args)
     {
-        //string str = args.Replace("\"","").Replace("[","").Replace("]","").Trim();
-        string str = args.Replace("\"","").Replace("[","").Replace("]","").Replace("\n","");
+        string str = args.Replace("\"","").Replace("[","").Replace("]","").Trim();
 
         Console.WriteLine("str = " + str);
 

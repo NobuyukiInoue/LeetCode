@@ -8,26 +8,30 @@ public class Solution
         int leftHigh = 0;
         int rightHigh = height.Length - 1;
         int maxArea = 0;
-        
-        while(leftHigh < rightHigh)
+
+        while (leftHigh < rightHigh)
         {
-            if(height[leftHigh] < height[rightHigh])
+            if (height[leftHigh] < height[rightHigh])
             {
                 int curArea = height[leftHigh] *(rightHigh - leftHigh);
-                if(curArea > maxArea)
+                if (curArea > maxArea)
+                {
                     maxArea = curArea;
-                leftHigh ++;
+                }
+                leftHigh++;
             }
             else
             {
                 int curArea = height[rightHigh] *(rightHigh - leftHigh);
-                if(curArea > maxArea)
+                if (curArea > maxArea)
+                {
                     maxArea = curArea;
-                rightHigh --;  
+                }
+                rightHigh--;
             }
         }
-        
-        return maxArea;       
+
+        return maxArea;
     }
 
     public int[] str_to_int_array(string[] flds)

@@ -8,11 +8,11 @@ public class Solution {
             return s;
 
         var sb = new StringBuilder(s.Length); 
-        int lap = numRows * 2 - 2;        
+        int lap = numRows * 2 - 2;
         for (int r = 0; r < numRows && r < s.Length; r++) {
-            sb.Append(s[r]);            
+            sb.Append(s[r]);
 
-            int d = r == 0 || r == numRows - 1 ? lap * 2 : lap;            
+            int d = r == 0 || r == numRows - 1 ? lap * 2 : lap;
             int m = r == numRows - 1 ? lap * 2 : lap;
             int c = r;
 
@@ -24,8 +24,8 @@ public class Solution {
                 sb.Append(s[c]);
             }
         }
-        
-        return sb.ToString();        
+
+        return sb.ToString();
     }
 
     public void Main(string args)

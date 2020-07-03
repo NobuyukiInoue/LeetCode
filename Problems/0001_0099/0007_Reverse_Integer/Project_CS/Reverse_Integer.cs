@@ -48,13 +48,14 @@ public class Solution {
             temp += (val % 10).ToString();
             val = val / 10;
         } while ( val > 0);
-        
+
         return int.Parse(temp);
     }
 
     public void Main(string args)
     {
-        int x = int.Parse(args);
+        string fld = args.Replace("[","").Replace("]","").Trim();
+        int x = int.Parse(fld);
 
         Console.WriteLine("x = " + x.ToString());
 
@@ -64,7 +65,7 @@ public class Solution {
         int result = Reverse(x);
 
         Console.WriteLine("result = " + result);
-        
+
         sw.Stop();
         Console.WriteLine("Execute time ... " + sw.ElapsedMilliseconds.ToString() + "ms\n");
     }

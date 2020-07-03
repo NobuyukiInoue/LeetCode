@@ -122,9 +122,7 @@ public class Solution
 
     public void Main(string args)
     {
-    //    Console.WriteLine("args = " + args);
-        
-        string s = args.Replace("\"", "");
+        string s = args.Replace("\"","").Replace("[","").Replace("]","").Trim();
         Console.WriteLine("s = " + s);
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
