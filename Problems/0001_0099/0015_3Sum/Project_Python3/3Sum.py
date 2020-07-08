@@ -6,7 +6,7 @@ import time
 import numpy as np
 
 class Solution:
-    def threeSum(self, nums):     
+    def threeSum(self, nums):
         nums.sort()
         res = []
         

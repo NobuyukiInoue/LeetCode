@@ -61,7 +61,7 @@ def main():
         temp = temp.strip()
         if temp == "":
             continue
-        print("argv[1] = {0}".format(temp))
+        print("args = {0}".format(temp))
         loop_main(temp)
     #   print("Hit Return to continue...")
     #   input()

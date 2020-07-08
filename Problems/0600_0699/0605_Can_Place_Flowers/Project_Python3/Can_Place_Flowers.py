@@ -75,7 +75,7 @@ def main():
     lines = testDataFile.readlines()
 
     for temp in lines:
-        print("argv[1] = {0}".format(temp))
+        print("args = {0}".format(temp))
         loop_main(temp)
     #   print("Hit Return to continue...")
     #   input()
