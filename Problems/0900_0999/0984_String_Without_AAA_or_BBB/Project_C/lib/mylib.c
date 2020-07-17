@@ -24,7 +24,7 @@ int ml_p_char_array_free(char* str_array[], int size)
 int ml_split(char *str, const char *delim, char *outlist[], int outlist_maxlength)
 {
     char *pos1, *pos2;
-    char *temp_str, *dst;
+    char *new_str, *dst;
     int cnt = 0;
 
     pos1 = str;
@@ -33,33 +33,33 @@ int ml_split(char *str, const char *delim, char *outlist[], int outlist_maxlengt
         if (cnt >= outlist_maxlength - 1) {
             ml_err_exit("ml_split() outlist_size error!\n");
         }
-        if ((temp_str = malloc(sizeof(char) * MALLOC_STR_SIZE)) == NULL) {
+        if ((new_str = malloc(sizeof(char) * MALLOC_STR_SIZE)) == NULL) {
             ml_err_exit("malloc failed in ml_split().\n");
         }
 
-        dst = temp_str;
+        dst = new_str;
 
         while ( pos1 < pos2 ) {
             *dst++ = *pos1++;
         }
         *dst = '\0';
 
-        outlist[cnt++] = temp_str;
+        outlist[cnt++] = new_str;
         pos1 = pos2 + strlen(delim);
         pos2 = strstr( pos1, delim );
     }
 
-    if ((temp_str = malloc(sizeof(char) * MALLOC_STR_SIZE)) == NULL) {
+    if ((new_str = malloc(sizeof(char) * MALLOC_STR_SIZE)) == NULL) {
         ml_err_exit("malloc failed in ml_split().\n");
     }
 
-    dst = temp_str;
+    dst = new_str;
 
     while ( *pos1 != '\0') {
         *dst++ = *pos1++;
     }
     *dst = '\0';
-    outlist[cnt++] = temp_str;
+    outlist[cnt++] = new_str;
 
     return cnt;
 }
@@ -126,13 +126,11 @@ int ml_trim(char *s)
     return i + count;
 }
 
-int ml_str_to_int_array(char* flds, int** nums)
+int ml_str_to_int_array(char* flds, int* nums[])
 {
     char* str_nums[65536];
-
     int str_nums_length = ml_split(flds, ",", str_nums, sizeof(str_nums)/sizeof(str_nums[0]));
 
-    // int nums[] size check.
     *nums = (int *)malloc(sizeof(int)*str_nums_length);
     if (*nums == NULL) {
         printf("str_nums_length = %d\n", str_nums_length);
@@ -140,7 +138,7 @@ int ml_str_to_int_array(char* flds, int** nums)
     }
     
     int i;
-    for (i = 0; i < str_nums_length; ++i) {
+    for (i = 0; i < str_nums_length; i++) {
         (*nums)[i] = strtol(str_nums[i], NULL, 10);
     }
 
@@ -149,12 +147,50 @@ int ml_str_to_int_array(char* flds, int** nums)
 
 void ml_print_int_array(char* var_name, int nums[], int length)
 {
-    printf("%s = [", var_name);
-    for (int i = 0; i < length; ++i) {
-        if (i == 0)
-            printf("%d", nums[i]);
-        else
-            printf(", %d", nums[i]);
+    if (length <= 0) {
+        printf("%s = []", var_name);
+    }
+    printf("%s = [%d", var_name, nums[0]);
+    for (int i = 1; i < length; i++) {
+        printf(", %d", nums[i]);
+    }
+    printf("]\n");
+}
+
+int ml_str_to_pchar_array(char* flds, char** strs[])
+{
+    char* strs_temp[65536];
+    int strs_temp_length = ml_split(flds, ",", strs_temp, sizeof(strs_temp)/sizeof(strs_temp[0]));
+
+    *strs = (char **)malloc(sizeof(char *)*strs_temp_length);
+    if (*strs == NULL) {
+        printf("str_temp_length = %d\n", strs_temp_length);
+        ml_err_exit("*strs[] malloc error!\n");
+    }
+    
+    int i;
+    char *temp;
+    for (i = 0; i < strs_temp_length; i++) {
+        temp = (char *)malloc(strlen(strs_temp[i]) + 1);
+        if (temp == NULL) {
+            printf("temp malloc error. strs_temp[%d] ... %s\n", i, strs_temp[i]);
+            ml_err_exit("temp malloc error. \n");
+        }
+        strcpy(temp, strs_temp[i]);
+        (*strs)[i] = temp;
+    }
+
+    return i;
+}
+
+void ml_print_pchar_array(char* var_name, char *strs[], int length)
+{
+    if (length <= 0) {
+        printf("%s = []", var_name);
+    }
+    printf("%s = [\"%s\"", var_name, strs[0]);
+    for (int i = 1; i < length; i++) {
+        printf(", \"%s\"", strs[i]);
     }
     printf("]\n");
 }

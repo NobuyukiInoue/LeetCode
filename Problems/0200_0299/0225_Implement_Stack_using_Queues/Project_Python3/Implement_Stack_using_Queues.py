@@ -86,8 +86,8 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace(" ","").replace("\"","").replace("[[","").replace("]]","").rstrip().split("],]")
-    cmds = flds[0].split(",")
+    flds = temp.replace(" ","").replace("\"","").rstrip().split("],[[")
+    cmds = flds[0].replace("[[","").split(",")
     args_str = flds[1].replace("[","").replace("]","").split(",")
     args = [0]*len(args_str)
     for i in range(len(args_str)):

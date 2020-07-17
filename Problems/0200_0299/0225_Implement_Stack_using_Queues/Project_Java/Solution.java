@@ -79,16 +79,16 @@ public class Solution {
     }
 
     public void Main(String temp) {
-        String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\]");
-        String[] cmds = flds[0].split(",");
-        String[] args = flds[1].replace("[", "").replace("]", "").split(",");
+        String[] flds = temp.replace("\"", "").replace(" ", "").trim().split("\\],\\[\\[");
+        String[] cmds = flds[0].replace("[[", "").split(",");
+        String[] vals = flds[1].replace("[", "").replace("]", "").split(",");
 
         System.out.println("cmds[] = " + StringArray2String(cmds));
-        System.out.println("args[] = " + StringArray2String(args));
+        System.out.println("vals[] = " + StringArray2String(vals));
 
         long start = System.currentTimeMillis();
         
-        calc(cmds, args);
+        calc(cmds, vals);
 
         long end = System.currentTimeMillis();
 

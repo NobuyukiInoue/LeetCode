@@ -23,14 +23,10 @@ $ python ./pyMultiLineGrep.py ./sample/pattern1d.txt
 00000:
 00001: .*main.*
 ----------------------------------------
-input target path.
 
-Example)
-../*/*/Project_Python3/*.py
-
-target path[../*/*/Project_Python3/*.py] : ../0001_0099/*/Project_C/*.c
-
-../0001_0099\0001_Two_Sum\Project_C\main.c
+target Parrent Directory[..] :
+target File Pattern[*.py] : *.c
+..\0001_0099\0001_Two_Sum\Project_C\main.c
 00012:
 00013: int loop_main(char* arg);
 
@@ -71,26 +67,21 @@ $ python.exe .\pyMultiLineGrep.py .\sample\pattern6.txt false
 00001:         temp = temp.strip()
 00002:         if temp == "":
 00003:             continue
-00004:         print("argv[1] = {0}".format(temp))
+00004:         print("args = {0}".format(temp))
 00005:         loop_main(temp)
 00006:     #   print("Hit Return to continue...")
 00007:     #   input()
 00008:
 ----------------------------------------
 
-input target path.
-
-Example)
-../*/*/Project_Python3/*.py
-
-target path[../*/*/Project_Python3/*.py] : ../0001_0099/*/Project_Python3/*.py
-
-../0001_0099\0001_Two_Sum\Project_Python3\Two_Sum.py
+target Parrent Directory[..] :
+target File Pattern[*.py] :
+..\0001_0099\0001_Two_Sum\Project_Python3\Two_Sum.py
 00050:     for temp in lines:
 00051:         temp = temp.strip()
 00052:         if temp == "":
 00053:             continue
-00054:         print("argv[1] = {0}".format(temp))
+00054:         print("args = {0}".format(temp))
 00055:         loop_main(temp)
 00056:     #   print("Hit Return to continue...")
 00057:     #   input()

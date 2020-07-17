@@ -65,17 +65,20 @@ func LoopMain(args string) {
 	temp := strings.Trim(args, "")
 	temp = strings.Replace(temp, "\"", "", -1)
 	temp = strings.Replace(temp, " ", "", -1)
-	temp = strings.Replace(temp, "[[", "", -1)
-	temp = strings.Replace(temp, "]]", "", -1)
 
-	flds := strings.Split(temp, "],]")
+	flds := strings.Split(temp, "],[[")
+
+	flds[0] = strings.Replace(flds[0], "[[", "", -1)
 	cmds := strings.Split(flds[0], ",")
-	argtemp := strings.Replace(flds[1], "[", "", -1)
-	argtemp = strings.Replace(argtemp, "]", "", -1)
-	argvals := strings.Split(argtemp, ",")
 
-	fmt.Printf("cmds[] = %s\n", cmds)
-	fmt.Printf("argvals[] = %s\n", argvals)
+	flds[1] = strings.Replace(flds[1], "[", "", -1)
+	flds[1] = strings.Replace(flds[1], "]", "", -1)
+	argvals := strings.Split(flds[1], ",")
+
+//	fmt.Printf("cmds[] = %s\n", cmds)
+//	fmt.Printf("argvals[] = %s\n", argvals)
+	fmt.Printf("cmds[] = [%s]\n", StringArrayToString(cmds))
+	fmt.Printf("argvals[] = [%s]\n", StringArrayToString(argvals))
 
 	timeStart := time.Now()
 
