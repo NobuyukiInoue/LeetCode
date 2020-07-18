@@ -9,6 +9,7 @@ MyStack* myStackCreate() {
         return NULL;
     }
 
+    stack->node = NULL;
     stack->size = 0;
 
     return stack;
@@ -21,11 +22,14 @@ void myStackPush(MyStack* obj, int x) {
     }
 
     struct ListNode *new_node = (struct ListNode *)malloc(sizeof(struct ListNode));
-    new_node->val = x;
-    if (obj->node != NULL) {
-        new_node->next = obj->node;
-        obj->node = new_node;
+    if (new_node == NULL) {
+        fprintf(stderr, "myStackPush(%d) new_node allocate error.", x);
+        exit(-1);
     }
+
+    new_node->val = x;
+    new_node->next = obj->node;
+    obj->node = new_node;
 
     obj->size++;
 }
@@ -87,17 +91,16 @@ int myStackFree(MyStack *obj) {
     if (obj == NULL) {
         return 0;
     }
-/*
+
     if (obj->size > 0) {
         ListNode_free(obj->node);
     }
-*/
+
     free(obj);
     
     return 0;
 }
 
-/*
 int ListNode_free(struct ListNode* node) {
     if (node == NULL)
         return 0;
@@ -113,4 +116,4 @@ int ListNode_free(struct ListNode* node) {
 
     return result;
 }
-*/
+

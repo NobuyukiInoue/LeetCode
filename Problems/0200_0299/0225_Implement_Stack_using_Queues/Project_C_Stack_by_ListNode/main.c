@@ -48,6 +48,8 @@ int calc(char* cmds[], char *argvals[], int cmds_length) {
             }
         }
     }
+
+    myStackFree(obj);
 }
 
 int loop_main(char* arg)
