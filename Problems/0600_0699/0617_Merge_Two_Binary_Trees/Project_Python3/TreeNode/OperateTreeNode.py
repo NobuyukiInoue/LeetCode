@@ -30,15 +30,15 @@ class OperateTreeNode:
         return self.resultListToString()
 
     def getStaircaseSubString(self, node, n):
-        if node == None:
+        if node is None:
             return
         if len(self.resultList) <= n:
             self.resultList.append("(" + str(node.val) + ")")
         else:
             self.resultList[n] += ",(" + str(node.val) + ")"
-        if node.left != None:
+        if node.left is not None:
             self.getStaircaseSubString(node.left, n + 1)
-        if node.right != None:
+        if node.right is not None:
             self.getStaircaseSubString(node.right, n + 1)
         return
 
@@ -52,16 +52,16 @@ class OperateTreeNode:
         :type node: TreeNode
         :rtype: str
         """
-        if node == None:
+        if node is None:
             return ""
 
         resultStr = str(node.val)
 
-        if node.left == None and node.right == None:
+        if node.left is None and node.right is None:
             return resultStr
 
         resultStr += "(" + self.tree2str(node.left) + ")"
-        if node.right != None:
+        if node.right is not None:
             resultStr += "(" + self.tree2str(node.right) + ")"
 
         return resultStr

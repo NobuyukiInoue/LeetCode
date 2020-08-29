@@ -46,14 +46,14 @@ class Solution:
         if n <= 0:
             return head
 
-        if head == None:
+        if head is None:
             return None
 
         depth, head = self.get_depth(head, 0, n)
         return head
 
     def get_depth(self, node, current_depth, n):
-        if node == None:
+        if node is None:
             return current_depth, node
         else:
             depth_max, node.next = self.get_depth(node.next, current_depth + 1, n)

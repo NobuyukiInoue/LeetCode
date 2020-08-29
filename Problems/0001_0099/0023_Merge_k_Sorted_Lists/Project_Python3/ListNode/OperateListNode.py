@@ -17,10 +17,10 @@ class OperateListNode:
         return node
 
     def ListNodeToString(self, ll):
-        if ll == None:
+        if ll is None:
             return ""
         retStr = str(ll.val) 
 
-        if ll.next != None:
+        if ll.next is not None:
             retStr += " -> " + self.ListNodeToString(ll.next)
         return retStr

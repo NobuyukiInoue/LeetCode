@@ -12,17 +12,17 @@ class Solution:
         :type root: TreeNode
         :rtype: bool
         """
-        if root == None:
+        if root is None:
             return False
         return self.isTree_SameVal(root, root.val)
 
     def isTree_SameVal(self, node, val):
         if node.val != val:
             return False
-        if node.left != None:
+        if node.left is not None:
             if self.isTree_SameVal(node.left, val) == False:
                 return False
-        if node.right != None:
+        if node.right is not None:
             if self.isTree_SameVal(node.right, val) == False:
                 return False
         return True

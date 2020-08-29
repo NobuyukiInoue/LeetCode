@@ -15,11 +15,11 @@ class Solution:
         return self.helper(root, 0)
 
     def helper(self, node: TreeNode, sumVal: int) -> int:
-        if node == None:
+        if node is None:
             return sumVal
         sumVal = sumVal*10 + node.val
         sumLeft, sumRight = 0, 0
-        if node.left == None and node.right == None:
+        if node.left is None and node.right is None:
             return sumVal
         if node.left:
             sumLeft = self.helper(node.left, sumVal)

@@ -18,7 +18,7 @@ class Solution:
         return self.res[k - 1]
     
     def getVal(self, node: TreeNode):
-        if node == None:
+        if node is None:
             return
         self.res.append(node.val)
         if node.left:

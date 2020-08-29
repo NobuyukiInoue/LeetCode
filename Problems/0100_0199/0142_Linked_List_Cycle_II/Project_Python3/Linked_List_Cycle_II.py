@@ -11,7 +11,7 @@ class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
         # 48ms
         nodes = collections.defaultdict(lambda: [0])
-        while (head != None):
+        while (head is not None):
             temp = nodes[head]
             if (temp[0]):
                 return head
@@ -22,10 +22,10 @@ class Solution:
 
     def detectCycle2(self, head):
         # 52ms
-        if head == None or head.next == None:
+        if head is None or head.next is None:
             return None
         slow, fast = head, head
-        while fast != None and fast.next != None:
+        while fast is not None and fast.next is not None:
             fast = fast.next.next
             slow = slow.next
             if fast == slow:
@@ -73,7 +73,7 @@ def loop_main(temp):
 
     time1 = time.time()
 
-    if result != None:
+    if result is not None:
         print("result = {0}".format(ope_l.ListNodeToString(result)))
     else:
         print("result = None")

@@ -35,12 +35,12 @@ class Solution:
         return min(abs(a - b) for a, b in zip(self.vals, self.vals[1:]))
 
     def get_all_vals2(self, node):
-        if node == None:
+        if node is None:
             return
         self.vals.append(node.val)
-        if node.left != None:
+        if node.left is not None:
             self.get_all_vals2(node.left)
-        if node.right != None:
+        if node.right is not None:
             self.get_all_vals2(node.right)
         return
 
@@ -63,23 +63,23 @@ class Solution:
         return diff_min
 
     def get_all_vals3_1(self, node):
-        if node == None:
+        if node is None:
             return
         self.vals_count += 1
-        if node.left != None:
+        if node.left is not None:
             self.get_all_vals3_1(node.left)
-        if node.right != None:
+        if node.right is not None:
             self.get_all_vals3_1(node.right)
         return
 
     def get_all_vals3_2(self, node):
-        if node == None:
+        if node is None:
             return
         self.vals[self.vals_count] = node.val
         self.vals_count += 1
-        if node.left != None:
+        if node.left is not None:
             self.get_all_vals3_2(node.left)
-        if node.right != None:
+        if node.right is not None:
             self.get_all_vals3_2(node.right)
         return
 

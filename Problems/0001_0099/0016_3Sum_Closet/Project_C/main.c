@@ -6,7 +6,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "include/mylib.h"
+#include "lib/mylib.h"
 
 /* Function prototype declaration */
 int comparefn( const void* a, const void* b);

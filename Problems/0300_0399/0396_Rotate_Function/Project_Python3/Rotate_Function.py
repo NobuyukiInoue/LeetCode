@@ -21,7 +21,7 @@ class Solution:
 
     def maxRotateFunction_work(self, A):
         # Time Limit Exceeded
-        if A == None or len(A) <= 0:
+        if A is None or len(A) <= 0:
             return 0
         lenA = len(A)
         res = [0]*lenA

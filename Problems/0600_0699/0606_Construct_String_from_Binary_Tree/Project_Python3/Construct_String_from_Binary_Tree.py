@@ -14,16 +14,16 @@ class Solution:
         :type t: TreeNode
         :rtype: str
         """
-        if t == None:
+        if t is None:
             return ""
 
         resultStr = str(t.val)
 
-        if t.left == None and t.right == None:
+        if t.left is None and t.right is None:
             return resultStr
 
         resultStr += "(" + self.tree2str(t.left) + ")"
-        if t.right != None:
+        if t.right is not None:
             resultStr += "(" + self.tree2str(t.right) + ")"
 
         return resultStr

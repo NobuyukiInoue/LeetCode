@@ -30,18 +30,18 @@ class Solution:
     def isBalanced2(self, root):
         # 70ms
         def getNodeDepth(node):
-            if node == None:
+            if node is None:
                 return 0
             stack = [(node,1)]
             dep = 1
             while(len(stack)):
                 first,dep=stack.pop(0)
-                if first.left != None:
+                if first.left is not None:
                     stack.append((first.left,dep+1))
-                if first.right != None:
+                if first.right is not None:
                     stack.append((first.right,dep+1))
             return dep
-        if root == None:
+        if root is None:
             return True
         l = getNodeDepth(root.left)
         r = getNodeDepth(root.right)

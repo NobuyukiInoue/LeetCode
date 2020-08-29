@@ -22,17 +22,17 @@ class Solution:
         :type t2: TreeNode
         :rtype: TreeNode
         """
-        if t1 == None and t2 == None:
+        if t1 is None and t2 is None:
             return None
-        elif t1 != None and t2 != None:
+        elif t1 is not None and t2 is not None:
             node = TreeNode(t1.val + t2.val)
             node.left = self.mergeTrees(t1.left, t2.left)
             node.right = self.mergeTrees(t1.right, t2.right)
-        elif t1 != None:
+        elif t1 is not None:
             node = TreeNode(t1.val)
             node.left = self.mergeTrees(t1.left, None)
             node.right = self.mergeTrees(t1.right, None)
-        elif t2 != None:
+        elif t2 is not None:
             node = TreeNode(t2.val)
             node.left = self.mergeTrees(None, t2.left)
             node.right = self.mergeTrees(None, t2.right)
@@ -45,9 +45,9 @@ class Solution:
         :type q: TreeNode
         :rtype: bool
         """
-        if (p == None) and (q == None):
+        if (p is None) and (q is None):
             return True
-        elif (p == None) or (q == None):
+        elif (p is None) or (q is None):
             return False
         if p.val == q.val:
             if self.isSameTree(p.left, q.left):

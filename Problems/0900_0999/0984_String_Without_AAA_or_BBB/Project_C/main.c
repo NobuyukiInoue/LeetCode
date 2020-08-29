@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "include/mylib.h"
+#include "lib/mylib.h"
 
 /* Function prototype declaration */
 char* strWithout3a3b(int A, int B);

@@ -125,7 +125,7 @@ def find_all_matched_files(directory, patternStr):
     for root, dirs, files in os.walk(directory):
         for file in files:
             res = re.search(pattern, file)
-            if res != None:
+            if res is not None:
                 fileList.append(os.path.join(root, file))
     fileList.sort()
     return fileList
@@ -161,7 +161,7 @@ def get_line_target_regular_pattern(contents, target_pattern):
                     break
             else:
                 res = re.search(target_pattern[dst_i].replace("\n", ""), contents[src_i])
-                if res == None:
+                if res is None:
                     hit = False
                     break
                 elif res.regs[0][0] > 0:

@@ -27,7 +27,7 @@ class Solution:
 
     def connect2(self, root: 'Node') -> 'Node':
         # 64ms
-        if root == None:
+        if root is None:
             return root
         self.levels, self.pos = [], []
         self.get_node(root, 0)
@@ -40,9 +40,9 @@ class Solution:
             self.pos.append(0)
         else:
             self.levels[level].append(node)
-        if node.left != None:
+        if node.left is not None:
             self.get_node(node.left, level + 1)
-        if node.right != None:
+        if node.right is not None:
             self.get_node(node.right, level + 1)
 
     def set_next(self, node, level):
@@ -51,9 +51,9 @@ class Solution:
             self.pos[level] += 1
         else:
             node.next = None
-        if node.left != None:
+        if node.left is not None:
             self.set_next(node.left, level + 1)
-        if node.right != None:
+        if node.right is not None:
             self.set_next(node.right, level + 1)
 
 def main():

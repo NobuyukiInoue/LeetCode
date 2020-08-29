@@ -32,11 +32,11 @@ class Solution:
 
     def oddEvenList2(self, head):
         # 48ms
-        if head == None:
+        if head is None:
             return None
         count = 0
         list_odd, list_even = [], []
-        while head != None:
+        while head is not None:
             if count % 2 == 0:
                 list_even.append(head.val)
             else:

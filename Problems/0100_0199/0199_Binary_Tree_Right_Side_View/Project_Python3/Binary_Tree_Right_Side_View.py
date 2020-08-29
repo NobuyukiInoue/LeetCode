@@ -15,13 +15,13 @@ class Solution:
         # 24ms
         res = []
         def helper(node, level):
-            if node == None:
+            if node is None:
                 return
             if len(res) < level:
                 res.append(node.val)
-            if node.right != None:
+            if node.right is not None:
                 helper(node.right, level + 1)
-            if node.left != None:
+            if node.left is not None:
                 helper(node.left, level + 1)
         helper(root, 1)
         return res

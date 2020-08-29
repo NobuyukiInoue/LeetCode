@@ -15,7 +15,7 @@ class Solution:
         larger_sentinel = ListNode(None)
         larger_cur = larger_sentinel
 
-        while cur != None:
+        while cur is not None:
             if cur.val < x:
                 smaller_cur.next = cur
                 smaller_cur = smaller_cur.next

@@ -14,13 +14,13 @@ class Solution:
     def inorderTraversal(self, root):
         # 36ms
         self.res = []
-        if root == None:
+        if root is None:
             return self.res
         self.helper(root)
         return self.res
 
     def helper(self, node):
-        if node == None:
+        if node is None:
             return
         self.helper(node.left)
         self.res.append(node.val)

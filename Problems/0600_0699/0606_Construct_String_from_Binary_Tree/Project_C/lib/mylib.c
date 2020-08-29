@@ -3,7 +3,7 @@
 #include <string.h>
 
 /* Function prototype declaration */
-#include "../include/mylib.h"
+#include "mylib.h"
 
 #define MALLOC_STR_SIZE 1024
 

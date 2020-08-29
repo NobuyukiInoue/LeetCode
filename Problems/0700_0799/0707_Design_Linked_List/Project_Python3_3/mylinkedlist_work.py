@@ -17,12 +17,12 @@ class MyLinkedList:
         curr = self.head
         s_index = 0
         while s_index < index:
-            if  curr.next == None:
+            if  curr.next is None:
                 return -1
             curr = curr.next
             s_index += 1
 
-        if curr.Val != None:
+        if curr.Val is not None:
             return curr.Val
         else:
             return -1
@@ -31,7 +31,7 @@ class MyLinkedList:
         """
         Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
         """
-        if self.head.Val == None:
+        if self.head.Val is None:
             self.head.Val = val
         else:
             curr = self.head
@@ -44,7 +44,7 @@ class MyLinkedList:
         Append a node of value val to the last element of the linked list.
         """
         curr = self.head
-        while curr.next != None:
+        while curr.next is not None:
             curr = curr.next
 
         curr.next = self.LinkedList(val)
@@ -67,8 +67,8 @@ class MyLinkedList:
             s_index += 1
 
         temp = curr.next
-        if curr != None:
-            if curr.Val != None:
+        if curr is not None:
+            if curr.Val is not None:
                 node = self.LinkedList(val)
                 curr.next = node
                 node.next = temp
@@ -87,8 +87,8 @@ class MyLinkedList:
             curr = curr.next
             s_index += 1
 
-        if curr.next != None:
-            if curr.next.next != None:
+        if curr.next is not None:
+            if curr.next.next is not None:
                 curr.next = curr.next.next
             else:
                 curr.next = None
@@ -103,12 +103,12 @@ class MyLinkedList:
 # obj.deleteAtIndex(index)
 
     def print_LinkedList(self):
-        if self.head == None:
+        if self.head is None:
             return ""
 
         resultStr = str(self.head.Val)
         node = self.head
-        while node.next != None:
+        while node.next is not None:
             resultStr += " -> " + str(node.next.Val)
             node = node.next
 

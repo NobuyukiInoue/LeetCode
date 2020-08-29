@@ -15,7 +15,7 @@ class Solution:
         :type t: str
         :rtype: bool
         """
-        if s == None or t == None:
+        if s is None or t is None:
             return False
 
         if len(s) != len(t):

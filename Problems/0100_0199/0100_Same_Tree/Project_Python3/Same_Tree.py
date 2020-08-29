@@ -15,9 +15,9 @@ class Solution:
         :type q: TreeNode
         :rtype: bool
         """
-        if (p == None) and (q == None):
+        if (p is None) and (q is None):
             return True
-        elif (p == None) or (q == None):
+        elif (p is None) or (q is None):
             return False
         if p.val == q.val:
             if self.isSameTree(p.left, q.left):

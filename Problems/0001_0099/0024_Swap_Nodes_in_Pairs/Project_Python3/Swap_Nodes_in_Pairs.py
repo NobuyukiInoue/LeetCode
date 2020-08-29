@@ -8,13 +8,13 @@ from ListNode.OperateListNode import OperateListNode
 class Solution:
     def swapPairs(self, head: 'ListNode') -> 'ListNode':
         node = head
-        while node != None:
-            if node.next == None:
+        while node is not None:
+            if node.next is None:
                 break
             temp = node.val
             node.val = node.next.val
             node.next.val = temp
-            if node.next.next == None:
+            if node.next.next is None:
                 break
             node = node.next.next
 

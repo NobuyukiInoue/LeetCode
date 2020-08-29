@@ -5,9 +5,9 @@
 #include <math.h>
 #include <time.h>
 
-#include "../include/mylib.h"
-#include "../include/treenode.h"
-#include "../include/operate_treenode.h"
+#include "mylib.h"
+#include "treenode.h"
+#include "operate_treenode.h"
 
 struct TreeNode *createTreeNode(char *flds)
 {

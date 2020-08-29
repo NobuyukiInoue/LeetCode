@@ -5,7 +5,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "include/mylib.h"
+#include "lib/mylib.h"
 
 /* Function prototype declaration */
 bool checkRecord(char* s);

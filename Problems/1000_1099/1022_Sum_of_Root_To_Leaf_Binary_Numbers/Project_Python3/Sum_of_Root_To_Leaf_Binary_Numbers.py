@@ -20,9 +20,9 @@ class Solution:
             if root.left == root.right:
                 return val
             l, r = 0, 0
-            if root.left != None:
+            if root.left is not None:
                 l = sub_sumRootToLeaf(root.left, val)
-            if root.right != None:
+            if root.right is not None:
                 r = sub_sumRootToLeaf(root.right, val)
             return l + r
 
@@ -34,16 +34,16 @@ class Solution:
             return []
 
         def sumRootToLeafSub(node, route):
-            if node == None:
+            if node is None:
                 self.result.append([route])
                 return
             route.append(node.val)
-            if node.left == None and node.right == None:
+            if node.left is None and node.right is None:
                 self.result.append(route)
                 return
-            if node.left != None:
+            if node.left is not None:
                 sumRootToLeafSub(node.left, route[:])
-            if node.right != None:
+            if node.right is not None:
                 sumRootToLeafSub(node.right, route[:])
             return
 

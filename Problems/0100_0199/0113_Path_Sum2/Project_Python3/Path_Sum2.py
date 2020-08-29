@@ -20,7 +20,7 @@ class Solution:
     def dfs(self, root, sum, tmp, results):
         if not root:
             return
-        if root.left == None and root.right == None and sum == root.val:
+        if root.left is None and root.right is None and sum == root.val:
             results.append(tmp+[root.val])
             return
         self.dfs(root.left, sum-root.val, tmp+[root.val], results)
@@ -29,7 +29,7 @@ class Solution:
     def pathSum_work(self, root, sum):
         # 384ms
         self.results = []
-        if root == None or root.val == None:
+        if root is None or root.val is None:
             return None
         arr = []
         total = 0
@@ -37,17 +37,17 @@ class Solution:
         return self.results
 
     def helper(self, node, arr, total, sum):
-        if node.val == None:
+        if node.val is None:
             return
         arr.append(node.val)
         total += node.val
-        if node.left == None and node.right == None:
+        if node.left is None and node.right is None:
             if total == sum:
                 self.results.append(arr)
                 return
-        if node.left != None:
+        if node.left is not None:
             self.helper(node.left, copy.deepcopy(arr), total, sum)
-        if node.right != None:
+        if node.right is not None:
             self.helper(node.right, copy.deepcopy(arr), total, sum)
         return
 

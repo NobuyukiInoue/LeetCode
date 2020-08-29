@@ -18,12 +18,12 @@ class Solution:
         return self.res
 
     def helper(self, node):
-        if node == None:
+        if node is None:
             return
         self.res.append(node.val)
-        if node.left != None:
+        if node.left is not None:
             self.helper(node.left)
-        if node.right != None:
+        if node.right is not None:
             self.helper(node.right)
         return
 
@@ -31,12 +31,12 @@ class Solution:
         # 24ms
         res = []
         rights = []
-        while root != None:
+        while root is not None:
             res.append(root.val)
-            if root.right != None:
+            if root.right is not None:
                 rights.append(root.right)
             root = root.left
-            if root == None and len(rights) > 0:
+            if root is None and len(rights) > 0:
                 root = rights.pop()
         return res
 

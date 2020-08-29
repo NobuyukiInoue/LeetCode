@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "include/mylib.h"
+#include "lib/mylib.h"
 
 int* getRow(int rowIndex, int* returnSize);
 

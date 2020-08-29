@@ -12,7 +12,7 @@ class Solution:
 #   def rangeSumBST(self, root: TreeNode, L: int, R: int) -> int:
     def rangeSumBST(self, root, L, R):
         # 224ms
-        if root == None:
+        if root is None:
             return 0
         sum = root.val if root.val >= L and root.val <= R else 0
         if root.val <= R:

@@ -29,10 +29,10 @@ class Solution:
         Do not return anything, modify head in-place instead.
         """
         # 124ms
-        if head == None:
+        if head is None:
             return None
         C, A = head, []
-        while C != None:
+        while C is not None:
             A.append(C);
             C = C.next
         M = len(A)//2

@@ -10,14 +10,14 @@ from TreeNode.OperateTreeNode import OperateTreeNode
 
 class Solution:
     def isSymmetric(self, root: 'TreeNode') -> 'bool':
-        if root == None:
+        if root is None:
             return True
         return self.checkSymmetric(root.left, root.right)
 
     def checkSymmetric(self, temp1, temp2):
-        if temp1 == None and temp2 == None:
+        if temp1 is None and temp2 is None:
             return True
-        if temp1 == None or temp2 == None:
+        if temp1 is None or temp2 is None:
             return False
         if temp1.val != temp2.val:
             return False

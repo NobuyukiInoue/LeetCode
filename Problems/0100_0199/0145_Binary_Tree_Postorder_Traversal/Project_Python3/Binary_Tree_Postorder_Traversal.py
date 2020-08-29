@@ -18,12 +18,12 @@ class Solution:
         return self.res
 
     def helper(self, node):
-        if node == None:
+        if node is None:
             return
         self.res = [node.val] + self.res[:]
-        if node.right != None:
+        if node.right is not None:
             self.helper(node.right)
-        if node.left != None:
+        if node.left is not None:
             self.helper(node.left)
         return
 

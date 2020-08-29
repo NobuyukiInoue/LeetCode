@@ -65,7 +65,7 @@ class Solution:
                 Kth = KthLargest(k, nums)
                 print("Execute kthLargest()")
             else:
-                if Kth == None:
+                if Kth is None:
                     print("cmd not found... {0}".format(cmds[i]))
                     exit(1)
                 elif cmds[i] == "add":

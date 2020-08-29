@@ -14,26 +14,26 @@ class Solution:
         :type root: TreeNode
         :rtype: int
         """
-        if root == None:
+        if root is None:
             return 0
         sum = 0
-        if root.left != None:
-            if root.left.left == None and root.left.right == None:
+        if root.left is not None:
+            if root.left.left is None and root.left.right is None:
                 sum += int(root.left.val)
             else:
                 sum += self.sub_sumOfLeftLeaves(root.left)
-        if root.right != None:
+        if root.right is not None:
             sum += self.sub_sumOfLeftLeaves(root.right)
         return sum
     
     def sub_sumOfLeftLeaves(self, node):
         sum = 0
-        if node.left != None:
-            if node.left.left == None and node.left.right == None:
+        if node.left is not None:
+            if node.left.left is None and node.left.right is None:
                 sum = int(node.left.val)
             else:
                 sum += self.sub_sumOfLeftLeaves(node.left)
-        if node.right != None:
+        if node.right is not None:
             sum += self.sub_sumOfLeftLeaves(node.right)
         return sum
 

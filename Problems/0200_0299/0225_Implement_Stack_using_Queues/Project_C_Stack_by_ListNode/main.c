@@ -5,8 +5,8 @@
 #include <math.h>
 #include <time.h>
 
-#include "include/mylib.h"
-#include "include/stack.h"
+#include "lib/mylib.h"
+#include "lib/stack.h"
 
 /* Function prototype declaration */
 int calc(char* cmds[], char *argvals[], int cmds_length);

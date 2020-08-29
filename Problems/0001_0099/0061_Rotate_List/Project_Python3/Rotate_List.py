@@ -9,7 +9,7 @@ class Solution:
 #   def rotateRight(self, head: ListNode, k: int) -> ListNode:
     def rotateRight(self, head, k):
         # 24ms
-        if head == None or head.next == None:
+        if head is None or head.next is None:
             return head
 
         dummy = ListNode(0)
@@ -17,7 +17,7 @@ class Solution:
         fast, slow = dummy, dummy
 
         i = 0
-        while fast.next != None:
+        while fast.next is not None:
             fast = fast.next
             i += 1
 

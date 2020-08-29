@@ -18,10 +18,10 @@ class Solution:
         if s.val == t.val:
             if self.isSameTree(s, t):
                 return True
-        if s.left != None:
+        if s.left is not None:
             if self.isSubtree(s.left, t):
                 return True
-        if s.right != None:
+        if s.right is not None:
             if self.isSubtree(s.right, t):
                 return True
         return False        
@@ -32,9 +32,9 @@ class Solution:
         :type q: TreeNode
         :rtype: bool
         """
-        if (p == None) and (q == None):
+        if (p is None) and (q is None):
             return True
-        elif (p == None) or (q == None):
+        elif (p is None) or (q is None):
             return False
         if p.val == q.val:
             if self.isSameTree(p.left, q.left):

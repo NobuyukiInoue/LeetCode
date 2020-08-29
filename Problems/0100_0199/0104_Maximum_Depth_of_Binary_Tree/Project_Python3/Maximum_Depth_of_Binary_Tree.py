@@ -14,9 +14,9 @@ class Solution:
             return 0
 
         max_l, max_r = 0, 0
-        if root.left != None:
+        if root.left is not None:
             max_l = self.maxDepth(root.left)
-        if root.right != None:
+        if root.right is not None:
             max_r = self.maxDepth(root.right)
         if max_l >= max_r:
             return max_l + 1

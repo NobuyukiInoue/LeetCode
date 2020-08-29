@@ -15,20 +15,20 @@ class Solution:
         :type sum: int
         :rtype: bool
         """
-        if root == None:
+        if root is None:
             return False
 
-        if root.left == None and root.right == None:
+        if root.left is None and root.right is None:
             if root.val == sum:
                 return True
             else:
                 return False
 
-        if root.left != None:
+        if root.left is not None:
             if self.hasPathSum(root.left, sum - root.val):
                 return True
 
-        if root.right != None:
+        if root.right is not None:
             if self.hasPathSum(root.right, sum - root.val):
                 return True
 

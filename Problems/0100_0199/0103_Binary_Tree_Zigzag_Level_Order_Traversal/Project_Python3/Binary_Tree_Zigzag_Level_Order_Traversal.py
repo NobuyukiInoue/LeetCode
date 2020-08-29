@@ -17,7 +17,7 @@ class Solution:
         return resultList
 
     def helper(self, node, resultList, level):
-        if node == None:
+        if node is None:
             return
         if len(resultList) < level + 1:
             resultList.append([])

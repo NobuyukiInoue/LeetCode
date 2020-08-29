@@ -11,19 +11,19 @@ from TreeNode.OperateTreeNode import OperateTreeNode
 class Solution:
 #    def binaryTreePaths(self, root: TreeNode) -> List[str]:
     def binaryTreePaths(self, root):
-        if root == None:
+        if root is None:
             return []
         self.resultPath = []
         self.subtree(root, str(root.val))
         return self.resultPath
 
     def subtree(self, node, path):
-        if node.left == None and node.right == None:
+        if node.left is None and node.right is None:
             self.resultPath.append(path)
             return
-        if node.left != None:
+        if node.left is not None:
             self.subtree(node.left, path + "->" + str(node.left.val))
-        if node.right != None:
+        if node.right is not None:
             self.subtree(node.right, path + "->" + str(node.right.val))
 
 def main():

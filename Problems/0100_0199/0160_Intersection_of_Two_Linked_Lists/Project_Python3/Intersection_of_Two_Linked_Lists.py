@@ -32,7 +32,7 @@ class Solution(object):
     def isSameNode(self, nodeA, nodeB):
         if nodeA.val != nodeB.val:
             return False
-        if nodeA.next == None or nodeB.next == None:
+        if nodeA.next is None or nodeB.next is None:
             return True
         return self.isSameNode(nodeA.next, nodeB.next)
 
@@ -42,9 +42,9 @@ class Solution(object):
         :rtype: ListNode
         """
         tempHeadA = headA
-        while tempHeadA != None:
+        while tempHeadA is not None:
             tempHeadB = headB
-            while tempHeadB != None:
+            while tempHeadB is not None:
                 if self.check_equal(tempHeadA, tempHeadB):
                     return tempHeadA
                 tempHeadB = tempHeadB.next
@@ -55,22 +55,22 @@ class Solution(object):
         tempHeadA = headA
         tempHeadB = headB
         while tempHeadA.val == tempHeadB.val:
-            if tempHeadA.next == None and tempHeadB.next == None:
+            if tempHeadA.next is None and tempHeadB.next is None:
                 return True
-            elif tempHeadA.next == None:
+            elif tempHeadA.next is None:
                 return False
-            elif tempHeadB.next == None:
+            elif tempHeadB.next is None:
                 return False
             tempHeadA = tempHeadA.next
             tempHeadB = tempHeadB.next
         return False
 
     def check_equal_old(self, headA, headB):
-        if headA == None and headB == None:
+        if headA is None and headB is None:
             return True
-        elif headA == None:
+        elif headA is None:
             return False
-        elif headB == None:
+        elif headB is None:
             return False
         if headA.val == headB.val:
             return self.check_equal(headA.next, headB.next)

@@ -13,12 +13,12 @@ class Solution:
         :type head: ListNode
         :rtype: bool
         """
-        if head == None:
+        if head is None:
             return False
         
         fastPtr = head
         slowPtr = head
-        while fastPtr != None and fastPtr.next != None:
+        while fastPtr is not None and fastPtr.next is not None:
             fastPtr = fastPtr.next.next
             slowPtr = slowPtr.next
             if fastPtr == slowPtr:

@@ -10,19 +10,19 @@ from TreeNode.OperateTreeNode import OperateTreeNode
 
 class Solution:
     def searchBST(self, root: 'TreeNode', val: 'int') -> 'TreeNode':
-        if root == None:
+        if root is None:
             return None
         
         if root.val == val:
             return root
 
         result = None
-        if root.left != None:
+        if root.left is not None:
             result = self.searchBST(root.left, val)
-            if result != None:
+            if result is not None:
                 return result
 
-        if root.right != None:
+        if root.right is not None:
             result = self.searchBST(root.right, val)
 
         return result

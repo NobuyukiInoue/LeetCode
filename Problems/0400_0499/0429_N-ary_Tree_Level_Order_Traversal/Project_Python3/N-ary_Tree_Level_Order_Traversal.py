@@ -33,7 +33,7 @@ class Solution:
         llist = [[]]
         temp = []
 
-        if root == None:
+        if root is None:
             return temp
         
         temp.append(root.val)
@@ -45,7 +45,7 @@ class Solution:
         return llist
     
     def nextOrder(self, node, llist, n):
-        if node == None:
+        if node is None:
             return
         
         if len(llist) > n:
@@ -55,7 +55,7 @@ class Solution:
             curr_list.append(node.val)
             llist.append(curr_list)
         
-        if node.children == None:
+        if node.children is None:
             return
         
         for i in range(0, len(node.children)):
@@ -87,7 +87,7 @@ class Solution:
         return node
         
     def output_node(self, node):
-        if node == None:
+        if node is None:
             return ""
         
         self.resultStr = []
@@ -108,7 +108,7 @@ class Solution:
         return result
                 
     def set_output_node(self, node, n):
-        if node.children == None:
+        if node.children is None:
             return
 
         tempStr = ""

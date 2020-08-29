@@ -21,12 +21,12 @@ class Solution:
     def mergeKLists_work(self, lists: 'List[ListNode]') -> 'ListNode':
         if len(lists) < 1:
             return None
-        if lists == None:
+        if lists is None:
             return None
 
         none_count = 0
         for temp_list in lists:
-            if temp_list == None:
+            if temp_list is None:
                 none_count += 1
         if none_count == len(lists):
             return None
@@ -37,7 +37,7 @@ class Solution:
             current_min = sys.maxsize
             end_count = 0
             for i in range(len(current_lists)):
-                if current_lists[i] == None:
+                if current_lists[i] is None:
                     end_count += 1
                     continue
                 if current_lists[i].val < current_min:
@@ -46,7 +46,7 @@ class Solution:
             if end_count == len(current_lists):
                 break
 
-            if work_list == None:
+            if work_list is None:
                 root = ListNode(current_min)
                 work_list = root
             else:

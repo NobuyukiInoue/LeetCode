@@ -4,8 +4,8 @@
 #include <stdbool.h>
 #include <math.h>
 
-#include "../include/listnode.h"
-#include "../include/operate_listnode.h"
+#include "listnode.h"
+#include "operate_listnode.h"
 
 struct ListNode* set_nodes(int nums[], int nums_Size, int index)
 {

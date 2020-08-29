@@ -24,7 +24,7 @@ class MinStack:
         self.node = Node(self.min)
         self.node.next = Node(x)
 
-        if self.head == None or self.head.next == None:
+        if self.head is None or self.head.next is None:
             self.head = self.node
         else:
             temp = self.head
@@ -35,11 +35,11 @@ class MinStack:
         """
         :rtype: void
         """
-        if self.head == None:
+        if self.head is None:
             dummy = 0
         else:
             currHead = self.head.next
-            if currHead.next != None:
+            if currHead.next is not None:
                 self.head = currHead.next
                 self.min = self.head.data
             else:
@@ -50,7 +50,7 @@ class MinStack:
         """
         :rtype: int
         """
-        if self.head != None:
+        if self.head is not None:
             return self.head.next.data
         else:
             return 0

@@ -128,7 +128,7 @@ def find_all_matched_files(directory, patternStr):
     for root, dirs, files in os.walk(directory):
         for file in files:
             res = re.search(pattern, file)
-            if res != None:
+            if res is not None:
                 fileList.append(os.path.join(root, file))
     fileList.sort()
     return fileList

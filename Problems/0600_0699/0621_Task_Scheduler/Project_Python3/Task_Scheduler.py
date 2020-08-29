@@ -16,7 +16,7 @@ class Solution:
 
     def leastInterval2(self, tasks, n):
         # 432ms
-        if tasks == None or len(tasks) == 0:
+        if tasks is None or len(tasks) == 0:
             return 0
         cnt = [0]*(ord('Z') - ord('A') + 1)
         for ch in tasks:

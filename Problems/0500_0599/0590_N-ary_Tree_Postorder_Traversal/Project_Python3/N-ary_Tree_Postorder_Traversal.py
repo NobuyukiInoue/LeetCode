@@ -18,7 +18,7 @@ class Solution:
             return output
         while stack:
             last = stack.pop()
-            if last.children != None:
+            if last.children is not None:
                 stack += last.children
             output += [last.val]
         return output[::-1]
@@ -37,7 +37,7 @@ class Solution:
         return node
 
     def output_node(self, node):
-        if node == None:
+        if node is None:
             return ""
         
         self.resultStr = []
@@ -58,7 +58,7 @@ class Solution:
         return result
                 
     def set_output_node(self, node, n):
-        if node.children == None:
+        if node.children is None:
             return
 
         tempStr = ""
@@ -78,12 +78,12 @@ class Solution:
 
 def str_to_Node(json_text):
     data = json.loads(json_text)
-    if data == None:
+    if data is None:
         return None
     return json_to_Node(data)
 
 def json_to_Node(data):
-    if data == None:
+    if data is None:
         return None
 
     node = Node(data['val'], None)

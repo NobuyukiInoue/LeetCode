@@ -10,7 +10,7 @@ class Solution:
     def getDecimalValue(self, head):
         # 24ms
         total = 0
-        while head != None:
+        while head is not None:
             total *= 2
             total += head.val
             head = head.next
@@ -19,7 +19,7 @@ class Solution:
     def getDecimalValue2(self, head):
         # 28ms
         total = 0
-        while head != None:
+        while head is not None:
             total <<= 1
             total += head.val
             head = head.next

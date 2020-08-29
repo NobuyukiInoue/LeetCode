@@ -30,11 +30,11 @@ class Solution:
         if not root:
             return
         self.traverse(root.left)
-        if self.firstElement == None:
-            if self.prevElement != None:
+        if self.firstElement is None:
+            if self.prevElement is not None:
                 if self.prevElement.val >= root.val:
                     self.firstElement = self.prevElement
-        if self.firstElement != None and self.prevElement.val >= root.val:
+        if self.firstElement is not None and self.prevElement.val >= root.val:
             self.secondElement = root
         self.prevElement = root
         self.traverse(root.right)

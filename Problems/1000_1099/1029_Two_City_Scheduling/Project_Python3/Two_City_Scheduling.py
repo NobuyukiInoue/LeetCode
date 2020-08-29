@@ -23,7 +23,7 @@ class Solution:
         return result
 
     def twoCitySchedCost_work2(self, costs):
-        if costs == None:
+        if costs is None:
             return 0
         cities = [[0 for _ in range(len(costs))] for _ in range(len(costs[0]))]
         for row in range(len(costs)):

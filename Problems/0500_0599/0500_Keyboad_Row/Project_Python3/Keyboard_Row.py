@@ -25,7 +25,7 @@ class Solution:
         :type words: List[str]
         :rtype: List[str]
         """
-        if words == None:
+        if words is None:
             return None
 
         words_temp = []

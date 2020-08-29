@@ -12,7 +12,7 @@ from TreeNode.OperateTreeNode import OperateTreeNode
 class Solution:
     def countNodes(self, root: TreeNode) -> int:
         # 120ms
-        if root == None:
+        if root is None:
             return 0
         return 1 + self.countNodes(root.left) + self.countNodes(root.right)
 

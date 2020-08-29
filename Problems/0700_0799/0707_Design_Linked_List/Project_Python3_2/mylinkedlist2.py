@@ -105,12 +105,12 @@ class MyLinkedList(object):
 
 
     def print_LinkedList(self):
-        if self.head == None:
+        if self.head is None:
             return ""
 
         resultStr = str(self.head.val)
         node = self.head
-        while node.next != None:
+        while node.next is not None:
             resultStr += " -> " + str(node.next.val)
             node = node.next
 

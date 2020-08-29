@@ -31,12 +31,12 @@ class Solution:
         dummyHead = ListNode(0)
         p, q, curr, carry = l1, l2, dummyHead, 0
 
-        while p != None or q != None:
-            if p != None:
+        while p is not None or q is not None:
+            if p is not None:
                 x = p.val
             else:
                 x = 0
-            if q != None:
+            if q is not None:
                  y = q.val
             else:
                  y = 0
@@ -44,9 +44,9 @@ class Solution:
             carry = sum // 10
             curr.next = ListNode(sum % 10)
             curr = curr.next
-            if p != None:
+            if p is not None:
                 p = p.next
-            if q != None:
+            if q is not None:
                 q = q.next
         if carry > 0:
             curr.next = ListNode(carry)

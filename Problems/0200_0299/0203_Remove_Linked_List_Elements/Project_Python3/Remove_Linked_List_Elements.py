@@ -28,8 +28,8 @@ class Solution:
         :rtype: ListNode
         """
         temp_node = head
-        while temp_node != None:
-            if temp_node.next != None:
+        while temp_node is not None:
+            if temp_node.next is not None:
                 if temp_node.next.val == val:
                     temp_node.next = temp_node.next.next
             temp_node = temp_node.next

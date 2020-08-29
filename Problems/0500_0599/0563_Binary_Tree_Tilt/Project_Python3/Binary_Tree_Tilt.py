@@ -16,7 +16,7 @@ class Solution:
         return ret[0]
 
     def helper(self, node, ret):
-        if node == None:
+        if node is None:
             return 0
 
         lSum = self.helper(node.left, ret)

@@ -16,10 +16,10 @@ class Solution:
         return need[0]
 
     def calculateMinimumHP_work(self, dungeon):
-        if dungeon == None:
+        if dungeon is None:
             return 1
         res = self.helper(dungeon, 0, 0, 0, 0)
-        if res != None:
+        if res is not None:
             if res[1] > 0:
                 return res[1]
             else:
@@ -43,9 +43,9 @@ class Solution:
         return self.get_bestResult(res_d, res_r)
 
     def get_bestResult(self, res1, res2):
-        if res1 == None:
+        if res1 is None:
             return res2
-        if res2 == None:
+        if res2 is None:
             return res1
         if res1[1]*res2[1] > 0:
             if abs(res1[1]) < abs(res2[1]):

@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "include/mylib.h"
+#include "lib/mylib.h"
 
 //int** generate(int numRows, int** columnSizes);
 int** generate(int numRows, int* returnSize, int** returnColumnSizes);

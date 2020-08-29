@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <time.h>
 
-#include "include/mylib.h"
+#include "lib/mylib.h"
 
 /* Function prototype declaration */
 int divide(int dividend, int divisor);

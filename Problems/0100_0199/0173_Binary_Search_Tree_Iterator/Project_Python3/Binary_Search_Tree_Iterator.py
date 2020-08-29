@@ -15,12 +15,12 @@ class BSTIterator:
     def __init__(self, root):
         self.nums = []
         def dfs(node):
-            if node == None:
+            if node is None:
                 return
-            if node.left != None:
+            if node.left is not None:
                 dfs(node.left)
             self.nums.append(node.val)
-            if node.right != None:
+            if node.right is not None:
                 dfs(node.right)
 
         dfs(root)
@@ -54,9 +54,9 @@ class Solution:
             if cmd == "BSTIterator":
                 BI = BSTIterator(mynode)
                 print("BSTIterator iterator = new BSTIterator(root);")
-            elif cmd == "next" and BI != None:
+            elif cmd == "next" and BI is not None:
                 print("iterator.next();\t ... {0:d}".format(BI.next()))
-            elif cmd == "hasNext" and BI != None:
+            elif cmd == "hasNext" and BI is not None:
                 print("iterator.hasNext();\t ... {0}".format(BI.hasNext()))
 
 def main():

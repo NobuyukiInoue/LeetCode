@@ -6,9 +6,9 @@
 #include <time.h>
 
 
-#include "include/mylib.h"
-#include "include/treenode.h"
-#include "include/operate_treenode.h"
+#include "lib/mylib.h"
+#include "lib/treenode.h"
+#include "lib/operate_treenode.h"
 
 
 /* Function prototype declaration */

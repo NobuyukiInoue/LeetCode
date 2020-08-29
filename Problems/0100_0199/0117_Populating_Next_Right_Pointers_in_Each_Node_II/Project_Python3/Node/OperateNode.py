@@ -30,15 +30,15 @@ class OperateNode:
         return self.resultListToString()
 
     def getStaircaseSubString(self, node, n):
-        if node == None:
+        if node is None:
             return
         if len(self.resultList) <= n:
             self.resultList.append("(" + str(node.val) + ")")
         else:
             self.resultList[n] += ",(" + str(node.val) + ")"
-        if node.left != None:
+        if node.left is not None:
             self.getStaircaseSubString(node.left, n + 1)
-        if node.right != None:
+        if node.right is not None:
             self.getStaircaseSubString(node.right, n + 1)
         return
 
@@ -48,17 +48,17 @@ class OperateNode:
         return self.resultListToString()
 
     def getStaircaseSubString_with_next(self, node, n):
-        if node == None:
+        if node is None:
             return
         if len(self.resultList) <= n:
             self.resultList.append("(" + str(node.val) + ")")
         else:
             self.resultList[n] += ",(" + str(node.val) + ")"
-        if node.next == None:
+        if node.next is None:
             self.resultList[n] += ",(#)"
-        if node.left != None:
+        if node.left is not None:
             self.getStaircaseSubString_with_next(node.left, n + 1)
-        if node.right != None:
+        if node.right is not None:
             self.getStaircaseSubString_with_next(node.right, n + 1)
         return
 
@@ -74,16 +74,16 @@ class OperateNode:
         :type t: TreeNode
         :rtype: str
         """
-        if t == None:
+        if t is None:
             return ""
 
         resultStr = str(t.val)
 
-        if t.left == None and t.right == None:
+        if t.left is None and t.right is None:
             return resultStr
 
         resultStr += "(" + self.tree2str(t.left) + ")"
-        if t.right != None:
+        if t.right is not None:
             resultStr += "(" + self.tree2str(t.right) + ")"
 
         return resultStr

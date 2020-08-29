@@ -11,14 +11,14 @@ from TreeNode.OperateTreeNode import OperateTreeNode
 class Solution:
 #    def invertTree(self, root: TreeNode) -> TreeNode:
     def invertTree(self, root):
-        if root == None:
+        if root is None:
             return
         temp = root.left
         root.left = root.right
         root.right = temp
-        if root.left != None:
+        if root.left is not None:
             self.invertTree(root.left)
-        if root.right != None:
+        if root.right is not None:
             self.invertTree(root.right)
         return root
 

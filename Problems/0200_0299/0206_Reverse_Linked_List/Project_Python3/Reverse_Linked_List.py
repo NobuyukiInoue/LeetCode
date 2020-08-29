@@ -13,14 +13,14 @@ class Solution:
         :type head: ListNode
         :rtype: ListNode
         """
-        if head == None:
+        if head is None:
             return None
 
         node_list = []
         temp_node = head
         node_list.append(head.val)
 
-        while temp_node.next != None:
+        while temp_node.next is not None:
             temp_node = temp_node.next
             node_list.append(temp_node.val)
         

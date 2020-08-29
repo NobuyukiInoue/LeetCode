@@ -5,9 +5,9 @@
 #include <math.h>
 #include <time.h>
 
-#include "include/mylib.h"
-#include "include/listnode.h"
-#include "include/operate_listnode.h"
+#include "lib/mylib.h"
+#include "lib/listnode.h"
+#include "lib/operate_listnode.h"
 
 /* Function prototype declaration */
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2);

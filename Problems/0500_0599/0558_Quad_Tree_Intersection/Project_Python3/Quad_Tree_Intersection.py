@@ -35,19 +35,19 @@ def output_all_TreeNode(node):
     return "{" + output_TreeNode(node, id).replace("True", "true").replace("False", "false") + "}"
 
 def output_TreeNode(node, id):
-    if node == None:
+    if node is None:
         return ":null"
 
     resultStr = "\"$id\":\"" + str(id) + "\""
 
     resultStr += ",\"bottomLeft\":"
-    if node.bottomLeft == None:
+    if node.bottomLeft is None:
         resultStr += "null"
     else:
         resultStr += "{" + output_TreeNode(node.bottomLeft, id + 3) + "}"
 
     resultStr += ",\"bottomRight\":"
-    if node.bottomRight == None:
+    if node.bottomRight is None:
         resultStr += "null"
     else:
         resultStr += "{" + output_TreeNode(node.bottomRight, id + 4) +"}"
@@ -55,13 +55,13 @@ def output_TreeNode(node, id):
     resultStr += ",\"isLeaf\":" + str(node.isLeaf)
 
     resultStr += ",\"topLeft\":"
-    if node.topLeft == None:
+    if node.topLeft is None:
         resultStr += "null"
     else:
         resultStr += "{" + output_TreeNode(node.topLeft, id + 1) + "}"
 
     resultStr += ",\"topRight\":"
-    if node.topRight == None:
+    if node.topRight is None:
         resultStr += "null"
     else:
         resultStr += "{" + output_TreeNode(node.topRight, id + 2) +"}"
@@ -75,23 +75,23 @@ def str_to_QuadTree(json_filename):
     f = open(json_filename, 'r')
     data = json.load(f)
 
-    if data == None:
+    if data is None:
         return None
 
     return json_to_QuadTree(data)
 
 def json_to_QuadTree(data):
-    if data == None:
+    if data is None:
         return None
 
     node =  Node(data['val'], data['isLeaf'], None, None, None, None)
-    if data['topLeft'] != None:
+    if data['topLeft'] is not None:
         node.topLeft = json_to_QuadTree(data['topLeft'])
-    if data['topRight'] != None:
+    if data['topRight'] is not None:
         node.topRight = json_to_QuadTree(data['topRight'])
-    if data['bottomLeft'] != None:
+    if data['bottomLeft'] is not None:
         node.bottomLeft = json_to_QuadTree(data['bottomLeft'])
-    if data['bottomRight'] != None:
+    if data['bottomRight'] is not None:
         node.bottomRight = json_to_QuadTree(data['bottomRight'])
     
     return node

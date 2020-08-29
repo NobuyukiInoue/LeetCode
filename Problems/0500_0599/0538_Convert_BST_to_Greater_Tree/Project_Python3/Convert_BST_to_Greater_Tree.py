@@ -40,21 +40,21 @@ class Solution:
         return root
   
     def getAllVal(self, node):
-        if node == None:
+        if node is None:
             return
         self.nums.append(node.val)
-        if node.left != None:
+        if node.left is not None:
             self.getAllVal(node.left)
-        if node.right != None:
+        if node.right is not None:
             self.getAllVal(node.right)
 
     def setGreater(self, node):
-        if node == None:
+        if node is None:
             return
         node.val += self.calc_addVal(node.val)
-        if node.left != None:
+        if node.left is not None:
             self.setGreater(node.left)
-        if node.right != None:
+        if node.right is not None:
             self.setGreater(node.right)
     
     def calc_addVal(self, currentVal):

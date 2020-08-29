@@ -58,7 +58,7 @@ class Solution:
                 stack = MyStack()
                 print("Exec MyStack()")
             else:
-                if stack == None:
+                if stack is None:
                     print("stack not found... {0}".format(cmds[i]))
                     exit(1)
                 elif cmds[i] == "push":

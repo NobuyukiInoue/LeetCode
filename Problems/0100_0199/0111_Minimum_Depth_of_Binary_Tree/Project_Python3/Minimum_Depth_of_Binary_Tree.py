@@ -10,15 +10,15 @@ from TreeNode.OperateTreeNode import OperateTreeNode
 
 class Solution:
     def minDepth(self, root: TreeNode) -> int:
-        if root == None:
+        if root is None:
             return 0
-        if root.left != None and root.right != None:
+        if root.left is not None and root.right is not None:
             l = self.minDepth(root.left) + 1
             r = self.minDepth(root.right) + 1
             return min(l, r)
-        elif root.left != None:
+        elif root.left is not None:
             return self.minDepth(root.left) + 1
-        elif root.right != None:
+        elif root.right is not None:
             return self.minDepth(root.right) + 1
         else:
             return 1

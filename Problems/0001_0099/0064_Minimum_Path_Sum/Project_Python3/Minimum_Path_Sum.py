@@ -21,7 +21,7 @@ class Solution:
 
     def minPathSum2(self, grid):
         # time limit exceed.
-        if grid == None:
+        if grid is None:
             return 0
         m, n = len(grid), len(grid[0])
         res = []
