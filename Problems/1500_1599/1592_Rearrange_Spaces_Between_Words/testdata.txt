@@ -1,0 +1,4 @@
+["  this   is  a sentence "]
+[" practice   makes   perfect"]
+["hello   world"]
+["  walks  udp package   into  bar a"]
