@@ -1,7 +1,10 @@
 JAVAC =javac
 JAVAC_FLAGS =
 
-all:	MyQueue.class Solution.class Main.class
+all:	Mylib.class MyQueue.class Solution.class Main.class
+
+Mylib.class:	Mylib.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
 
 MyQueue.class:	MyQueue.java
 	$(JAVAC) $(JAVAC_FLAGS) $<

@@ -51,46 +51,18 @@ public class Solution {
         return count[rem-1];
     }
 
-    public String intArrayToString(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
-    public String listArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds[] = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] coins = mc.stringTointArray(flds[0]);
-        System.out.println("coins = [" + intArrayToString(coins) + "]");
+        Mylib ml = new Mylib();
+        int[] coins = ml.stringToIntArray(flds[0]);
+        System.out.println("coins = " + ml.intArrayToString(coins));
 
         int amount = Integer.parseInt(flds[1]);
         System.out.println("amount = " + Integer.toString(amount));
 
         long start = System.currentTimeMillis();
-        
+
         int result = coinChange(coins, amount);
 
         long end = System.currentTimeMillis();

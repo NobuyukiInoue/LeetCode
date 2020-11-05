@@ -22,24 +22,12 @@ public class Solution {
 
         String[] flds1 = flds[1].replace("]]]", "").split("\\],\\[");
 
-        int[][] trust = new int[flds1.length][];
-    
         Mylib ml = new Mylib();
-        for (int i = 0; i < flds1.length; i++) {
-            trust[i] = ml.stringTointArray(flds1[i]);
-        }
-
-        System.out.print("trust = [");
-        for (int i = 0; i < trust.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(trust[i]));
-            else
-                System.out.print("," + ml.intArrayToString(trust[i]));
-        }
-        System.out.println("]\n");
+        int[][] trust = ml.stringToIntIntArray(flds1);
+        System.out.println("trust = " + ml.intIntArrayToString(trust));
 
         long start = System.currentTimeMillis();
-        
+
         int result = findJudge(N, trust);
 
         long end = System.currentTimeMillis();

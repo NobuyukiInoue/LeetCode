@@ -19,11 +19,11 @@ public class Solution {
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds[0]);
+        Mylib ml = new Mylib();
+        int[] nums = ml.stringToIntArray(flds[0]);
         int target = Integer.parseInt(flds[1]);
 
-        System.out.println("nums = " + mc.intArrayToString(nums));
+        System.out.println("nums = " + ml.intArrayToString(nums));
         System.out.println("target = " + String.valueOf(target));
 
         long start = System.currentTimeMillis();
@@ -32,7 +32,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + mc.intArrayToString(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

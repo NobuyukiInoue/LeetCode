@@ -42,47 +42,20 @@ public class Solution {
             root[srcRoot] = dstRoot;
     }
 
-    public String listArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace("]]]", "").trim().split("\\],\\[\\[");
 
         String s = flds[0].replace("[", "");
         System.out.println("s = " + s);
 
-        Mylib ml = new Mylib();
         String[] data = flds[1].split("\\],\\[");
-        List<List<Integer>> pairs = new ArrayList<List<Integer>>();
-    
-        for (int i = 0; i < data.length; i++) {
-            String[] cols = data[i].split(",");
-            List<Integer> l_cols = new ArrayList<Integer>();
-            l_cols.add(Integer.parseInt(cols[0]));
-            l_cols.add(Integer.parseInt(cols[1]));
-            pairs.add(l_cols);
-        }
 
-        System.out.print("pairs = [");
-        for (int i = 0; i < pairs.size(); i++) {
-            if (i == 0)
-                System.out.print(listArrayToString(pairs.get(i)));
-            else
-                System.out.print("," + listArrayToString(pairs.get(i)));
-        }
-        System.out.println("]");
+        Mylib ml = new Mylib();
+        List<List<Integer>> pairs = ml.stringArrayToListListIntArray(data);
+        System.out.println("pairs = " + ml.listListIntArrayToString(pairs));
 
         long start = System.currentTimeMillis();
-        
+
         String result = smallestStringWithSwaps(s, pairs);
 
         long end = System.currentTimeMillis();

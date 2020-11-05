@@ -18,7 +18,7 @@ public class Solution {
         System.out.println("target = " + Integer.toString(N));
 
         long start = System.currentTimeMillis();
-        
+
         int result = binaryGap(N);
 
         long end = System.currentTimeMillis();

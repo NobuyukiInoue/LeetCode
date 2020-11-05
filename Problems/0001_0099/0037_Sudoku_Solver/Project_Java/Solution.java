@@ -62,20 +62,6 @@ public class Solution {
         }
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
         char[][] board = new char[9][9];

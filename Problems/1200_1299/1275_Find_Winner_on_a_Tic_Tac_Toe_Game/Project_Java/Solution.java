@@ -22,24 +22,11 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] moves = new int[flds.length][];
-    
-        for (int i = 0; i < flds.length; i++) {
-            moves[i] = ml.stringTointArray(flds[i]);
-        }
-
-        System.out.print("moves = [");
-        for (int i = 0; i < moves.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(moves[i]));
-            else
-                System.out.print("," + ml.intArrayToString(moves[i]));
-        }
-        System.out.println("]");
+        int[][] moves = ml.stringToIntIntArray(flds);
+        System.out.println("moves = " + ml.intIntArrayToString(moves));
 
         long start = System.currentTimeMillis();
-        
+
         String result = tictactoe(moves);
 
         long end = System.currentTimeMillis();

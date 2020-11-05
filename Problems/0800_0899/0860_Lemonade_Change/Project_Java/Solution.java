@@ -17,18 +17,16 @@ public class Solution {
         }
         return true;
     }
-    
+
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-
-        int[] bills = ml.stringTointArray(flds);
-
+        int[] bills = ml.stringToIntArray(flds);
         System.out.println("bills = " + ml.intArrayToString(bills));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = lemonadeChange(bills);
 
         long end = System.currentTimeMillis();

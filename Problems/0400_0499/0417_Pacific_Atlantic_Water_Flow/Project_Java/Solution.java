@@ -41,67 +41,13 @@ public class Solution {
         }
     }
 
-    public String matrixToString(int[][] list) {
-        if (list.length <= 0)
-            return "[]";
-
-        Mylib ml = new Mylib();
-        StringBuilder sb = new StringBuilder("[\n  " + ml.intArrayToString(list[0]) + "\n");
-        for (int i = 1; i < list.length; i++) {
-            sb.append(" ," + ml.intArrayToString(list[i]) + "\n") ;
-        }
-
-        sb.append("]");
-        return sb.toString();
-    }
-
-    public String listListArrayToString(List<List<Integer>> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        StringBuilder sb = new StringBuilder("[" + listArrayToString(list.get(0)));
-        for (int i = 1; i < list.size(); i++) {
-            sb.append("," + listArrayToString(list.get(i)));
-        }
-
-        sb.append("]");
-        return sb.toString();
-    }
-
-    public String listArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-        StringBuilder sb = new StringBuilder("[" + Integer.toString(list.get(0)));
-        for (int i = 1; i < list.size(); i++) {
-            sb.append("," + Integer.toString(list.get(i)));
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-    private String gridToString(List<List<Integer>> matrix) {
-        if (matrix == null || matrix.size() <= 0)
-            return "[]";
-        StringBuilder sb = new StringBuilder("[");
-        sb.append(listArrayToString(matrix.get(0)));
-        for (int i = 1; i < matrix.size(); i++) {
-            sb.append(", " + listArrayToString(matrix.get(i)));
-        }
-        sb.append("]");
-        return sb.toString();
-   }
-
     public void Main(String temp) {
         String flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim();
-
         String[] str_matrix = flds.split("\\],\\[");
-        Mylib ml = new Mylib();
-        int[][] matrix = new int[str_matrix.length][];
-            for (int i = 0; i < str_matrix.length; i++) {
-            matrix[i] = ml.stringTointArray(str_matrix[i]);
-        }
 
-        System.out.println("matrix = " + matrixToString(matrix));
+        Mylib ml = new Mylib();
+        int[][] matrix = ml.stringToIntIntArray(str_matrix);
+        System.out.println("matrix = " + ml.matrixToString(matrix));
 
         long start = System.currentTimeMillis();
 
@@ -109,7 +55,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + gridToString(result));
+        System.out.println("result = " + ml.gridToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

@@ -76,11 +76,8 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[][] M = new int[flds.length][];
-        for (int i = 0; i < flds.length; i++) {
-            M[i] = ml.stringTointArray(flds[i]);
-            System.out.println("nums[" + Integer.toString(i) + "] = " + ml.intArrayToString(M[i]));
-        }
+        int[][] M = ml.stringToIntIntArray(flds);
+        System.out.println("nums = " + ml.intIntArrayToString(M));
 
         long start = System.currentTimeMillis();
 

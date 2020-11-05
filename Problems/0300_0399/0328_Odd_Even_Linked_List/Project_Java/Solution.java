@@ -21,7 +21,7 @@ public class Solution {
 
         last_odd_node.next = next_head;
 
-        return head;       
+        return head;
     }
 
     public void Main(String temp) {

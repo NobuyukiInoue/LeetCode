@@ -17,7 +17,7 @@ public class Solution {
         System.out.println("instructions = " + S);
 
         long start = System.currentTimeMillis();
-        
+
         String result = removeDuplicates(S);
 
         long end = System.currentTimeMillis();

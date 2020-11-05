@@ -24,54 +24,20 @@ public class Solution {
         return res;
     }
 
-    public String intArrayToString(int[] data) {
-        if (data.length <= 0)
-            return "";
-
-        StringBuilder result = new StringBuilder(Integer.toString(data[0]));
-        for (int i = 1; i < data.length; i++)
-            result.append("," + Integer.toString(data[i]));
-    
-        return result.toString();
-    }
-
-    private String listlistIntToString(List<List<Integer>> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        StringBuilder resultStr = new StringBuilder("[" + listIntArrayToString(list.get(0)));
-        for (int i = 1; i < list.size(); i++)
-            resultStr.append(", " + listIntArrayToString(list.get(i)));
-
-        return resultStr.append("]").toString();
-    }
-
-    public String listIntArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (int i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(flds);
-        System.out.println("nums = " + intArrayToString(nums));
+        int[] nums = ml.stringToIntArray(flds);
+        System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
-        
+
         List<List<Integer>> result = permute(nums);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listlistIntToString(result));
+        System.out.println("result = " + ml.listListIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

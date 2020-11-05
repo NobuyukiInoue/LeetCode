@@ -48,29 +48,16 @@ public class Solution {
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace("[[[", "").trim().split("\\]],\\[");
 
-        Mylib ml = new Mylib();
-
         String[] bookings_str = flds[0].split("\\],\\[");
-        int[][] bookings = new int[bookings_str.length][];
-    
-        for (int i = 0; i < bookings_str.length; i++) {
-            bookings[i] = ml.stringTointArray(bookings_str[i]);
-        }
+        Mylib ml = new Mylib();
+        int[][] bookings = ml.stringToIntIntArray(bookings_str);
+        System.out.println("bookings = " + ml.intIntArrayToString(bookings));
 
         int n = Integer.parseInt(flds[1].replace("]]", ""));
-
-        System.out.print("bookings = [");
-        for (int i = 0; i < bookings.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(bookings[i]));
-            else
-                System.out.print("," + ml.intArrayToString(bookings[i]));
-        }
-        System.out.println("]");
         System.out.println("n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = corpFlightBookings(bookings, n);
 
         long end = System.currentTimeMillis();

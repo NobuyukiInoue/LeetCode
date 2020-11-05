@@ -42,19 +42,6 @@ public class Solution {
         return m * n;
     }
 
-    public String listArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        StringBuilder result = new StringBuilder("[" + list.get(0));
-        for (int i = 1; i < list.size(); i++) {
-            result.append("," + list.get(i));
-        }
-
-        result.append("]");
-        return result.toString();
-    }
-    
     public void Main(String temp) {
         String input = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim();
         System.out.println("path = " + input);
@@ -65,7 +52,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listArrayToString(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

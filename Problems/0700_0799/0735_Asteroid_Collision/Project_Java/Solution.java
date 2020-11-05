@@ -39,7 +39,7 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] asteroids = ml.stringTointArray(flds);
+        int[] asteroids = ml.stringToIntArray(flds);
         System.out.println("arr = " + ml.intArrayToString(asteroids));
 
         long start = System.currentTimeMillis();

@@ -86,45 +86,13 @@ public class Solution {
         return min;
     }
 
-    public List<Integer> strIntToList(String s) {
-        if (s.length() <= 0)
-            return null;
-
-        String[] flds = s.split(",");
-        List<Integer> nums = new ArrayList<Integer>();
-
-        if (flds.length <= 0)
-            return nums;
-
-        nums.add(Integer.parseInt(flds[0]));
-        for (int i = 1; i < flds.length; ++i) {
-            nums.add(Integer.parseInt(flds[i]));
-        }
-
-        return nums;
-    }
-
-    public String listIntArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String args) {
         System.out.println("args = " + args);
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        List<List<Integer>> triangle = new ArrayList<List<Integer>>();
-        for (int i = 0; i < flds.length; i++) {
-            triangle.add(strIntToList(flds[i]));
-            System.out.println("triangle[" + Integer.toString(i) + "] = " + listIntArrayToString(triangle.get(i)));
-        }
+        Mylib ml = new Mylib();
+        List<List<Integer>> triangle = ml.stringArrayToListListIntArray(flds);
+        System.out.println("triangle = " + ml.listListIntArrayToString(triangle));
 
         long start = System.currentTimeMillis();
 

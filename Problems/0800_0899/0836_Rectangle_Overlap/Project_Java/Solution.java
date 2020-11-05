@@ -7,24 +7,15 @@ public class Solution {
 
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
-        
-        String[] pt1 = flds[0].split(",");
-        int[] rec1 = new int[pt1.length];
-        for (int i = 0; i < pt1.length; i++)
-            rec1[i] = Integer.parseInt(pt1[i]);
 
-        String[] pt2 = flds[1].split(",");
-        int[] rec2 = new int[pt2.length];
-        for (int i = 0; i < pt2.length; i++)
-            rec2[i] = Integer.parseInt(pt2[i]);
-    
         Mylib ml = new Mylib();
-
+        int[] rec1 = ml.stringToIntArray(flds[0]);
+        int[] rec2 = ml.stringToIntArray(flds[1]);
         System.out.println("rec1 = " + ml.intArrayToString(rec1));
         System.out.println("rec2 = " + ml.intArrayToString(rec2));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = isRectangleOverlap(rec1, rec2);
 
         long end = System.currentTimeMillis();

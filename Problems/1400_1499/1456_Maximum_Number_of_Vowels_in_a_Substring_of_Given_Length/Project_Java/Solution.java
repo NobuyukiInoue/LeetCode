@@ -64,7 +64,7 @@ public class Solution {
         System.out.println("s = \"" + s + "\", k = " + Integer.toString(k));
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxVowels(s, k);
 
         long end = System.currentTimeMillis();

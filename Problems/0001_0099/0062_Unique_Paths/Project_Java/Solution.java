@@ -25,7 +25,7 @@ public class Solution {
         int n = Integer.parseInt(flds[1]);
 
         long start = System.currentTimeMillis();
-        
+
         int result = uniquePaths(m, n);
 
         long end = System.currentTimeMillis();

@@ -52,7 +52,7 @@ public class Solution {
         System.out.println("n = " + Integer.toString(n) + ", a = " + Integer.toString(a) + ", b = " + Integer.toString(b) + ", c = " + Integer.toString(c));
 
         long start = System.currentTimeMillis();
-        
+
         int result = nthUglyNumber(n, a, b, c);
 
         long end = System.currentTimeMillis();

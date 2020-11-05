@@ -12,12 +12,8 @@ public class Solution {
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] matrix = new int[flds.length][];
-        for (int i = 0; i < flds.length; i++) {
-            matrix[i] = ml.stringTointArray(flds[i]);
-            System.out.println("matrix[" + Integer.toString(i) + "] = " + ml.intArrayToString(matrix[i]));
-        }
+        int[][] matrix = ml.stringToIntIntArray(flds);
+         System.out.println("matrix = " + ml.matrixToString(matrix));
 
         long start = System.currentTimeMillis();
 

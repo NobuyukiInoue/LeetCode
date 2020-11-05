@@ -13,7 +13,7 @@ public class Solution {
         int[][] matrix = new int[matrix_str.length][];
 
         for (int n = 0; n < matrix.length; n++) {
-            matrix[n] = ml.stringTointArray(matrix_str[n]);
+            matrix[n] = ml.stringToIntArray(matrix_str[n]);
         }
 
         NumMatrix nm = new NumMatrix(matrix);
@@ -37,20 +37,6 @@ public class Solution {
         }
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String arg) {
         String[] flds = arg.replace("\"", "").trim().split("\\],\\[\\[\\[\\[");
         String[] ope = flds[0].replace("\"", "").replace("[", "").replace("]", "").split(",");
@@ -68,13 +54,14 @@ public class Solution {
             para = new String[0];
         }
 
-        System.out.println("ope[] = " + output_str_array(ope));
-        System.out.println("para[] = " + output_str_array(para));
+        Mylib ml = new Mylib();
+        System.out.println("ope[] = " + ml.stringArrayToString(ope));
+        System.out.println("para[] = " + ml.stringArrayToString(para));
 
         long start = System.currentTimeMillis();
-        
+
         NumMatrix_Main(ope, para);
-    
+
         long end = System.currentTimeMillis();
 
         System.out.println((end - start)  + "ms\n");

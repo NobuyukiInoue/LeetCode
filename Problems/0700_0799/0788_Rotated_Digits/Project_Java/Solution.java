@@ -15,7 +15,7 @@ public class Solution {
                 continue;
             res++;
         }
-        return res;        
+        return res;
     }
 
     public void Main(String temp) {
@@ -25,7 +25,7 @@ public class Solution {
         System.out.println("N = " + Integer.toString(N));
 
         long start = System.currentTimeMillis();
-        
+
         int result = rotatedDigits(N);
 
         long end = System.currentTimeMillis();

@@ -23,7 +23,7 @@ public class Solution {
         String releaseTimesStr = flds[0].replace("[[", "");
 
         Mylib ml = new Mylib();
-        int[] releaseTimes = ml.stringTointArray(releaseTimesStr);
+        int[] releaseTimes = ml.stringToIntArray(releaseTimesStr);
         String keysPressed = flds[1].replace("]]", "");
 
         System.out.println("releaseTimesStr[] = " + ml.intArrayToString(releaseTimes));

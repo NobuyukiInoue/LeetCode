@@ -19,18 +19,6 @@ public class Solution {
         return results;
     }
 
-    public String List_array_to_String(List<String> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + list.get(0);
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + list.get(i);
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String fld = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
@@ -38,12 +26,13 @@ public class Solution {
         System.out.println("n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
-        
+
         List<String> result = fizzBuzz(n);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + List_array_to_String(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

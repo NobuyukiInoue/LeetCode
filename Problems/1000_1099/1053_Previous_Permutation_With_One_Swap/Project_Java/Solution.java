@@ -15,12 +15,12 @@ public class Solution {
                 number = A[i - 1];
                 index= i;
                 break;
-            }            
+            }
         }
 
         if (index == -1)
             return A;
-          
+
         int maxTemp = -1;
         int indexer = -1;
         for (int i = index; i < n; i++) {
@@ -29,7 +29,7 @@ public class Solution {
                 indexer = i;
             }
         }
-     
+
         int temper = A[indexer];
         A[indexer] = A[index - 1];
         A[index - 1] = temper;
@@ -41,11 +41,11 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] A = ml.stringTointArray(flds);
+        int[] A = ml.stringToIntArray(flds);
         System.out.println("A = " + ml.intArrayToString(A));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = prevPermOpt1(A);
 
         long end = System.currentTimeMillis();

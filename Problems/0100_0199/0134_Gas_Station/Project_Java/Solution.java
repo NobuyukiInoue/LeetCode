@@ -59,14 +59,14 @@ public class Solution {
         String[] flds = temp.replace(" ", "").replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] gas = ml.stringTointArray(flds[0]);
-        int[] cost = ml.stringTointArray(flds[1]);
+        int[] gas = ml.stringToIntArray(flds[0]);
+        int[] cost = ml.stringToIntArray(flds[1]);
 
         System.out.println("gas  = " + ml.intArrayToString(gas));
         System.out.println("cost = " + ml.intArrayToString(cost));
 
         long start = System.currentTimeMillis();
-        
+
         int result = canCompleteCircuit(gas, cost);
 
         long end = System.currentTimeMillis();

@@ -4,7 +4,7 @@ public class Solution {
     public boolean backspaceCompare(String S, String T) {
         return check(S).equals(check(T));
     }
-    
+
     private String check(String s) {
         int backspace = 0;
         StringBuilder sb = new StringBuilder();
@@ -33,7 +33,7 @@ public class Solution {
         System.out.println("S = " + S + ", T = " + T);
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = backspaceCompare(S, T);
 
         long end = System.currentTimeMillis();

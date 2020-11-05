@@ -21,7 +21,7 @@ public class Solution {
         System.out.println("n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
-        
+
         String result = generateTheString(n);
 
         long end = System.currentTimeMillis();

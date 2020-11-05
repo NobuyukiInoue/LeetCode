@@ -23,32 +23,19 @@ public class Solution {
         }
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String arg) {
         String[] flds = arg.replace("\"", "").trim().split("\\],\\[\\[");
         String[] ope = flds[0].replace("[", "").replace("]", "").split(",");
         String[] words = flds[1].replace("]]]", "").split("\\],\\[");
 
-        System.out.println("ope[] = " + output_str_array(ope));
-        System.out.println("words[] = " + output_str_array(words));
+        Mylib ml = new Mylib();
+        System.out.println("ope[] = " + ml.stringArrayToString(ope));
+        System.out.println("words[] = " + ml.stringArrayToString(words));
 
         long start = System.currentTimeMillis();
-        
+
         WordDictionary_Main(ope, words);
-    
+
         long end = System.currentTimeMillis();
 
         System.out.println((end - start)  + "ms\n");

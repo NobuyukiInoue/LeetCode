@@ -23,7 +23,7 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(flds);
+        int[] nums = ml.stringToIntArray(flds);
         int A = nums[0];
         int B = nums[1];
         int C = nums[2];

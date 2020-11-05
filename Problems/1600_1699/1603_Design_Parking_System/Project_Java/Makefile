@@ -1,7 +1,10 @@
 JAVAC =javac
 JAVAC_FLAGS =
 
-all:	ParkingSystem.class Solution.class Main.class
+all:	Mylib.class ParkingSystem.class Solution.class Main.class
+
+Mylib.class:	Mylib.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
 
 ParkingSystem.class:	ParkingSystem.java
 	$(JAVAC) $(JAVAC_FLAGS) $<

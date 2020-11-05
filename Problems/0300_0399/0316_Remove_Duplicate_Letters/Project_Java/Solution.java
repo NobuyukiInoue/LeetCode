@@ -44,7 +44,7 @@ public class Solution {
         System.out.println("s = " + s);
 
         long start = System.currentTimeMillis();
-        
+
         String result = removeDuplicateLetters(s);
 
         long end = System.currentTimeMillis();

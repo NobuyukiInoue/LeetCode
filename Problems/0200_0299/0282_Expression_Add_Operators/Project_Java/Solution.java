@@ -48,32 +48,19 @@ public class Solution {
         }
     }
 
-    public String listArrayToString(List<String> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        StringBuilder resultStr = new StringBuilder("[" + list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr.append("," + list.get(i));
-        }
-
-        resultStr.append("]");
-        return resultStr.toString();
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
         String num = flds[0];
         int target = Integer.parseInt(flds[1]);
 
-
         long start = System.currentTimeMillis();
-        
+
         List<String> result = addOperators(num, target);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listArrayToString(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

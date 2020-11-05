@@ -24,7 +24,7 @@ public class Solution {
         System.out.println("J = " + J + ", S = " + S);
 
         long start = System.currentTimeMillis();
-        
+
         int result = numJewelsInStones(J, S);
 
         long end = System.currentTimeMillis();

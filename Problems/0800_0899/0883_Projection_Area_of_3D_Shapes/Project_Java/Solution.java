@@ -19,20 +19,9 @@ public class Solution {
         System.out.println("args = " + args);
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        int[][] grid;
-
-        grid = new int[flds.length][];
         Mylib ml = new Mylib();
-
-        System.out.print("grid = [");
-        for (int i = 0; i < grid.length; i++) {
-            grid[i] = ml.stringTointArray(flds[i]);
-            if (i == 0)
-                System.out.print(ml.intArrayToString(grid[i]));
-            else
-                System.out.print("," + ml.intArrayToString(grid[i]));
-        }
-        System.out.println("]");
+        int[][] grid = ml.stringToIntIntArray(flds);
+        System.out.print("grid = " + ml.matrixToString(grid));
 
         long start = System.currentTimeMillis();
 

@@ -34,7 +34,7 @@ public class Solution {
         System.out.println("A = " + A + ", B = " + B);
 
         long start = System.currentTimeMillis();
-        
+
         String[] result = uncommonFromSentences(A, B);
 
         long end = System.currentTimeMillis();

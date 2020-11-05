@@ -23,13 +23,13 @@ public class Solution {
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds);
+        Mylib ml = new Mylib();
+        int[] nums = ml.stringToIntArray(flds);
 
-        System.out.println("nums = " + mc.intArrayToString(nums));
+        System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
-        
+
         int result = pivotIndex(nums);
 
         long end = System.currentTimeMillis();

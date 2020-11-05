@@ -1,7 +1,10 @@
 JAVAC =javac
 JAVAC_FLAGS =
 
-all:	KthLargest.class Solution.class Main.class
+all:	Mylib.class KthLargest.class Solution.class Main.class
+
+Mylib.class:	Mylib.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
 
 KthLargest.class:	KthLargest.java
 	$(JAVAC) $(JAVAC_FLAGS) $<

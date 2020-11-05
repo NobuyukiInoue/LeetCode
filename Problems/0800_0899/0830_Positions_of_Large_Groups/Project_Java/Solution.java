@@ -12,40 +12,18 @@ public class Solution {
         return res;
     }
 
-    public String List_array_to_String(List<List<Integer>> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[";
-
-        for (int i = 0; i < list.size(); i++) {
-            if (i > 0)
-                resultStr += ",";
-
-            resultStr += "[";
-            for (int j = 0; j < list.get(i).size(); j++) {
-                if (j > 0)
-                    resultStr += ",";
-                resultStr += Integer.toString(list.get(i).get(j));
-            }
-            resultStr += "]";
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String S = temp.replace("\"", "").replace("[", "").replace("]", "").trim();
-
         System.out.println("S = " + S);
 
         long start = System.currentTimeMillis();
-        
+
         List<List<Integer>> result = largeGroupPositions(S);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + List_array_to_String(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listListIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

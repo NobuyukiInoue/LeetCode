@@ -46,7 +46,7 @@ public class Solution {
         System.out.println("s = " + s + ", p = " + p);
 
         long start = System.currentTimeMillis();
-        
+
         Boolean result = isMatch(s, p);
 
         long end = System.currentTimeMillis();

@@ -10,7 +10,7 @@ public class Solution {
             return;
         
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(para[0]);
+        int[] nums = ml.stringToIntArray(para[0]);
 
         NumArray nm = new NumArray(nums);
 
@@ -43,20 +43,6 @@ public class Solution {
         }
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String args) {
         String[] flds = args.replace("\"", "").trim().split("\\],\\[\\[\\[");
         String[] ope = flds[0].replace("\"", "").replace("[", "").replace("]", "").split(",");
@@ -75,13 +61,14 @@ public class Solution {
             para = new String[0];
         }
 
-        System.out.println("ope[] = " + output_str_array(ope));
-        System.out.println("para[] = " + output_str_array(para));
+        Mylib ml = new Mylib();
+        System.out.println("ope[] = " + ml.stringArrayToString(ope));
+        System.out.println("para[] = " + ml.stringArrayToString(para));
 
         long start = System.currentTimeMillis();
-        
+
         NumArray_Main(ope, para);
-    
+
         long end = System.currentTimeMillis();
 
         System.out.println((end - start)  + "ms\n");

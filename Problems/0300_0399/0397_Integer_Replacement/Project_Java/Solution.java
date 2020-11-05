@@ -23,7 +23,7 @@ public class Solution {
         System.out.println("n = " + n);
 
         long start = System.currentTimeMillis();
-        
+
         int result = integerReplacement(n);
 
         long end = System.currentTimeMillis();

@@ -28,20 +28,6 @@ public class Solution {
         return index;
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String temp) {
         String flds  = temp.replace("[", "").replace("]", "").replace(", ", ",").replace("\"", "").replace(",", "").trim();
         char chars[] = flds.toCharArray();
@@ -49,7 +35,7 @@ public class Solution {
         System.out.println("chars = " + String.valueOf(chars));
 
         long start = System.currentTimeMillis();
-        
+
         int result = compress(chars);
 
         long end = System.currentTimeMillis();

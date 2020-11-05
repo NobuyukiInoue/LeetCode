@@ -30,7 +30,7 @@ public class Solution {
 
         String[] data;
         
-        int[] nums = ml.stringTointArray(flds[0]);
+        int[] nums = ml.stringToIntArray(flds[0]);
         int target = Integer.parseInt(flds[1]);
 
         System.out.println("nums = " + ml.intArrayToString(nums));

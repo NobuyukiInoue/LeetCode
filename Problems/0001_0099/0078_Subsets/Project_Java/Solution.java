@@ -49,35 +49,11 @@ public class Solution {
     }
 
 
-    public String listListArrayToString(List<List<Integer>> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        StringBuilder sb = new StringBuilder("[" + listArrayToString(list.get(0)));
-        for (int i = 1; i < list.size(); i++) {
-            sb.append("," + listArrayToString(list.get(i)));
-        }
-
-        sb.append("]");
-        return sb.toString();
-    }
-
-    public String listArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-        StringBuilder sb = new StringBuilder("[" + Integer.toString(list.get(0)));
-        for (int i = 1; i < list.size(); i++) {
-            sb.append("," + Integer.toString(list.get(i)));
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(flds);
+        int[] nums = ml.stringToIntArray(flds);
         System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
@@ -86,7 +62,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listListArrayToString(result));
+        System.out.println("result = " + ml.listListIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

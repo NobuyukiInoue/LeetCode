@@ -31,48 +31,20 @@ public class Solution {
         return res;
     }
 
-    public String Int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
-    public String List_array_to_String(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds);
-        System.out.println("nums = [" + Int_array_to_String(nums) + "]");
+        Mylib ml = new Mylib();
+        int[] nums = ml.stringToIntArray(flds);
+        System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = decompressRLElist(nums);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + Int_array_to_String(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

@@ -19,26 +19,14 @@ public class Solution {
         return ret;
     }
 
-    public String List_array_to_String(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String args) {
         System.out.println("args = " + args);
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib sl = new Mylib();
+        Mylib ml = new Mylib();
 
-        int[] nums = sl.stringTointArray(flds);
-        System.out.println("num = " + sl.intArrayToString(nums));
+        int[] nums = ml.stringToIntArray(flds);
+        System.out.println("num = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
 
@@ -46,7 +34,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + List_array_to_String(result));
+        System.out.println("result = " + ml.listIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

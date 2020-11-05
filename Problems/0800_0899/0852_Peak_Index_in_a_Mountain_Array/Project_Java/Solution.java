@@ -7,18 +7,16 @@ public class Solution {
                 return i;
         return 0;
     }
-    
+
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-
-        int[] A = ml.stringTointArray(flds);
-
+        int[] A = ml.stringToIntArray(flds);
         System.out.println("A = " + ml.intArrayToString(A));
 
         long start = System.currentTimeMillis();
-        
+
         int result = peakIndexInMountainArray(A);
 
         long end = System.currentTimeMillis();

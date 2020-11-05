@@ -83,7 +83,7 @@ public class Solution {
         System.out.println("s = " + s);
 
         long start = System.currentTimeMillis();
-        
+
         String result = reformat(s);
 
         long end = System.currentTimeMillis();

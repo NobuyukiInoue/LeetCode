@@ -14,18 +14,16 @@ public class Solution {
         res = Math.max(res, n - i);
         return res;
     }
-    
+
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-
-        int[] seats = ml.stringTointArray(flds);
-
+        int[] seats = ml.stringToIntArray(flds);
         System.out.println("seats = " + ml.intArrayToString(seats));
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxDistToClosest(seats);
 
         long end = System.currentTimeMillis();

@@ -20,26 +20,15 @@ public class Solution {
         return res.toArray(new String[res.size()]);
     }
 
-    public String strarray2string(String[] list) {
-        if (list.length < 0)
-            return "";
-
-        String result = list[0];
-        for (int i = 1; i < list.length; i++) {
-            result += "," + list[i];
-        }
-
-        return result.toString();
-    }
-
     public void Main(String args) {
         System.out.println("args = " + args);
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
         String[] list1 = flds[0].split(",");
         String[] list2 = flds[1].split(",");
 
-        System.out.println("list1 = " + strarray2string(list1));
-        System.out.println("list2 = " + strarray2string(list2));
+        Mylib ml = new Mylib();
+        System.out.println("list1 = " + ml.stringArrayToString(list1));
+        System.out.println("list2 = " + ml.stringArrayToString(list2));
 
         long start = System.currentTimeMillis();
 
@@ -47,7 +36,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " +  strarray2string(result));
+        System.out.println("result = " +  ml.stringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

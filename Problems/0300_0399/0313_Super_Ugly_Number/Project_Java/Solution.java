@@ -28,7 +28,7 @@ public class Solution {
 
         Mylib ml = new Mylib();
         int n = Integer.parseInt(flds[0]);
-        int[] primes = ml.stringTointArray(flds[1]);
+        int[] primes = ml.stringToIntArray(flds[1]);
 
         System.out.println("n = " + Integer.toString(n));
         System.out.println("primes = " + ml.intArrayToString(primes));

@@ -20,7 +20,7 @@ public class Solution {
             } else if (ch.equals("/")) {
                 int b = Integer.parseInt(st.pop());
                 int a = Integer.parseInt(st.pop());
-                st.push(Integer.toString(a / b));                
+                st.push(Integer.toString(a / b));
             } else {
                 st.push(ch);
             }
@@ -31,13 +31,9 @@ public class Solution {
     public void Main(String args) {
         System.out.println("args = " + args);
         String[] tokens = args.replace(" ", "").replace("\"", "").replace("[", "").replace("]", "").trim().split(",");
-        System.out.print("tokens = [");
-        for (int i = 0; i < tokens.length; i++)
-            if (i == 0)
-                System.out.print(tokens[i]);
-            else
-                System.out.print(", " + tokens[i]);
-        System.out.println("]");
+
+        Mylib ml = new Mylib();
+        System.out.println("tokens = " + ml.stringArrayToString(tokens));
 
         long start = System.currentTimeMillis();
 

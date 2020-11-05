@@ -9,18 +9,16 @@ public class Solution {
         }
         return inc || dec;
     }
-    
+
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-
-        int[] A = ml.stringTointArray(flds);
-
+        int[] A = ml.stringToIntArray(flds);
         System.out.println("A = " + ml.intArrayToString(A));
 
         long start = System.currentTimeMillis();
-        
+
         Boolean result = isMonotonic(A);
 
         long end = System.currentTimeMillis();

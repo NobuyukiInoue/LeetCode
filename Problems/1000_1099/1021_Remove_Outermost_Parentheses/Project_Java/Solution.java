@@ -21,8 +21,8 @@ public class Solution {
                     break;
             }
         }
-        
-        return res.toString();   
+
+        return res.toString();
     }
 
     public String removeOuterParentheses2(String S) {
@@ -45,36 +45,12 @@ public class Solution {
         return res.toString();
     }
 
-    private String string_array_to_string(String[] words)
-    {
-        if (words.length <= 0)
-            return "";
-
-        String resultStr = words[0];
-        for (int i = 1; i < words.length; ++i)
-            resultStr += "," + words[i];
-
-        return resultStr;
-    }
-
-    private String list_to_String(List<String> list)
-    {
-        String outputStr = "";
-        int listSize = list.size();
-        for (int i = 0; i < listSize; ++i)
-        {
-            outputStr += Integer.toString(i + 1) + ":" + list.get(i) + "\n";
-        }
-
-        return outputStr;
-    }
-
     public void Main(String temp) {
         String S = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim();
         System.out.println("S = " + S);
 
         long start = System.currentTimeMillis();
-        
+
         String result = removeOuterParentheses(S);
 
         long end = System.currentTimeMillis();

@@ -21,7 +21,7 @@ public class Solution {
         System.out.println("S = " + S);
 
         long start = System.currentTimeMillis();
-        
+
         String result = reverseOnlyLetters(S);
 
         long end = System.currentTimeMillis();

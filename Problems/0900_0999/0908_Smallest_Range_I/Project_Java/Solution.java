@@ -14,10 +14,7 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        String[] data;
-        
-        int[] A = ml.stringTointArray(flds[0]);
+        int[] A = ml.stringToIntArray(flds[0]);
         int K = Integer.parseInt(flds[1]);
 
         System.out.println("A = " + ml.intArrayToString(A));

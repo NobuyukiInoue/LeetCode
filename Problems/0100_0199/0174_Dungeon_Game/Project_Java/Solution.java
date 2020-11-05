@@ -29,23 +29,11 @@ public class Solution {
         Mylib ml = new Mylib();
 
         String[] dungeon_str = flds.split("\\],\\[");
-        int[][] dungeon = new int[dungeon_str.length][];
-    
-        for (int i = 0; i < dungeon_str.length; i++) {
-            dungeon[i] = ml.stringTointArray(dungeon_str[i]);
-        }
-
-        System.out.print("dungeon = [");
-        for (int i = 0; i < dungeon.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(dungeon[i]));
-            else
-                System.out.print("," + ml.intArrayToString(dungeon[i]));
-        }
-        System.out.println("]");
+        int[][] dungeon = ml.stringToIntIntArray(dungeon_str);
+        System.out.println("dungeon = " + ml.matrixToString(dungeon));
 
         long start = System.currentTimeMillis();
-        
+
         int result = calculateMinimumHP(dungeon);
 
         long end = System.currentTimeMillis();

@@ -22,7 +22,7 @@ public class Solution {
         System.out.println("s = " + s + ", t = " + t);
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = isSubsequence(s, t);
 
         long end = System.currentTimeMillis();

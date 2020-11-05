@@ -77,7 +77,7 @@ public class Solution {
         System.out.println("word = \"" + word + "\"");
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = exist(board, word);
 
         long end = System.currentTimeMillis();

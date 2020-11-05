@@ -29,7 +29,7 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] height = ml.stringTointArray(flds);
+        int[] height = ml.stringToIntArray(flds);
         System.out.println("height = " + ml.intArrayToString(height));
 
         long start = System.currentTimeMillis();

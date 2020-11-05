@@ -40,7 +40,7 @@ public class Solution {
         System.out.println("version1 = " + version1 + ", version2 = " + version2);
 
         long start = System.currentTimeMillis();
-        
+
         int result = compareVersion(version1, version2);
 
         long end = System.currentTimeMillis();

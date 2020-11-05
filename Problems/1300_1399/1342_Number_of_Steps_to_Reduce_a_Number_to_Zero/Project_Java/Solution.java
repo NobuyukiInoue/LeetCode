@@ -20,7 +20,7 @@ public class Solution {
         System.out.println("num = " + Integer.toString(num));
 
         long start = System.currentTimeMillis();
-        
+
         int result = numberOfSteps(num);
 
         long end = System.currentTimeMillis();

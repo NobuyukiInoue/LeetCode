@@ -25,26 +25,13 @@ public class Solution {
         String[] flds = str_args.split("\\],\\[\\[");
         int N = Integer.parseInt(flds[0].replace("[[", ""));
 
-        Mylib ml = new Mylib();
         String[] data = flds[1].split("\\],\\[");
-
-        int[][] paths = new int[data.length][];
-    
-        for (int i = 0; i < data.length; i++) {
-            paths[i] = ml.stringTointArray(data[i]);
-        }
-
-        System.out.print("paths = [");
-        for (int i = 0; i < paths.length; i++) {
-            if (i == 0)
-                System.out.print("[" + ml.intArrayToString(paths[i]) + "]");
-            else
-                System.out.print(",[" + ml.intArrayToString(paths[i]) + "]");
-        }
-        System.out.println("]");
+        Mylib ml = new Mylib();
+        int[][] paths = ml.stringToIntIntArray(data);
+        System.out.println("paths = " + ml.intIntArrayToString(paths));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = gardenNoAdj(N, paths);
 
         long end = System.currentTimeMillis();

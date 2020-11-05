@@ -61,20 +61,6 @@ public class Solution {
         return dp[len1 - 1][len2 - 1];
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String temp) {
         String[] flds  = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
         String text1 = flds[0];
@@ -82,7 +68,7 @@ public class Solution {
         System.out.println("text1 = " + text1 + ", text2 = " + text2);
 
         long start = System.currentTimeMillis();
-        
+
         int result = longestCommonSubsequence(text1, text2);
 
         long end = System.currentTimeMillis();

@@ -25,25 +25,14 @@ public class Solution {
         int m = Integer.parseInt(fld0[1]);
         System.out.println("n = " + Integer.toString(n) + ", m = " + Integer.toString(m));
 
-        Mylib ml = new Mylib();
         String[] data = flds[1].split("\\],\\[");
-        int[][] indices = new int[data.length][];
-    
-        for (int i = 0; i < data.length; i++) {
-            indices[i] = ml.stringTointArray(data[i]);
-        }
 
-        System.out.print("indices = [");
-        for (int i = 0; i < indices.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(indices[i]));
-            else
-                System.out.print("," + ml.intArrayToString(indices[i]));
-        }
-        System.out.println("]");
+        Mylib ml = new Mylib();
+        int[][] indices = ml.stringToIntIntArray(data);
+        System.out.println("indices = " + ml.intIntArrayToString(indices));
 
         long start = System.currentTimeMillis();
-        
+
         int result = oddCells(n, m, indices);
 
         long end = System.currentTimeMillis();

@@ -1,7 +1,10 @@
 JAVAC =javac
 JAVAC_FLAGS =
 
-all:	MyCircularQueue.class Solution.class Main.class
+all:	Mylib.class MyCircularQueue.class Solution.class Main.class
+
+Mylib.class:	Mylib.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
 
 MyCircularQueue.class:	MyCircularQueue.java
 	$(JAVAC) $(JAVAC_FLAGS) $<

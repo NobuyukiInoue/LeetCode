@@ -58,35 +58,14 @@ public class Solution {
         }
     }
 
-    public String StringArray2String(String[] data) {
-        if (data.length <= 0)
-            return "";
-
-        String resultStr;
-        if (data[0].length() == 0) {
-            resultStr = "null";
-        } else {
-            resultStr = data[0];
-        }
-
-        for (int i = 1; i < data.length; i++) {
-            if (data[i].length() == 0) {
-                resultStr += ", null";
-            } else {
-                resultStr += ", " + data[i];
-            }
-
-        }
-
-        return resultStr;
-    }
-
     public void Main(String temp) {
         String[] words = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim().split(",");
-        System.out.println("words = " + StringArray2String(words));
+
+        Mylib ml = new Mylib();
+        System.out.println("words = " + ml.stringArrayToString(words));
 
         long start = System.currentTimeMillis();
-        
+
         String result = longestWord(words);
 
         long end = System.currentTimeMillis();

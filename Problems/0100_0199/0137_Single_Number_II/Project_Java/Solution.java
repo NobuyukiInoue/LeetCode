@@ -53,24 +53,12 @@ public class Solution {
         return ans;
     }
 
-    public String listIntArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds);
-        System.out.println("nums = " + mc.intArrayToString(nums));
+        Mylib ml = new Mylib();
+        int[] nums = ml.stringToIntArray(flds);
+        System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
 

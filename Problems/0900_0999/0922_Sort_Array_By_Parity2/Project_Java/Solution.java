@@ -10,7 +10,7 @@ public class Solution {
                 odd += 2;
             if (odd >= A.length || even >= A.length)
                 return A;
-			
+
             int temp = A[even];
             A[even] = A[odd];
             A[odd] = temp;
@@ -21,8 +21,7 @@ public class Solution {
         String flds = temp.replace("\"", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-
-        int[] A = ml.stringTointArray(flds);
+        int[] A = ml.stringToIntArray(flds);
         System.out.println("A = " + ml.intArrayToString(A));
 
         long start = System.currentTimeMillis();

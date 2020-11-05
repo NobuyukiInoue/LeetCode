@@ -55,39 +55,17 @@ public class Solution {
         }
     }
 
-    public String StringArray2String(String[] data) {
-        if (data.length <= 0)
-            return "";
-
-        String resultStr;
-        if (data[0].length() == 0) {
-            resultStr = "null";
-        } else {
-            resultStr = data[0];
-        }
-
-        for (int i = 1; i < data.length; i++) {
-            if (data[i].length() == 0) {
-                resultStr += ", null";
-            } else {
-                resultStr += ", " + data[i];
-            }
-
-        }
-
-        return resultStr;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").trim().split("\\],\\[\\[");
         String[] cmds = flds[0].replace("[[", "").split(",");
         String[] vals = flds[1].replace("[", "").replace("]", "").split(",");
 
-        System.out.println("cmds[] = " + StringArray2String(cmds));
-        System.out.println("vals[] = " + StringArray2String(vals));
+        Mylib ml = new Mylib();
+        System.out.println("cmds[] = " + ml.stringArrayToString(cmds));
+        System.out.println("vals[] = " + ml.stringArrayToString(vals));
 
         long start = System.currentTimeMillis();
-        
+
         calc(cmds, vals);
 
         long end = System.currentTimeMillis();

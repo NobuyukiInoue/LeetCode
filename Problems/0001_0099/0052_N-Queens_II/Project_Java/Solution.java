@@ -47,22 +47,9 @@ public class Solution {
                     sb.append("Q");
                 else sb.append(".");
             }
-            ret.add(sb.toString());   
+            ret.add(sb.toString());
         }    
        return ret;
-    }
-
-    public String listArrayToString(List<String> list) {
-        if (list.size() <= 0)
-            return "[]";
-        String resultStr = "[\n";
-        for (Integer i = 0; i < list.size(); i++) {
-            if (i == 0)
-                resultStr += " [" + list.get(i) + "]\n";
-            else
-                resultStr += ",[" + list.get(i) + "]\n";
-        }
-        return resultStr + "]";
     }
 
     public void Main(String temp) {
@@ -71,7 +58,7 @@ public class Solution {
         System.out.println("n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
-        
+
         int result = totalNQueens(n);
 
         long end = System.currentTimeMillis();

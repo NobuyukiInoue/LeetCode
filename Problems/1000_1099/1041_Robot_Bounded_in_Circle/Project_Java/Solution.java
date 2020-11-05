@@ -19,7 +19,7 @@ public class Solution {
         System.out.println("instructions = " + instructions);
 
         long start = System.currentTimeMillis();
-        
+
         Boolean result = isRobotBounded(instructions);
 
         long end = System.currentTimeMillis();

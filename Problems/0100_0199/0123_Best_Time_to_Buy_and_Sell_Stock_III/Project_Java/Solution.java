@@ -44,7 +44,7 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] prices = ml.stringTointArray(flds);
+        int[] prices = ml.stringToIntArray(flds);
         System.out.println("prices = " + ml.intArrayToString(prices));
 
         long start = System.currentTimeMillis();

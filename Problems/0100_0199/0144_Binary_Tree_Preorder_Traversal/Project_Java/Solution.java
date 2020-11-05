@@ -38,18 +38,6 @@ public class Solution {
         return res;
     }
 
-    public String listIntArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        StringBuilder resultStr = new StringBuilder("[" + Integer.toString(list.get(0)));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr.append("," + Integer.toString(list.get(i)));
-        }
-
-        return resultStr.append("]").toString();
-    }
-
     public void Main(String args) {
         args = args.replaceAll("#.*", "");
         args = args.replaceAll("//.*", "");
@@ -72,7 +60,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listIntArrayToString(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

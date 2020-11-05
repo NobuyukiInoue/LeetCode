@@ -21,7 +21,7 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(flds[0]);
+        int[] nums = ml.stringToIntArray(flds[0]);
         int target = Integer.parseInt(flds[1]);
 
         System.out.println("nums = " + ml.intArrayToString(nums));

@@ -28,7 +28,7 @@ public class Solution {
         System.out.println("s = " + s + ", t = " + t);
 
         long start = System.currentTimeMillis();
-        
+
         int result = numDistinct(s, t);
 
         long end = System.currentTimeMillis();

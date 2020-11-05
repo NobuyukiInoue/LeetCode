@@ -13,7 +13,7 @@ public class Solution {
                 }
             }
         }
-        
+
         return -1;
     }
 
@@ -25,7 +25,7 @@ public class Solution {
         System.out.println("sentence = \"" + sentence + "\", searchWord = \"" + searchWord + "\"");
 
         long start = System.currentTimeMillis();
-        
+
         int result = isPrefixOfWord(sentence, searchWord);
 
         long end = System.currentTimeMillis();

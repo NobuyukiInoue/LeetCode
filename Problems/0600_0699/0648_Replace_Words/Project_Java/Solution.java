@@ -132,17 +132,6 @@ public class Solution {
         return res.substring(0, res.length() - 1);
     }
 
-    private String listArrayToString(List<String> arr) {
-        if (arr.size() <= 0)
-            return "[]";
-        StringBuffer sb = new StringBuffer("[" + arr.get(0));
-        for (int i = 1; i < arr.size(); i++) {
-            sb.append(", " + arr.get(i));
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(", ", ",").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
@@ -152,11 +141,12 @@ public class Solution {
             dict.add(dict_str[i]);
         String sentence = flds[1];
 
-        System.out.println("dict = " + listArrayToString(dict));
-        System.out.println("sentence = " + sentence);       
+        Mylib ml = new Mylib();
+        System.out.println("dict = " + ml.listStringArrayToString(dict));
+        System.out.println("sentence = " + sentence);
 
         long start = System.currentTimeMillis();
-        
+
         String result = replaceWords(dict, sentence);
 
         long end = System.currentTimeMillis();

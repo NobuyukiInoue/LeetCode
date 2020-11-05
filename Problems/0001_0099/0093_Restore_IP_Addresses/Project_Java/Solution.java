@@ -37,30 +37,19 @@ public class Solution {
         }
     }
 
-    public String listArrayToString(List<String> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + list.get(0);
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + list.get(i);
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String s = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         System.out.println("s = " + s);
 
         long start = System.currentTimeMillis();
-        
+
         List<String> result = restoreIpAddresses(s);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listArrayToString(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

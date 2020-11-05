@@ -10,9 +10,9 @@ public class Solution {
         if (N == temp)
             return N - 1;
         else
-            return temp - 1 - N;        
+            return temp - 1 - N;
     }
-    
+
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
@@ -20,7 +20,7 @@ public class Solution {
         System.out.println("N = " + Integer.toString(N));
 
         long start = System.currentTimeMillis();
-        
+
         int result = bitwiseComplement(N);
 
         long end = System.currentTimeMillis();

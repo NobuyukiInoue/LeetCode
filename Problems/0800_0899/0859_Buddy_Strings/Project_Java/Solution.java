@@ -25,7 +25,7 @@ public class Solution {
         System.out.println("A = " + A + ", B = " + B);
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = buddyStrings(A, B);
 
         long end = System.currentTimeMillis();

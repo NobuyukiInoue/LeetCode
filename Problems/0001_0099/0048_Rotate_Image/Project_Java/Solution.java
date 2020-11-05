@@ -17,35 +17,20 @@ public class Solution {
         }
     }
 
-    private String intIntArrayToString(Mylib ml, int[][] matrix) {
-        String resultStr = "[" + ml.intArrayToString(matrix[0]);
-        for (int i = 1; i < matrix.length; i++) {
-            resultStr +=  "," + ml.intArrayToString(matrix[i]);
-        }
-        resultStr += "]";
-        return resultStr;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace(" ", "").replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] matrix = new int[flds.length][];
-    
-        for (int i = 0; i < matrix.length; i++) {
-            matrix[i] = ml.stringTointArray(flds[i]);
-        }
-
-        System.out.println("matrix = " + intIntArrayToString(ml, matrix));
+        int[][] matrix = ml.stringToIntIntArray(flds);
+        System.out.println("matrix = " + ml.matrixToString(matrix));
 
         long start = System.currentTimeMillis();
-        
+
         rotate(matrix);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + intIntArrayToString(ml, matrix));
+        System.out.println("result = " + ml.matrixToString(matrix));
         System.out.println((end - start)  + "ms\n");
     }
 }

@@ -18,27 +18,15 @@ public class Solution {
         return start + 1;
     }
 
-    public String Int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-            result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(flds);
-        System.out.println("nums = " + Int_array_to_String(nums));
+        int[] nums = ml.stringToIntArray(flds);
+        System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
-        
+
         int result = firstMissingPositive(nums);
 
         long end = System.currentTimeMillis();

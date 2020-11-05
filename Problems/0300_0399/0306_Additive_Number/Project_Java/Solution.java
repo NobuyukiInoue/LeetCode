@@ -7,7 +7,7 @@ public class Solution {
         char[] vals = num.toCharArray();
         return dfs(vals, 0, -1L, -1L);
     }
-    
+
     private boolean dfs(char[] vals, int idx, long prev, long pp) {
         int len = vals.length;
         if (idx == len)
@@ -32,7 +32,7 @@ public class Solution {
         System.out.println("num = " + num);
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = isAdditiveNumber(num);
 
         long end = System.currentTimeMillis();

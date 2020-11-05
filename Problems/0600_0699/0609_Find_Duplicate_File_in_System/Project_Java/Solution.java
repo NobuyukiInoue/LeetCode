@@ -65,51 +65,19 @@ public class Solution {
         return result;
     }
 
-    private String stringArrayToString(String[] arr) {
-        if (arr.length <= 0)
-            return "";
-        StringBuffer sb = new StringBuffer("[" + arr[0]);
-        for (int i = 1; i < arr.length; i++) {
-            sb.append(", " + arr[i]);
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-    private String listlistArrayToString(List<List<String>> arr) {
-        if (arr.size() <= 0)
-            return "";
-        StringBuffer sb = new StringBuffer("[" + listArrayToString(arr.get(0)));
-        for (int i = 1; i < arr.size(); i++) {
-            sb.append(", " + listArrayToString(arr.get(i)));
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-
-    private String listArrayToString(List<String> arr) {
-        if (arr.size() <= 0)
-            return "";
-        StringBuffer sb = new StringBuffer("[" + arr.get(0));
-        for (int i = 1; i < arr.size(); i++) {
-            sb.append(", " + arr.get(i));
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
     public void Main(String temp) {
         String[] paths = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim().split(",");
-        System.out.print("paths = " + stringArrayToString(paths));
+
+        Mylib ml = new Mylib();
+        System.out.print("paths = " + ml.stringArrayToString(paths));
 
         long start = System.currentTimeMillis();
-        
+
         List<List<String>> result = findDuplicate(paths);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listlistArrayToString(result));
+        System.out.println("result = " + ml.listListStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

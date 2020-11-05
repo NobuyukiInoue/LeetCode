@@ -56,48 +56,23 @@ public class Solution {
         return result;
     }
 
-    private String StringArray2String(String[] words) {
-        if (words.length <= 0)
-            return "";
-        
-        String resultStr = words[0];
-
-        for (int i = 1; i < words.length; i++) {
-            resultStr += ", " + words[i];
-        }
-
-        return resultStr;
-    }
-
-    private String ListArray2String(List<String> words) {
-        if (words.size() <= 0)
-            return "";
-        
-        String resultStr = words.get(0);
-
-        for (int i = 1; i < words.size(); i++) {
-            resultStr += ", " + words.get(i);
-        }
-
-        return resultStr;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         String[] words = flds[0].split(",");
         int maxWidth = Integer.parseInt(flds[1]);
 
-        System.out.println("words[] = " + StringArray2String(words));
+        Mylib ml = new Mylib();
+        System.out.println("words[] = " + ml.stringArrayToString(words));
         System.out.println("maxWidth = " + String.valueOf(maxWidth));
 
         long start = System.currentTimeMillis();
-        
+
         List<String> result = fullJustify(words, maxWidth);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + ListArray2String(result));
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

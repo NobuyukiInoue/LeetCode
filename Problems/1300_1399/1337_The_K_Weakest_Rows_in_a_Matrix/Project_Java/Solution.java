@@ -31,37 +31,21 @@ public class Solution {
         String[] flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[[", "").trim().split("\\]\\],\\[");
 
         String[] str_mat = flds[0].split("\\],\\[");
-        Mylib ml = new Mylib();
-        int[][] mat = new int[str_mat.length][];
-            for (int i = 0; i < str_mat.length; i++) {
-            mat[i] = ml.stringTointArray(str_mat[i]);
-        }
-        int k = Integer.parseInt(flds[1].replace("]]", ""));
 
-        System.out.println("mat = [");
-        for (int i = 0; i < mat.length; i++) {
-            if (i == 0)
-                System.out.println("  " + ml.intArrayToString(mat[i]));
-            else
-                System.out.println(", " + ml.intArrayToString(mat[i]));
-        }
-        System.out.println("]");
+        Mylib ml = new Mylib();
+        int[][] mat = ml.stringToIntIntArray(str_mat);
+        System.out.println("mat = " + ml.matrixToString(mat));
+
+        int k = Integer.parseInt(flds[1].replace("]]", ""));
         System.out.println("k = " + Integer.toString(k));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = kWeakestRows(mat, k);
 
         long end = System.currentTimeMillis();
 
-        System.out.print("result = [");
-        for (int i = 0; i < result.length; i++) {
-            if (i == 0)
-                System.out.print(Integer.toString(result[i]));
-            else
-                System.out.print(", " + Integer.toString(result[i]));
-        }
-        System.out.println("]");
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

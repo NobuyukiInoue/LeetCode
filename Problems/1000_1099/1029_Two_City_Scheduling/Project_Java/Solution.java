@@ -37,24 +37,11 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] costs = new int[flds.length][];
-    
-        for (int i = 0; i < flds.length; i++) {
-            costs[i] = ml.stringTointArray(flds[i]);
-        }
-
-        System.out.print("costs = [");
-        for (int i = 0; i < costs.length; i++) {
-            if (i == 0)
-                System.out.print("[" + ml.intArrayToString(costs[i]) + "]");
-            else
-                System.out.print(",[" + ml.intArrayToString(costs[i]) + "]");
-        }
-        System.out.println("]");
+        int[][] costs = ml.stringToIntIntArray(flds);
+        System.out.println("costs = " + ml.intIntArrayToString(costs));
 
         long start = System.currentTimeMillis();
-        
+
         int result = twoCitySchedCost(costs);
 
         long end = System.currentTimeMillis();

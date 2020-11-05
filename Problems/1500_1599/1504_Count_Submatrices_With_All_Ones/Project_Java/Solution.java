@@ -31,22 +31,11 @@ public class Solution {
 
     public void Main(String temp) {
         String flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim();
-
         String[] str_mat = flds.split("\\],\\[");
-        Mylib ml = new Mylib();
-        int[][] mat = new int[str_mat.length][];
-            for (int i = 0; i < str_mat.length; i++) {
-            mat[i] = ml.stringTointArray(str_mat[i]);
-        }
 
-        System.out.println("mat = [");
-        for (int i = 0; i < mat.length; i++) {
-            if (i == 0)
-                System.out.println("  " + ml.intArrayToString(mat[i]));
-            else
-                System.out.println(", " + ml.intArrayToString(mat[i]));
-        }
-        System.out.println("]");
+        Mylib ml = new Mylib();
+    	int[][] mat = ml.stringToIntIntArray(str_mat);
+        System.out.println("mat = " + ml.matrixToString(mat));
 
         long start = System.currentTimeMillis();
 

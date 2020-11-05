@@ -24,28 +24,15 @@ public class Solution {
         return res;
     }
 
-    private String listArrayToString(List<String> arr) {
-        if (arr.size() <= 0)
-            return "";
-        StringBuffer sb = new StringBuffer("[" + arr.get(0));
-        for (int i = 1; i < arr.size(); i++) {
-            sb.append(", " + arr.get(i));
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim().split(",");
 
-        List<String> arr = new ArrayList<>();
-        for (String fld : flds) {
-            arr.add(fld);
-        }
-        System.out.println("arr = " + listArrayToString(arr));
+        Mylib ml = new Mylib();
+        List<String> arr = ml.stringArrayToListStringArray(flds);
+        System.out.println("arr = " + ml.listStringArrayToString(arr));
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxLength(arr);
 
         long end = System.currentTimeMillis();

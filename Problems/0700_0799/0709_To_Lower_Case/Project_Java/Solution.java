@@ -22,7 +22,7 @@ public class Solution {
         System.out.println("str = " + str);
 
         long start = System.currentTimeMillis();
-        
+
         String result = toLowerCase(str);
 
         long end = System.currentTimeMillis();

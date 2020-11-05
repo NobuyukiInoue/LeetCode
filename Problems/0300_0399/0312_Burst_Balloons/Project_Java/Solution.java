@@ -61,43 +61,15 @@ public class Solution {
         return nums[i];
     }
 
-    public String intArrayToString(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
-    public String listArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds);
-        System.out.println("nums = [" + intArrayToString(nums) + "]");
+        Mylib ml = new Mylib();
+        int[] nums = ml.stringToIntArray(flds);
+        System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxCoins(nums);
 
         long end = System.currentTimeMillis();

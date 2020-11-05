@@ -32,7 +32,7 @@ public class Solution {
         System.out.println("text = " + text);
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxRepOpt1(text);
 
         long end = System.currentTimeMillis();

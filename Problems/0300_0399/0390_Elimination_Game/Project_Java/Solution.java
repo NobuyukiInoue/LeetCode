@@ -19,7 +19,7 @@ public class Solution {
         System.out.println("n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
-        
+
         int result = lastRemaining(n);
 
         long end = System.currentTimeMillis();

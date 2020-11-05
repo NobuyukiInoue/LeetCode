@@ -27,44 +27,21 @@ public class Solution {
         return res;
     }
 
-    public String listIntArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        StringBuilder sb = new StringBuilder("[" + Integer.toString(list.get(0)));
-        for (int i = 1; i < list.size(); i++) {
-            sb.append("," + Integer.toString(list.get(i)));
-        }
-
-        return sb.append("]").toString();
-    }
-
     public void Main(String temp) {
         String flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim();
 
         String[] str_matrix = flds.split("\\],\\[");
         Mylib ml = new Mylib();
-        int[][] matrix = new int[str_matrix.length][];
-            for (int i = 0; i < str_matrix.length; i++) {
-            matrix[i] = ml.stringTointArray(str_matrix[i]);
-        }
-
-        System.out.println("matrix = [");
-        for (int i = 0; i < matrix.length; i++) {
-            if (i == 0)
-                System.out.println("  " + ml.intArrayToString(matrix[i]));
-            else
-                System.out.println(", " + ml.intArrayToString(matrix[i]));
-        }
-        System.out.println("]");
+        int[][] matrix = ml.stringToIntIntArray(str_matrix);
+        System.out.println("matrix = " + ml.matrixToString(matrix));
 
         long start = System.currentTimeMillis();
-        
+
         List<Integer> result = luckyNumbers(matrix);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listIntArrayToString(result));
+        System.out.println("result = " + ml.listIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

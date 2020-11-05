@@ -25,7 +25,7 @@ public class Solution {
         System.out.println("m = " + Integer.toString(m) + ", n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
-        
+
         int result = rangeBitwiseAnd(m, n);
 
         long end = System.currentTimeMillis();

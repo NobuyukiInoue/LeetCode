@@ -59,12 +59,13 @@ public class Solution {
         System.out.println("s = " + s);
 
         long start = System.currentTimeMillis();
-        
+
         List<String> result = removeInvalidParentheses(s);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + result);
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

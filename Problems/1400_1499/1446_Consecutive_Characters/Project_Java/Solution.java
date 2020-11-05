@@ -25,7 +25,7 @@ public class Solution {
         System.out.println("s = " + s);
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxPower(s);
 
         long end = System.currentTimeMillis();

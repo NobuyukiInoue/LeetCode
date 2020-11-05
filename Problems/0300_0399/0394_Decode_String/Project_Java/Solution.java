@@ -37,7 +37,7 @@ public class Solution {
         System.out.println("s = " + s);
 
         long start = System.currentTimeMillis();
-        
+
         String result = decodeString(s);
 
         long end = System.currentTimeMillis();

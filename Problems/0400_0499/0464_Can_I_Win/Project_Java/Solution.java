@@ -32,7 +32,7 @@ public class Solution {
         System.out.println("maxChoosableInteger = " + Integer.toString(maxChoosableInteger) + ", desireTotal = " + Integer.toString(desiredTotal));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = canIWin(maxChoosableInteger, desiredTotal);
 
         long end = System.currentTimeMillis();

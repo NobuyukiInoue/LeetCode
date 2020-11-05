@@ -26,33 +26,8 @@ public class Solution {
         return ans;
     }
 
-    public String IntInt_array_to_String(int[][] list) {
-        if (list.length <= 0)
-            return "[]";
-
-        StringBuffer resultStr = new StringBuffer("[");
-        for (int i = 0; i < list.length; i++) {
-            if (i == 0)
-                resultStr.append("[");
-            else
-                resultStr.append(",[");
-
-            for (int j = 0; j < list[i].length; j++) {
-                if (j == 0)
-                    resultStr.append(Integer.toString(list[i][j]));
-                else
-                    resultStr.append("," + Integer.toString(list[i][j]));
-            }
-            resultStr.append("]");
-        }
-
-        return resultStr.append("]").toString();
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
-
-        Mylib ml = new Mylib();
 
         int R = Integer.parseInt(flds[0]);
         int C = Integer.parseInt(flds[1]);
@@ -65,12 +40,13 @@ public class Solution {
                          ", c0 = " + Integer.toString(c0));
 
         long start = System.currentTimeMillis();
-        
+
         int[][] result = allCellsDistOrder(R, C, r0, c0);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + IntInt_array_to_String(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.intIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

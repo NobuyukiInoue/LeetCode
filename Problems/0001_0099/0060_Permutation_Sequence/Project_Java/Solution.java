@@ -34,25 +34,13 @@ public class Solution {
         return sb.toString();
     }
 
-    public String intArrayToString(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-            result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
         int n = Integer.parseInt(flds[0]);
         int k = Integer.parseInt(flds[1]);
 
         long start = System.currentTimeMillis();
-        
+
         String result = getPermutation(n, k);
 
         long end = System.currentTimeMillis();

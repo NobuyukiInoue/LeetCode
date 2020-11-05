@@ -11,29 +11,14 @@ public class Solution {
         return i == m;
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
         String name = flds[0];
         String typed = flds[1];
-
         System.out.println("name = " + name + ", typed = " + typed);
 
         long start = System.currentTimeMillis();
-        
+
         Boolean result = isLongPressedName(name, typed);
 
         long end = System.currentTimeMillis();

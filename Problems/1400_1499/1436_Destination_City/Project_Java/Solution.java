@@ -18,11 +18,11 @@ public class Solution {
         // 1ms
         HashSet<String> set = new HashSet<>();
         String result = "";
-        
+
         for (int i = 0; i < paths.size(); i++) {
             set.add(paths.get(i).get(0));
         }
-        
+
         for (int i = 0; i < paths.size(); i++) {
             if (!set.contains(paths.get(i).get(1))) {
                 result = paths.get(i).get(1);
@@ -33,54 +33,16 @@ public class Solution {
         return result;
     }
 
-    private List<String> strToList(String[] data) {
-        List<String> res = new ArrayList<>();
-        for (int i = 0; i < data.length; i++) {
-            res.add(data[i]);
-        }
-
-        return res;
-    }
-
-    private String listToString(List<String> data) {
-        if (data.size() <= 0)
-            return "[]";
-        
-        StringBuilder sb = new StringBuilder("[\"" + data.get(0) + "\"");
-        for (int i = 1; i < data.size(); i++)
-            sb.append(", \"" + data.get(i) + "\"");
-
-        sb.append("]");
-
-        return sb.toString();
-    }
-
-    private String listlistToString(List<List<String>> data) {
-        if (data.size() <= 0)
-            return "";
-
-        StringBuilder sb = new StringBuilder("[" + listToString(data.get(0)));
-        for (int i = 1; i < data.size(); i++)
-            sb.append(", " + listToString(data.get(i)));
-
-        sb.append("]");
-
-        return sb.toString();
-    }
-
     public void Main(String temp) {
         String flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim();
         String[] data = flds.split("\\],\\[");
 
-        List<List<String>> paths = new ArrayList<>();
-            for (int i = 0; i < data.length; i++) {
-            paths.add(strToList(data[i].split(",")));
-        }
-
-        System.out.println("paths = " + listlistToString(paths));
+        Mylib ml = new Mylib();
+        List<List<String>> paths = ml.stringArrayToListListStringArray(data);
+        System.out.println("paths = " + ml.listListStringArrayToString(paths));
 
         long start = System.currentTimeMillis();
-        
+
         String result = destCity(paths);
 
         long end = System.currentTimeMillis();

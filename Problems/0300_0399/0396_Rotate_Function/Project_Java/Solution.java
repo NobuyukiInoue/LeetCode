@@ -18,27 +18,15 @@ public class Solution {
         return res;
     }
 
-    public String listArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] A = ml.stringTointArray(flds);
+        int[] A = ml.stringToIntArray(flds);
         System.out.println("A = " + ml.intArrayToString(A));
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxRotateFunction(A);
 
         long end = System.currentTimeMillis();

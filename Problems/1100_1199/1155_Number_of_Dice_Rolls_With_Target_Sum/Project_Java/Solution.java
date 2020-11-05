@@ -33,7 +33,7 @@ public class Solution {
         System.out.println(String.format("d = %d, f = %d, target = %d", d, f, target));
 
         long start = System.currentTimeMillis();
-        
+
         int result = numRollsToTarget(d, f, target);
 
         long end = System.currentTimeMillis();

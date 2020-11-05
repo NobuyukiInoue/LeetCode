@@ -15,7 +15,6 @@ public class Solution {
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
         int num = Integer.parseInt(flds);
         System.out.println("num = " + Integer.toString(num));
 
@@ -25,7 +24,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + mc.intArrayToString(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

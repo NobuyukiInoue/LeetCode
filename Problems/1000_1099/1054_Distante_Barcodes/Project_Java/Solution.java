@@ -42,11 +42,11 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] barcodes = ml.stringTointArray(flds);
+        int[] barcodes = ml.stringToIntArray(flds);
         System.out.println("barcodes = " + ml.intArrayToString(barcodes));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = rearrangeBarcodes(barcodes);
 
         long end = System.currentTimeMillis();

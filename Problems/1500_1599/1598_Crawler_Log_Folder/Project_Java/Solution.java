@@ -19,9 +19,8 @@ public class Solution {
 
     public void Main(String temp) {
         String[] logs = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim().split(",");
-        for (int i = 0; i < logs.length; i++) {
-            System.out.println("logs[" + Integer.toString(i) + "] = " + logs[i]);
-        }
+        Mylib ml = new Mylib();
+        System.out.println("logs = " + ml.stringArrayToString(logs));
 
         long start = System.currentTimeMillis();
 

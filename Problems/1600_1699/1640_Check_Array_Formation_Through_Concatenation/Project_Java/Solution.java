@@ -34,20 +34,12 @@ public class Solution {
         String[] flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").trim().split("\\],\\[\\[");
 
         Mylib ml = new Mylib();
-        int[] arr = ml.stringTointArray(flds[0].replace("[[",""));
+        int[] arr = ml.stringToIntArray(flds[0].replace("[[",""));
         System.out.println("arr = " + ml.intArrayToString(arr));
 
         String[] piecesStr = flds[1].replace("]]]", "").split("\\],\\[");
-        int[][] pieces = new int[piecesStr.length][];
-        System.out.print("pieces = [");
-        for (int i = 0; i < pieces.length; i++) {
-            pieces[i] = ml.stringTointArray(piecesStr[i]);
-            if (i == 0)
-                System.out.print(ml.intArrayToString(pieces[i]));
-            else
-                System.out.print(", " + ml.intArrayToString(pieces[i]));
-        }
-        System.out.println("]");
+        int[][] pieces = ml.stringToIntIntArray(piecesStr);
+        System.out.println("pieces = " + ml.intIntArrayToString(pieces));
 
         long start = System.currentTimeMillis();
 

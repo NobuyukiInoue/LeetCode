@@ -20,13 +20,13 @@ public class Solution {
         String[] flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(flds[0]);
-        int[] index = ml.stringTointArray(flds[1]);
+        int[] nums = ml.stringToIntArray(flds[0]);
+        int[] index = ml.stringToIntArray(flds[1]);
 
         System.out.println("nums = " + ml.intArrayToString(nums) + ", index = " + ml.intArrayToString(index));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = createTargetArray(nums, index);
 
         long end = System.currentTimeMillis();

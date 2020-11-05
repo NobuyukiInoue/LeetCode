@@ -8,7 +8,7 @@ public class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
         List<Integer> ans = new ArrayList<Integer>();
 
-        if (s == null)
+        if (s == null || words == null)
             return ans;
         if (s == "")
             return ans;
@@ -16,7 +16,7 @@ public class Solution {
             return ans;
         if (words[0] == "")
             return ans;
-            
+
         int n = s.length();
         int k = words[0].length();
         int t = words.length * k;
@@ -72,51 +72,29 @@ public class Solution {
         }
     }
 
-    private String string_array_to_string(String[] words)
-    {
-        if (words.length <= 0)
-            return "";
-
-        String resultStr = words[0];
-        for (int i = 1; i < words.length; ++i)
-            resultStr += "," + words[i];
-
-        return resultStr;
-    }
-
-    private String List_to_string(List<Integer> list)
-    {
-        if (list.size() <= 0)
-            return "";
-
-        String resultStr = Integer.toString(list.get(0));
-        for (int i = 1; i < list.size(); ++i)
-            resultStr += "," + Integer.toString(list.get(i));
-        
-        return resultStr;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         String s = flds[0];
-        String[] words;
 
-        if (flds.length == 2)
-            words = flds[1].split(",");
-        else
-            words = new String[] {""};
+        Mylib ml = new Mylib();
+        String[] words;
+        if (flds.length >= 2) {
+            words = ml.stringToStringArray(flds[1]);
+        } else {
+            words = ml.stringToStringArray("");
+        }
 
         System.out.println("s = " + s);
-        System.out.println("words[] = " + string_array_to_string(words));
+        System.out.println("words[] = " + ml.stringArrayToString(words));
 
         long start = System.currentTimeMillis();
-        
+
         List<Integer> result = findSubstring(s, words);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + List_to_string(result));
+        System.out.println("result = " + ml.listIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

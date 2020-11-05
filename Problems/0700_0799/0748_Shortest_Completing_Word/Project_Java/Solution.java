@@ -26,28 +26,17 @@ public class Solution {
         return true;
     }
 
-    public String strarray2string(String[] list) {
-        if (list.length < 0)
-            return "";
-
-        String result = list[0];
-        for (int i = 1; i < list.length; i++) {
-            result += "," + list[i];
-        }
-
-        return result.toString();
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
         String licensePlate = flds[0];
         String[] words = flds[1].split(",");
 
+        Mylib ml = new Mylib();
         System.out.println("licensePlate = " + licensePlate);
-        System.out.println("words[] = " + strarray2string(words));
+        System.out.println("words[] = " + ml.stringArrayToString(words));
 
         long start = System.currentTimeMillis();
-        
+
         String result = shortestCompletingWord(licensePlate, words);
 
         long end = System.currentTimeMillis();

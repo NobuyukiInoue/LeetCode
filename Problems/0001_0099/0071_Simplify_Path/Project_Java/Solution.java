@@ -33,7 +33,7 @@ public class Solution {
         System.out.println("path = " + path);
 
         long start = System.currentTimeMillis();
-        
+
         String result = simplifyPath(path);
 
         long end = System.currentTimeMillis();

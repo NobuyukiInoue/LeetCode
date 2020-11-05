@@ -45,34 +45,6 @@ public class Solution {
         return leaves;
     }
 
-    public String intArrayToString(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
-    public String listArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace(" ", "").replace("\"", "").trim().split("\\],\\[\\[");
 
@@ -83,21 +55,12 @@ public class Solution {
     //  System.out.println("flds[1] = " + flds[1]);
     //  System.out.println("flds[1].length = " + Integer.toString(flds[1].length()));
 
+        Mylib ml = new Mylib();
         int[][] edges;
         if (flds[0].length() > 0) {
-            Mylib ml = new Mylib();
             String[] dataStr = flds[1].split("\\],\\[");
-        //  System.out.println("dataStr.length = " + Integer.toString(dataStr.length));
-            edges = new int[dataStr.length][];
-            System.out.print("edge = [");
-            for (int i = 0; i < dataStr.length; i++) {
-                edges[i] = ml.stringTointArray(dataStr[i]);
-                if (i == 0)
-                    System.out.println("[" + intArrayToString(edges[i]) + "]");
-                else
-                    System.out.println(", [" + intArrayToString(edges[i]) + "]");
-            }
-            System.out.println("]");
+            edges = ml.stringToIntIntArray(dataStr);
+            System.out.println("edges = " + ml.matrixToString(edges));
         } else {
             edges = new int[0][0];
             System.out.println("edges = [[]]");
@@ -109,7 +72,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listArrayToString(result));
+        System.out.println("result = " + ml.listIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

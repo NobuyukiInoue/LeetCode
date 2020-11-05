@@ -19,11 +19,11 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] prices = ml.stringTointArray(flds);
+        int[] prices = ml.stringToIntArray(flds);
         System.out.println("prices = " + ml.intArrayToString(prices));
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxProfit(prices);
 
         long end = System.currentTimeMillis();

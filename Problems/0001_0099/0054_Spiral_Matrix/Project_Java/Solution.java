@@ -38,29 +38,13 @@ public class Solution {
         return result;
     }
 
-    public String listIntArrayToString(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String args) {
         System.out.println("args = " + args);
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] matrix = new int[flds.length][];
-        for (int i = 0; i < flds.length; i++) {
-            matrix[i] = ml.stringTointArray(flds[i]);
-            System.out.println("matrix[" + Integer.toString(i) + "] = " + ml.intArrayToString(matrix[i]));
-        }
+        int[][] matrix = ml.stringToIntIntArray(flds);
+        System.out.println("matrix = " + ml.matrixToString(matrix));
 
         long start = System.currentTimeMillis();
 
@@ -68,7 +52,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listIntArrayToString(result));
+        System.out.println("result = " + ml.listIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

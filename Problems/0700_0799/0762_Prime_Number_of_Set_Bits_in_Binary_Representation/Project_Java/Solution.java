@@ -88,7 +88,7 @@ public class Solution {
         System.out.println("L = " + Integer.toString(L) + ", R = " + Integer.toString(R));
 
         long start = System.currentTimeMillis();
-        
+
         int result = countPrimeSetBits(L, R);
 
         long end = System.currentTimeMillis();

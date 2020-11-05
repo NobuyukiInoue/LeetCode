@@ -22,14 +22,14 @@ public class Solution {
         String S = words[0];
         char C = words[1].charAt(0);
         System.out.println("S = " + S + ", C = " + C);
-        Mylib ml = new Mylib();
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = shortestToChar(S, C);
 
         long end = System.currentTimeMillis();
 
+        Mylib ml = new Mylib();
         System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }

@@ -42,7 +42,7 @@ public class Solution {
         System.out.println("s1 = " + s1 + ", s2 = " + s2 + ", s3 = " + s3);
 
         long start = System.currentTimeMillis();
-        
+
         Boolean result = isInterleave(s1, s2, s3);
 
         long end = System.currentTimeMillis();

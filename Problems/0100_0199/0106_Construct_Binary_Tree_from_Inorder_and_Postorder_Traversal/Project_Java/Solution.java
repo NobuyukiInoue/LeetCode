@@ -28,20 +28,10 @@ public class Solution {
     public void Main(String args) {
         System.out.println("args = " + args);
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
-        String[] nums1 = flds[0].split(",");
-        String[] nums2 = flds[1].split(",");
-
-        int[] inorder = new int[nums1.length];
-        for (int i = 0; i < inorder.length; ++i) {
-            inorder[i] = Integer.parseInt(nums1[i]);
-        }
-
-        int[] postorder = new int[nums2.length];
-        for (int i = 0; i < postorder.length; ++i) {
-            postorder[i] = Integer.parseInt(nums2[i]);
-        }
 
         Mylib ml = new Mylib();
+        int[] inorder = ml.stringToIntArray(flds[0]);
+        int[] postorder = ml.stringToIntArray(flds[1]);
         System.out.println("inorder = " + ml.intArrayToString(inorder));
         System.out.println("postorder = " + ml.intArrayToString(postorder));
 

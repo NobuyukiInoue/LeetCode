@@ -22,7 +22,7 @@ public class Solution {
         int[] nums;
         
         if (flds.length > 1)
-            nums = ml.stringTointArray(flds[1]);
+            nums = ml.stringToIntArray(flds[1]);
         else
             nums = new int[0];
 

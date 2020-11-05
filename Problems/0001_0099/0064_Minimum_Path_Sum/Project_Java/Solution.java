@@ -20,27 +20,14 @@ public class Solution {
 
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim();
+        String[] grid_str = flds.split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        String[] grid_str = flds.split("\\],\\[");
-        int[][] grid = new int[grid_str.length][];
-    
-        for (int i = 0; i < grid_str.length; i++) {
-            grid[i] = ml.stringTointArray(grid_str[i]);
-        }
-
-        System.out.print("grid = [");
-        for (int i = 0; i < grid.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(grid[i]));
-            else
-                System.out.print("," + ml.intArrayToString(grid[i]));
-        }
-        System.out.println("]");
+        int[][] grid = ml.stringToIntIntArray(grid_str);
+        System.out.println("grid = " + ml.intIntArrayToString(grid));
 
         long start = System.currentTimeMillis();
-        
+
         int result = minPathSum(grid);
 
         long end = System.currentTimeMillis();

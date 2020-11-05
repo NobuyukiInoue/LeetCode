@@ -32,43 +32,15 @@ public class Solution {
         return -1;
     }
 
-    public String Int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
-    public String List_array_to_String(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] arr = mc.stringTointArray(flds);
-        System.out.println("arr = [" + Int_array_to_String(arr) + "]");
+        Mylib ml = new Mylib();
+        int[] arr = ml.stringToIntArray(flds);
+        System.out.println("arr = " + ml.intArrayToString(arr));
 
         long start = System.currentTimeMillis();
-        
+
         int result = findSpecialInteger(arr);
 
         long end = System.currentTimeMillis();

@@ -29,11 +29,8 @@ public class Solution {
         } else {
             Mylib ml = new Mylib();
             String[] nums = flds[1].split("\\],\\[");
-            ops = new int[nums.length][];
-            for (int i = 0; i < nums.length; i++) {
-                ops[i] = ml.stringTointArray(nums[i]);
-                System.out.println("ops[" + Integer.toString(i) + "] = " + ml.intArrayToString(ops[i]));
-            }
+            ops = ml.stringToIntIntArray(nums);
+            System.out.println("ops = " + ml.intIntArrayToString(ops));
         }
 
         long start = System.currentTimeMillis();

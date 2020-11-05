@@ -19,27 +19,17 @@ public class Solution {
         return true;
     }
 
-    private String string_array_to_string(String[] words)
-    {
-        if (words.length <= 0)
-            return "";
-
-        String resultStr = words[0];
-        for (int i = 1; i < words.length; ++i)
-            resultStr += "," + words[i];
-
-        return resultStr;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(", ", ",").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         String[] words = flds[0].split(",");
         String order = flds[1];
-        System.out.println("words = " + string_array_to_string(words) + ", order = " + order);
+
+        Mylib ml = new Mylib();
+        System.out.println("words = " + ml.stringArrayToString(words) + ", order = " + order);
 
         long start = System.currentTimeMillis();
-        
+
         Boolean result = isAlienSorted(words, order);
 
         long end = System.currentTimeMillis();

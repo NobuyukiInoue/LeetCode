@@ -84,15 +84,15 @@ public class Solution {
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] weights = mc.stringTointArray(flds[0]);
+        Mylib ml = new Mylib();
+        int[] weights = ml.stringToIntArray(flds[0]);
         int D = Integer.parseInt(flds[1]);
 
-        System.out.println("weights = " + mc.intArrayToString(weights));
+        System.out.println("weights = " + ml.intArrayToString(weights));
         System.out.println("D = " + String.valueOf(D));
 
         long start = System.currentTimeMillis();
-        
+
         int result = shipWithinDays(weights, D);
 
         long end = System.currentTimeMillis();

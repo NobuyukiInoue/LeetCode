@@ -20,13 +20,11 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-
-        int[] deck = ml.stringTointArray(flds);
-
+        int[] deck = ml.stringToIntArray(flds);
         System.out.println("deck = " + ml.intArrayToString(deck));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = hasGroupsSizeX(deck);
 
         long end = System.currentTimeMillis();

@@ -26,7 +26,7 @@ public class Solution {
         System.out.println("secret = " + secret + ", guess = " + guess);
 
         long start = System.currentTimeMillis();
-        
+
         String result = getHint(secret, guess);
 
         long end = System.currentTimeMillis();

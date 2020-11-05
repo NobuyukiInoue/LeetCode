@@ -15,24 +15,11 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] points = new int[flds.length][];
-    
-        for (int i = 0; i < flds.length; i++) {
-            points[i] = ml.stringTointArray(flds[i]);
-        }
-
-        System.out.print("points = [");
-        for (int i = 0; i < points.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(points[i]));
-            else
-                System.out.print("," + ml.intArrayToString(points[i]));
-        }
-        System.out.println("]");
+        int[][] points = ml.stringToIntIntArray(flds);
+        System.out.println("points = " + ml.intIntArrayToString(points));
 
         long start = System.currentTimeMillis();
-        
+
         int result = minTimeToVisitAllPoints(points);
 
         long end = System.currentTimeMillis();

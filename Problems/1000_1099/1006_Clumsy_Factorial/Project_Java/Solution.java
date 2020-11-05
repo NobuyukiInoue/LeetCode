@@ -19,7 +19,7 @@ public class Solution {
         System.out.println("N = " + Integer.toString(N));
 
         long start = System.currentTimeMillis();
-        
+
         int result = clumsy(N);
 
         long end = System.currentTimeMillis();

@@ -8,22 +8,22 @@ public class Solution {
                 if (helper(i, j, grid))
                     cnt++;
         return cnt;
-    }  
-    
+    }
+
     private boolean helper(int x, int y, int[][] grid){
         if (grid[x + 1][y + 1] != 5)
             return false;
-        
+
         int[] valid = new int[16];
-        
+
         for (int i = x; i <= x + 2; i++)
             for (int j = y; j <= y + 2; j++)
                 valid[grid[i][j]]++;
-            
+
         for (int v = 1; v <= 9; v++)
             if (valid[v] != 1)
                 return false;
-        
+
         if ((grid[x][y] + grid[x][y + 1] + grid[x][y + 2]) != 15)
             return false;
         if ((grid[x][y] + grid[x + 1][y + 1] + grid[x + 2][y + 2]) != 15)
@@ -43,19 +43,11 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] grid = new int[flds.length][];
-    
-        for (int i = 0; i < flds.length; i++) {
-            grid[i] = ml.stringTointArray(flds[i]);
-        }
-
-        System.out.println("grid = ");
-        for (int i = 0; i < grid.length; i++)
-            System.out.println(ml.intArrayToString(grid[i]));
+        int[][] grid = ml.stringToIntIntArray(flds);
+        System.out.println("grid = " + ml.matrixToString(grid));
 
         long start = System.currentTimeMillis();
-        
+
         int result = numMagicSquaresInside(grid);
 
         long end = System.currentTimeMillis();

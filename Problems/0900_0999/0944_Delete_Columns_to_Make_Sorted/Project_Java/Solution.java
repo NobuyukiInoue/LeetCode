@@ -18,26 +18,13 @@ public class Solution {
         return result;
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String temp) {
         String[] A = temp.replace("\"", "").replace("[", "").replace("]", "").trim().split(",");
-        System.out.println("A = " + output_str_array(A));
+        Mylib ml = new Mylib();
+        System.out.println("A = " + ml.stringArrayToString(A));
 
         long start = System.currentTimeMillis();
-        
+
         int result = minDeletionSize(A);
 
         long end = System.currentTimeMillis();

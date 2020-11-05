@@ -24,10 +24,8 @@ public class Solution {
                 board[i][j] >>= 1;
             }
         }
-
-        print_board(board);
     }
-    
+
     public int liveNeighbors(int[][] board, int i, int j, int m, int n) {
         int lives = 0;
         for (int x = Math.max(i - 1, 0); x <= Math.min(i + 1, m - 1); x++) {
@@ -44,34 +42,20 @@ public class Solution {
         return lives;
     }
 
-    private void print_board(int[][] board) {
-        System.out.println("board = [");
-        for (int i = 0; i < board.length; i++) {
-            if (i == 0)
-                System.out.println("  " + ml.intArrayToString(board[i]));
-            else
-                System.out.println(", " + ml.intArrayToString(board[i]));
-        }
-        System.out.println("]");
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        int[][] board = new int[flds.length][];
-            for (int i = 0; i < flds.length; i++) {
-            board[i] = ml.stringTointArray(flds[i]);
-        }
-
-        print_board(board);
+        Mylib ml = new Mylib();
+        int[][] board = ml.stringToIntIntArray(flds);
+        System.out.println("board = " + ml.matrixToString(board));
 
         long start = System.currentTimeMillis();
-        
+
         gameOfLife(board);
 
         long end = System.currentTimeMillis();
 
-    //  System.out.println("result = " + result);
+        System.out.println("board = " + ml.matrixToString(board));
         System.out.println((end - start)  + "ms\n");
     }
 }

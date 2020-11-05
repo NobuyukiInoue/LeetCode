@@ -20,36 +20,23 @@ public class Solution {
         return res;
     }
 
-    private String listArrayToString(List<String> data) {
-        if (data.size() <= 0)
-            return "";
-
-        StringBuilder sb = new StringBuilder("[" + data.get(0));
-        for (int i = 1; i < data.size(); i++) {
-            sb.append(", " + data.get(i));
-        }
-
-        sb.append("]");
-        return sb.toString();
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] target = mc.stringTointArray(flds[0]);
+        Mylib ml = new Mylib();
+        int[] target = ml.stringToIntArray(flds[0]);
         int n = Integer.parseInt(flds[1]);
 
-        System.out.println("target = " + mc.intArrayToString(target));
+        System.out.println("target = " + ml.intArrayToString(target));
         System.out.println("n = " + String.valueOf(n));
 
         long start = System.currentTimeMillis();
-        
+
         List<String> result = buildArray(target, n);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listArrayToString(result));
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

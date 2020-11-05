@@ -79,32 +79,20 @@ public class Solution {
         return list;
     }
 
-    public String listArrayToString(List<String> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[\"" + list.get(0) + "\"";
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += ",\"" + list.get(i) + "\"";
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(flds);
+        int[] nums = ml.stringToIntArray(flds);
         System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
-        
+
         List<String> result = summaryRanges(nums);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listArrayToString(result));
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

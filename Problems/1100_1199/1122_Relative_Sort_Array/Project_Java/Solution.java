@@ -15,28 +15,12 @@ public class Solution {
         return ans;
     }
 
-    public String int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        int[] arr1 = ml.stringTointArray(flds[0]);
-        int[] arr2 = ml.stringTointArray(flds[1]);
+        int[] arr1 = ml.stringToIntArray(flds[0]);
+        int[] arr2 = ml.stringToIntArray(flds[1]);
 
         System.out.println("arr1 = " + ml.intArrayToString(arr1) + ", arr2 = " + ml.intArrayToString(arr2));
 

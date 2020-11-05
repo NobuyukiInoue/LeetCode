@@ -31,7 +31,7 @@ public class Solution {
         System.out.println("text = " + text + ", first = " + first + ", second = " + second);
 
         long start = System.currentTimeMillis();
-        
+
         String[] result = findOcurrences(text, first, second);
 
         long end = System.currentTimeMillis();

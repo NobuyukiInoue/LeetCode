@@ -13,29 +13,15 @@ public class Solution {
         return count;
     }
 
-    private void print_grid(String title, int[][] grid) {
-        System.out.println(title + " = [");
-        for (int i = 0; i < grid.length; i++) {
-            if (i == 0)
-                System.out.println("  " + ml.intArrayToString(grid[i]));
-            else
-                System.out.println(", " + ml.intArrayToString(grid[i]));
-        }
-        System.out.println("]");
-    }
-
     public void Main(String temp) {
         String flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim();
         String[] nums = flds.split("\\],\\[");
 
-        int[][] grid = new int[nums.length][];
-            for (int i = 0; i < nums.length; i++) {
-            grid[i] = ml.stringTointArray(nums[i]);
-        }
-        print_grid("title", grid);
+        int[][] grid = ml.stringToIntIntArray(nums);
+        System.out.println("grid = " + ml.matrixToString(grid));
 
         long start = System.currentTimeMillis();
-        
+
         int result = countNegatives(grid);
 
         long end = System.currentTimeMillis();

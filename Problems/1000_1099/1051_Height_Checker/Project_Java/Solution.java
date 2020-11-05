@@ -9,21 +9,19 @@ public class Solution {
             if (heights[i] != s_heights[i])
                 count++;
         }
-        
+
         return count;
     }
-    
+
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-
-        int[] heights = ml.stringTointArray(flds);
-
+        int[] heights = ml.stringToIntArray(flds);
         System.out.println("heights = " + ml.intArrayToString(heights));
 
         long start = System.currentTimeMillis();
-        
+
         int result = heightChecker(heights);
 
         long end = System.currentTimeMillis();

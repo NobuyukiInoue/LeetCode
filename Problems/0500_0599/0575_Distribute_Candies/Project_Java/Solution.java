@@ -12,7 +12,7 @@ public class Solution {
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] candies = ml.stringTointArray(flds);
+        int[] candies = ml.stringToIntArray(flds);
 
         long start = System.currentTimeMillis();
 

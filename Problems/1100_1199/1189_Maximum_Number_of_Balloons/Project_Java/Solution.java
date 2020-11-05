@@ -41,7 +41,7 @@ public class Solution {
         System.out.println("text = " + text);
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxNumberOfBalloons(text);
 
         long end = System.currentTimeMillis();

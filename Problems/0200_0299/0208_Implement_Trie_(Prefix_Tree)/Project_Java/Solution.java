@@ -30,32 +30,19 @@ public class Solution {
         }
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String arg) {
         String[] flds = arg.replace("\"", "").trim().split("\\],\\[\\[");
         String[] ope = flds[0].replace("[", "").replace("]", "").split(",");
         String[] params = flds[1].replace("]]]", "").split("\\],\\[");
 
-        System.out.println("ope[] = " + output_str_array(ope));
-        System.out.println("params[] = " + output_str_array(params));
+    	Mylib ml = new Mylib();
+        System.out.println("ope[] = " + ml.stringArrayToString(ope));
+        System.out.println("params[] = " + ml.stringArrayToString(params));
 
         long start = System.currentTimeMillis();
-        
+
         Trie_Main(ope, params);
-    
+
         long end = System.currentTimeMillis();
 
         System.out.println((end - start)  + "ms\n");

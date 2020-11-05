@@ -56,42 +56,18 @@ public class Solution {
         return ans;
     }
 
-    private String string_array_to_string(String[] words)
-    {
-        if (words.length <= 0)
-            return "";
-
-        String resultStr = words[0];
-        for (int i = 1; i < words.length; ++i)
-            resultStr += "," + words[i];
-
-        return resultStr;
-    }
-
-    private String list_to_String(List<String> list)
-    {
-        String outputStr = "";
-        int listSize = list.size();
-        for (int i = 0; i < listSize; ++i)
-        {
-            outputStr += Integer.toString(i + 1) + ":" + list.get(i) + "\n";
-        }
-
-        return outputStr;
-    }
-
     public void Main(String temp) {
         String[] A = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim().split(",");
-
-        System.out.println("A = " + string_array_to_string(A));
+        Mylib ml = new Mylib();
+        System.out.println("A = " + ml.stringArrayToString(A));
 
         long start = System.currentTimeMillis();
-        
+
         List<String> result = commonChars(A);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = \n" + list_to_String(result));
+        System.out.println("result = \n" + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

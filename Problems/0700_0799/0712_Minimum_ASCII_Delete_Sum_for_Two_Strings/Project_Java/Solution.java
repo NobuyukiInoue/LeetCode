@@ -39,7 +39,7 @@ public class Solution {
         System.out.println("s1 = " + s1 + ", s2 = " + s2);
 
         long start = System.currentTimeMillis();
-        
+
         int result = minimumDeleteSum(s1, s2);
 
         long end = System.currentTimeMillis();

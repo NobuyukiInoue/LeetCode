@@ -19,7 +19,7 @@ public class Solution {
         System.out.println("date1 = " + date1 + ", date2 = " + date2);
 
         long start = System.currentTimeMillis();
-        
+
         int result = daysBetweenDates(date1, date2);
 
         long end = System.currentTimeMillis();

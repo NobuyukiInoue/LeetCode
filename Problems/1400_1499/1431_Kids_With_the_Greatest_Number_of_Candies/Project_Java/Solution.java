@@ -35,36 +35,23 @@ public class Solution {
         return Arrays.stream(candies).mapToObj(candy -> candy + extraCandies >= max).collect(Collectors.toList());
     }
 
-    private String listArrayToString(List<Boolean> data) {
-        if (data.size() <= 0)
-            return "";
-
-        StringBuilder sb = new StringBuilder("[" + Boolean.toString(data.get(0)));
-        for (int i = 1; i < data.size(); i++) {
-            sb.append(", " + Boolean.toString(data.get(i)));
-        }
-
-        sb.append("]");
-        return sb.toString();
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] candies = mc.stringTointArray(flds[0]);
+        Mylib ml = new Mylib();
+        int[] candies = ml.stringToIntArray(flds[0]);
         int extraCandies = Integer.parseInt(flds[1]);
 
-        System.out.println("candies = " + mc.intArrayToString(candies));
+        System.out.println("candies = " + ml.intArrayToString(candies));
         System.out.println("extraCandies = " + String.valueOf(extraCandies));
 
         long start = System.currentTimeMillis();
-        
+
         List<Boolean> result = kidsWithCandies(candies, extraCandies);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listArrayToString(result));
+        System.out.println("result = " + ml.listBooleanArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

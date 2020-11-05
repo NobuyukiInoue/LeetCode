@@ -17,24 +17,12 @@ public class Solution {
         return ans;
     }
 
-    public String Int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-            result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] height = ml.stringTointArray(flds);
-        System.out.println("height = " + Int_array_to_String(height));
+        int[] height = ml.stringToIntArray(flds);
+        System.out.println("height = " + ml.intArrayToString(height));
 
         long start = System.currentTimeMillis();
         

@@ -69,7 +69,7 @@ public class Solution {
         }
         return true;
     }
-    
+
     List<String> toStringList(int[] cols) {
         List<String> ret = new ArrayList<>();
         int n = cols.length;
@@ -86,34 +86,19 @@ public class Solution {
        return ret;
     }
 
-    public String listArrayToString(List<String> list) {
-        if (list.size() <= 0)
-            return "[]";
-        String resultStr = "[\n";
-        for (Integer i = 0; i < list.size(); i++) {
-            if (i == 0)
-                resultStr += " [" + list.get(i) + "]\n";
-            else
-                resultStr += ",[" + list.get(i) + "]\n";
-        }
-        return resultStr + "]";
-    }
-
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
         int n = Integer.parseInt(flds);
         System.out.println("n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
-        
+
         List<List<String>> result = solveNQueens(n);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = ");
-        for (int i = 0; i < result.size(); i++) {
-            System.out.println("result[" + Integer.toString(i) +"] = " + listArrayToString(result.get(i)));
-        }
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listListStringArrayToString(result).replace(",", ",\n").replace("[", ",\n["));
         System.out.println((end - start)  + "ms\n");
     }
 }

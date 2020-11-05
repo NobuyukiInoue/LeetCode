@@ -29,11 +29,11 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] nums = ml.stringTointArray(flds);
+        int[] nums = ml.stringToIntArray(flds);
         System.out.println("nums = " + ml.intArrayToString(nums));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = productExceptSelf(nums);
 
         long end = System.currentTimeMillis();

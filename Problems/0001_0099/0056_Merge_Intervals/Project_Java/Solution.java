@@ -48,21 +48,6 @@ public class Solution {
         return result.toArray(new int[result.size()][]);
     }
 
-    public String intintArrayToString(Mylib ml, int[][] list) {
-        if (list == null)
-            return "[]";
-
-        if (list.length <= 0)
-            return "[]";
-
-        String resultStr = "[" + ml.intArrayToString(list[0]);
-        for (int i = 1; i < list.length; i++) {
-                resultStr += ",[" + ml.intArrayToString(list[i]) + "]";
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String args) {
         System.out.println("args = " + args);
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
@@ -71,10 +56,10 @@ public class Solution {
 
         int[][] intervals = new int[flds.length][];
         for (int i = 0; i < flds.length; i++) {
-            intervals[i] = ml.stringTointArray(flds[i]);
+            intervals[i] = ml.stringToIntArray(flds[i]);
         }
 
-        System.out.println("intervals = " + intintArrayToString(ml, intervals));
+        System.out.println("intervals = " + ml.intIntArrayToString(intervals));
 
         long start = System.currentTimeMillis();
 
@@ -82,7 +67,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + intintArrayToString(ml, result));
+        System.out.println("result = " + ml.intIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

@@ -21,24 +21,11 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] coordinates = new int[flds.length][];
-    
-        for (int i = 0; i < flds.length; i++) {
-            coordinates[i] = ml.stringTointArray(flds[i]);
-        }
-
-        System.out.print("coordinates = [");
-        for (int i = 0; i < coordinates.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(coordinates[i]));
-            else
-                System.out.print("," + ml.intArrayToString(coordinates[i]));
-        }
-        System.out.println("]");
+        int[][] coordinates = ml.stringToIntIntArray(flds);
+        System.out.println("coordinates = " + ml.intIntArrayToString(coordinates));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = checkStraightLine(coordinates);
 
         long end = System.currentTimeMillis();

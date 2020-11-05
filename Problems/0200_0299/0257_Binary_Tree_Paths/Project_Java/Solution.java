@@ -29,12 +29,6 @@ public class Solution {
         }
     }
 
-    public void list_Array2String(List<String> ll) {
-        for (int i = 0; i < ll.size(); i++) {
-            System.out.println(ll.get(i));
-        }
-    }
-
     public void Main(String args) {
         System.out.println("args = " + args);
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
@@ -52,8 +46,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = ");
-        list_Array2String(result);
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

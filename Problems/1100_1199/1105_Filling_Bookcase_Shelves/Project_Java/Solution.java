@@ -26,28 +26,15 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[[", "").trim().split("\\]],\\[");
 
         Mylib ml = new Mylib();
-
         String[] books_str = flds[0].split("\\],\\[");
-        int[][] books = new int[books_str.length][];
-    
-        for (int i = 0; i < books_str.length; i++) {
-            books[i] = ml.stringTointArray(books_str[i]);
-        }
-
+        int[][] books = ml.stringToIntIntArray(books_str);
         int shelf_width = Integer.parseInt(flds[1].replace("]]", ""));
 
-        System.out.print("books = [");
-        for (int i = 0; i < books.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(books[i]));
-            else
-                System.out.print("," + ml.intArrayToString(books[i]));
-        }
-        System.out.println("]");
+        System.out.println("books = " + ml.intIntArrayToString(books));
         System.out.println("shelf_width = " + Integer.toString(shelf_width));
 
         long start = System.currentTimeMillis();
-        
+
         int result = minHeightShelves(books, shelf_width);
 
         long end = System.currentTimeMillis();

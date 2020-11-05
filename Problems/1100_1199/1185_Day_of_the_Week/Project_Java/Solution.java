@@ -24,7 +24,7 @@ public class Solution {
         System.out.println("day = " + Integer.toString(day) + ", month = " + Integer.toString(month) + ", year = " + Integer.toString(year));
 
         long start = System.currentTimeMillis();
-        
+
         String result = dayOfTheWeek(day, month, year);
 
         long end = System.currentTimeMillis();

@@ -29,7 +29,7 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[] A = ml.stringTointArray(flds);
+        int[] A = ml.stringToIntArray(flds);
 
         System.out.println("A = " + ml.intArrayToString(A));
 

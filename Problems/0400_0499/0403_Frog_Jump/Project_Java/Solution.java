@@ -38,11 +38,11 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] stones = ml.stringTointArray(flds);
+        int[] stones = ml.stringToIntArray(flds);
         System.out.println("stones = " + ml.intArrayToString(stones));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = canCross(stones);
 
         long end = System.currentTimeMillis();

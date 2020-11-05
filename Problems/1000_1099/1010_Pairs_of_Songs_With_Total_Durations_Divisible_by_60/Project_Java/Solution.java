@@ -16,18 +16,16 @@ public class Solution {
 
         return res;
     }
-    
+
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-
-        int[] time = ml.stringTointArray(flds);
-
+        int[] time = ml.stringToIntArray(flds);
         System.out.println("time = " + ml.intArrayToString(time));
 
         long start = System.currentTimeMillis();
-        
+
         int result = numPairsDivisibleBy60(time);
 
         long end = System.currentTimeMillis();

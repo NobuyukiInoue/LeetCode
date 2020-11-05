@@ -26,15 +26,15 @@ public class Solution {
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] target = mc.stringTointArray(flds[0]);
-        int[] arr = mc.stringTointArray(flds[1]);
+        Mylib ml = new Mylib();
+        int[] target = ml.stringToIntArray(flds[0]);
+        int[] arr = ml.stringToIntArray(flds[1]);
 
-        System.out.println("target = " + mc.intArrayToString(target));
-        System.out.println("arr = " + mc.intArrayToString(arr));
+        System.out.println("target = " + ml.intArrayToString(target));
+        System.out.println("arr = " + ml.intArrayToString(arr));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = canBeEqual(target, arr);
 
         long end = System.currentTimeMillis();

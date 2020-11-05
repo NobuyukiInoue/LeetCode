@@ -18,7 +18,7 @@ public class Solution {
         }
         return nums[start];
     }
-    
+
     private int partion(int[] nums, int start, int end) {
         int pivot = start, temp;
         while (start <= end) {
@@ -41,14 +41,14 @@ public class Solution {
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds[0]);
+        Mylib ml = new Mylib();
+        int[] nums = ml.stringToIntArray(flds[0]);
         int k = Integer.parseInt(flds[1]);
 
-        System.out.println("nums = " + mc.intArrayToString(nums) + ", k = " + Integer.toString(k));
+        System.out.println("nums = " + ml.intArrayToString(nums) + ", k = " + Integer.toString(k));
 
         long start = System.currentTimeMillis();
-        
+
         int result = findKthLargest(nums, k);
 
         long end = System.currentTimeMillis();

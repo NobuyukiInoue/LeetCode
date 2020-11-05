@@ -1,7 +1,10 @@
 JAVAC =javac
 JAVAC_FLAGS =
 
-all:	MyStack.class Solution.class Main.class
+all:	Mylib.class MyStack.class Solution.class Main.class
+
+Mylib.class:	Mylib.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
 
 MyStack.class:	MyStack.java
 	$(JAVAC) $(JAVAC_FLAGS) $<

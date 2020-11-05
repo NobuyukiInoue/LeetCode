@@ -36,28 +36,6 @@ public class Solution {
         return result;
     }
 
-    private String listlistArrayToString(List<List<Integer>> flds) {
-        if (flds.size() <= 0)
-            return "";
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + listArrayToString(flds.get(0)));
-        for (int i = 1; i < flds.size(); i++)
-            sb.append(", " + listArrayToString(flds.get(i)));
-
-        return sb.append("]").toString();
-    }
-
-    private String listArrayToString(List<Integer> flds) {
-        if (flds.size() <= 0)
-            return "";
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + Integer.toString(flds.get(0)));
-        for (int i = 1; i < flds.size(); i++)
-            sb.append(", " + Integer.toString(flds.get(i)));
-
-        return sb.append("]").toString();
-    }
-
     public void Main(String args) {
         System.out.println("args = " + args);
         String flds = args.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
@@ -81,7 +59,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listlistArrayToString(result));
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listListIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

@@ -5,28 +5,31 @@ public class Solution {
     public int[] fairCandySwap(int[] A, int[] B) {
         // 15ms
         int[] swap = new int[2];
-		int aSum = 0, bSum = 0;
-		Set<Integer> bSet = new HashSet<Integer>();
-		for (int i = 0; i < A.length; i++)
-			aSum += A[i];
-		for (int j = 0; j < B.length; j++) {
-			bSum += B[j];
-			bSet.add(B[j]);
-		}
-		int diff = Math.abs(aSum - bSum) / 2;
-		for (int i = 0; i < A.length; i++) {
-			if (aSum < bSum && bSet.contains(A[i] + diff)) {
-				swap[0] = A[i];
-				swap[1] = A[i] + diff;
-				break;
-			}
-			if (aSum > bSum && bSet.contains(A[i] - diff)) {
-				swap[0] = A[i];
-				swap[1] = A[i] - diff;
-				break;
-			}
-		}
-		return swap;
+        int aSum = 0, bSum = 0;
+        Set<Integer> bSet = new HashSet<Integer>();
+
+        for (int i = 0; i < A.length; i++)
+            aSum += A[i];
+        for (int j = 0; j < B.length; j++) {
+            bSum += B[j];
+            bSet.add(B[j]);
+        }
+
+        int diff = Math.abs(aSum - bSum) / 2;
+        for (int i = 0; i < A.length; i++) {
+            if (aSum < bSum && bSet.contains(A[i] + diff)) {
+                swap[0] = A[i];
+                swap[1] = A[i] + diff;
+                break;
+            }
+            if (aSum > bSum && bSet.contains(A[i] - diff)) {
+                swap[0] = A[i];
+                swap[1] = A[i] - diff;
+                break;
+            }
+        }
+
+        return swap;
     }
 
     public int[] fairCandySwap2(int[] A, int[] B) {
@@ -45,17 +48,13 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        String[] data;
-        
-        int[] A = ml.stringTointArray(flds[0]);
-        int[] B = ml.stringTointArray(flds[1]);
-
+        int[] A = ml.stringToIntArray(flds[0]);
+        int[] B = ml.stringToIntArray(flds[1]);
         System.out.println("A = " + ml.intArrayToString(A));
         System.out.println("B = " + ml.intArrayToString(B));
-    
+
         long start = System.currentTimeMillis();
-        
+
         int[] result = fairCandySwap(A, B);
 
         long end = System.currentTimeMillis();

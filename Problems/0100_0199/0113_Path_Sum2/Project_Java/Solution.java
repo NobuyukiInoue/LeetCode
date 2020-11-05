@@ -21,18 +21,6 @@ public class Solution {
         path.remove(path.size() - 1);
     }
 
-    public String List_array_to_String(List<Integer> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        String resultStr = "[" + Integer.toString(list.get(0));
-        for (Integer i = 1; i < list.size(); i++) {
-            resultStr += "," + Integer.toString(list.get(i));
-        }
-
-        return resultStr + "]";
-    }
-
     public void Main(String args) {
         System.out.println("args = " + args);
         String flds[] = args.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
@@ -51,14 +39,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.print("result = [");
-        for (int i = 0; i < result.size(); i++) {
-            if (i == 0)
-                System.out.print(List_array_to_String(result.get(i)));
-            else
-                System.out.print("," + List_array_to_String(result.get(i)));
-        }
-        System.out.println("]");
+        Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listListIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

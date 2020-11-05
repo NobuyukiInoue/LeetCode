@@ -47,7 +47,7 @@ public class Solution {
         System.out.println("]");
 
         long start = System.currentTimeMillis();
-        
+
         int result = numIslands(grid);
 
         long end = System.currentTimeMillis();

@@ -20,25 +20,13 @@ public class Solution {
         return set.size();
     }
 
-    private String string_array_to_string(String[] words)
-    {
-        if (words.length <= 0)
-            return "";
-
-        String resultStr = words[0];
-        for (int i = 1; i < words.length; ++i)
-            resultStr += "," + words[i];
-
-        return resultStr;
-    }
-
     public void Main(String temp) {
         String[] emails = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim().split(",");
-
-        System.out.println("emails = " + string_array_to_string(emails));
+        Mylib ml = new Mylib();
+        System.out.println("emails = " + ml.stringArrayToString(emails));
 
         long start = System.currentTimeMillis();
-        
+
         int result = numUniqueEmails(emails);
 
         long end = System.currentTimeMillis();

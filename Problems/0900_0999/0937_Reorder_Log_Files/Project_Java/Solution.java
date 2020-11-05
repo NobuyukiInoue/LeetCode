@@ -40,31 +40,18 @@ public class Solution {
         return (word.charAt(0) >= '0' && word.charAt(0) <= '9');
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String temp) {
         String[] logs = temp.replace("\"", "").replace("[", "").replace("]", "").trim().split(",");
-        System.out.println("logs = " + output_str_array(logs));
+        Mylib ml = new Mylib();
+        System.out.println("logs = " + ml.stringArrayToString(logs));
 
         long start = System.currentTimeMillis();
-        
+
         String[] result = reorderLogFiles(logs);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + output_str_array(result));
+        System.out.println("result = " + ml.stringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

@@ -14,27 +14,16 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-
-        int[][] A = new int[flds.length][];
-    
-        for (int i = 0; i < flds.length; i++) {
-            A[i] = ml.stringTointArray(flds[i]);
-        }
-
-        System.out.println("A = ");
-        for (int i = 0; i < A.length; i++)
-            System.out.println(ml.intArrayToString(A[i]));
+        int[][] A = ml.stringToIntIntArray(flds);
+        System.out.println("A = " + ml.matrixToString(A));
 
         long start = System.currentTimeMillis();
-        
+
         int[][] result = tranpose(A);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = ");
-        for (int i = 0; i < result.length; i++)
-            System.out.println(ml.intArrayToString(result[i]));
-
+        System.out.println("result = " + ml.matrixToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

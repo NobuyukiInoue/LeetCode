@@ -19,7 +19,7 @@ public class Solution {
         System.out.println("input = " + input);
 
         long start = System.currentTimeMillis();
-        
+
         int result = lengthLongestPath(input);
 
         long end = System.currentTimeMillis();

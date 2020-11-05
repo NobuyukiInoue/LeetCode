@@ -12,26 +12,13 @@ public class Solution {
         return res;
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String temp) {
         String[] strs  = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
-        System.out.println("strs = " + output_str_array(strs));
+        Mylib ml = new Mylib();
+        System.out.println("strs = " + ml.stringArrayToString(strs));
 
         long start = System.currentTimeMillis();
-        
+
         String result = longestCommonPrefix(strs);
 
         long end = System.currentTimeMillis();

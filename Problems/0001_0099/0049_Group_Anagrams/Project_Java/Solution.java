@@ -20,50 +20,18 @@ public class Solution {
         return new ArrayList<List<String>>(map.values());
     }
 
-    private String stringArrayToString(String[] flds) {
-        if (flds.length <= 0)
-            return "";
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + flds[0]);
-        for (int i = 1; i < flds.length; i++)
-            sb.append(", " + flds[i]);
-
-        return sb.append("]").toString();
-    }
-
-    private String listlistArrayToString(List<List<String>> flds) {
-        if (flds.size() <= 0)
-            return "";
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + listArrayToString(flds.get(0)));
-        for (int i = 1; i < flds.size(); i++)
-            sb.append(", " + listArrayToString(flds.get(i)));
-
-        return sb.append("]").toString();
-    }
-
-    private String listArrayToString(List<String> flds) {
-        if (flds.size() <= 0)
-            return "";
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + flds.get(0));
-        for (int i = 1; i < flds.size(); i++)
-            sb.append(", " + flds.get(i));
-
-        return sb.append("]").toString();
-    }
-
     public void Main(String temp) {
         String[] strs = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").trim().split(",");
-        System.out.println("strs = " + stringArrayToString(strs));
+        Mylib ml = new Mylib();
+        System.out.println("strs = " + ml.stringArrayToString(strs));
 
         long start = System.currentTimeMillis();
-        
+
         List<List<String>> result = groupAnagrams(strs);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listlistArrayToString(result));
+        System.out.println("result = " + ml.listListStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

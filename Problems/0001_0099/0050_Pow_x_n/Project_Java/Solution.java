@@ -18,22 +18,6 @@ public class Solution {
         return ans;
     }
 
-    public String Int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
 
@@ -42,7 +26,7 @@ public class Solution {
         System.out.println("x = " + Double.toString(x) + ", n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
-        
+
         double result = myPow(x, n);
 
         long end = System.currentTimeMillis();

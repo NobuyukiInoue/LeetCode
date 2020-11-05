@@ -3,41 +3,26 @@ import java.util.*;
 public class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         // 1ms
-		List<int[]> result = new ArrayList<>();
-		boolean added = false;
-		for (int[] interval : intervals) {
-			if ((interval[1] < newInterval[0])) {
-				result.add(interval);
-			} else if (interval[0] > newInterval[1]) {
-				if (!added) {
-					result.add(newInterval);
-					added = true;
-				}
-				result.add(interval);
-			} else {
-				newInterval[0] = Math.min(newInterval[0], interval[0]);
-				newInterval[1] = Math.max(newInterval[1], interval[1]);
-			}
-		}
-		if (!added) {
-			result.add(newInterval);
-		}
-        return result.toArray(new int[result.size()][]);
-    }
-
-    public String intintArrayToString(Mylib ml, int[][] list) {
-        if (list == null)
-            return "[]";
-
-        if (list.length <= 0)
-            return "[]";
-
-        String resultStr = "[" + ml.intArrayToString(list[0]);
-        for (int i = 1; i < list.length; i++) {
-                resultStr += ",[" + ml.intArrayToString(list[i]) + "]";
+        List<int[]> result = new ArrayList<>();
+        boolean added = false;
+        for (int[] interval : intervals) {
+            if ((interval[1] < newInterval[0])) {
+                result.add(interval);
+            } else if (interval[0] > newInterval[1]) {
+                if (!added) {
+                    result.add(newInterval);
+                    added = true;
+                }
+                result.add(interval);
+            } else {
+                newInterval[0] = Math.min(newInterval[0], interval[0]);
+                newInterval[1] = Math.max(newInterval[1], interval[1]);
+            }
         }
-
-        return resultStr + "]";
+        if (!added) {
+            result.add(newInterval);
+        }
+        return result.toArray(new int[result.size()][]);
     }
 
     public void Main(String args) {
@@ -45,14 +30,10 @@ public class Solution {
         String[] flds = args.replace("\"", "").replace(" ", "").replace("[[[", "").trim().split("\\]],\\[");
         Mylib ml = new Mylib();
         String[] data0 = flds[0].split("\\],\\[");
-        int[][] intervals = new int[data0.length][];
+        int[][] intervals = ml.stringToIntIntArray(data0);
+        int[] newInterval = ml.stringToIntArray(flds[1].replace("]]", ""));
 
-        for (int i = 0; i < data0.length; i++) {
-            intervals[i] = ml.stringTointArray(data0[i]);
-        }
-        int[] newInterval = ml.stringTointArray(flds[1].replace("]]", ""));
-
-        System.out.println("intervals = " + intintArrayToString(ml, intervals));
+        System.out.println("intervals = " + ml.intIntArrayToString(intervals));
         System.out.println("newInterval = " + ml.intArrayToString(newInterval));
 
         long start = System.currentTimeMillis();
@@ -61,7 +42,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + intintArrayToString(ml, result));
+        System.out.println("result = " + ml.intIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

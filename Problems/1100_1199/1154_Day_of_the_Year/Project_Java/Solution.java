@@ -23,7 +23,7 @@ public class Solution {
         System.out.println("date = " + date);
 
         long start = System.currentTimeMillis();
-        
+
         int result = dayOfYear(date);
 
         long end = System.currentTimeMillis();

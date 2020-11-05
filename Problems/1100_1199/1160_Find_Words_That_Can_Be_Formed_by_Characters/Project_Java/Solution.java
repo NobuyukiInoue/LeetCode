@@ -52,25 +52,13 @@ public class Solution {
         return res;
     }
 
-    public String output_str_array(String[] words) {
-        String result = "[";
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result += "\"" + words[i] + "\"";
-            } else {
-                result += ",\"" + words[i] + "\"";
-            }
-        }
-
-        return result + "]";
-    }
-
     public void Main(String temp) {
         String[] flds  = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
         String[] words = flds[0].split(",");
         String chars = flds[1];
-        System.out.println("words = " + output_str_array(words) + ", chars = " + chars);
+
+        Mylib ml = new Mylib();
+        System.out.println("words = " + ml.stringArrayToString(words) + ", chars = " + chars);
 
         long start = System.currentTimeMillis();
         

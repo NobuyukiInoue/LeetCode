@@ -5,16 +5,13 @@ public class Solution {
         // 0ms
         if (str1.length() < str2.length()) {
             return gcdOfStrings(str2, str1);
-        }
-        else if (!str1.startsWith(str2)) {
+        } else if (!str1.startsWith(str2)) {
             return "";
-        }
-        else if (str2.isEmpty()) {
+        } else if (str2.isEmpty()) {
             return str1;
-        }
-        else {
+        } else {
             return gcdOfStrings(str1.substring(str2.length()), str2);
-        }     
+        }
     }
 
     public String gcdOfStrings2(String str1, String str2) {
@@ -40,7 +37,7 @@ public class Solution {
         System.out.println("str1 = " + str1 + ", str2 = " + str2);
 
         long start = System.currentTimeMillis();
-        
+
         String result = gcdOfStrings(str1, str2);
 
         long end = System.currentTimeMillis();

@@ -44,29 +44,17 @@ public class Solution {
         int lower = Integer.parseInt(fld0[1]);
         System.out.println("upper = " + Integer.toString(upper) + ", lower = " + Integer.toString(lower));
 
-        String[] data = flds[1].split(",");
-        int[] colsum = new int[data.length];
-    
-        for (int i = 0; i < data.length; i++) {
-            colsum[i] = Integer.parseInt(data[i]);
-        }
-
-        System.out.print("colsum = [");
-        for (int i = 0; i < colsum.length; i++) {
-            if (i == 0)
-                System.out.print(Integer.toString(colsum[i]));
-            else
-                System.out.print("," + Integer.toString(colsum[i]));
-        }
-        System.out.println("]");
+        Mylib ml = new Mylib();
+        int[] colsum = ml.stringToIntArray(flds[1]);
+        System.out.println("colsum = " + ml.intArrayToString(colsum));
 
         long start = System.currentTimeMillis();
-        
+
         List<List<Integer>> result = reconstructMatrix(upper, lower, colsum);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + result);
+        System.out.println("result = " + ml.listListIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

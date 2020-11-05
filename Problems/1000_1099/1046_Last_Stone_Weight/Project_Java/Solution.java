@@ -7,37 +7,18 @@ public class Solution {
             pq.offer(a);
         for (int i = 0; i < stones.length - 1; ++i)
             pq.offer(pq.poll() - pq.poll());
-        return pq.poll();        
-    }
-
-    public String Int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
+        return pq.poll();
     }
 
     public void Main(String temp) {
-        String[] flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
+        String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] stones = new int[flds.length];
-        for (int i = 0; i < flds.length; i++) {
-            stones[i] = Integer.parseInt(flds[i]);
-        }
-        System.out.println("stones = " + Int_array_to_String(stones));
+        int[] stones = ml.stringToIntArray(flds);
+        System.out.println("stones = " + ml.intArrayToString(stones));
 
         long start = System.currentTimeMillis();
-        
+
         int result = lastStoneWeight(stones);
 
         long end = System.currentTimeMillis();

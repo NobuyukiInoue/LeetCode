@@ -29,23 +29,11 @@ public class Solution {
 
         Mylib ml = new Mylib();
 
-        int[][] grid = new int[flds.length][];
-    
-        for (int i = 0; i < flds.length; i++) {
-            grid[i] = ml.stringTointArray(flds[i]);
-        }
-
-        System.out.print("grid = [");
-        for (int i = 0; i < grid.length; i++) {
-            if (i == 0)
-                System.out.print(ml.intArrayToString(grid[i]));
-            else
-                System.out.print("," + ml.intArrayToString(grid[i]));
-        }
-        System.out.println("]");
+        int[][] grid = ml.stringToIntIntArray(flds);
+        System.out.println("grid = " + ml.matrixToString(grid));
 
         long start = System.currentTimeMillis();
-        
+
         int result = countServers(grid);
 
         long end = System.currentTimeMillis();

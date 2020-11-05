@@ -1,7 +1,10 @@
 JAVAC =javac
 JAVAC_FLAGS =
 
-all:	NumMatrix.class Solution.class Main.class
+all:	Mylib.class NumMatrix.class Solution.class Main.class
+
+Mylib.class: Mylib.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
 
 NumMatrix.class: NumMatrix.java
 	$(JAVAC) $(JAVAC_FLAGS) $<

@@ -15,18 +15,18 @@ public class Solution {
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        Mylib mc = new Mylib();
-        int[] nums = mc.stringTointArray(flds[0]);
+        Mylib ml = new Mylib();
+        int[] nums = ml.stringToIntArray(flds[0]);
         int n = Integer.parseInt(flds[1]);
-        System.out.println("nums = " + mc.intArrayToString(nums) + ", n = " + String.valueOf(n));
+        System.out.println("nums = " + ml.intArrayToString(nums) + ", n = " + String.valueOf(n));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = shuffle(nums, n);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + mc.intArrayToString(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

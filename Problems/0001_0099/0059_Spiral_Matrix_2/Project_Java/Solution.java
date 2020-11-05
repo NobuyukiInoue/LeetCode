@@ -39,29 +39,6 @@ public class Solution {
         return result;
     }
 
-    private String intIntArrayToString(int[][] nums) {
-        if (nums.length <= 0)
-            return "";
-
-        StringBuilder resultStr = new StringBuilder();
-        resultStr.append("[" + intArrayToString(nums[0]) + "]");
-        for (int i = 1; i < nums.length; i++) {
-            resultStr.append(", [" + intArrayToString(nums[i]) + "]");
-        }
-        return resultStr.toString();
-    }
-
-    private String intArrayToString(int[] nums) {
-        if (nums.length <= 0)
-            return "";
-        StringBuilder resultStr = new StringBuilder();
-        resultStr.append(nums[0]);
-        for (int i = 1; i < nums.length; i++) {
-            resultStr.append("," + Integer.toString(nums[i]));
-        }
-        return resultStr.toString();
-    }
-
     public void Main(String temp) {
         String fld = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
         int n = Integer.parseInt(fld);
@@ -73,7 +50,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + intIntArrayToString(result));
+    	Mylib ml = new Mylib();
+        System.out.println("result = " + ml.intIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

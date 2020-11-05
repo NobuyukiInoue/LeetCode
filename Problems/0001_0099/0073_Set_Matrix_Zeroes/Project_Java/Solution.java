@@ -19,42 +19,24 @@ public class Solution {
                     matrix[i][j] = 0;
 
         if (k < n)
-            Arrays.fill(matrix[0], 0);        
-    }
-
-    private String intintArrayToString(Mylib ml, int[][] data) {
-        if (data.length <= 0) {
-            return "";
-        }
-
-        StringBuilder sb = new StringBuilder("[\n  " + ml.intArrayToString(data[0]));
-        for (int i = 1; i < data.length; i++) {
-            sb.append("\n, " + ml.intArrayToString(data[i]));
-        }
-
-        sb.append("\n]");
-        return sb.toString();
+            Arrays.fill(matrix[0], 0);
     }
 
     public void Main(String temp) {
         String flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim();
-
         String[] str_matrix = flds.split("\\],\\[");
-        Mylib ml = new Mylib();
-        int[][] matrix = new int[str_matrix.length][];
-            for (int i = 0; i < str_matrix.length; i++) {
-            matrix[i] = ml.stringTointArray(str_matrix[i]);
-        }
 
-        System.out.println("matrix = \n" + intintArrayToString(ml, matrix));
+        Mylib ml = new Mylib();
+        int[][] matrix = ml.stringToIntIntArray(str_matrix);
+        System.out.println("matrix = \n" + ml.matrixToString(matrix));
 
         long start = System.currentTimeMillis();
-        
+
         setZeroes(matrix);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = \n" + intintArrayToString(ml, matrix));
+        System.out.println("result = \n" + ml.matrixToString(matrix));
         System.out.println((end - start)  + "ms\n");
     }
 }

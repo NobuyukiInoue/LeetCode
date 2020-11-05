@@ -37,29 +37,15 @@ public class Solution {
         return obstacleGrid[m - 1][n - 1];
     }
 
-    private void print_Grid(int[][] grid) {
-        System.out.println("grid = [");
-        for (int i = 0; i < grid.length; i++) {
-            if (i == 0)
-                System.out.println("  " + ml.intArrayToString(grid[i]));
-            else
-                System.out.println(", " + ml.intArrayToString(grid[i]));
-        }
-        System.out.println("]");
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
-        int[][] obstacleGrid = new int[flds.length][];
-            for (int i = 0; i < flds.length; i++) {
-            obstacleGrid[i] = ml.stringTointArray(flds[i]);
-        }
-
-        print_Grid(obstacleGrid);
+        Mylib ml = new Mylib();
+        int[][] obstacleGrid = ml.stringToIntIntArray(flds);
+        System.out.println("obstacleGrid = " + ml.matrixToString(obstacleGrid));
 
         long start = System.currentTimeMillis();
-        
+
         int result = uniquePathsWithObstacles(obstacleGrid);
 
         long end = System.currentTimeMillis();

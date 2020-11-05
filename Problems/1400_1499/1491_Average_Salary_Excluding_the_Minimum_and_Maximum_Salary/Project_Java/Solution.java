@@ -16,7 +16,7 @@ public class Solution {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
         Mylib ml = new Mylib();
-        int[] salary = ml.stringTointArray(flds);
+        int[] salary = ml.stringToIntArray(flds);
         System.out.println("salary = " + ml.intArrayToString(salary));
 
         long start = System.currentTimeMillis();

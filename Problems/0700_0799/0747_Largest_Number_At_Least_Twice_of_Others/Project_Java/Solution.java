@@ -39,13 +39,13 @@ public class Solution {
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] cost = mc.stringTointArray(flds);
+        Mylib ml = new Mylib();
+        int[] cost = ml.stringToIntArray(flds);
 
-        System.out.println("cost = " + mc.intArrayToString(cost));
+        System.out.println("cost = " + ml.intArrayToString(cost));
 
         long start = System.currentTimeMillis();
-        
+
         int result = minCostClimbingStairs(cost);
 
         long end = System.currentTimeMillis();

@@ -11,39 +11,21 @@ public class Solution {
         return list.toArray(people);
     }
 
-    private String intIntArrayToString(int[][] matrix) {
-        if (matrix.length <= 0) {
-            return "[]";
-        }
-
-        Mylib ml = new Mylib();
-        StringBuilder sb = new StringBuilder("[\n");
-        sb.append("  " + ml.intArrayToString(matrix[0]) + "\n");
-        for (int i = 1; i < matrix.length; i++) {
-            sb.append(", " + ml.intArrayToString(matrix[i]) + "\n");
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
     public void Main(String temp) {
         String flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim();
-
         String[] str_people = flds.split("\\],\\[");
-        Mylib ml = new Mylib();
-        int[][] people = new int[str_people.length][];
-            for (int i = 0; i < str_people.length; i++) {
-            people[i] = ml.stringTointArray(str_people[i]);
-        }
 
-        System.out.println("poeple = " + intIntArrayToString(people));
+        Mylib ml = new Mylib();
+        int[][] people = ml.stringToIntIntArray(str_people);
+        System.out.println("poeple = " + ml.intIntArrayToString(people));
+
         long start = System.currentTimeMillis();
 
         int[][] result = reconstructQueue(people);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + intIntArrayToString(result));
+        System.out.println("result = " + ml.intIntArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

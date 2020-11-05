@@ -24,27 +24,14 @@ public class Solution {
         return max;
     }
 
-    public String strArrayToString(String[] words) {
-        StringBuilder result = new StringBuilder();
-        result.append("[");
-
-        for (int i = 0; i < words.length; i++) {
-            if (i == 0) {
-                result.append("\"" + words[i] + "\"");
-            } else {
-                result.append(",\"" + words[i] + "\"");
-            }
-        }
-
-        return result.append("]").toString();
-    }
-
     public void Main(String temp) {
         String[] words  = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
-        System.out.println("words = " + strArrayToString(words));
+
+        Mylib ml = new Mylib();
+        System.out.println("words = " + ml.stringArrayToString(words));
 
         long start = System.currentTimeMillis();
-        
+
         int result = maxProduct(words);
 
         long end = System.currentTimeMillis();

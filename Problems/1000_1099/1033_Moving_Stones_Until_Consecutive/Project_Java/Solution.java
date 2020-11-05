@@ -23,22 +23,6 @@ public class Solution {
         return ret;
     }
 
-    public String Int_array_to_String(int[] data) {
-        String result = "";
-    
-        for (int i = 0; i < data.length; i++) {
-            if (i > 0)
-                result += ",";
-
-            if (data[i] == -1)
-                result += "null";
-            else
-                result += Integer.toString(data[i]);
-        }
-    
-        return result;
-    }
-
     public void Main(String temp) {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim().split(",");
 
@@ -53,12 +37,12 @@ public class Solution {
                          ", c = " + Integer.toString(c));
 
         long start = System.currentTimeMillis();
-        
+
         int[] result = numMovesStones(a, b, c);
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + Int_array_to_String(result));
+        System.out.println("result = " + ml.intArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

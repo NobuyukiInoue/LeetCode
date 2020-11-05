@@ -89,14 +89,10 @@ public class Solution {
 
     public void Main(String temp) {
         String flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim();
-
         String[] str_matrix = flds.split("\\],\\[");
-        Mylib ml = new Mylib();
-        int[][] matrix = new int[str_matrix.length][];
-            for (int i = 0; i < str_matrix.length; i++) {
-            matrix[i] = ml.stringTointArray(str_matrix[i]);
-        }
 
+        Mylib ml = new Mylib();
+        int[][] matrix = ml.stringToIntIntArray(str_matrix);
         System.out.println("matrix = " + matrixToString(matrix));
 
         long start = System.currentTimeMillis();

@@ -38,18 +38,6 @@ public class Solution {
         return res;
     }
 
-    public String listStringArrayToString(List<String> list) {
-        if (list.size() <= 0)
-            return "[]";
-
-        StringBuilder resultStr = new StringBuilder("[" + list.get(0));
-        for (int i = 1; i < list.size(); i++) {
-            resultStr.append(", " + list.get(i));
-        }
-
-        resultStr.append("]");
-        return resultStr.toString();
-    }
 
     public void Main(String temp) {
         String digits = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim();
@@ -61,7 +49,8 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + listStringArrayToString(result));
+    	Mylib ml = new Mylib();
+        System.out.println("result = " + ml.listStringArrayToString(result));
         System.out.println((end - start)  + "ms\n");
     }
 }

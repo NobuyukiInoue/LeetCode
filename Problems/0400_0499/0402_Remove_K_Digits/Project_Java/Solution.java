@@ -33,7 +33,7 @@ public class Solution {
         System.out.println("num = " + num + ", k = " + Integer.toString(k));
 
         long start = System.currentTimeMillis();
-        
+
         String result = removeKdigits(num, k);
 
         long end = System.currentTimeMillis();

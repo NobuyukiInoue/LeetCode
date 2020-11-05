@@ -28,13 +28,13 @@ public class Solution {
     public void Main(String temp) {
         String flds = temp.replace("\"", "").replace(" ", "").replace("[", "").replace("]", "").trim();
 
-        Mylib mc = new Mylib();
-        int[] bits = mc.stringTointArray(flds);
+        Mylib ml = new Mylib();
+        int[] bits = ml.stringToIntArray(flds);
 
-        System.out.println("bits = " + mc.intArrayToString(bits));
+        System.out.println("bits = " + ml.intArrayToString(bits));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = isOneBitCharacter(bits);
 
         long end = System.currentTimeMillis();

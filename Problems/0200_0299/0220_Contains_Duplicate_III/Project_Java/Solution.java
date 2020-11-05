@@ -93,14 +93,8 @@ public class Solution {
     public void Main(String temp) {
         String[] flds = temp.replace(" ", "").replace("\"", "").replace("[[", "").trim().split("\\],");
 
-        String[] flds0 = flds[0].split(",");
-        int[] nums = new int[flds0.length];
-    
-        for (int i = 0; i < flds0.length; i++) {
-            nums[i] = Integer.parseInt(flds0[i]);
-        }
-
         Mylib ml = new Mylib();
+        int[] nums = ml.stringToIntArray(flds[0]);
         System.out.println("nums = " + ml.intArrayToString(nums));
 
         String[] fld1 = flds[1].replace("]", "").split(",");
@@ -109,7 +103,7 @@ public class Solution {
         System.out.println("k = " + Integer.toString(k) + ", t = " + Integer.toString(t));
 
         long start = System.currentTimeMillis();
-        
+
         boolean result = containsNearbyAlmostDuplicate(nums, k, t);
 
         long end = System.currentTimeMillis();

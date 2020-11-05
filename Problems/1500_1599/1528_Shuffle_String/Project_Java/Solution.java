@@ -14,7 +14,7 @@ public class Solution {
         String[] flds = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
         String s = flds[0];
         Mylib ml = new Mylib();
-        int[] indices = ml.stringTointArray(flds[1]);
+        int[] indices = ml.stringToIntArray(flds[1]);
         System.out.println("s = " + s + ", indices = " + ml.intArrayToString(indices));
 
         long start = System.currentTimeMillis();
