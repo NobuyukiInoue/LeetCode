@@ -85,7 +85,6 @@ public class Mylib {
         if (matrix.length <= 0)
             return "[]";
 
-        Mylib ml = new Mylib();
         StringBuilder sb = new StringBuilder("[\n  " + intArrayToString(matrix[0]) + "\n");
         for (int i = 1; i < matrix.length; i++) {
             sb.append(" ," + intArrayToString(matrix[i]) + "\n") ;
@@ -225,9 +224,22 @@ public class Mylib {
         if (flds.size() <= 0)
             return "[]";
 
-        StringBuilder sb = new StringBuilder("[" + Boolean.toString(flds.get(0)));
-        for (int i = 1; i < flds.size(); i++) {
-            sb.append("," + Boolean.toString(flds.get(i)));
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < flds.size(); i++) {
+            Boolean currentVal = flds.get(i);
+            String currentStr;
+
+            if (currentVal == null) {
+                currentStr = "null";
+            } else {
+                currentStr = Boolean.toString(currentVal);
+            }
+
+            if (i == 0) {
+                sb.append(currentStr);
+            } else {
+                sb.append("," + currentStr);
+            }
         }
 
         return sb.append("]").toString();

@@ -85,7 +85,6 @@ public class Mylib {
         if (matrix.length <= 0)
             return "[]";
 
-        Mylib ml = new Mylib();
         StringBuilder sb = new StringBuilder("[\n  " + intArrayToString(matrix[0]) + "\n");
         for (int i = 1; i < matrix.length; i++) {
             sb.append(" ," + intArrayToString(matrix[i]) + "\n") ;

@@ -75,50 +75,50 @@ public class Mylib {
         for (int i = 1; i < nums.length; i++) {
             sb.append("," + intArrayToString(nums[i]));
         }
-        sb.append("]");
 
-        return sb.toString();
+        return sb.append("]").toString();
     }
 
-    public String matrixToString(int[][] list) {
-        if (list == null)
+    public String matrixToString(int[][] matrix) {
+        if (matrix == null)
+            return "[]";
+        if (matrix.length <= 0)
             return "[]";
 
-        Mylib ml = new Mylib();
-        StringBuilder sb = new StringBuilder("[\n  " + intArrayToString(list[0]) + "\n");
-        for (int i = 1; i < list.length; i++) {
-            sb.append(" ," + intArrayToString(list[i]) + "\n") ;
+        StringBuilder sb = new StringBuilder("[\n  " + intArrayToString(matrix[0]) + "\n");
+        for (int i = 1; i < matrix.length; i++) {
+            sb.append(" ," + intArrayToString(matrix[i]) + "\n") ;
         }
 
-        sb.append("]");
-        return sb.toString();
+        return sb.append("]").toString();
     }
 
     public String stringArrayToString(String[] flds) {
         if (flds == null)
             return "[]";
-
-        StringBuilder sb = new StringBuilder("[\"" + flds[0] + "\"");
-        for (int i = 1; i < flds.length; i++)
-            sb.append(", \"" + flds[i] + "\"");
-        sb.append("]");
-
-        return sb.toString();
-    }
-
-    public String listIntArrayToString(List<Integer> list) {
-        if (list == null)
-            return "";
-        if (list.size() <= 0)
+        if (flds.length == 0)
             return "[]";
 
-        StringBuilder sb = new StringBuilder("[" + Integer.toString(list.get(0)));
-        for (int i = 1; i < list.size(); i++) {
-            sb.append("," + Integer.toString(list.get(i)));
+        StringBuilder sb = new StringBuilder("[\"" + flds[0] + "\"");
+        for (int i = 1; i < flds.length; i++) {
+            sb.append(", \"" + flds[i] + "\"");
         }
-        sb.append("]");
 
-        return sb.toString();
+        return sb.append("]").toString();
+    }
+
+    public String listIntArrayToString(List<Integer> flds) {
+        if (flds == null)
+            return "";
+        if (flds.size() <= 0)
+            return "[]";
+
+        StringBuilder sb = new StringBuilder("[" + Integer.toString(flds.get(0)));
+        for (int i = 1; i < flds.size(); i++) {
+            sb.append("," + Integer.toString(flds.get(i)));
+        }
+
+        return sb.append("]").toString();
     }
 
     public String listListIntArrayToString(List<List<Integer>> list) {
@@ -174,16 +174,73 @@ public class Mylib {
         return list;
     }
 
+    public List<String> stringArrayToListStringArray(String[] data) {
+        List<String> list = new ArrayList<>();
+
+        if (data == null)
+            return list;
+        if (data.length == 0)
+            return list;
+
+        for (int i = 0; i < data.length; i++) {
+            list.add(data[i]);
+        }
+
+        return list;
+    }
+
+    public List<List<String>> stringArrayToListListStringArray(String[] data) {
+        List<List<String>> list = new ArrayList<>();
+
+        if (data == null)
+            return list;
+        if (data.length == 0)
+            return list;
+
+        for (int i = 0; i < data.length; i++) {
+            list.add(stringArrayToListStringArray(data[i].split(",")));
+        }
+
+        return list;
+    }
+
     public String listStringArrayToString(List<String> flds) {
         if (flds == null)
             return "";
         if (flds.size() <= 0)
             return "";
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + flds.get(0));
-        for (int i = 1; i < flds.size(); i++)
-            sb.append(", " + flds.get(i));
+        StringBuilder sb = new StringBuilder("[" + flds.get(0));
+        for (int i = 1; i < flds.size(); i++) {
+                sb.append(", " + flds.get(i));
+        }
+
+        return sb.append("]").toString();
+    }
+
+    public String listBooleanArrayToString(List<Boolean> flds) {
+        if (flds == null)
+            return "";
+        if (flds.size() <= 0)
+            return "[]";
+
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < flds.size(); i++) {
+            Boolean currentVal = flds.get(i);
+            String currentStr;
+
+            if (currentVal == null) {
+                currentStr = "null";
+            } else {
+                currentStr = Boolean.toString(currentVal);
+            }
+
+            if (i == 0) {
+                sb.append(currentStr);
+            } else {
+                sb.append("," + currentStr);
+            }
+        }
 
         return sb.append("]").toString();
     }
@@ -196,14 +253,17 @@ public class Mylib {
 
         StringBuilder sb = new StringBuilder();
         sb.append("[" + listStringArrayToString(flds.get(0)));
-        for (int i = 1; i < flds.size(); i++)
+        for (int i = 1; i < flds.size(); i++) {
             sb.append(", " + listStringArrayToString(flds.get(i)));
+        }
 
         return sb.append("]").toString();
     }
 
     public String gridToString(List<List<Integer>> matrix) {
-        if (matrix == null || matrix.size() <= 0)
+        if (matrix == null)
+            return "[]";
+        if (matrix.size() <= 0)
             return "[]";
 
         StringBuilder sb = new StringBuilder("[");
@@ -211,8 +271,7 @@ public class Mylib {
         for (int i = 1; i < matrix.size(); i++) {
             sb.append(", " + listIntArrayToString(matrix.get(i)));
         }
-        sb.append("]");
 
-        return sb.toString();
+        return sb.append("]").toString();
    }
 }
