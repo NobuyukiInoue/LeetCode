@@ -47,7 +47,7 @@ class Solution:
                 sums[j] -= nums[i]
                 if sums[j] == 0:
                     break
-            return False        
+            return False
         return walk(0)
 
 def main():
