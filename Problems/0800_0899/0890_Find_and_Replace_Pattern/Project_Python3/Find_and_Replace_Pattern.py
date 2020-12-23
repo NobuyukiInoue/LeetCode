@@ -2,7 +2,7 @@ import os
 import sys
 import time
 import re
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def findAndReplacePattern(self, words: List[str], pattern: str) -> List[str]:

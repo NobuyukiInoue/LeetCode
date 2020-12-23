@@ -3,7 +3,7 @@ import os
 import sys
 import time
 import re
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def minWindow(self, s: str, t: str) -> str:

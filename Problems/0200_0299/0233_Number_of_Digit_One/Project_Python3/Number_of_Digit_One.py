@@ -1,7 +1,7 @@
 import os
 import sys
 import time
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def countDigitOne(self, n: int) -> int:

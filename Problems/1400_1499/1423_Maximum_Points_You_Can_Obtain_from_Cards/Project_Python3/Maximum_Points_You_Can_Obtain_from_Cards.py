@@ -5,7 +5,7 @@ import os
 import sys
 import time
 import itertools
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:

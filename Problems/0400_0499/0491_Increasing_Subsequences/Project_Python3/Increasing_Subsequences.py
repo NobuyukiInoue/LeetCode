@@ -4,7 +4,7 @@ import os
 import sys
 import time
 import math
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def findSubsequences(self, nums: List[int]) -> List[List[int]]:

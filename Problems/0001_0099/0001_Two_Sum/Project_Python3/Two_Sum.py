@@ -72,7 +72,7 @@ def loop_main(temp):
     time1 = time.time()
 
     print("result = {0}".format(result))
-    print("Execute time ... : {0:f}[s]\n",format(time1 - time0))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
     main()

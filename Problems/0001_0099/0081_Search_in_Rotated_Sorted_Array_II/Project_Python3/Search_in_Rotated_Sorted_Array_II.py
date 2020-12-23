@@ -4,7 +4,7 @@ import os
 import sys
 import time
 import math
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def search(self, nums: List[int], target: int) -> bool:

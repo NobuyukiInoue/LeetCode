@@ -4,7 +4,7 @@ import json
 import os
 import sys
 import time
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:

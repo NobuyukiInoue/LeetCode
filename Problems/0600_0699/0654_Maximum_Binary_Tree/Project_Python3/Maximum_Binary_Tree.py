@@ -3,7 +3,7 @@
 import os
 import sys
 import time
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 from TreeNode.Codec import Codec
 from TreeNode.TreeNode import TreeNode

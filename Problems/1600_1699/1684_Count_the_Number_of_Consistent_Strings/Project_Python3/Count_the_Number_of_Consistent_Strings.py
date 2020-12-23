@@ -1,7 +1,7 @@
 import os
 import sys
 import time
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def countConsistentStrings(self, allowed: str, words: List[str]) -> int:

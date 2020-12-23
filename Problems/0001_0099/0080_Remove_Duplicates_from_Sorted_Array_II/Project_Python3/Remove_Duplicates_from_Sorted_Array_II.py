@@ -5,7 +5,7 @@ import sys
 import time
 import math
 
-from typing import List,Dict,Tuple
+from typing import List, Dict, Tuple
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
