@@ -5,14 +5,10 @@ import java.util.Map.Entry;
 
 public class Solution {
     public int[] rearrangeBarcodes(int[] barcodes) {
-        // 30ms
+        // 27ms
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : barcodes) {
-            if (map.containsKey(num)) {
-                map.put(num, map.get(num) + 1);
-            } else {
-                map.put(num, 1);
-            }
+             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
         List<Entry<Integer, Integer>> list_entries = new ArrayList<Entry<Integer, Integer>>(map.entrySet());

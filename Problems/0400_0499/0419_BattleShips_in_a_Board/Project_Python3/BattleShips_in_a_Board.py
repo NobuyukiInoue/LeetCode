@@ -3,31 +3,19 @@
 import os
 import sys
 import time
+from typing import List, Dict, Tuple
 
 class Solution:
-#   def numIslands(self, grid: List[List[str]]) -> int:
-    def numIslands(self, grid):
-        # 152ms
-        count = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[i])):
-                if grid[i][j] == '1':
-                    count += 1
-                    self.searchIslands(grid, i, j)
-        return count
-        
-    def searchIslands(self, grid, i, j):
-        if grid[i][j] == '0':
-            return
-        grid[i][j] = '0'
-        if i - 1 >= 0:
-            self.searchIslands(grid, i - 1, j)
-        if i + 1 < len(grid):
-            self.searchIslands(grid, i + 1, j)
-        if j - 1 >= 0:
-            self.searchIslands(grid, i, j - 1)
-        if j + 1 < len(grid[i]):
-            self.searchIslands(grid, i, j + 1)
+    def countBattleships(self, board: List[List[str]]) -> int:
+        # 68ms
+        res = 0
+        for i, _ in enumerate(board):
+            for j, _ in enumerate(board[i]):
+                if board[i][j] == "X":
+                    if i > 0 and board[i - 1][j] == "X" or j > 0 and board[i][j - 1] == "X":
+                        continue
+                    res += 1
+        return res
 
 def main():
     argv = sys.argv
@@ -57,13 +45,15 @@ def loop_main(temp):
     str_args = temp.replace(" ","").replace("\",\"","").replace("\"","").replace("[[","").replace("]]","").rstrip()
 
     flds = str_args.split("],[")
-    grid = [[ch for ch in row] for row in flds]
-    print("grid = {0}".format(grid))
+    board = [list(row) for row in flds]
+  # print("board = {0}".format(board))
+    for row in board:
+        print("{0}".format(row))
 
     sl = Solution()
     time0 = time.time()
 
-    result = sl.numIslands(grid)
+    result = sl.countBattleships(board)
 
     time1 = time.time()
 

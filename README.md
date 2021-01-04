@@ -4,7 +4,6 @@
 
 <https://leetcode.com/problemset/all/>
 
-
 # How to Build and Run
 
 Examples of How to Build and Run for 0001_Two_Sum Projects
@@ -180,4 +179,42 @@ $ cd Problems/0001_0099/0001_Two_Sum/Project_Go
 
 ```
 $ go run main.go ../testdata.txt
+```
+
+# Get list of Projects
+
+## MS-Windows(PowerShell)
+
+```
+> cd LeetCode
+> Get-ChildItem -Directory -Recurse Project_Python3 | Select-String ":\\"
+   ...
+> Get-ChildItem -Directory -Recurse Project_C | Select-String ":\\"
+   ...
+> Get-ChildItem -Directory -Recurse Project_CS | Select-String ":\\"
+   ...
+> Get-ChildItem -Directory -Recurse Project_Java | Select-String ":\\"
+   ...
+> Get-ChildItem -Directory -Recurse Project_Scala | Select-String ":\\"
+   ...
+> Get-ChildItem -Directory -Recurse Project_Go | Select-String ":\\"
+   ...
+```
+
+## macOS/Linux(bash)
+
+```
+$ cd LeetCode
+$ find Problems -type d | grep "Project_Python3$" | sort
+   ...
+$ find Problems -type d | grep "Project_C$" | sort
+   ...
+$ find Problems -type d | grep "Project_CS$" | sort
+   ...
+$ find Problems -type d | grep "Project_Java$" | sort
+   ...
+$ find Problems -type d | grep "Project_Scala$" | sort
+   ...
+$ find Problems -type d | grep "Project_Go$" | sort
+   ...
 ```

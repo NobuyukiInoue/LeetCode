@@ -50,6 +50,7 @@ int loop_main(char* arg)
     int **returnColumnSizes;
     int **result;
 
+    returnSize = (int *)malloc(sizeof(int));
     returnColumnSizes = (int **)malloc(numRows*sizeof(int *));
     result = generate(numRows, returnSize, returnColumnSizes);
 

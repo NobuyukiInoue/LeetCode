@@ -19,12 +19,7 @@ func rearrangeBarcodes(barcodes []int) []int {
 	barcodeLength := len(barcodes)
 	dict := map[int]int{}
 	for _, num := range barcodes {
-		_, ok := dict[num]
-		if ok {
-			dict[num]++
-		} else {
-			dict[num] = 1
-		}
+		dict[num]++
 	}
 
 	dict2 := myMaps{}
