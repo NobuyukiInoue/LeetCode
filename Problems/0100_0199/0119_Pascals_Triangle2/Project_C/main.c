@@ -41,14 +41,14 @@ int loop_main(char* arg)
 
     clock_t time_start = clock();
 
-    int *returnSize;
+    int returnSize;
     int *result;
-    result = getRow(rowIndex, returnSize);
+    result = getRow(rowIndex, &returnSize);
 
     clock_t time_end = clock();
 
     // result print.
-    ml_print_int_array("result", result, *returnSize);
+    ml_print_int_array("result", result, returnSize);
 
     printf("Execute time ... %.0f ms\n\n", 1000*(double)(time_end - time_start)/CLOCKS_PER_SEC);
 

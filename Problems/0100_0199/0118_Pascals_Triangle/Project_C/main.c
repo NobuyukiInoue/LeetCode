@@ -46,13 +46,11 @@ int loop_main(char* arg)
 
     clock_t time_start = clock();
 
-    int *returnSize;
-    int **returnColumnSizes;
+    int returnSize;
+    int **returnColumnSizes = (int **)malloc(numRows*sizeof(int *));
     int **result;
 
-    returnSize = (int *)malloc(sizeof(int));
-    returnColumnSizes = (int **)malloc(numRows*sizeof(int *));
-    result = generate(numRows, returnSize, returnColumnSizes);
+    result = generate(numRows, &returnSize, returnColumnSizes);
 
     clock_t time_end = clock();
 
