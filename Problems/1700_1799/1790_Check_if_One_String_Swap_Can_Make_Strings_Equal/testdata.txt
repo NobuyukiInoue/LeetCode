@@ -1,0 +1,4 @@
+["bank", "kanb"]
+["attack", "defend"]
+["kelb", "kelb"]
+["abcd", "dcba"]
