@@ -6,7 +6,7 @@ import (
 	"io"
 	"os"
 
-	solution "./solution"
+	solution "solution/solution"
 )
 
 func main() {

@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"io"
 	"os"
+
+	solution "solution/solution"
 )
 
 func main() {
@@ -14,7 +16,7 @@ func main() {
 		return
 	}
 
-	if Exists(os.Args[1]) == false {
+	if exists(os.Args[1]) == false {
 		fmt.Printf(os.Args[1] + " not found.\n")
 		return
 	}
@@ -26,7 +28,7 @@ func main() {
 	}
 
 	// 読み込み
-	reader := bufio.NewReaderSize(fp, 65536)
+	reader := bufio.NewReaderSize(fp, 1048576)
 	for {
 		line, _, err := reader.ReadLine()
 		if err == io.EOF {
@@ -40,11 +42,11 @@ func main() {
 		}
 
 		fmt.Printf("line = %s\n", string(line))
-		LoopMain(string(line))
+		solution.LoopMain(string(line))
 	}
 }
 
-func Exists(name string) bool {
+func exists(name string) bool {
 	_, err := os.Stat(name)
 	return !os.IsNotExist(err)
 }
