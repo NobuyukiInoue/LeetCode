@@ -1,0 +1,4 @@
+[["a","abc","bc","d"],["abc"]]
+[["a","b","c"],["aaaaabbbbb"]]
+[["a","a","a"],["ab"]]
+[["cjevwg"],["jevwg"]]

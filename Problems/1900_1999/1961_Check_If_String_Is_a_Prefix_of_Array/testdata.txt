@@ -1,0 +1,4 @@
+[["iloveleetcode"],["i","love","leetcode","apples"]]
+[["iloveleetcode"],["apples","i","love","leetcode"]]
+[["ccccccccc"],["c","cc"]]
+[["a"],["aa","aaaa","banana"]]
