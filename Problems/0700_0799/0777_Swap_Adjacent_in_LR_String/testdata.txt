@@ -1,0 +1,5 @@
+[["RXXLRXRXL"],["XRLXXRRLX"]]
+[["X"],["L"]]
+[["LLR"],["RRL"]]
+[["XL"],["LX"]]
+[["XLLR"],["LXLX"]]
