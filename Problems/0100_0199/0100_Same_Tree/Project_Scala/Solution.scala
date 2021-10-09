@@ -3,7 +3,7 @@ object Solution {
         if (p == null && q == null) return true
         if (p == null || q == null) return false
 
-        p._value == q._value && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+        p.value == q.value && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
     }
 
     def main(args:String): Unit = {
