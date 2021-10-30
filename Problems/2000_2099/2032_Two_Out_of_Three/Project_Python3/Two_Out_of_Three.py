@@ -1,0 +1,75 @@
+# coding: utf-8
+
+import collections
+import os
+import sys
+import time
+from typing import List, Dict, Tuple
+
+class Solution:
+    def twoOutOfThree(self, nums1: List[int], nums2: List[int], nums3: List[int]) -> List[int]:
+        # 70ms
+        ans = []
+        for k, v in collections.Counter(list(set(nums1)) + list(set(nums2)) + list(set(nums3))).items():
+            if v >= 2:
+                ans.append(k)
+        return ans
+
+    def twoOutOfThree2(self, nums1: List[int], nums2: List[int], nums3: List[int]) -> List[int]:
+        # 82ms
+        ans = []
+        table = collections.defaultdict(int)
+        dic1 = list(collections.OrderedDict.fromkeys(nums1)) 
+        dic2 = list(collections.OrderedDict.fromkeys(nums2))
+        dic3 = list(collections.OrderedDict.fromkeys(nums3))
+        nums = dic1 + dic2 + dic3
+        for i in nums:
+            table[i] += 1
+            if (table[i] >= 2) and (i not in ans):
+                ans.append(i)
+        return ans
+
+def main():
+    argv = sys.argv
+    argc = len(argv)
+
+    if argc < 2:
+        print("Usage: python {0} <testdata.txt>".format(argv[0]))
+        exit(0)
+
+    if not os.path.exists(argv[1]):
+        print("{0} not found...".format(argv[1]))
+        exit(0)
+
+    testDataFile = open(argv[1], "r")
+    lines = testDataFile.readlines()
+
+    for temp in lines:
+        temp = temp.strip()
+        if temp == "":
+            continue
+        print("args = {0}".format(temp))
+        loop_main(temp)
+    #   print("Hit Return to continue...")
+    #   input()
+
+def loop_main(temp):
+    flds = temp.replace(" ", "").replace("\"", "").replace("[[", "").replace("]]", "").rstrip().split("],[")
+
+    nums1 = [int(n) for n in flds[0].split(",")]
+    nums2 = [int(n) for n in flds[1].split(",")]
+    nums3 = [int(n) for n in flds[2].split(",")]
+    print("nums1 = {0}, nums2 = {1}, nums3 = {2}".format(nums1, nums2, nums3))
+
+    sl = Solution()
+    time0 = time.time()
+
+    result = sl.twoOutOfThree(nums1, nums2, nums3)
+
+    time1 = time.time()
+
+    print("result = {0}".format(result))
+    print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
+
+if __name__ == "__main__":
+    main()
