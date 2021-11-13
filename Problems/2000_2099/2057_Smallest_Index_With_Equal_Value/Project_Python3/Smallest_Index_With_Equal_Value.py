@@ -1,22 +1,19 @@
+# coding: utf-8
+
 import os
-import re
 import sys
 import time
+import math
 from typing import List, Dict, Tuple
 
 class Solution:
-    def minimumMoves(self, s: str) -> int:
-        # 28ms
-        left, right = 0, len(s)
-        ans = 0
-        while left < right:
-            if s[left] == "X":
-                left += 3
-                ans += 1
-            else:
-                left += 1
-        return ans
-        
+    def smallestEqual(self, nums: List[int]) -> int:
+        # 80ms
+        for i, num in enumerate(nums):
+            if i % 10 == num:
+                return i
+        return -1
+
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -42,13 +39,16 @@ def main():
     #   input()
 
 def loop_main(temp):
-    s = temp.replace("\"","").replace("[","").replace("]","").rstrip()
-    print("s = {0}".format(s))
+    flds = temp.replace("[", "").replace("]", "").replace(", ", ",").rstrip()
+
+    nums = [int(n) for n in flds.split(",")]
+    print("nums = {0}".format(nums))
 
     sl = Solution()
+
     time0 = time.time()
 
-    result = sl.minimumMoves(s)
+    result = sl.smallestEqual(nums)
 
     time1 = time.time()
 

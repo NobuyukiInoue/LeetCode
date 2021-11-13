@@ -5,18 +5,11 @@ import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def minimumMoves(self, s: str) -> int:
+    def countValidWords(self, sentence: str) -> int:
         # 28ms
-        left, right = 0, len(s)
-        ans = 0
-        while left < right:
-            if s[left] == "X":
-                left += 3
-                ans += 1
-            else:
-                left += 1
-        return ans
-        
+        chk = re.compile(r'(^[a-z]+\-?[a-z]+[\.!,]?$)|^[a-z]*[\.!,]?$')
+        return sum(bool(chk.match(w)) for w in sentence.split())
+
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -42,17 +35,17 @@ def main():
     #   input()
 
 def loop_main(temp):
-    s = temp.replace("\"","").replace("[","").replace("]","").rstrip()
-    print("s = {0}".format(s))
+    str = temp.replace("\"", "").replace("[", "").replace("]", "").rstrip()
+    print("str = {0}".format(str))
 
     sl = Solution()
     time0 = time.time()
 
-    result = sl.minimumMoves(s)
+    result = sl.countValidWords(str)
 
     time1 = time.time()
 
-    print("result = {0:d}".format(result))
+    print("result = {0}".format(result))
     print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":

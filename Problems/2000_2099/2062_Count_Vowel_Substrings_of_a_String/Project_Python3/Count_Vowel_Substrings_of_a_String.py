@@ -1,22 +1,27 @@
 import os
-import re
 import sys
 import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def minimumMoves(self, s: str) -> int:
-        # 28ms
-        left, right = 0, len(s)
-        ans = 0
-        while left < right:
-            if s[left] == "X":
-                left += 3
-                ans += 1
-            else:
-                left += 1
-        return ans
-        
+    def countVowelSubstrings(self, word: str) -> int:
+        # 44ms
+        count = 0
+        compare = {'a', 'e', 'i', 'o', 'u'}
+        for i in range(len(word) - 4):
+            dic = set(word[i:i + 5])
+            if dic == compare:
+                count += 1
+            for j in range(i + 5, len(word)):
+                dic.add(word[j])
+                if dic == compare:
+                    count += 1
+        return count
+
+    def countVowelSubstrings2(self, word: str) -> int:
+        # 228ms
+        return sum(set(word[i:j + 1]) == set("aeiou") for i in range(len(word)) for j in range(i + 1, len(word)))
+
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -42,13 +47,13 @@ def main():
     #   input()
 
 def loop_main(temp):
-    s = temp.replace("\"","").replace("[","").replace("]","").rstrip()
-    print("s = {0}".format(s))
+    word = temp.replace("\"", "").replace("[", "").replace("]", "").rstrip()
+    print("word = {0}".format(word))
 
     sl = Solution()
     time0 = time.time()
 
-    result = sl.minimumMoves(s)
+    result = sl.countVowelSubstrings(word)
 
     time1 = time.time()
 

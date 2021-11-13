@@ -1,22 +1,23 @@
+# coding: utf-8
+
+import heapq
 import os
-import re
 import sys
 import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def minimumMoves(self, s: str) -> int:
-        # 28ms
-        left, right = 0, len(s)
-        ans = 0
-        while left < right:
-            if s[left] == "X":
-                left += 3
-                ans += 1
-            else:
-                left += 1
-        return ans
-        
+    def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
+        # 980ms
+        current = []
+        future = sorted(zip(capital, profits))[::-1]
+        for _ in range(k):
+            while future and future[-1][0] <= w:
+                heapq.heappush(current, -future.pop()[1])
+            if current:
+                w -= heapq.heappop(current)
+        return w
+
 def main():
     argv = sys.argv
     argc = len(argv)
@@ -42,13 +43,17 @@ def main():
     #   input()
 
 def loop_main(temp):
-    s = temp.replace("\"","").replace("[","").replace("]","").rstrip()
-    print("s = {0}".format(s))
+    flds = temp.replace(" ", "").replace("\"", "").replace("[[", "").replace("]]", "").rstrip().split("],[")
+    
+    k, w = int(flds[0]), int(flds[1])
+    profits = [int(_) for _ in flds[2].split(",")]
+    capital = [int(_) for _ in flds[3].split(",")]
+    print("k = {0:d}, w = {1:d}, profits = {2}, capital = {3}".format(k, w, profits, capital))
 
     sl = Solution()
     time0 = time.time()
 
-    result = sl.minimumMoves(s)
+    result = sl.findMaximizedCapital(k, w, profits, capital)
 
     time1 = time.time()
 
