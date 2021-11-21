@@ -64,17 +64,11 @@ public class Solution {
         // Wait until the thread ends.
 		try {
 			threadFoo.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-        
-        // Wait until the thread ends.
-		try {
 			threadBar.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+        
         long end = System.currentTimeMillis();
 
         System.out.println("\n");

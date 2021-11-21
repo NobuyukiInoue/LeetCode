@@ -16,7 +16,6 @@ class FizzBuzz(object):
         self.bz = threading.Semaphore(0)
         self.fzbz = threading.Semaphore(0)
         self.num = threading.Semaphore(1)
-        self.isFinished = False
 
     # printFizz() outputs "fizz"
     # def fizz(self, printFizz: 'Callable[[], None]') -> None:
@@ -56,7 +55,6 @@ class FizzBuzz(object):
             else:
                 printNumber(i)
                 self.num.release()
-        self.isFinished = True
 
     def printFizz(self):
         print(" Fizz", end="")
@@ -83,8 +81,11 @@ class Solution:
         for mt in myThreads:
             mt.start()
 
-        while fz.isFinished == False:
-            time.sleep(0.05)
+        thread_list = threading.enumerate()
+        thread_list.remove(threading.main_thread())
+        for thread in thread_list:
+            thread.join()
+
         print()
 
 def main():

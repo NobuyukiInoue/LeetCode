@@ -110,15 +110,15 @@ public class Solution {
         threadFizzBuzz.start();
         threadNumber.start();
 
-        while (fz.isFinished() == false) {
-            try {
-                Thread.sleep(10);
-            } catch (Exception e) {
-                if (e.getMessage() != null)
-                    System.out.println(e.getMessage());
-                System.exit(1);
-            }
-        }
+        // Wait until the thread ends.
+		try {
+			threadFizz.join();
+			threadBuzz.join();
+            threadFizzBuzz.join();
+            threadNumber.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
         long end = System.currentTimeMillis();
 
