@@ -1,0 +1,6 @@
+[["abcdefghi"],[3],["x"]]
+[["abcdefghij"],[3],["x"]]
+[["ctoyjrwtngqwt"],[8],["n"]]
+[["abcdefghi"],[3],["x"]]
+[["abcdefghij"],[3],["x"]]
+
