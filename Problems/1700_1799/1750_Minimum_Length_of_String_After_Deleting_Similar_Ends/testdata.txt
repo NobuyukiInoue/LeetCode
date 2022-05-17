@@ -1,0 +1,4 @@
+["ca"]
+["cabaabac"]
+["aabccabba"]
+["bbbbbbbbbbbbbbbbbbb"]
