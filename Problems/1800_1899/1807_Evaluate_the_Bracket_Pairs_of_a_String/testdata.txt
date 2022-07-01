@@ -1,0 +1,4 @@
+[["(name)is(age)yearsold"],[["name","bob"],["age","two"]]]
+[["hi(name)"],[["a","b"]]]
+[["(a)(a)(a)aaa"],[["a","yes"]]]
+[["(fy)(kj)(ege)r"],[["uxhhkpvp","h"],["nriroroa","m"],["wvhiycvo","z"],["qsmfeing","s"],["hbcyqulf","q"],["xwgfjnrf","b"],["kfipazun","s"],["wnkrtxui","u"],["abwlsese","e"],["iimsmftc","h"],["pafqkquo","v"],["kj","tzv"],["fwwxotcd","t"],["yzgjjwjr","l"]]]

@@ -181,6 +181,21 @@ $ cd Problems/0001_0099/0001_Two_Sum/Project_Go
 $ go run main.go ../testdata.txt
 ```
 
+## Project for Elixir
+
+### Change Directory
+
+```
+$ cd Problems/0001_0099/0001_Two_Sum/Project_Elixir
+```
+
+### Run
+
+```
+$ mix escript.build
+$ ./main ../testdata.txt
+```
+
 # Get list of Projects
 
 ## MS-Windows(PowerShell)
@@ -199,6 +214,8 @@ $ go run main.go ../testdata.txt
    ...
 > Get-ChildItem -Directory -Recurse Project_Go | Select-String ":\\"
    ...
+> Get-ChildItem -Directory -Recurse Project_Elixir | Select-String ":\\"
+   ...
 ```
 
 ## macOS/Linux(bash)
@@ -216,5 +233,7 @@ $ find Problems -type d | grep "Project_Java$" | sort
 $ find Problems -type d | grep "Project_Scala$" | sort
    ...
 $ find Problems -type d | grep "Project_Go$" | sort
+   ...
+$ find Problems -type d | grep "Project_Elixir$" | sort
    ...
 ```
