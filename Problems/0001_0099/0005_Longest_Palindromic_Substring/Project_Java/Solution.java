@@ -2,6 +2,45 @@ import java.util.*;
 
 public class Solution {
     public String longestPalindrome(String s) {
+        // 33ms - 69ms
+        if (s.length() < 2) {
+            return s;
+        }
+        int start = 0, end = 0;
+        String result = "";
+        while (end < s.length()) {
+            /*
+            System.out.println("start = " + Integer.toString(start) + ", end = " + Integer.toString(end));
+            System.out.println("res = " + result);
+            System.out.println("isPalindrome() = " + isPalindrome(s, start, end));
+            */
+            if (isPalindrome(s, start, end)) {
+                if (result.length() < (end - start + 1)) {
+                    result = s.substring(start, end + 1);
+                }
+                if (start > 0) {
+                    start--;
+                }
+                end++;
+            } else {
+                start++;
+            }
+        }
+        return result;
+    }
+
+    private Boolean isPalindrome(String s, int start, int end) {
+        while (start < end) {
+            if (s.charAt(start) != s.charAt(end)) {
+                break;
+            }
+            start++;
+            end--;
+        }
+        return !(start < end);
+    }
+
+    public String longestPalindrome2(String s) {
         // 23ms
         int from = 0, to = 0;
         for (int i = 0; i < s.length(); ++i) {
@@ -28,7 +67,7 @@ public class Solution {
         return new int[] {p + 1, q};
     }
 
-    public String longestPalindrome2(String s) {
+    public String longestPalindrome3(String s) {
         // 198ms
         int n = s.length();
         String res = "";
@@ -47,7 +86,7 @@ public class Solution {
 
     public void Main(String temp) {
         String s = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim();
-        System.out.println("s = " + s);
+        System.out.println("s = \"" + s + "\"");
 
         long start = System.currentTimeMillis();
 
@@ -55,7 +94,7 @@ public class Solution {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("result = " + result);
+        System.out.println("result = \"" + result + "\"");
         System.out.println((end - start)  + "ms\n");
     }
 }

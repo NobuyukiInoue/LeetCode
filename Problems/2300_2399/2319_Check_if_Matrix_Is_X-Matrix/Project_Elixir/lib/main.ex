@@ -2,10 +2,12 @@ defmodule Main do
   @moduledoc """
   Documentation for `Main`.
   """
+  @spec hello() :: :ok
   def hello() do
     "hello!" |> IO.puts()
   end
 
+  @spec main(args :: [String.t]) :: :ok
   def main(args \\ []) do
     if Enum.count(args) < 1 do
       "Usage) ./main <testdata.txt>" |> IO.puts()

@@ -60,6 +60,7 @@ defmodule Solution do
     end).()
   end
 
+  @spec loop_main(temp :: String.t) :: :ok
   def loop_main(temp) do
     temp = String.replace(temp, "[[", "")
     temp = String.replace(temp, "]]", "")
@@ -73,8 +74,7 @@ defmodule Solution do
       end
     end
 
-    "grid = " <> Mylibs.intIntListToString(grid) |> IO.puts()
-    "grid = \n" <> Mylibs.matrixToString("grid", grid) |> IO.puts()
+    Mylibs.matrixToString("grid", grid) |> IO.puts()
 
     exectime = Benchmark.measure(fn ->
       result = Solution.check_x_matrix(grid)

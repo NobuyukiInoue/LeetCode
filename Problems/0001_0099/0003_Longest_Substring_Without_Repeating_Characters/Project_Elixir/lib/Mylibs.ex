@@ -17,7 +17,7 @@ defmodule Mylibs do
   def matrixToString(name, nums) do
     res =
     for arr <- nums do
-      " [" <> intListToString(arr) <> "]"
+      "[" <> intListToString(arr) <> "]"
     end
     name <> " = [\n" <> Enum.join(res, ",\n") <> "\n]"
   end

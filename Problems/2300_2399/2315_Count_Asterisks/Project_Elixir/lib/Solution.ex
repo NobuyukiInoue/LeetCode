@@ -14,6 +14,7 @@ defmodule Solution do
     |> elem(1)
   end
 
+  @spec loop_main(temp :: String.t) :: :ok
   def loop_main(temp) do
     temp = String.replace(temp, "[", "")
     s = String.replace(temp, "]", "")
@@ -24,7 +25,6 @@ defmodule Solution do
       "result = " <> Integer.to_string(result) |> IO.puts
     end)
 
-    "Execute time : " <> Float.to_string(Float.round(exectime, 3)) <> " [s]" |> IO.puts
-    IO.puts("")
+    "Execute time : " <> Float.to_string(Float.round(exectime, 3)) <> " [s]\n" |> IO.puts()
   end
 end

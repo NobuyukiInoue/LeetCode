@@ -13,6 +13,7 @@ defmodule Solution do
     check(t, count+1, Map.put(map, h, count), target)
   end
 
+  @spec loop_main(temp :: String.t) :: :ok
   def loop_main(temp) do
     temp = String.replace(temp, "[[", "")
     temp = String.replace(temp, "]]", "")
@@ -22,7 +23,7 @@ defmodule Solution do
 
     nums = for n <- flds0, do: n |> String.trim() |> String.to_integer()
     target = Enum.at(flds, 1) |> String.to_integer()
-    "nums = " <> Mylibs.intListToString(nums) <> ", target = " <> Integer.to_string(target) |> IO.puts()
+    "nums = [" <> Mylibs.intListToString(nums) <> "], target = " <> Integer.to_string(target) |> IO.puts()
 
     exectime = Benchmark.measure(fn ->
       result = Solution.two_sum(nums, target)
