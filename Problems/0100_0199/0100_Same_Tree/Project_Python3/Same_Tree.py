@@ -52,12 +52,12 @@ def main():
     #   input()
 
 def loop_main(temp):
-    str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
+    str_args = temp.replace(", ",",").replace("\"","").replace("[[","").replace("]]","").rstrip()
     flds = str_args.split("],[")
 
     ope_t = OperateTreeNode()
-    p = ope_t.createTreeNode(flds[0])
-    q = ope_t.createTreeNode(flds[1])
+    p = ope_t.createTreeNode(flds[0].split(","))
+    q = ope_t.createTreeNode(flds[1].split(","))
 
     print("p = \n{0}".format(ope_t.treeToStaircaseString(p)))
     print("p = {0}".format(ope_t.tree2str(p)))

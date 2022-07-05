@@ -55,7 +55,7 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
 
     preorder = [int(fld) for fld in flds.split(",")]
     print("preorder = {0}".format(preorder))

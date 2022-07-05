@@ -50,13 +50,13 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
 
     ope_t = OperateTreeNode()
     if len(flds) == 0:
         root = None
     else:
-        root = ope_t.createTreeNode(flds)
+        root = ope_t.createTreeNode(flds.split(","))
 
     print("root = \n{0}".format(ope_t.treeToStaircaseString(root)))
     print("root = {0}".format(ope_t.tree2str(root)))

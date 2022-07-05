@@ -6,7 +6,7 @@ import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def sum1(self, num1: int, num2: int) -> int:
+    def sum(self, num1: int, num2: int) -> int:
         # 19ms - 37ms
         return num1 + num2
 
@@ -59,7 +59,7 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("[","").replace("]","").replace(", ",",").rstrip()
+    flds = temp.replace("[", "").replace("]", "").replace(", ", ",").rstrip()
     nums = [int(n) for n in flds.split(",")]
     num1, num2 = nums[0], nums[1]
     print("num1 = {0:d}, num2 = {1:d}".format(num1, num2))

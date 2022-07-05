@@ -77,9 +77,12 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace(" ","").replace("\"","").replace("[[","").replace("]]","").rstrip()
+    flds = temp.replace(" ", "").replace("\"", "").replace("[[", "").replace("]]", "").rstrip().split("],[")
 
-    matrix = [[int(col) for col in data.split(",")] for data in flds.split("],[")]
+    if len(flds) == 0 or flds[0] == "[]":
+        matrix = []
+    else:
+        matrix = [[int(col) for col in data.split(",")] for data in flds]
     printGrid("matrix", matrix)
 
     sl = Solution()

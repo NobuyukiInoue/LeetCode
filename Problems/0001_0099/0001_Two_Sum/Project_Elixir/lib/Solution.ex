@@ -23,11 +23,11 @@ defmodule Solution do
 
     nums = for n <- flds0, do: n |> String.trim() |> String.to_integer()
     target = Enum.at(flds, 1) |> String.to_integer()
-    "nums = [" <> Mylibs.intListToString(nums) <> "], target = " <> Integer.to_string(target) |> IO.puts()
+    "nums = [" <> Mylib.intList_to_string(nums) <> "], target = " <> Integer.to_string(target) |> IO.puts()
 
     exectime = Benchmark.measure(fn ->
       result = Solution.two_sum(nums, target)
-      "result = " <> Mylibs.intListToString(result) |> IO.puts()
+      "result = [" <> Mylib.intList_to_string(result) <> "]" |> IO.puts()
     end)
 
     "Execute time : " <> Float.to_string(Float.round(exectime, 3)) <> " [s]\n" |> IO.puts()

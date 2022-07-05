@@ -21,8 +21,8 @@ defmodule Solution do
 
     nums1 = for n <- String.split(Enum.at(flds, 0), ","), do: n |> String.trim() |> String.to_integer()
     nums2 = for n <- String.split(Enum.at(flds, 1), ","), do: n |> String.trim() |> String.to_integer()
-    "nums1 = [" <> Mylibs.intListToString(nums1) <> "]" |> IO.puts()
-    "nums2 = [" <> Mylibs.intListToString(nums2) <> "]" |> IO.puts()
+    "nums1 = [" <> Mylib.intList_to_string(nums1) <> "]" |> IO.puts()
+    "nums2 = [" <> Mylib.intList_to_string(nums2) <> "]" |> IO.puts()
 
     exectime = Benchmark.measure(fn ->
       result = Solution.find_median_sorted_arrays(nums1, nums2)

@@ -11,7 +11,7 @@ from TreeNode.OperateTreeNode import OperateTreeNode
 
 class Solution:
 #   def isValidBST(self, root: TreeNode) -> bool:
-    def isValidBST(self, root, lessThan = float('inf'), largerThan = float('-inf')):
+    def isValidBST(self, root: TreeNode, lessThan = float('inf'), largerThan = float('-inf')) -> bool:
         # 72ms
         if not root:
             return True
@@ -66,10 +66,10 @@ def loop_main(temp):
     if len(temp) == 0:
         return
 
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ",",").replace("\"","").replace("[","").replace("]","").rstrip()
 
     ope_t = OperateTreeNode()
-    root = ope_t.createTreeNode(flds)
+    root = ope_t.createTreeNode(flds.split(","))
     print("root = \n{0}".format(ope_t.treeToStaircaseString(root)))
     print("root = {0}".format(ope_t.tree2str(root)))
 

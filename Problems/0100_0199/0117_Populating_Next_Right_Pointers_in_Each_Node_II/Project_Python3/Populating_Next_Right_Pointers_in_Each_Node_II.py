@@ -81,7 +81,7 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
 
     ope_n = OperateNode()
     root = ope_n.createNode(flds)

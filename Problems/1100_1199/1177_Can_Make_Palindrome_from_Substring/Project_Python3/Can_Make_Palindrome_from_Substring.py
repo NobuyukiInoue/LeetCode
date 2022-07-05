@@ -1,12 +1,11 @@
 # coding: utf-8
 
 import os
-import operator
 import sys
 import time
+from typing import List, Dict, Tuple
 
 class Solution:
-#   def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
     def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
         # 1368ms
         letter_occurrences = [0] * 26
@@ -47,7 +46,7 @@ class Solution:
                     ret.append(False)
         return ret
 
-    def canMakePaliQueries2(self, s: str, queries: [[int]]) -> [bool]:
+    def canMakePaliQueries2(self, s: str, queries: List[List[int]]) -> List[bool]:
         # 2408ms
         cnt = [[0] * 26]
         for i, c in enumerate(s):
@@ -55,7 +54,7 @@ class Solution:
             cnt[i + 1][ord(c) - ord('a')] += 1
         return [sum((cnt[hi + 1][i] - cnt[lo][i]) % 2 for i in range(26)) // 2 <= k for lo, hi, k in queries]
 
-    def canMakePaliQueries2_detail(self, s: str, queries: [[int]]) -> [bool]:
+    def canMakePaliQueries2_detail(self, s: str, queries: List[List[int]]) -> List[bool]:
         # 2288ms
         cnt = [[0] * 26]
         for i, c in enumerate(s):
@@ -71,7 +70,7 @@ class Solution:
         return res
 
 
-    def canMakePaliQueries_bad(self, s: str, queries: [[int]]) -> [bool]:
+    def canMakePaliQueries_bad(self, s: str, queries: List[List[int]]) -> List[bool]:
         res = []
         for query in queries:
             target = s[query[0]:query[1] + 1]
@@ -114,7 +113,7 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace(" ","").replace("\"","").rstrip().split("],[[")
+    flds = temp.replace(" ", "").replace("\"", "").rstrip().split("],[[")
 
     s = flds[0].replace("[[", "")
     print("s = {0}".format(s))

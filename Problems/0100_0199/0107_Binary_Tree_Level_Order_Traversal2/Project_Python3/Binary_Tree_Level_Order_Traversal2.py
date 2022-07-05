@@ -54,11 +54,11 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
 
     ope_t = OperateTreeNode()
     if len(flds) > 0:
-        root = ope_t.createTreeNode(flds)
+        root = ope_t.createTreeNode(flds.split(","))
     else:
         root = None
 

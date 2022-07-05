@@ -1,13 +1,11 @@
 # coding: utf-8
 
-import collections
 import os
 import sys
 import time
-import math
+from typing import List, Dict, Tuple
 
 class Solution:
-#   def totalFruit(self, tree: List[int]) -> int:
     def totalFruit(self, tree: List[int]) -> int:
         # 656ms
         fruits = [None, None]
@@ -31,7 +29,7 @@ class Solution:
         total = max(total, sum(count))
         return total
 
-    def totalFruit2(self, tree: [int]) -> int:
+    def totalFruit2(self, tree: List[int]) -> int:
         # 748ms
         count, i = {}, 0
         for j, v in enumerate(tree):
@@ -67,7 +65,7 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("[","").replace("]","").replace("\"","").replace(" ","").rstrip()
+    flds = temp.replace("[", "").replace("]", "").replace("\"", "").replace(" ", "").rstrip()
 
     tree = [int(n) for n in flds.split(",")]
     print("tree = {0}".format(tree))

@@ -52,7 +52,7 @@ def loop_main(temp):
 
     ope_t = OperateTreeNode()
 
-    root = ope_t.createTreeNode(flds[0])
+    root = ope_t.createTreeNode(flds[0].split(","))
     print("root = \n{0}".format(ope_t.treeToStaircaseString(root)))
     print("root = {0}".format(ope_t.tree2str(root)))
 

@@ -44,15 +44,15 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[[","").replace("]]","").rstrip().split("],[")
+    flds = temp.replace("\"", "").replace("[[", "").replace("]]", "").rstrip().split("],[")
 
     ope_t = OperateTreeNode()
 
-    root1 = ope_t.createTreeNode(flds[0])
+    root1 = ope_t.createTreeNode(flds[0].split(","))
     print("root1 = \n{0}".format(ope_t.treeToStaircaseString(root1)))
     print("root1 = {0}".format(ope_t.tree2str(root1)))
 
-    root2 = ope_t.createTreeNode(flds[1])
+    root2 = ope_t.createTreeNode(flds[1].split(","))
     print("root2 = \n{0}".format(ope_t.treeToStaircaseString(root2)))
     print("root2 = {0}".format(ope_t.tree2str(root2)))
 

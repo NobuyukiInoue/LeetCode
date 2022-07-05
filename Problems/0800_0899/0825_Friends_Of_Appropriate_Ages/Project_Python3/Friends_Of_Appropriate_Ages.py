@@ -67,7 +67,7 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
 
     ages = [int(val) for val in flds.split(",")]
     print("ages = {0}".format(ages))

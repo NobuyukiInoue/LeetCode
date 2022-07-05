@@ -1,35 +1,30 @@
+from typing import List, Dict, Tuple
+
 from .TreeNode import TreeNode
 
 class OperateTreeNode:
-    def createTreeNode(self, flds):
-        return self.createSubTreeNode(flds.split(","), 0, 0)
-
-    def createSubTreeNode(self, flds, depth, pos):
-        if len(flds) <= 0:
+#   def createTreeNode(self, flds):
+    def createTreeNode(self, flds: List[str], depth: int = 0, pos: int = 0) -> TreeNode:
+        if pos >= len(flds) or len(flds) <= 0:
             return None
-
         cur_pos = 0
         for i in range(depth):
             cur_pos += 2 ** i
-
         if cur_pos + pos > len(flds) - 1:
             return None
-
         if flds[cur_pos + pos] == 'null':
             return None
-
         node = TreeNode(int(flds[cur_pos + pos]))
-        node.left = self.createSubTreeNode(flds, depth + 1, 2*pos)
-        node.right = self.createSubTreeNode(flds, depth + 1, 2*pos + 1)
-
+        node.left = self.createTreeNode(flds, depth + 1, 2*pos)
+        node.right = self.createTreeNode(flds, depth + 1, 2*pos + 1)
         return node
 
-    def treeToStaircaseString(self, node):
+    def treeToStaircaseString(self, node: TreeNode) -> str:
         self.resultList = []
         self.getStaircaseSubString(node, 0)
         return self.resultListToString()
 
-    def getStaircaseSubString(self, node, n):
+    def getStaircaseSubString(self, node: TreeNode, n: int) -> None:
         if node is None:
             return
         if len(self.resultList) <= n:
@@ -42,12 +37,12 @@ class OperateTreeNode:
             self.getStaircaseSubString(node.right, n + 1)
         return
 
-    def resultListToString(self):
+    def resultListToString(self) -> str:
         resultStr = "\n".join(self.resultList)
         self.resultList.clear()
         return resultStr
 
-    def tree2str(self, node):
+    def tree2str(self, node: TreeNode) -> str:
         """
         :type node: TreeNode
         :rtype: str

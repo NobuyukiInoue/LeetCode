@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+from typing import List, Dict, Tuple
 
 class OrderedStream:
     # 220ms
@@ -20,8 +21,7 @@ class OrderedStream2:
         self.stream = [None]*n
         self.currentIndex = 0
 
-#   def insert(self, id: int, value: str) -> List[str]:
-    def insert(self, id: int, value: str) -> [str]:
+    def insert(self, id: int, value: str) -> List[str]:
         self.stream[id - 1] = [id, value]
         res = []
         for i in range(self.currentIndex, len(self.stream)):
@@ -81,9 +81,9 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace(", ",",").rstrip().split("],[[")
+    flds = temp.replace("\"", "").replace(", ", ",").rstrip().split("],[[")
     cmds = flds[0].replace("[", "").replace("]", "").split(",")
-    args = flds[1].replace("]]]","").split("],[")
+    args = flds[1].replace("]]]", "").split("],[")
     for i in range(len(args)):
         args[i] = args[i].split(",")
 

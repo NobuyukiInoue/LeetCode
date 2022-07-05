@@ -59,10 +59,10 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
 
     ope_t = OperateTreeNode()
-    t = ope_t.createTreeNode(flds)
+    t = ope_t.createTreeNode(flds.split(","))
     print("t = \n{0}".format(ope_t.treeToStaircaseString(t)))
 #   print("t = {0}".format(ope_t.tree2str(t)))
 

@@ -73,7 +73,7 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
 
     nums = [int(n) for n in flds.split(",")]
     print("nums = \n{0}".format(nums))

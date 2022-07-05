@@ -54,7 +54,7 @@ def loop_main(temp):
     flds = temp.replace("\"","").replace("[[","").replace("]]","").rstrip().split("],[")
 
     ope_t = OperateTreeNode()
-    root = ope_t.createTreeNode(flds[0])
+    root = ope_t.createTreeNode(flds[0].split(","))
     to_delete = [int(n) for n in flds[1].split(",")]
 
     print("root = \n{0}".format(ope_t.treeToStaircaseString(root)))

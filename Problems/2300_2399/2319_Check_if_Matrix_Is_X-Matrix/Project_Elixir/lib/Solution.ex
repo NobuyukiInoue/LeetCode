@@ -74,7 +74,7 @@ defmodule Solution do
       end
     end
 
-    Mylibs.matrixToString("grid", grid) |> IO.puts()
+    Mylib.matrix_to_string("grid", grid) |> IO.puts()
 
     exectime = Benchmark.measure(fn ->
       result = Solution.check_x_matrix(grid)

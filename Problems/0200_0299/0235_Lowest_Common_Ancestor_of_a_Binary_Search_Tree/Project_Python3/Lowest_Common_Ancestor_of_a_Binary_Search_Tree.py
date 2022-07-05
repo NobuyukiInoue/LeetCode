@@ -48,7 +48,7 @@ def loop_main(temp):
     flds = str_args.split("],[")
 
     ope_t = OperateTreeNode()
-    root = ope_t.createTreeNode(flds[0])
+    root = ope_t.createTreeNode(flds[0].split(","))
     p = ope_t.createTreeNode(flds[1])
     q = ope_t.createTreeNode(flds[2])
 

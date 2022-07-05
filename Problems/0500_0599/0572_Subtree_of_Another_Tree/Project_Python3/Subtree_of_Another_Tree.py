@@ -74,11 +74,11 @@ def loop_main(temp):
 
     ope_t = OperateTreeNode()
 
-    s = ope_t.createTreeNode(flds[0])
+    s = ope_t.createTreeNode(flds[0].split(","))
     print("s = \n{0}".format(ope_t.treeToStaircaseString(s)))
     print("s = {0}".format(ope_t.tree2str(s)))
 
-    t = ope_t.createTreeNode(flds[1])
+    t = ope_t.createTreeNode(flds[1].split(","))
     print("t = \n{0}".format(ope_t.treeToStaircaseString(t)))
     print("t = {0}".format(ope_t.tree2str(t)))
 

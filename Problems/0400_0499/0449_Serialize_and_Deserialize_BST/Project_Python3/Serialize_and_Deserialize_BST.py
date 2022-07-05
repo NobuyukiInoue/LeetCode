@@ -39,7 +39,7 @@ def loop_main(temp):
     if len(temp) == 0:
         return
         
-    flds = temp.replace("\"","").replace("[","").replace("]","").rstrip()
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
 
     ope_t = OperateTreeNode()
     codec = Codec2()

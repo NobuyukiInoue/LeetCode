@@ -82,12 +82,12 @@ def main():
     #   input()
 
 def loop_main(temp):
-    str_args = temp.replace("\"","").replace("[[","").replace("]]","").rstrip()
+    str_args = temp.replace(", ", ",").replace("\"", "").replace("[[", "").replace("]]", "").rstrip()
     flds = str_args.split("],[")
 
     ope_t = OperateTreeNode()
-    t1 = ope_t.createTreeNode(flds[0])
-    t2 = ope_t.createTreeNode(flds[1])
+    t1 = ope_t.createTreeNode(flds[0].split(","))
+    t2 = ope_t.createTreeNode(flds[1].split(","))
     print("t1 = \n{0}".format(ope_t.treeToStaircaseString(t1)))
     print("t1 = {0}".format(ope_t.tree2str(t1)))
     print("t2 = \n{0}".format(ope_t.treeToStaircaseString(t2)))

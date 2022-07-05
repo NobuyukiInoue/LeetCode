@@ -87,13 +87,16 @@ def loop_main(temp):
     flds = temp.replace("\"","").replace(", ",",").rstrip().split("],[[[")
     cmds = flds[0].replace("[[", "").split(",")
 
-    node_flds = (flds[1].split("]],["))[0]
     ope_t = OperateTreeNode()
 
-    if len(node_flds) > 0:
-        mynode = ope_t.createTreeNode(node_flds)
-    else:
+    if (flds[1].split("]],["))[0] == "":
         mynode = None
+    else:
+        node_flds = (flds[1].split("]],["))[0].split(",")
+        if len(node_flds) > 0:
+            mynode = ope_t.createTreeNode(node_flds)
+        else:
+            mynode = None
 
     print("mynode = \n[{0}]".format(ope_t.treeToStaircaseString(mynode)))
 

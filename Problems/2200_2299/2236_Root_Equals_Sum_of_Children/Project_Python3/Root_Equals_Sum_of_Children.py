@@ -42,7 +42,7 @@ def loop_main(temp):
     flds = temp.replace("\"","").replace("[","").replace("]","")
 
     ope_t = OperateTreeNode()
-    root = ope_t.createTreeNode(flds)
+    root = ope_t.createTreeNode(flds.split(","))
 
     print("root = \n{0}".format(ope_t.treeToStaircaseString(root)))
     print("root = {0}".format(ope_t.tree2str(root)))
