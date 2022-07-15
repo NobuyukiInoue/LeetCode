@@ -11,29 +11,19 @@ using System;
  
 public class Solution {
     public ListNode DeleteDuplicates(ListNode head) {
-        if (head == null) {
-            return null;
+        // 114ms - 131ms
+        if (head == null || head.next == null) {
+            return head;
         }
-
-        ListNode read_next_nodes = head;
-        ListNode result_nodes = new ListNode(head.val);
-        ListNode temp_node = result_nodes;
-
-        while (read_next_nodes.next != null) {
-            while (read_next_nodes.val == read_next_nodes.next.val)
-                if (read_next_nodes.next.next != null)
-                    read_next_nodes.next = read_next_nodes.next.next;
-                else
-                    break;
-
-            if (temp_node.val != read_next_nodes.next.val) {
-                temp_node.next = new ListNode(read_next_nodes.next.val);
-                temp_node = temp_node.next;
+        ListNode node = head;
+        while (node != null && node.next != null) {
+            if (node.val == node.next.val) {
+                node.next = node.next.next;
+            } else {
+                node = node.next;
             }
-            read_next_nodes = read_next_nodes.next;
         }
-
-        return result_nodes;
+        return head;
     }
 
     public int[] str_to_int_array(string s)
