@@ -72,7 +72,7 @@ def main():
 
 def loop_main(temp):
     word = temp.replace("\"", "").replace("[", "").replace("]", "").rstrip()
-    print("s = {0}".format(word))
+    print("word = {0}".format(word))
 
     sl = Solution()
     time0 = time.time()
