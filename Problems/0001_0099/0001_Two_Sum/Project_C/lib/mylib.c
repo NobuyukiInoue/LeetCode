@@ -194,3 +194,25 @@ void ml_print_pchar_array(char* var_name, char *strs[], int length)
     }
     printf("]\n");
 }
+
+int ml_contains_count(char* str, char* target)
+{
+    int result = 0;
+    int target_length = strlen(target);
+    char* p = str;
+    while (*p != '\0') {
+        int cnt = 0;
+        char* q = target;
+        while (*p == *q) {
+            cnt++;
+            if (cnt == target_length) {
+                result++;
+                break;
+            }
+            p++;
+            q++;
+        }
+        p++;
+    }
+    return result;
+}

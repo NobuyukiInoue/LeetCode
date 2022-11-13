@@ -7,3 +7,4 @@ int ml_str_to_int_array(char* str_nums, int* nums[]);
 int ml_str_to_pchar_array(char* flds, char** strs[]);
 void ml_print_int_array(char* var_name, int nums[], int length);
 void ml_print_pchar_array(char* var_name, char *strs[], int length);
+int ml_contains_count(char* str, char* target);
