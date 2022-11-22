@@ -6,7 +6,7 @@ public class Solution {
 
         Mylib ml = new Mylib();
         OperateNestedInteger oni = new OperateNestedInteger();
-        List<NestedInteger> flds = oni.createNestedInteger(flds_str);
+        List<NestedInteger> flds = oni.createListNestedInteger(flds_str);
         System.out.println("flds = " + oni.listNestedIntegerToString(flds));
 
         long start = System.currentTimeMillis();
