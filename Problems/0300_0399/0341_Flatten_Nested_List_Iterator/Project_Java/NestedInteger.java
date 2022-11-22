@@ -19,9 +19,13 @@
 import java.util.*;
 
 public class NestedInteger {
-    private Integer integer;
+    private Integer val;
     private List<NestedInteger> list;
-    
+
+    public NestedInteger(Integer integer){
+        this.val = integer;
+    }
+
     public NestedInteger(List<NestedInteger> list){
         this.list = list;
     }
@@ -36,11 +40,7 @@ public class NestedInteger {
     }
 
     public void setInteger(int num) {
-        this.integer = num;
-    }
-
-    public NestedInteger(Integer integer){
-        this.integer = integer;
+        this.val = num;
     }
 
     public NestedInteger() {
@@ -48,11 +48,11 @@ public class NestedInteger {
     }
 
     public boolean isInteger() {
-        return integer != null;
+        return this.val != null;
     }
 
     public Integer getInteger() {
-        return integer;
+        return this.val;
     }
 
     public List<NestedInteger> getList() {
@@ -62,7 +62,7 @@ public class NestedInteger {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if (this.isInteger()) {
-            sb.append(this.integer);
+            sb.append(this.val);
         }
         if (this.list != null) {
             if (sb.length() > 0) {
@@ -72,9 +72,9 @@ public class NestedInteger {
             for (NestedInteger ni : this.list) {
                 if (this.isInteger()) {
                     if (sb.charAt(sb.length() - 1) != '[') {
-                        sb.append("," + ni.integer);
+                        sb.append("," + ni.val);
                     } else {
-                        sb.append(ni.integer);
+                        sb.append(ni.val);
                     }
                 } else {
                     if (sb.charAt(sb.length() - 1) != '[') {
