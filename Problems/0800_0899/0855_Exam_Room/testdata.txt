@@ -1,0 +1,2 @@
+[["ExamRoom","seat","seat","seat","seat","leave","seat"],[[10],[],[],[],[],[4],[]]]
+[["ExamRoom","seat","seat","seat","leave","seat","seat","seat","seat"],[[15],[],[],[],[14],[],[],[],[]]]

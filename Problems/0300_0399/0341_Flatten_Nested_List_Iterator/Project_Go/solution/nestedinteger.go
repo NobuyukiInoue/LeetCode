@@ -42,7 +42,8 @@ func (this NestedInteger) GetInteger() int {
 }
 
 func (this *NestedInteger) SetInteger(value int) {
-	*(this.Val) = value
+	val := value
+	this.Val = &val
 }
 
 func (this *NestedInteger) Add(elem NestedInteger) {

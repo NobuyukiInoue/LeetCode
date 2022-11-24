@@ -24,9 +24,9 @@ func flatten(ni *NestedIterator, nested *NestedInteger) {
 		}
 	}
 }
-func (this *NestedIterator) Next() int {
-	(*this).index++
-	return (*this).intList[(*this).index-1]
+func (myname *NestedIterator) Next() int {
+	(*myname).index++
+	return (*myname).intList[(*myname).index-1]
 }
 
 func (this *NestedIterator) HasNext() bool {
