@@ -29,20 +29,21 @@ package solution
 import "strconv"
 
 type NestedInteger struct {
-	Val  *int
-	List [](*NestedInteger)
+	Val       int
+	isInteger bool
+	List      [](*NestedInteger)
 }
 
 func (this NestedInteger) IsInteger() bool {
-	return this.Val != nil
+	return this.isInteger
 }
 
 func (this NestedInteger) GetInteger() int {
-	return *(this.Val)
+	return this.Val
 }
 
 func (this *NestedInteger) SetInteger(value int) {
-	this.Val = &value
+	this.Val = value
 }
 
 func (this *NestedInteger) Add(elem NestedInteger) {
@@ -61,7 +62,7 @@ func (this *NestedInteger) GetList() [](*NestedInteger) {
 func (this *NestedInteger) ToString() string {
 	resultStr := ""
 	if (*this).IsInteger() {
-		resultStr += strconv.Itoa(*((*this).Val))
+		resultStr += strconv.Itoa((*this).Val)
 	}
 	if (*this).List != nil {
 		if len(resultStr) > 0 {
@@ -71,9 +72,9 @@ func (this *NestedInteger) ToString() string {
 		for _, ni := range (*this).List {
 			if ni.IsInteger() {
 				if resultStr[len(resultStr)-1] != '[' {
-					resultStr += "," + strconv.Itoa(*(ni.Val))
+					resultStr += "," + strconv.Itoa((*ni).Val)
 				} else {
-					resultStr += strconv.Itoa(*(ni.Val))
+					resultStr += strconv.Itoa((*ni).Val)
 				}
 			} else {
 				if resultStr[len(resultStr)-1] != '[' {

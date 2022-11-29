@@ -32,7 +32,7 @@ func createListNestedInteger(flds_str string) []*NestedInteger {
 			pos2 := strings.Index(flds_str, "]")
 			if pos1 == -1 && pos2 == -1 {
 				val, _ := strconv.Atoi(flds_str)
-				ni = append(ni, &NestedInteger{&val, nil})
+				ni = append(ni, &NestedInteger{val, true, nil})
 				flds_str = ""
 			} else if pos2 >= 0 {
 				var pos int
@@ -42,11 +42,11 @@ func createListNestedInteger(flds_str string) []*NestedInteger {
 					pos = pos1
 				}
 				val, _ := strconv.Atoi(flds_str[:pos])
-				ni = append(ni, &NestedInteger{&val, nil})
+				ni = append(ni, &NestedInteger{val, true, nil})
 				flds_str = flds_str[pos+1:]
 			} else if pos1 >= 0 {
 				val, _ := strconv.Atoi(flds_str[:pos1])
-				ni = append(ni, &NestedInteger{&val, nil})
+				ni = append(ni, &NestedInteger{val, true, nil})
 				flds_str = flds_str[pos1+1:]
 			} else {
 				fmt.Printf("createNestedInteger() Error.\n")
@@ -82,7 +82,7 @@ func createNestedInteger(flds_str string) *NestedInteger {
 			pos2 := strings.Index(flds_str, "]")
 			if pos1 == -1 && pos2 == -1 {
 				val, _ := strconv.Atoi(flds_str)
-				ni.Add(NestedInteger{&val, nil})
+				ni.Add(NestedInteger{val, true, nil})
 				flds_str = ""
 			} else if pos2 >= 0 {
 				var pos int
@@ -92,12 +92,12 @@ func createNestedInteger(flds_str string) *NestedInteger {
 					pos = pos1
 				}
 				val, _ := strconv.Atoi(flds_str[:pos])
-				ni.Add(NestedInteger{&val, nil})
+				ni.Add(NestedInteger{val, true, nil})
 				flds_str = flds_str[pos+1:]
 
 			} else if pos1 >= 0 {
 				val, _ := strconv.Atoi(flds_str[:pos1])
-				ni.Add(NestedInteger{&val, nil})
+				ni.Add(NestedInteger{val, true, nil})
 				flds_str = flds_str[pos1+1:]
 			} else {
 				fmt.Printf("createNestedInteger() Error.\n")
