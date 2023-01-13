@@ -11,19 +11,20 @@ defmodule OperateListNode do
     end
   end
 
-  @spec listNodeToString(node :: ListNode.t | nil) :: String.t
+  @spec listNodeToString(node :: nil) :: String.t
+  def listNodeToString(nil) do
+    ""
+  end
+
+  @spec listNodeToString(node :: ListNode.t) :: String.t
   def listNodeToString(node) do
-    if node == nil do
+    if node.val == nil do
       ""
     else
-      if node.val == nil do
-        ""
+      if node.next != nil and node.next.val != nil do
+        (node.val |> Integer.to_string()) <> ", " <> listNodeToString(node.next)
       else
-        if node.next != nil and node.next.val != nil do
-          (node.val |> Integer.to_string()) <> ", " <> listNodeToString(node.next)
-        else
-          node.val |> Integer.to_string()
-        end
+        node.val |> Integer.to_string()
       end
     end
   end
