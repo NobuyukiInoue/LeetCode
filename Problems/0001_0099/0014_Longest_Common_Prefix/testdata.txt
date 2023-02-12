@@ -1,2 +1,5 @@
 ["flower","flow","flight"]
 ["dog","racecar","car"]
+["c","acc","ccc"]
+["aaa","aa","aaa"]
+["abab","aba",""]
