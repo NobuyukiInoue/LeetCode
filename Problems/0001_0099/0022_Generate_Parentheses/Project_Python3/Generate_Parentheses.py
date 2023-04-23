@@ -1,15 +1,10 @@
-# coding: utf-8
-
 import os
 import sys
 import time
+from typing import List, Dict, Tuple
 
 class Solution:
-    def generateParenthesis(self, n):
-        """
-        :type n: int
-        :rtype: List[str]
-        """
+    def generateParenthesis(self, n: int) -> List[str]:
         ans = []
         
         def backtrack(S = '', left = 0, right = 0):
@@ -51,7 +46,8 @@ def main():
     #   input()
 
 def loop_main(temp):
-    n = int(temp)
+    flds = temp.replace(", ", ",").replace("\"", "").replace("[", "").replace("]", "").rstrip()
+    n = int(flds)
 
     sl = Solution()
     time0 = time.time()

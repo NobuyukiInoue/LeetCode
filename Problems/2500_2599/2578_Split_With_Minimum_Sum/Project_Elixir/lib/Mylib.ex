@@ -22,7 +22,7 @@ defmodule Mylib do
     name <> " = [\n" <> Enum.join(res, ",\n") <> "\n]"
   end
 
-  @spec stringArray_to_string(arr :: [String]) :: String.t
+  @spec stringArray_to_string(arr :: [String.t]) :: String.t
   def stringArray_to_string(arr) do
     "[" <> Enum.join(arr, ", ") <> "]"
   end

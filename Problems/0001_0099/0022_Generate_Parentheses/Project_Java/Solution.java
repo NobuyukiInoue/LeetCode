@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Solution {
     public List<String> generateParenthesis(int n) {
@@ -29,7 +27,8 @@ public class Solution {
     }
 
     public void Main(String temp) {
-        int n = Integer.parseInt(temp);
+        String fld = temp.replace("\"", "").replace(", ", ",").replace("[", "").replace("]", "").trim();
+        int n = Integer.parseInt(fld);
         System.out.println("n = " + Integer.toString(n));
 
         long start = System.currentTimeMillis();
