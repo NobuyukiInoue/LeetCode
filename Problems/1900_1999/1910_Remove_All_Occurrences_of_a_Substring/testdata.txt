@@ -1,0 +1,3 @@
+[["daabcbaabcbc"],["abc"]]
+[["axxxxyyyyb"],["xy"]]
+[["aabababa"],["aba"]]
