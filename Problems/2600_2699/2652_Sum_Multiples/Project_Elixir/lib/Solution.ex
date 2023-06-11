@@ -18,11 +18,11 @@ defmodule Solution do
     n = String.to_integer(flds)
     "n = " <> to_string(n) |> IO.puts()
 
-    execright = Benchmark.measure(fn ->
+    exectime = Benchmark.measure(fn ->
       result = Solution.sum_of_multiples(n)
       "result = " <> Integer.to_string(result) |> IO.puts()
     end)
 
-    "Execute time : " <> Float.to_string(Float.round(execright, 3)) <> " [s]\n" |> IO.puts()
+    "Execute time : " <> Float.to_string(Float.round(exectime, 3)) <> " [s]\n" |> IO.puts()
   end
 end
