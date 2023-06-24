@@ -3,72 +3,42 @@ import sys
 import time
 
 class Solution:
-    def Climb_Stairs(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+    def climbStairs0(self, n: int) -> int:
+        # 42ms - 48ms
+        prev, prev2 = 1, 0
+        for _ in range(1, n + 1):
+            curi = prev + prev2
+            prev2 = prev
+            prev = curi
+        return prev
+
+    def climbStairs1(self, n: int) -> int:
+        # 51ms
         dp = [0] + [1] + [2] + [0] * (n - 2)
         for i in range(3, n+1):
             dp[i] = dp[i-1] + dp[i-2]
         return dp[n]
 
-    def Climb_Stairs1(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        self.resultArray = [-1]*(n + 1)
-        return self.calc_next1(n)
+    def climbStairs(self, n: int) -> int:
+        # 38ms - 43ms
+        resultArray = [-1]*(n + 1)
 
-    def Climb_Stairs2(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        self.resultArray = [-1]*(n + 1)
-        self.resultArray[0] = 0
-        if n >= 1:
-            self.resultArray[1] = 1
-        if n >= 2:
-            self.resultArray[2] = 2
-        return self.calc_next2(n)
+        def calc_next(n: int) -> int:
+            if resultArray[n] >= 0:
+                return resultArray[n]
+            total = 0
+            for i in range(1, 3):
+                if i == n:
+                    total += 1
+                    break
+                if i > n:
+                    break
+                total += calc_next(n - i)
+            resultArray[n] = total
+            return total
 
-    def calc_next2(self, n):
-        if self.resultArray[n] >= 0:
-            return self.resultArray[n]
-        sum = 0
-        if n == 1:
-            sum += 1
-        else:
-            sum += self.calc_next2(n - 1)
-        if n == 2:
-            sum += 1
-        else:
-            sum += self.calc_next2(n - 2)
-        self.resultArray[n] = sum
-        return sum
+        return calc_next(n)
 
-    def calc_next1(self, n):
-        if self.resultArray[n] >= 0:
-            return self.resultArray[n]
-        sum = 0
-        for i in range(1, 3):
-            if i == n:
-                sum += 1
-                break
-            if i > n:
-                break
-            sum += self.calc_next1(n - i)
-
-        self.resultArray[n] = sum
-
-        # print("result[{0:d}] = {1}".format(n, sum))
-        return sum
-    
-    def print_resultArray(self, n):
-        for i in range(0, len(self.resultArray)):
-            print("resultArray[{0:d}] = {1:d}".format(i, self.resultArray[i]))
 
 def main():
     argv = sys.argv
@@ -103,7 +73,7 @@ def loop_main(temp):
     sl = Solution()
     time0 = time.time()
 
-    result = sl.Climb_Stairs(n)
+    result = sl.climbStairs(n)
 
     time1 = time.time()
 

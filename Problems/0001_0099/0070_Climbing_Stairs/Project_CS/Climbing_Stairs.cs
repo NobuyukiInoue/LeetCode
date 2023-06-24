@@ -4,6 +4,7 @@ public class Solution
 {
     public int ClimbingStairs(int n)
     {
+        // 25ms
         int[] results = new int[n + 1];
         results[0] = 0;
         if (n > 0)
@@ -20,7 +21,8 @@ public class Solution
 
     public void Main(string args)
     {
-        int n = int.Parse(args);
+        string fld = args.Replace("[","").Replace("]","").Trim();
+        int n = int.Parse(fld);
         Console.WriteLine("n = " + n.ToString() );
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();

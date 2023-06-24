@@ -21,7 +21,9 @@ public class Solution2
 
     public void Main(string args)
     {
-        Console.WriteLine("n = " + args );
+        string fld = args.Replace("[","").Replace("]","").Trim();
+        int n = int.Parse(fld);
+        Console.WriteLine("n = " + n.ToString() );
 
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 
