@@ -54,7 +54,8 @@ public class Solution
 
     public void Main(string args)
     {
-        int n = int.Parse(args.Trim());
+        string fld = args.Replace("[","").Replace("]","").Trim();
+        int n = int.Parse(fld);
 
         Console.WriteLine("n = " + n);
 
