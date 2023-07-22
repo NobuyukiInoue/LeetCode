@@ -4,40 +4,20 @@ public class Solution
 {
     public int MaxSubArray(int[] nums)
     {
-        int i, j;
-        int sum;
-    //  int pos1 = 0, pos2 = 0;
-        int max_sum = nums[0];
-        
-        for ( i = 0; i < nums.Length; ++i ) {
-            if ( nums[i] < 0 && max_sum > 0) {
-                continue;
-            }
-
-            sum = nums[i];
-
-            if (sum > max_sum) {
-                max_sum = sum;
-            //  pos1 = pos2 = i;
-            }
-
-            for ( j = i + 1; j < nums.Length; ++j ) {
-                sum += nums[j];
-
-                if (sum > max_sum) {
-                    max_sum = sum;
-                //  pos1 = i;
-                //  pos2 = j;
-                }
-            }
+        // 212ms
+        int maxSum = int.MinValue, currentSum = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            currentSum += nums[i];
+            if (currentSum > maxSum)
+                maxSum = currentSum;
+            if (currentSum < 0)
+                currentSum = 0;
         }
-
-    //  output(nums, pos1, pos2, max_sum);
-
-        return max_sum;
+        return maxSum;
     }
 
-    private void output(int[] nums, int pos1, int pos2, int max_sum)
+    private void output(int[] nums, int pos1, int pos2, int maxSum)
     {
         for (int i = 0; i < nums.Length; i++ )
             if ( i < nums.Length - 1)
@@ -46,7 +26,7 @@ public class Solution
                 Console.WriteLine(nums[i].ToString());
 
         Console.WriteLine("pos1 = " + pos1.ToString() + ", pos2 = " + pos2.ToString());
-        Console.WriteLine("max_sum = " + max_sum.ToString() );
+        Console.WriteLine("maxSum = " + maxSum.ToString() );
 
         for (int i = pos1; i <= pos2; i++ )
             if ( i < pos2 )

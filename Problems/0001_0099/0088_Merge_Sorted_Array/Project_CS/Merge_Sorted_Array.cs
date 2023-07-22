@@ -4,32 +4,19 @@ public class Solution
 {
     public void Merge(int[] nums1, int m, int[] nums2, int n)
     {
-        /*
-        if (nums1.Length < nums2.Length)
+        // 149ms - 153ms
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+        while (j >= 0)
         {
-            Console.WriteLine("n not equal nums2.Length!!!");
-            return;
-        }
-        if (nums2.Length != n) {
-            Console.WriteLine("n not equal nums2.Length!!!");
-            return;
-        }
-        */
-        int index_num1 = m - 1;
-        int i = nums1.Length - 1;
-        int j = nums2.Length - 1;
-
-        while (i >= 0 && j >= 0) {
-            if (index_num1 >= 0) {
-                if ((nums1[index_num1] > nums2[j])) {
-                    nums1[i--] = nums1[index_num1--];
-                }
-                else {
-                    nums1[i--] = nums2[j--];
-                }
+            if (i >= 0 && nums1[i] > nums2[j])
+            {
+                nums1[k--] = nums1[i--];
             }
-            else {
-                nums1[i--] = nums2[j--];
+            else
+            {
+                nums1[k--] = nums2[j--];
             }
         }
     }
