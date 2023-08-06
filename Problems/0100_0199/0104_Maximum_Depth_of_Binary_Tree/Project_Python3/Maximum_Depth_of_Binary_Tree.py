@@ -3,25 +3,20 @@
 import os
 import sys
 import time
+from typing import List, Dict, Tuple, Optional
 
 from TreeNode.Codec import Codec
 from TreeNode.TreeNode import TreeNode
 from TreeNode.OperateTreeNode import OperateTreeNode
 
 class Solution:
-    def maxDepth(self, root: 'TreeNode') -> 'int':
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        # 55ms
         if not root:
             return 0
-
-        max_l, max_r = 0, 0
-        if root.left is not None:
-            max_l = self.maxDepth(root.left)
-        if root.right is not None:
-            max_r = self.maxDepth(root.right)
-        if max_l >= max_r:
-            return max_l + 1
-        else:
-            return max_r + 1
+        max_l = self.maxDepth(root.left)
+        max_r = self.maxDepth(root.right)
+        return max_l + 1 if max_l > max_r else max_r + 1
 
 def main():
     argv = sys.argv

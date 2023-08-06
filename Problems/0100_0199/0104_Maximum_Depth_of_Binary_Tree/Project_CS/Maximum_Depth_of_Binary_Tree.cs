@@ -4,18 +4,12 @@ public class Solution
 {
     public int MaxDepth(TreeNode root)
     {
+        // 95ms - 111ms
         if (root == null)
             return 0;
-
-        int max_l = 0, max_r = 0;
-        if (root.left != null)
-            max_l = MaxDepth(root.left);
-        if (root.right != null)
-            max_r = MaxDepth(root.right);
-        if (max_l >= max_r)
-            return max_l + 1;
-        else
-            return max_r + 1;   
+        int max_l = MaxDepth(root.left);
+        int max_r = MaxDepth(root.right);
+        return max_l >= max_r? max_l + 1: max_r + 1;
     }
 
     public void Main(string args)

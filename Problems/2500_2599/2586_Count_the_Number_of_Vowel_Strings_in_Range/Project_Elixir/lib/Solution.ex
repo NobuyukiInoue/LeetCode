@@ -34,11 +34,11 @@ defmodule Solution do
     right = Enum.at(flds, 2) |> String.to_integer()
     "words = " <> Mylib.stringArray_to_string(words) <> ", left = " <> Integer.to_string(left) <> ", right = " <> Integer.to_string(right) |> IO.puts()
 
-    execright = Benchmark.measure(fn ->
+    exectime = Benchmark.measure(fn ->
       result = Solution.vowel_strings(words, left, right)
       "result = " <> Integer.to_string(result) |> IO.puts()
     end)
 
-    "Execute time : " <> Float.to_string(Float.round(execright, 3)) <> " [s]\n" |> IO.puts()
+    "Execute time : " <> Float.to_string(Float.round(exectime, 3)) <> " [s]\n" |> IO.puts()
   end
 end
