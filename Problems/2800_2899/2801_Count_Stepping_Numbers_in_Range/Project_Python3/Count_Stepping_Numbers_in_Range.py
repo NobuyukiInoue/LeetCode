@@ -6,6 +6,38 @@ from typing import List, Dict, Tuple
 
 class Solution:
     def countSteppingNumbers(self, low: str, high: str) -> int:
+        # 129ms - 141ms
+        MOD = 1_000_000_007
+
+        def count_step_numbers(high: str) -> int:
+            is_step_number = True
+            num = int(high[0]) + 1
+            counts = [0] * 10
+            tmp = [0] * 10
+            for i, ch in enumerate(high):
+                for j in range(1, 9):
+                    tmp[j] = (counts[j - 1] + counts[j + 1])%MOD
+                tmp[0] = counts[1]
+                tmp[9] = counts[8]
+                num0 = int(ch)
+                for j in range(1, 10 if i > 0 else num0):
+                    tmp[j] += 1
+                if is_step_number:
+                    if abs(num - num0) != 1:
+                        is_step_number = False
+                    if 0 <= num - 1 < num0:
+                        tmp[num - 1] += 1
+                    if num + 1 < num0:
+                        tmp[num + 1] += 1
+                tmp, counts = counts, tmp
+                num = num0
+            return sum(counts)%MOD, is_step_number
+
+        num1, is_step1 = count_step_numbers(high)
+        num0, _ = count_step_numbers(low)
+        return (num1 + int(is_step1) - num0)%MOD
+
+    def countSteppingNumbers2(self, low: str, high: str) -> int:
         # 288ms - 297ms
         low = "0"*(len(high) - len(low)) + low
         mod = 10**9 + 7
