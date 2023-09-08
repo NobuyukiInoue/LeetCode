@@ -1,23 +1,18 @@
-# coding: utf-8
-
 import os
 import sys
 import time
+from typing import List, Dict, Tuple
 
 class Solution:
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
-        max = 0
-        min = sys.maxsize
-        for i in range(len(prices)):
-            if min > prices[i]:
-                min = prices[i]
-            if prices[i] - min > max:
-                max = prices[i] - min
-        return max
+    def maxProfit(self, prices: List[int]) -> int:
+        # 786ms - 795ms
+        v_max, v_min = 0, sys.maxsize
+        for price in prices:
+            if v_min > price:
+                v_min = price
+            if price - v_min > v_max:
+                v_max = price - v_min
+        return v_max
 
 def main():
     argv = sys.argv

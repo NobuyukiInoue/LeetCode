@@ -4,26 +4,36 @@ public class Solution
 {
     public int MaxProfit(int[] prices)
     {
-        int max = 0;
-        int sum_max = 0;
-        int min = int.MaxValue;
-
-        for(int i = 0; i < prices.Length; i++)
+        // 77ms - 82ms
+        int profit = 0;
+        for (int i = 1; i < prices.Length; i++)
         {
-            if(min > prices[i])
-                min = prices[i];
-            if(prices[i] - min > max)
-                max = prices[i] - min;
-            if(prices[i] - min > 0) {
-                sum_max += prices[i] - min;
-                min = prices[i];
+            if (prices[i] > prices[i - 1])
+            {
+                profit += prices[i] - prices[i - 1];
             }
         }
-        
-        if (max > sum_max)
-            return max;
-        else
-            return sum_max;
+        return profit;
+    }
+
+    public int MaxProfit2(int[] prices)
+    {
+        // 77ms - 86ms
+        int p_max = 0;
+        int p_min = int.MaxValue;
+        int sum_max = 0;
+
+        foreach (int price in prices)
+        {
+            p_min = Math.Min(p_min, price);
+            p_max = Math.Max(p_max, price - p_min);
+            if (price - p_min > 0)
+            {
+                sum_max += price - p_min;
+                p_min = price;
+            }
+        }
+        return p_max > sum_max ? p_max : sum_max;
     }
 
     public int[] str_to_int_array(string s)

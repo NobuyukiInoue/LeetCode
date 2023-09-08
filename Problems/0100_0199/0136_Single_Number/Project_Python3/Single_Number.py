@@ -1,39 +1,20 @@
-# coding: utf-8
-
-from functools import reduce
+import functools
 import os
 import sys
 import time
+from typing import List, Dict, Tuple
 
 class Solution:
-    def singleNumber(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        return reduce(lambda x, y: x ^ y, nums)
+    def singleNumber(self, nums: List[int]) -> int:
+        # 124ms - 128ms
+        result = 0
+        for num in nums:
+            result = result^num
+        return result
 
-    def singleNumber2(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        nums_check = [False]*len(nums)
-
-        for i in range(len(nums)):
-            if nums_check[i]:
-                continue
-
-            for j in range(i + 1, len(nums)):
-                if nums_check[j]:
-                    continue
-                if nums[i] == nums[j]:
-                    nums_check[i] = nums_check[j] = True
-
-            if nums_check[i] == False:
-                return nums[i]
-
-        return -1
+    def singleNumber_1liner(self, nums: List[int]) -> int:
+        # 121ms - 127ms
+        return functools.reduce(lambda x, y: x ^ y, nums)
 
 def main():
     argv = sys.argv

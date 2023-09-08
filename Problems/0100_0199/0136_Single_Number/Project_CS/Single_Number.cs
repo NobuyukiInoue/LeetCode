@@ -4,57 +4,13 @@ public class Solution
 {
     public int SingleNumber(int[] nums)
     {
-        int i, j;
-        bool[] nums_checked = new bool[nums.Length];
-
-        for (i = 0; i < nums.Length; ++i) {
-            
-            if (nums_checked[i])
-                continue;
-
-            for (j = i + 1; j < nums.Length; ++j) {
-                if (nums_checked[j])
-                    continue;
-
-                if (nums[i] == nums[j]) {
-                    nums_checked[i] = nums_checked[j] = true;
-                }
-            }
-            
-            if (nums_checked[i] == false)
-                return nums[i];
+        // 90ms - 91ms
+        int result = 0;
+        foreach (int num in nums)
+        {
+            result = result^num;
         }
-
-        return -1;
-    }
-
-    public int SingleNumber_ver1(int[] nums)
-    {
-        int i, j;
-        bool[] nums_checked = new bool[nums.Length];
-
-        for (i = 0; i < nums.Length; ++i) {
-            
-            if (nums_checked[i])
-                continue;
-
-            for (j = i + 1; j < nums.Length; ++j) {
-                if (nums_checked[j])
-                    continue;
-
-                if (nums[i] == nums[j]) {
-                    nums_checked[i] = nums_checked[j] = true;
-                }
-            }
-        }
-        
-        for (i = 0; i < nums.Length; ++i) {
-            if (nums_checked[i] == false) {
-                return nums[i];
-            }
-        }
-
-        return -1;
+        return result;
     }
 
     public int[] str_to_int_array(string s)
