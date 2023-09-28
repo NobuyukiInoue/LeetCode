@@ -1,18 +1,12 @@
 import java.util.*;
 
 public class Solution {
-    public int countPairs(List<Integer> nums, int target) {
-        // 3ms
-        int n = nums.size();
+    public int sumIndicesWithKSetBits(List<Integer> nums, int k) {
+        // 1ms
         int ans = 0;
-        Collections.sort(nums);
-        for (int i = 0; i < n - 1; i++) {
-            int nums_i = nums.get(i);
-            for (int j = i + 1; j < n; j++) {
-                if (nums_i + nums.get(j) >= target) {
-                    break;
-                }
-            ans++;
+        for (int i = 0; i < nums.size(); i++) {
+            if (Integer.bitCount(i) == k) {
+                ans += nums.get(i);
             }
         }
         return ans;
@@ -23,12 +17,12 @@ public class Solution {
 
         Mylib ml = new Mylib();
         List<Integer> nums = ml.stringToListIntArray(flds[0]);
-        int target = Integer.parseInt(flds[1]);
-        System.out.println("nums = " + ml.listIntArrayToString(nums) + ", target = " + target);
+        int k = Integer.parseInt(flds[1]);
+        System.out.println("nums = " + ml.listIntArrayToString(nums) + ", k = " + k);
  
         long start = System.currentTimeMillis();
 
-        int result = countPairs(nums, target);
+        int result = sumIndicesWithKSetBits(nums, k);
 
         long end = System.currentTimeMillis();
 
