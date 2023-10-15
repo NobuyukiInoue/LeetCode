@@ -22,13 +22,13 @@ public class Solution {
         String[] flds = temp.replace("\"", "").replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         Mylib ml = new Mylib();
-        List<Integer> numss = ml.stringToListIntArray(flds[0]);
+        List<Integer> nums = ml.stringToListIntArray(flds[0]);
         int target = Integer.parseInt(flds[1]);
-        System.out.println("numss = " + ml.listIntArrayToString(numss) + ", target = " + target);
+        System.out.println("nums = " + ml.listIntArrayToString(nums) + ", target = " + target);
  
         long start = System.currentTimeMillis();
 
-        int result = countPairs(numss, target);
+        int result = countPairs(nums, target);
 
         long end = System.currentTimeMillis();
 
