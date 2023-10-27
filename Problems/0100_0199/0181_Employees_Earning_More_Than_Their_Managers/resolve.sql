@@ -1,0 +1,9 @@
+# Write your MySQL query statement below
+
+# 700ms - 826ms
+
+SELECT e2.name as Employee
+  FROM Employee e1
+  INNER JOIN Employee e2 ON e1.id = e2.managerID
+  WHERE
+  e1.salary < e2.salary;

@@ -3,19 +3,16 @@
 import os
 import sys
 import time
+from typing import List, Dict, Tuple, Optional
 
 from ListNode.ListNode import ListNode
 from ListNode.OperateListNode import OperateListNode
 
 class Solution:
-    def hasCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        # 43ms - 56ms
         if head is None:
             return False
-        
         fastPtr = head
         slowPtr = head
         while fastPtr is not None and fastPtr.next is not None:
@@ -23,7 +20,6 @@ class Solution:
             slowPtr = slowPtr.next
             if fastPtr == slowPtr:
                 return True
-
         return False
 
 def main():
