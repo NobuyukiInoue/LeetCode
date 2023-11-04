@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
     const reader = new FileReader();
     reader.onload = () => {
       const result_contents = document.getElementById('result_contents');
-      let lines = reader.result.split('\n');
+      let lines = reader.result.trim().split('\n');
       lines.forEach(line => {
         result_contents.innerHTML += 'args = ' + line + '<BR>';
 

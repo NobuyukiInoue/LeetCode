@@ -1,19 +1,20 @@
 /**
- * @param {number[]} nums
+ * @param {number[]} arr
  * @param {Function} fn
- * @param {number} init
- * @return {number}
+ * @return {number[]}
  */
 
-// 41ms
-var reduce = function(nums, fn, init) {
-  let val = init;
-  for (let i = 0; i < nums.length; i++) {
-    val = fn(val, nums[i]);
+// 46ms
+var filter = function(arr, fn) {
+  var filteredArr = [];
+  for (var i = 0; i < arr.length; i++) {
+      if (fn(arr[i], i)) {
+          filteredArr.push(arr[i]);
+      }
   }
-  return val;
+  return filteredArr;
 };
-
+ 
 window.addEventListener('load', () => {
   const f = document.getElementById('selct_file_button');
   f.addEventListener('change', evt => {
@@ -32,33 +33,33 @@ window.addEventListener('load', () => {
       lines.forEach(line => {
         result_contents.innerHTML += 'args = ' + line + '<BR>';
 
-        const flds = line.replace('[[', '').replace(']]', '').replace(/, /g, ',').replace(/"/g, '').split('],[');
+        const flds = line.replace('[[', '').replace(']]', '').replace(/"/g, '').split('],[');
 
-        var nums = [];
+        var arr = [];
         flds[0].split(',').forEach(temp => {
-          nums.push(parseInt(temp, 10));
+          arr.push(parseInt(temp, 10));
         });
 
-        let fn = flds[1];
-        let init = parseInt(flds[2], 10);
-        result_contents.innerHTML += 'nums = [' + nums + '], fn = ' + fn + ', init = ' + init + '<BR>';
+        var fn = flds[1];
 
-        fn = fn.replace(/.*{/, '').replace(' return ', '').replace('; }', '');
+        result_contents.innerHTML += 'arr = ' + arr + ', functions = ' + fn + '<BR>';
 
         const t_start = performance.now();
 
+        fn = fn.replace(/.*{/, '').replace(' return ', '').replace(' }', '');
+
+        result_contents.innerHTML += 'fn = "' + fn + '"<BR>';
+
         var result;
-
-        if (fn === '0') {
-          result = reduce(nums, (accum, _val) => accum + eval(fn), init);
+        if (fn.indexOf("i ") === 0) {
+          result = filter(arr, (n, i) => eval(fn));
         } else {
-          result = reduce(nums, (accum, curr) => eval(fn), init);
+          result = filter(arr, n => eval(fn));
         }
-
-        result_contents.innerHTML += 'result = ' + result + '<BR>';
 
         const t_end = performance.now();
 
+        result_contents.innerHTML += 'result = [' + result + ']<BR>';
         result_contents.innerHTML += 'Execute time ... ' + (t_end - t_start).toFixed(3) + '[s]<BR><BR>';
       });
     };

@@ -1,20 +1,23 @@
 /**
- * @param {number} n
- * @return {Function} counter
+ * @return {Generator<number>}
  */
 
-// 39ms
-var createCounter = function(n) {
-  let count = n, i = -1
-  return () => count + ++i;
+// 50ms
+var fibGenerator = function*() {
+  let current = 0;
+  let next = 1;
+
+  while (true) {
+    yield current;
+    [current, next] = [next, current + next];
+  }
 };
 
-/** 
-* const counter = createCounter(10)
-* counter() // 10
-* counter() // 11
-* counter() // 12
-*/
+/**
+ * const gen = fibGenerator();
+ * gen.next().value; // 0
+ * gen.next().value; // 1
+ */
 
 window.addEventListener('load', () => {
   const f = document.getElementById('selct_file_button');
@@ -28,26 +31,25 @@ window.addEventListener('load', () => {
     const reader = new FileReader();
     reader.onload = () => {
       const result_contents = document.getElementById('result_contents');
+      result_contents.innerHTML = '';
+
       let lines = reader.result.trim().split('\n');
       lines.forEach(line => {
         result_contents.innerHTML += 'args = ' + line + '<BR>';
 
-        let flds = line.replace('[[', '').replace(']]', '').replace(/, /g, ',').split('],[');
-        let n = parseInt(flds[0], 10);
-        let cmds = flds[1].replace(/\"/g, '').split(',');
+        const flds = line.replace('[', '').replace(']', '');
 
-        result_contents.innerHTML += 'n = ' + n + ', cmds = [' + cmds + ']<BR>';
+        var callCount = parseInt(flds, 10);
+
+        result_contents.innerHTML += 'callCount = ' + callCount + '<BR>';
 
         const t_start = performance.now();
 
-        const counter = createCounter(n);
-
-        let result = [];
-        cmds.forEach(cmd => {
-          if (cmd === "call") {
-            result.push(counter());
-          }
-        });
+        var result = 0;
+        const gen = fibGenerator();
+        for (let i = 0; i <= callCount; i++) {
+          result = gen.next().value;
+        }
 
         const t_end = performance.now();
 

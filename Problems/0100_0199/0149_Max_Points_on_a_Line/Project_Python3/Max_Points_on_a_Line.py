@@ -1,22 +1,11 @@
-# coding: utf-8
-
 import os
 import sys
 import time
-import math
-
-# Definition for a point.
-class Point:
-    def __init__(self, a=0, b=0):
-        self.x = a
-        self.y = b
+from typing import List, Dict, Tuple
 
 class Solution:
-    def maxPoints(self, points):
-        """
-        :type points: List[Point]
-        :rtype: int
-        """
+    def maxPoints(self, points: List[List[int]]) -> int:
+        # Wrong Answer 38 / 41 testcases passed
         if len(points) <= 2:
             return len(points)
         res = 0
@@ -24,10 +13,9 @@ class Solution:
             cur = 0
             overlap = 0
             lines = {}
-            # y = a x + b
             for j in range(i + 1,len(points)):
-                dx = points[i].x - points[j].x
-                dy = points[i].y - points[j].y
+                dx = points[i][0] - points[j][0]
+                dy = points[i][1] - points[j][1]
                 if dx == dy == 0:
                     overlap += 1
                     continue
@@ -36,22 +24,6 @@ class Solution:
                 cur = max(cur, lines[key])
             res = max(res, cur + overlap)
         return res + 1
-
-def set_Points(flds):
-    p = [Point()]*len(flds)
-    for i in range(len(flds)):
-        tempStr = flds[i].split(",")
-        p[i] = Point(int(tempStr[0]), int(tempStr[1]))
-    return p
-
-
-def output_Points(p):
-    if len(p) == 0:
-        return ""
-    result = "[[" + str(p[0].x) + "," + str(p[0].y) + "]"
-    for i in range(1,len(p)):
-        result += ",[" + str(p[i].x) + "," + str(p[i].y) + "]"
-    return result
 
 def main():
     argv = sys.argv
@@ -79,12 +51,13 @@ def main():
 
 def loop_main(temp):
     flds = temp.replace("[[","").replace("]]","").rstrip().split("],[")
-    p = set_Points(flds)
-    print("p = {0}".format(output_Points(p)))
+    points = [[int(col) for col in row.split(",")] for row in flds]
 
     sl = Solution()
+
     time0 = time.time()
-    result = sl.maxPoints(p)
+
+    result = sl.maxPoints(points)
 
     time1 = time.time()
 

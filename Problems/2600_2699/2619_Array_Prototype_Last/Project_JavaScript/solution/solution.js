@@ -30,7 +30,7 @@ Array.prototype.last = function() {
         const result_contents = document.getElementById('result_contents');
         result_contents.innerHTML = '';
 
-        let lines = reader.result.split('\n');
+        let lines = reader.result.trim().split('\n');
         lines.forEach(line => {
           result_contents.innerHTML += 'args = ' + line + '<BR>';
   
