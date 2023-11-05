@@ -5,10 +5,14 @@ from typing import List, Dict, Tuple
 
 import pandas as pd
 
-def getDataframeSize(players: pd.DataFrame) -> List[int]:
-    # 449ms - 507ms
-    return [players.shape[0], players.shape[1]]
-#   return list(players.shape)
+def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:
+    # 496ms - 576ms
+    employees['bonus'] = employees[['salary']]*2
+    return employees
+
+def createBonusColumn2(employees: pd.DataFrame) -> pd.DataFrame:
+    # 517ms - 627ms
+    return employees.assign(bonus=2 * employees['salary'])
 
 def main():
     argv = sys.argv
@@ -34,16 +38,16 @@ def main():
 def loop_main(lines):
     column_names = lines[0].replace(" ", "").split("|")[1:-1]
     data = [lines[i].replace(" ", "").replace("\n", "").split("|")[1:-1] for i in range(2, len(lines))]
-    players = pd.DataFrame(data, columns=column_names)
-    print("players = \n{0}\n".format(players))
+    employees = pd.DataFrame(data, columns=column_names)
+    print("employees = \n{0}\n".format(employees))
 
     time0 = time.time()
 
-    result = getDataframeSize(players)
+    result = createBonusColumn(employees)
 
     time1 = time.time()
 
-    print("result = {0}".format(result))
+    print("result = \n{0}".format(result))
     print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
