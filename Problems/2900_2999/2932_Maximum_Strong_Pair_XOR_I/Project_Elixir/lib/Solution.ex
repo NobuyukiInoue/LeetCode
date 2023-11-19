@@ -13,6 +13,21 @@ defmodule Solution do
     end)
   end
 
+  # 324ms - 406ms
+  @spec maximum_strong_pair_xor2(nums :: [integer]) :: integer
+  def maximum_strong_pair_xor2(nums) do
+    Enum.reduce(nums, {0, 0}, fn x, {i, ans} ->
+      ans = Enum.reduce(Enum.slice(nums, i, Enum.count(nums) - i), ans, fn y, ans ->
+        if abs(x - y) <= min(x, y) do
+          max(ans, Bitwise.bxor(x, y))
+        else
+          ans
+        end
+      end)
+      {i + 1, ans}
+    end) |> elem(1)
+  end
+
   @spec loop_main(temp :: String.t) :: :ok
   def loop_main(temp) do
     temp = String.replace(temp, "[", "")
