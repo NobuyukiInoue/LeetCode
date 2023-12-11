@@ -1,22 +1,18 @@
-# 263ms - 360ms
-defmodule Solution do
+# 263ms - 351ms
+defmodule SolutionList do
   @spec find_peaks(mountain :: [integer]) :: [integer]
   def find_peaks(mountain) do
-    n = mountain |> Enum.count()
-    map = Enum.reduce(mountain, {0, Map.new()}, fn cur, {i, map} ->
-      {i + 1, Map.put(map, i, cur)}
-    end) |> elem(1)
-    find_peaks(map, n)
+    find_peaks(mountain, Enum.count(mountain))
   end
 
-  @spec find_peaks(map :: %{}, n :: integer) :: [integer]
-  def find_peaks(_map, n) when n < 2 do
+  @spec find_peaks(mountain :: [integer], n :: integer) :: [integer]
+  def find_peaks(_mountain, n) when n < 3 do
     []
   end
 
-  def find_peaks(map, n) do
+  def find_peaks(mountain, n) do
     Enum.reduce(1..n-2, [], fn i, res ->
-      if map[i - 1] < map[i] and map[i] > map[i + 1] do
+      if Enum.at(mountain, i - 1) < Enum.at(mountain, i) and Enum.at(mountain, i) > Enum.at(mountain, i + 1) do
         res ++ [i]
       else
         res
