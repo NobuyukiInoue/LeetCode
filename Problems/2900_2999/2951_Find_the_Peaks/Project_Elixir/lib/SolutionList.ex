@@ -1,4 +1,4 @@
-# 263ms - 351ms
+# 259ms - 323ms
 defmodule SolutionList do
   @spec find_peaks(mountain :: [integer]) :: [integer]
   def find_peaks(mountain) do
@@ -13,11 +13,11 @@ defmodule SolutionList do
   def find_peaks(mountain, n) do
     Enum.reduce(1..n-2, [], fn i, res ->
       if Enum.at(mountain, i - 1) < Enum.at(mountain, i) and Enum.at(mountain, i) > Enum.at(mountain, i + 1) do
-        res ++ [i]
+        [i] ++ res
       else
         res
       end
-    end)
+    end) |> Enum.reverse()
   end
 
   @spec loop_main(temp :: String.t) :: :ok

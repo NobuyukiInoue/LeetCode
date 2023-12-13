@@ -8,6 +8,14 @@ class Solution:
         # 52ms - 54ms
         return [i for i in range(1, len(mountain) - 1) if mountain[i - 1] < mountain[i] > mountain[i + 1]]
 
+    def findPeaks2(self, mountain: List[int]) -> List[int]:
+        # 49ms
+        ans = []
+        for i in range(1, len(mountain) - 1):
+            if mountain[i - 1] < mountain[i] > mountain[i + 1]:
+                ans.append(i)
+        return ans
+
 def main():
     argv = sys.argv
     argc = len(argv)
