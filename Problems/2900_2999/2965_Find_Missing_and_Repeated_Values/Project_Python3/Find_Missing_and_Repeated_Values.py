@@ -6,7 +6,7 @@ from typing import List, Dict, Tuple
 
 class Solution:
     def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
-        # 130ms - 138ms
+        # 118ms - 138ms
         n = len(grid)
         cnts = [0 for _ in range(n*n + 1)]
         for row in grid:
