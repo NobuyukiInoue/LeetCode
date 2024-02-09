@@ -4,19 +4,17 @@ import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def minimumCost(self, nums: List[int]) -> int:
-        # 88ms
-        n, ans = len(nums), sys.maxsize
-        for i in range (1, n - 1):
-            for j in range(1, n - i):
-                ans = min(ans, nums[0] + nums[i] + nums[i + j])
-        return ans
-
-    def minimumCost2(self, nums: List[int]) -> int:
-        # 50ms - 51ms
-        n = len(nums)
-        nums[1:n] = sorted(nums[1:n])
-        return nums[0] + nums[1] + nums[2]
+    def triangleType(self, nums: List[int]) -> str:
+        # 29ms - 37ms
+        nums.sort()
+        if nums[0] + nums[1] <= nums[2]:
+            return "none"
+        elif nums[0] == nums[1] == nums[2]:
+            return "equilateral"
+        elif nums[0] == nums[1] or nums[1] == nums[2]:
+            return "isosceles"
+        else:
+            return "scalene"
 
 def main():
     argv = sys.argv
@@ -51,11 +49,11 @@ def loop_main(temp):
 
     time0 = time.time()
 
-    result = sl.minimumCost(nums)
+    result = sl.triangleType(nums)
 
     time1 = time.time()
 
-    print("result = {0:d}".format(result))
+    print("result = {0}".format(result))
     print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":

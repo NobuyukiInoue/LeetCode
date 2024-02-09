@@ -1,22 +1,22 @@
+import itertools
 import os
 import sys
 import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def minimumCost(self, nums: List[int]) -> int:
-        # 88ms
-        n, ans = len(nums), sys.maxsize
-        for i in range (1, n - 1):
-            for j in range(1, n - i):
-                ans = min(ans, nums[0] + nums[i] + nums[i + j])
-        return ans
+    def returnToBoundaryCount(self, nums: List[int]) -> int:
+        # 47ms - 48ms
+        return sum(num == 0 for num in itertools.accumulate(nums))
 
-    def minimumCost2(self, nums: List[int]) -> int:
-        # 50ms - 51ms
-        n = len(nums)
-        nums[1:n] = sorted(nums[1:n])
-        return nums[0] + nums[1] + nums[2]
+    def returnToBoundaryCount2(self, nums: List[int]) -> int:
+        # 32ms - 52ms
+        ans, pos = 0, 0
+        for num in nums:
+            pos += num
+            if pos == 0:
+                ans += 1
+        return ans
 
 def main():
     argv = sys.argv
@@ -51,7 +51,7 @@ def loop_main(temp):
 
     time0 = time.time()
 
-    result = sl.minimumCost(nums)
+    result = sl.returnToBoundaryCount(nums)
 
     time1 = time.time()
 
