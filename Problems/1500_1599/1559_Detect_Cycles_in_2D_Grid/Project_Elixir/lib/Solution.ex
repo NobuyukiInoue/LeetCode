@@ -1,21 +1,21 @@
 defmodule Solution do
-  # Time Limit Exceeded. (71/76)
+  # 2780ms - 3120ms
   @spec contains_cycle(grid :: [[char]]) :: boolean
   def contains_cycle(grid) do
-    {_, m_grid, visited} =
-      Enum.reduce(grid, {0, %{}, %{}}, fn row, {i, m_grid, visited} ->
-        {_, m_grid, visited} =
-          Enum.reduce(row, {0, m_grid, visited}, fn col, {j, m_grid, visited} ->
-            {j + 1, Map.put(m_grid, {i, j}, col), Map.put(visited, {i, j}, false)}
+    {_, m_grid} =
+      Enum.reduce(grid, {0, %{}}, fn row, {i, m_grid} ->
+        {_, m_grid} =
+          Enum.reduce(row, {0, m_grid}, fn col, {j, m_grid} ->
+            {j + 1, Map.put(m_grid, {i, j}, col)}
           end)
-        {i + 1, m_grid, visited}
+        {i + 1, m_grid}
         end)
 
     {m, n} = {Enum.count(grid), Enum.count(grid |> hd)}
-    Enum.reduce_while(0..m-1, {false, visited}, fn i, {_res, _visited} ->
+    Enum.reduce_while(0..m-1, {false, MapSet.new()}, fn i, {_res, visited} ->
       {res, visited} =
         Enum.reduce_while(0..n-1, {false, visited}, fn j, {_res, visited} ->
-          if not visited[{i, j}] do
+          if not MapSet.member?(visited, {i, j}) do
             {res, visited} = bfs(m_grid, m, n, i, j, -1, -1, visited)
             if res do
               {:halt, {true, visited}}
@@ -35,7 +35,7 @@ defmodule Solution do
     |> elem(0)
   end
 
-  @spec bfs(m_grid :: %{}, m :: integer, n :: integer, i :: Integer, j :: Integer, x :: Integer, y :: Integer, visited :: %{}) :: {Boolean, %{}}
+  @spec bfs(m_grid :: %{}, m :: integer, n :: integer, i :: integer, j :: integer, x :: integer, y :: integer, visited :: %{}) :: {Boolean, %{}}
   def bfs(m_grid, m, n, i, j, x, y, visited) do
     visited = Map.put(visited, {i, j}, true)
     que = :gb_sets.new()
@@ -62,10 +62,10 @@ defmodule Solution do
                 {:cont, {false, cnt, que, visited}}
               ni == cur_x and nj == cur_y ->
                 {:cont, {false, cnt, que, visited}}
-              visited[{ni, nj}] ->
+              MapSet.member?(visited, {ni, nj}) ->
                 {:halt, {true, cnt, que, visited}}
               true ->
-                {:cont, {false, cnt + 1, :gb_sets.add_element({cnt + 1, ni, nj, cur_i, cur_j}, que), Map.put(visited, {ni, nj}, true)}}
+                {:cont, {false, cnt + 1, :gb_sets.add_element({cnt + 1, ni, nj, cur_i, cur_j}, que), MapSet.put(visited, {ni, nj})}}
             end
         end)
         if res do

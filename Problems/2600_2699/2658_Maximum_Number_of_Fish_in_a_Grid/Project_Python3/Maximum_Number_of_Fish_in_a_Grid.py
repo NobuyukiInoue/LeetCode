@@ -1,28 +1,27 @@
-import collections
 import os
 import sys
 import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
-        # 403ms - 409ms
+    def findMaxFish(self, grid: List[List[int]]) -> int:
+        # 200ms - 214ms
         m, n = len(grid), len(grid[0])
-        if grid[0][0] != 0 or grid[m - 1][n - 1] != 0:
-            return -1
-        visited = [[False for j in range(n)] for i in range(m)]
-        que = [(0, 0, 1)]
-        while len(que) > 0:
-            i, j, dist = que.pop(0)
-            if i == m - 1 and j == n - 1:
-                return dist
-            for di, dj in [(1, 1), (1, -1), (-1, 1), (-1, -1), (1, 0), (0, 1), (0, -1), (-1, 0)]:
+        def dfs(i, j, cnt):
+            grid[i][j] = 0
+            for (di, dj) in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                 ni, nj = i + di, j + dj
-                if 0 <= ni < m and 0 <= nj < n and grid[ni][nj] == 0:
-                    if visited[ni][nj] is False:
-                        visited[ni][nj] = True
-                        que.append((ni, nj, dist + 1))
-        return -1
+                if ni < 0 or m <= ni or nj < 0 or n <= nj:
+                    continue
+                if grid[ni][nj] != 0:
+                    cnt += dfs(ni, nj, grid[ni][nj])
+            return cnt
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] != 0:
+                    ans = max(ans, dfs(i, j, grid[i][j]))
+        return ans
 
 def printGrid(title, grid):
     print("{0} = [".format(title))
@@ -72,7 +71,7 @@ def loop_main(temp):
     sl = Solution()
     time0 = time.time()
 
-    result = sl.shortestPathBinaryMatrix(grid)
+    result = sl.findMaxFish(grid)
 
     time1 = time.time()
 
