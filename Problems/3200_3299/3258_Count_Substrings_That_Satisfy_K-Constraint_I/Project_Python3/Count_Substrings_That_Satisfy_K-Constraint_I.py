@@ -4,10 +4,19 @@ import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def getEncryptedString(self, s: str, k: int) -> str:
-        # 32ms - 50ms
-        k = k%len(s)
-        return s[k:] + s[:k]
+    def countKConstraintSubstrings(self, s: str, k: int) -> int:
+        # 54ms - 55ms
+        ans, n = 0, len(s)
+        for i in range(n):
+            count0, count1 = 0, 0
+            for j in range(i, n):
+                if s[j] == "0":
+                    count0 += 1
+                else:
+                    count1 += 1
+                if count0 <= k or count1 <= k:
+                    ans += 1
+        return ans
 
 def main():
     argv = sys.argv
@@ -42,11 +51,11 @@ def loop_main(temp):
     sl = Solution()
     time0 = time.time()
 
-    result = sl.getEncryptedString(s, k)
+    result = sl.countKConstraintSubstrings(s, k)
 
     time1 = time.time()
 
-    print("result = \"{0}\"".format(result))
+    print("result = {0:d}".format(result))
     print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":

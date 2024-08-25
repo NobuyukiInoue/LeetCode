@@ -8,7 +8,7 @@ public class Solution {
     }
 
     public void Main(String temp) {
-        String flds[] = temp.replace(" ", "").replace("\"", "").replace("\"", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
+        String flds[] = temp.replace(" ", "").replace("[[", "").replace("]]", "").trim().split("\\],\\[");
 
         String s = flds[0].replace("\"", "");
         int k = Integer.parseInt(flds[1]);

@@ -4,10 +4,16 @@ import time
 from typing import List, Dict, Tuple
 
 class Solution:
-    def getEncryptedString(self, s: str, k: int) -> str:
-        # 32ms - 50ms
-        k = k%len(s)
-        return s[k:] + s[:k]
+    def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:
+        # 70ms
+        while k > 0:
+            n, v_min = 0, sys.maxsize
+            for i, num in enumerate(nums):
+                if num < v_min:
+                    n, v_min = i, num
+            nums[n] *= multiplier
+            k -= 1
+        return nums
 
 def main():
     argv = sys.argv
@@ -34,19 +40,19 @@ def main():
     #   input()
 
 def loop_main(temp):
-    flds = temp.replace("[[","").replace("]]","").rstrip().split("],[")
+    flds = temp.replace("\"","").replace("[[","").replace("]]","").rstrip().split("],[")
     
-    s, k = flds[0].replace("\"", ""), int(flds[1])
-    print("s = \"{0}\", k = {1:d}".format(s, k))
+    nums, k, multiplier = [int(num) for num in flds[0].split(",")], int(flds[1]), int(flds[2])
+    print("nums = {0}, k = {1:d}, multiplier = {2:d}".format(nums, k, multiplier))
 
     sl = Solution()
     time0 = time.time()
 
-    result = sl.getEncryptedString(s, k)
+    result = sl.getFinalState(nums, k, multiplier)
 
     time1 = time.time()
 
-    print("result = \"{0}\"".format(result))
+    print("result = {0}".format(result))
     print("Execute time ... : {0:f}[s]\n".format(time1 - time0))
 
 if __name__ == "__main__":
