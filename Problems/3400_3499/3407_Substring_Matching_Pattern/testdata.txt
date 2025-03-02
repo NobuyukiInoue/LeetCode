@@ -1,0 +1,8 @@
+["leetcode", "ee*e"]
+["car", "c*v"]
+["luck", "u*"]
+["l", "*"]
+["xxxxqzq", "qzq*qz"]
+["tokk", "t*t"]
+["xks", "s*"]
+["nrnrs", "*nn"]
